@@ -1,0 +1,70 @@
+/* 拖放禁用元素事件 */
+.nui-drag-model *{pointer-events:none;}
+
+/* 布局拖拽 .nui-drag-lutnd */
+.nui-lut-panel:before,
+.nui-lut-panel:after,
+.nui-lut-col:before,
+.nui-lut-col:after{position:absolute;display:none;}
+
+.nui-lut-panel:before,
+.nui-lut-panel:after{top:0;right:0;left:0;height:40%;content:'';}
+.nui-lut-panel:after{top:auto;bottom:0;}
+.nui-lut-col.--v > .nui-lut-col:not(:first-child) > .nui-lut-panel:before{display:none !important;}
+
+.nui-lut-col.--v:before,
+.nui-lut-col.--v:after,
+.nui-lut-col.--panel:before,
+.nui-lut-col.--panel:after{z-index:2;top:0;bottom:0;left:0;width:10px;content:'';}
+
+.nui-lut-col.--v:after,
+.nui-lut-col.--panel:after{right:0;left:auto;}
+
+.nui-lut-col.--panel:before,
+.nui-lut-col.--panel:after{z-index:1;width:20px;min-width:20px;}
+
+.nui-lut-col.--h:not(.--panel):before{z-index:3;right:0;bottom:0;left:0;height:8px;content:'';}
+.nui-lut-col.--v > .nui-lut-col.--h:not(.--panel):before{height:16px;}
+
+.nui-drag-lutnd .nui-lut-tabs,
+.nui-drag-lutnd .nui-lut-tab{z-index:9;pointer-events:auto;}
+.nui-drag-lutnd .nui-lut-tab:active{opacity:.3;}
+
+.nui-drag-lutnd .nui-lut-panel:before,
+.nui-drag-lutnd .nui-lut-panel:after,
+.nui-drag-lutnd .nui-lut-col:before,
+.nui-drag-lutnd .nui-lut-col:after{display:block;pointer-events:auto;}
+
+/* 侧边拖拽 */
+.nui-drag-lutsd .nui-lut-tabs,
+.nui-drag-lutsd .nui-lut-tab,
+.nui-drag-lutsd .nui-lut-tab-min,
+.nui-drag-lutsd .nui-lut-tabs-min{pointer-events:auto;}
+
+.nui-drag-lutsd .nui-lut-panel:before,
+.nui-drag-lutsd .nui-lut-panel:after{display:block;pointer-events:auto;}
+.nui-drag-lutsd .nui-lut-group-item ~ .nui-lut-group-item > .nui-lut-panel:before{display:none;}
+
+.nui-drag-lutsd .nui-lut-tabs,
+.nui-drag-lutsd .nui-lut-tab{z-index:1;}
+
+.nui-drag-lutsd .nui-lut-tab:active,
+.nui-drag-lutsd .nui-lut-tab-min:active{opacity:.3;}
+
+
+.nui-drag-lutsd .nui-lut-group.--min > .nui-lut-group-item:after,
+.nui-drag-lutsd .nui-lut-group.--min > .nui-lut-group-item:last-child:before,
+.nui-drag-lutsd .nui-lut-side > .nui-lut-group:after,
+.nui-drag-lutsd .nui-lut-side > .nui-lut-group:last-child:before,
+.nui-drag-lutsd .nui-lut-side:empty:before{position:absolute;top:0;left:0;content:'';pointer-events:auto;}
+
+.nui-drag-lutsd .nui-lut-group.--min > .nui-lut-group-item:after,
+.nui-drag-lutsd .nui-lut-group.--min > .nui-lut-group-item:last-child:before{right:0;height:5px;}
+.nui-drag-lutsd .nui-lut-group.--min > .nui-lut-group-item:last-child:before{top:100%;height:10px;}
+
+.nui-drag-lutsd .nui-lut-side > .nui-lut-group:after,
+.nui-drag-lutsd .nui-lut-side > .nui-lut-group:last-child:before{bottom:0;width:5px;}
+.nui-drag-lutsd .nui-lut-side > .nui-lut-group:last-child:before{z-index:2;right:0;left:auto;}
+
+.nui-drag-lutsd .nui-lut-side:empty{position:relative;}
+.nui-drag-lutsd .nui-lut-side:empty:before{bottom:0;left:-8px;width:16px;}

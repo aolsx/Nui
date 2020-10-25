@@ -1,0 +1,33 @@
+<template>
+  <span
+    class="nui-btn"
+    :class="[cls,{'--ac':ac,'--dd':dd}]"
+    @click.stop.prevent="$emit('click',$event)">
+    <i
+      v-if="icon"
+      :class="icon" />
+    <ins v-if="label">{{ label }}</ins>
+  </span>
+</template>
+<script>
+export default {
+  name: 'NuiBtn',
+  props: {
+    ac: Boolean,
+    dd: Boolean,
+    icon: {
+      type: String,
+      default: null
+    },
+    cls: {
+      type: String,
+      default: null
+    },
+    label: {
+      type: String,
+      default: null
+    },
+  },
+  emits: ['click']
+};
+</script>

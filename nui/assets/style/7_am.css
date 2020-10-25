@@ -1,0 +1,164 @@
+/* stylelint-disable */
+/* 动画 */
+@keyframes fadeIn{
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
+/* 放大 等待 500毫秒*/
+.zoomfade-enter-active,.zoomfade-leave-active{transition:opacity .3s,transform .3s;pointer-events:none;}
+.zoomfade-enter-from,.zoomfade-leave-to{transform:scale3d(.95,.95,.95);opacity:0;}
+
+/* 淡入淡出 等待 300毫秒 */
+.fade-enter-active, .fade-leave-active{transition:opacity .3s;pointer-events:none;}
+.fade-enter-from, .fade-leave-to{opacity:0;}
+
+/* 确认框 动画 confirm 800ms */
+.cfm-enter-active .nui-confirm,
+.cfm-leave-active .nui-confirm{transform:translateZ(0);pointer-events:none;}
+/* 进入 */
+.cfm-enter-active .nui-confirm-bg{transition:left .3s, right .3s .2s, opacity .3s;}
+.cfm-enter-active .nui-confirm-cobg{transition:left .3s .2s, right .3s, opacity .3s;}
+.cfm-enter-active .nui-confirm-cobg:before{transition:left .3s .4s, right .3s .4s;}
+.cfm-enter-active .nui-confirm-body{transition:opacity .3s .5s;}
+
+.cfm-enter-active .nui-confirm-icon,
+.cfm-enter-active .nui-confirm-btn,
+.cfm-enter-active .nui-confirm-close{transition:transform .3s .5s;}
+/* 离开 */
+.cfm-leave-active .nui-confirm-body{transition:opacity .3s;}
+
+.cfm-leave-active .nui-confirm-icon,
+.cfm-leave-active .nui-confirm-close,
+.cfm-leave-active .nui-confirm-btn{transition:transform .3s;}
+
+.cfm-leave-active .nui-confirm-cobg:before{transition:left .3s, right .3s;}
+.cfm-leave-active .nui-confirm-cobg{transition:left .3s .4s, right .3s .2s, opacity .3s .5s;}
+.cfm-leave-active .nui-confirm-bg{transition:left .3s .2s, right .3s .4s, opacity .3s .5s;}
+.cfm-leave-to:before{transition:opacity .3s .5s;}
+
+/* 初始 */
+.cfm-enter-from:before,
+.cfm-leave-to:before,
+.cfm-enter-from .nui-confirm-body,
+.cfm-leave-to .nui-confirm-body{opacity:0;}
+.cfm-leave-to .nui-confirm-cobg, .cfm-enter-from .nui-confirm-bg{right:-50%;left:150%;opacity:0;}
+.cfm-enter-from .nui-confirm-cobg, .cfm-leave-to .nui-confirm-bg{right:150%;left:-50%;opacity:0;}
+.cfm-enter-from .nui-confirm-cobg:before, .cfm-leave-to .nui-confirm-cobg:before{right:50%;left:50%;}
+
+.cfm-enter-from .nui-confirm-icon,
+.cfm-leave-to .nui-confirm-icon,
+.cfm-enter-from .nui-confirm-btn,
+.cfm-leave-to .nui-confirm-btn,
+.cfm-enter-from .nui-confirm-close,
+.cfm-leave-to .nui-confirm-close{transform:scale3d(0, 0, 0);}
+/* 过渡到 */
+/* .cfm-enter-to .nui-confirm-body,
+.cfm-leave-from .nui-confirm-body{opacity:1;} */
+
+.cfm-enter-to .nui-confirm-bg,
+.cfm-leave-from .nui-confirm-bg{right:0;left:0;}
+
+.cfm-enter-to .nui-confirm-cobg,
+.cfm-leave-from .nui-confirm-cobg{right:-26px;left:-26px;}
+
+.cfm-enter-to .nui-confirm-cobg:before,
+.cfm-leave-from .nui-confirm-cobg:before{right:-4px;left:-8px;}
+
+/* .cfm-enter-to .nui-confirm-icon,
+.cfm-leave-from .nui-confirm-icon,
+.cfm-enter-to .nui-confirm-btn,
+.cfm-leave-from .nui-confirm-btn,
+.cfm-enter-to .nui-confirm-close,
+.cfm-leave-from .nui-confirm-close{transform:scale3d(1, 1, 1);} */
+
+/* 弹出提示消息 1000 ms */
+.msg-enter-active, .msg-leave-active{transform:translateZ(0);}
+
+.msg-enter-active{transition:height .3s, max-width .3s .4s ease-in;}
+.msg-enter-active .nui-msg-body{transition:transform .3s .1s;}
+
+.msg-enter-active .nui-msg-info,
+.msg-enter-active .nui-msg-close{transition:opacity .3s .7s;}
+
+.msg-leave-active .nui-msg-info,
+.msg-leave-active .nui-msg-close{transition:opacity .2s;}
+
+.msg-leave-active{transition:max-width .3s .2s ease-out, height .3s .7s;}
+.msg-leave-active .nui-msg-body{transition:transform .3s .5s;}
+
+/* 参数 */
+.msg-enter-from, .msg-leave-to{max-width:26px;height:0;}
+.msg-enter-from .nui-msg-body, .msg-leave-to .nui-msg-body{transform:scale3d(0, 0, 0);}
+.msg-enter-to .nui-msg-body, .msg-leave-from .nui-msg-body{transform:scale3d(1, 1, 1);}
+
+.msg-enter-from .nui-msg-info,
+.msg-enter-from .nui-msg-close,
+.msg-leave-to .nui-msg-info,
+.msg-leave-to .nui-msg-close{opacity:0;}
+
+/* 模态框框 动画 transform:translateZ(0); */
+.modal-enter-active .nui-modal-bg,
+.modal-leave-active .nui-modal-bg{top:50%;left:50%;transform:translate3d(-50%, -50%, 0);}
+
+/* 动画 1400 ms */
+.modal-enter-active:before,
+.modal-enter-active .nui-popup-mask{transition:opacity .3s;}
+.modal-enter-active .nui-modal-bg{transition:width .3s .3s, height .3s;}
+.modal-enter-active .nui-modal-cobg, .modal-enter-active .nui-modal-cobg:before{transition:left .3s .5s, opacity .3s .5s;}
+.modal-enter-active .nui-modal-head, .modal-enter-active .nui-modal-body{transition:opacity .3s .5s;}
+.modal-enter-active .nui-modal-btn{transition:width .3s .7s;}
+.modal-enter-active .nui-modal-btn i{transition:transform .3s .9s;}
+/* 离开 */
+.modal-leave-active .nui-modal-btn i{transition:transform .3s;}
+.modal-leave-active .nui-modal-btn{transition:width .3s .2s;}
+.modal-leave-active .nui-modal-head, .modal-leave-active .nui-modal-body{transition:opacity .3s .4s;}
+.modal-leave-active .nui-modal-cobg, .modal-leave-active .nui-modal-cobg:before{transition:left .3s .4s, opacity .3s .4s;}
+.modal-leave-active .nui-modal-bg{transition:width .3s .6s, height .3s .9s;}
+.modal-leave-active .nui-popup-mask, .modal-leave-active:before{transition:opacity .3s .9s;}
+/* 值 */
+.modal-enter-from:before, .modal-leave-to:before{opacity:0;}
+.modal-enter-from .nui-modal-bg, .modal-leave-to .nui-modal-bg{width:6px;height:0;}
+.modal-enter-from .nui-modal-cobg, .modal-leave-to .nui-modal-cobg{left:0;opacity:0;}
+
+.modal-enter-from .nui-modal-head,
+.modal-leave-to .nui-modal-head,
+.modal-enter-from .nui-modal-body,
+.modal-leave-to .nui-modal-body,
+.modal-enter-from .nui-popup-mask,
+.modal-leave-to .nui-popup-mask{opacity:0;}
+.modal-enter-from .nui-modal-btn, .modal-leave-to .nui-modal-btn{width:0;}
+.modal-enter-from .nui-modal-btn i, .modal-leave-to .nui-modal-btn i{transform:scale3d(0, 0, 0);}
+
+/* loading 动画 外层 4秒一周 内层1.4秒一轮 */
+/* .loading-am .pause{animation-play-state:paused} */
+@keyframes loadingRotate{
+  from{transform:rotate3d(0, 0, 1, 0deg);}
+  to{transform:rotate3d(0, 0, 1, 360deg);}
+}
+@keyframes loadingLine{
+  from{stroke-dashoffset:285;}
+  50%{stroke-dashoffset:0;}
+  to{stroke-dashoffset:-285;}
+}
+@keyframes loadingLineInner{
+  from{stroke-dashoffset:285;}
+  10%{stroke-dashoffset:284;}
+  50%{stroke-dashoffset:0;}
+  70%{stroke-dashoffset:-285;}
+  to{stroke-dashoffset:-285;}
+}
+@keyframes loadingLineInnerAfter{
+  from{stroke-dashoffset:285;}
+  30%{stroke-dashoffset:284;}
+  50%{stroke-dashoffset:0;}
+  90%{stroke-dashoffset:-285;}
+  to{stroke-dashoffset:-285;}
+}
+.nui-loadam-loop svg{animation:loadingRotate 4s linear infinite;}
+.nui-loadam-loop.play .nui-loadam-line{animation:loadingLine 1s ease-in-out;}
+.nui-loadam-loop.play .nui-loadam-line-inner{animation:loadingLineInner 1s ease-in-out;}
+.nui-loadam-loop.play .nui-loadam-line-inner + .nui-loadam-line-inner{animation-name:loadingLineInnerAfter;}
+.nui-loadam-loop.play g + g > .nui-loadam-line,
+.nui-loadam-loop.play g + g > .nui-loadam-line-inner{animation-delay:.2s;}
+.nui-loadam-loop.play g + g + g > .nui-loadam-line,
+.nui-loadam-loop.play g + g + g > .nui-loadam-line-inner{animation-delay:.4s;}

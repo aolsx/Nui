@@ -1,0 +1,113 @@
+/* 配色 */
+/* 深蓝灰 */
+.bg-atom.--lter{background-color:var(--atom-lter);}
+.bg-atom.--lt{background-color:var(--atom-lt);}
+.bg-atom{color:var(--gy-lt);background-color:var(--atom);}
+.bg-atom.--dk{background-color:var(--atom-dk);}
+.bg-atom.--dks{background-color:var(--atom-dks);}
+.bg-atom.--dker{background-color:var(--atom-dker);}
+.bg-atom.--op{background-color:var(--atom-o);}
+
+/* 浅蓝灰 */
+.bg-gy.--lter{background-color:var(--gy-lter);}
+.bg-gy.--lt{background-color:var(--gy-lt);}
+.bg-gy{color:var(--white-dk);background-color:var(--gy);}
+.bg-gy.--dk{background-color:var(--gy-dk);}
+.bg-gy.--dker{background-color:var(--gy-dker);}
+.bg-gy.--op{background-color:var(--gy-o);}
+/* 紫 */
+.bg-dm.--lter{background-color:var(--dm-lter);}
+.bg-dm.--lt{background-color:var(--dm-lt);}
+.bg-dm{background-color:var(--dm);}
+.bg-dm.--dk{background-color:var(--dm-dk);}
+.bg-dm.--dker{background-color:var(--dm-dker);}
+.bg-dm.--op{background-color:var(--dm-o);}
+/* 绿 */
+.bg-gn.--lter{background-color:var(--gn-lter);}
+.bg-gn.--lt{background-color:var(--gn-lt);}
+.bg-gn{background-color:var(--gn);}
+.bg-gn.--dk{background-color:var(--gn-dk);}
+.bg-gn.--dker{background-color:var(--gn-dker);}
+.bg-gn.--op{background-color:var(--gn-o);}
+/* 淡蓝 */
+.bg-sky.--lter{background-color:var(--sky-lter);}
+.bg-sky.--lt{background-color:var(--sky-lt);}
+.bg-sky{background-color:var(--sky);}
+.bg-sky.--dk{background-color:var(--sky-dk);}
+.bg-sky.--dker{background-color:var(--sky-dker);}
+.bg-sky.--op{background-color:var(--sky-o);}
+/* 蓝 */
+.bg-bl.--lter{background-color:var(--bl-lter);}
+.bg-bl.--lt{background-color:var(--bl-lt);}
+.bg-bl{background-color:var(--bl);}
+.bg-bl.--dk{background-color:var(--bl-dk);}
+.bg-bl.--dker{background-color:var(--bl-dker);}
+.bg-bl.--op{background-color:var(--bl-o);}
+/* 黄 */
+.bg-yl.--lter{background-color:var(--yl-lter);}
+.bg-yl.--lt{background-color:var(--yl-lt);}
+.bg-yl{background-color:var(--yl);}
+.bg-yl.--dk{background-color:var(--yl-dk);}
+.bg-yl.--dker{background-color:var(--yl-dker);}
+.bg-yl.--op{background-color:var(--yl-o);}
+/* 红 */
+.bg-red.--lter{background-color:var(--red-lter);}
+.bg-red.--lt{background-color:var(--red-lt);}
+.bg-red{background-color:var(--red);}
+.bg-red.--dk{background-color:var(--red-dk);}
+.bg-red.--dker{background-color:var(--red-dker);}
+.bg-red.--op{background-color:var(--red-o);}
+/* 文字色 */
+.bg-dm, .bg-gn, .bg-sky, .bg-bl, .bg-yl, .bg-red{color:var(--white);}
+
+/* 其它 */
+.bg-wt{background-color:var(--white);}
+.bg-wt.--op{background-color:var(--white-o);}
+.bg-bk{background-color:var(--black);}
+.bg-bk.--op{background-color:var(--black-o);}
+.bg-it{background-color:inherit;}
+.bg-not{background-color:transparent !important;}
+
+.bg-grid{position:relative;}
+.bg-grid:before{position:absolute;z-index:-1;top:0;left:0;width:100%;height:100%;content:'';background-color:#0003 !important;background-image:linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), linear-gradient(45deg, #fff 26%, transparent 26%, transparent 74%, #fff 74%, #fff);background-position:0 0, 5px 5px;background-size:10px 10px;}
+
+/* 彩色投影 */
+.bg-atom.--sdw{box-shadow:0 5px 20px -5px #070708;}
+.bg-gy.--sdw{box-shadow:0 5px 20px -5px var(--gy-o);}
+.bg-dm.--sdw{box-shadow:0 5px 20px -5px var(--dm-o);}
+.bg-gn.--sdw{box-shadow:0 5px 20px -5px var(--gn-o);}
+.bg-sky.--sdw{box-shadow:0 5px 20px -5px var(--sky-o);}
+.bg-bl.--sdw{box-shadow:0 5px 20px -5px var(--bl-o);}
+.bg-yl.--sdw{box-shadow:0 5px 20px -5px var(--yl-o);}
+.bg-red.--sdw{box-shadow:0 5px 20px -5px var(--red-o);}
+
+/* .sdw.active,.sdw:active{box-shadow:none !important} */
+.sdw-none{box-shadow:none;}
+
+/* 文字颜色 */
+.--hover{transition:color .25s;}
+.color-atom{color:var(--atom-lt);}
+.color-atom.--hover:hover{color:var(--atom-lter);}
+.color-gy{color:var(--gy);}
+.color-gy.--hover:hover{color:var(--gy-lter);}
+.color-dm{color:var(--dm-lter);}
+.color-dm.--hover:hover{color:#af95ff;}
+.color-bl{color:var(--bl);}
+.color-bl.--hover:hover{color:#37a1ff;}
+.color-sky{color:var(--sky);}
+.color-sky.--hover:hover{color:#5ae5ff;}
+.color-gn{color:var(--gn);}
+.color-gn.--hover:hover{color:#22ff72;}
+.color-yl{color:var(--yl);}
+.color-yl.--hover:hover{color:#ffe687;}
+.color-red{color:var(--red-dk);}
+.color-red.--hover:hover{color:#ff6c6c;}
+
+.color-wt{color:var(--white);}
+.color-bk{color:var(--black);}
+.color-wt.--op{color:var(--white-o);}
+.color-bk.--op{color:var(--black-o);}
+.color-it{color:inherit;}
+
+.color-grid{background-image:linear-gradient(135deg, #ff3434, #2050ff);background-clip:text;color:transparent;}
+/* .color-grid{mask:linear-gradient(to left, red, transparent);} */

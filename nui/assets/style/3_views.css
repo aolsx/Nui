@@ -1,0 +1,118 @@
+/* 视图 pointer-events:none; content,content-visibility */
+[data-v-app]{display:contents;}
+.nui-app-root{position:fixed;width:100%;height:100%;}
+.nui-app-root > *{position:absolute;right:0;left:0;}
+/* 背景图标 */
+.nui-app-bg{font-size:40rem;z-index:-1;top:0;bottom:0;display:flex;align-items:center;justify-content:center;pointer-events:none;color:#20222878;}
+/* 头部 */
+.nui-app-head{top:0;display:flex;justify-content:space-between;height:30px;background-color:var(--atom-dk);}
+.nui-app-head:before{position:absolute;bottom:0;width:100%;content:'';border-bottom:.5px solid #0006;}
+.nui-app-drag{position:absolute;top:0;left:0;width:100%;height:100%;-webkit-app-region:drag;}
+.nui-app-logo, .nui-app-window-controls{flex:none;min-width:0;}
+.nui-app-logo{font-size:18px;font-weight:bolder;display:flex;align-items:center;padding:0 5px;color:var(--gy-dker);}
+.nui-app-logo i{font-size:20px;}
+.nui-app-window-controls{position:relative;z-index:1;display:flex;-webkit-app-region:no-drag;}
+.nui-app-window-controls > span{font-size:16px;display:flex;align-items:center;flex:none;justify-content:center;width:46px;min-width:0;text-align:center;border-radius:0;}
+.nui-app-window-controls > span:hover{background-color:var(--atom-lt);}
+.nui-app-window-controls > span:last-child:hover{color:#fff;background-color:var(--red-dker);}
+/* 动态组件容器 */
+.nui-app-dynamic-tools{position:relative;z-index:1;display:flex;flex:1;margin:0 40px;transition:transform .3s;transform:translate3d(0, 0, 0);background-color:var(--atom-dk);box-shadow:0 2px 3px #0004;-webkit-app-region:no-drag;}
+.nui-app-dynamic-tools > *{min-width:0;}
+.nui-app-dynamic-tools:before, .nui-app-dynamic-tools:after{position:absolute;z-index:-1;top:0;left:0;width:30px;height:100%;content:'';transform:skewX(30deg);transform-origin:bottom;border-radius:0 0 0 10px;background-color:inherit;box-shadow:-3px 1px 3px #0004;}
+.nui-app-dynamic-tools:after{right:0;left:auto;transform:skewX(-30deg);border-radius:0 0 10px 0;box-shadow:3px 1px 3px #0004;}
+.nui-app-dynamic-tools > i{font-size:14px;display:flex;align-items:center;flex:none;justify-content:center;width:36px;}
+.nui-app-dynamic-tools > .nui-icon-tools{margin-left:0;}
+.nui-app-dynamic-tools > .nui-icon-chevron-up{margin-right:0;cursor:pointer;}
+.nui-app-dynamic-tools > div{flex:1;min-width:0;border-right:.5px solid #0006;border-left:.5px solid #0006;}
+
+/* 视图 */
+.nui-app-views{top:30px;bottom:0;display:flex;}
+/* 嵌套布局 */
+.nui-lut-col, .nui-lut-tabs, .nui-lut-tab, .nui-lut-content{min-width:0;max-width:100%;min-height:0;max-height:100%;}
+.nui-lut-col{position:relative;display:flex;flex:none;}
+.nui-lut-col:last-of-type{flex:1;}
+.nui-lut-col.--h{flex-direction:row;}
+.nui-lut-col.--v{flex-direction:column;}
+.nui-lut-col.--panel{display:block;}
+.nui-lut-panel{position:relative;display:flex;flex-direction:column;width:100%;height:100%;background-color:var(--atom-dks);}
+.nui-lut-tabs{position:relative;display:flex;flex:none;height:24px;padding-right:10px;background-color:#00000015;}
+.nui-lut-tabs:after{position:absolute;bottom:0;left:0;width:100%;content:'';border-bottom:1px solid #0002;}
+
+.nui-lut-tab{font-size:12px;position:relative;display:inline-flex;overflow:hidden;align-items:center;padding:4px 5px 0;cursor:pointer;color:var(--gy-dker);}
+.nui-lut-tab:before{position:absolute;top:4px;right:0;bottom:0;left:0;content:'';}
+.nui-lut-tab:first-child{padding-left:10px;}
+.nui-lut-tab:first-child:before{left:5px;}
+.nui-lut-tab > *{pointer-events:none;}
+.nui-lut-tab:hover, .nui-lut-tab.--active{color:var(--bl-dker);}
+.nui-lut-tab.--active:before{background-color:#ffffff08;}
+.nui-lut-content{position:relative;flex:1;}
+.nui-lut-component{position:absolute;top:0;left:0;display:none;overflow:overlay;width:100%;height:100%;}
+.nui-lut-component.--active{display:block;}
+
+/* 分割线 */
+.nui-lut-line{position:absolute;top:0;left:0;display:flex;align-items:center;justify-content:center;}
+.nui-lut-line:before{display:block;width:100%;min-width:7px;height:100%;min-height:7px;content:'';opacity:.3;border-radius:5px;}
+/* .nui-lut-line:active:before{background-color:var(--bl);} */
+.nui-lut-col.--v > * > .nui-lut-line{right:0;height:0;border-top:1px solid #0003;}
+.nui-lut-col.--h > * > .nui-lut-line{bottom:0;width:0;border-left:1px solid #0003;}
+
+/* 布局示意 cubic-bezier(.7, 0, .3, 1) */
+.nui-lut-area{position:fixed;z-index:9999;top:0;left:0;transition:opacity .15s;transform:translateZ(0);pointer-events:none !important;opacity:.5;border-radius:4px;background-color:var(--bl-lter);}
+
+/* 侧边栏布局 */
+.nui-lut-float{display:contents;}
+.nui-lut-side, .nui-lut-main{min-width:0;height:100%;}
+.nui-lut-side{display:flex;flex:none;max-width:40%;}
+.nui-lut-main{flex:1;}
+.nui-lut-group{position:relative;display:flex;flex:0 1 auto;flex-direction:column;min-width:40px;height:100%;background-color:var(--atom-dks);}
+.nui-lut-group-item{position:relative;flex:none;min-width:0;min-height:0;}
+.nui-lut-group:not(.--min) > .nui-lut-group-item:last-child{flex:1;height:auto !important;}
+
+.nui-lut-group-foot, .nui-lut-float-item-foot{display:flex;justify-content:space-between;width:100%;height:6px;border-top:1px solid #0002;border-radius:0 0 3px 3px;background-color:#0001;}
+.nui-lut-group-foot i, .nui-lut-float-item-foot i{flex:none;width:10px;cursor:ne-resize;}
+.nui-lut-group-foot span, .nui-lut-float-item-foot span{flex:1;cursor:n-resize;}
+.nui-lut-group-foot span + i, .nui-lut-float-item-foot span + i{cursor:nw-resize;}
+
+.nui-lut-side.--left .nui-lut-group-foot i:first-child,
+.nui-lut-side.--right .nui-lut-group-foot span + i{display:none;}
+
+/* 浮动 */
+.nui-lut-float-item{position:absolute;z-index:2;display:flex;flex-direction:column;border-radius:3px;background-color:var(--atom-dks);box-shadow:0 5px 10px #0005;}
+.nui-lut-float-item:focus-within{z-index:3;}
+
+.nui-lut-float-item-head,
+.nui-lut-float-item-foot{flex:none;min-width:0;}
+.nui-lut-float-item-head{height:10px;cursor:grab;border-bottom:1px solid #0004;border-radius:3px 3px 0 0;background-color:#ffffff03;}
+.nui-lut-float-item > .nui-lut-group{flex:1;min-width:0;}
+
+/* 侧边线 */
+.nui-lut-group > .nui-lut-line{z-index:1;bottom:0;width:0;border-left:1px solid #0003;}
+.nui-lut-side.--left .nui-lut-group > .nui-lut-line{right:0;left:auto;}
+.nui-lut-group-item > .nui-lut-line{z-index:1;right:0;height:0;border-top:1px solid #0003;}
+
+/* min 紧缩模式 outline:5px solid red; */
+.nui-lut-tabs-min{position:relative;padding:15px 0 5px;color:var(--gy-dker);}
+.nui-lut-tabs-min:before{position:absolute;top:5px;right:7px;left:7px;height:5px;content:'';border-radius:4px;background-color:#0002;}
+
+.nui-lut-tab-min{display:flex;align-items:center;justify-content:center;height:32px;padding:0 7px;cursor:pointer;}
+.nui-lut-tab-min.--active{color:var(--bl-dker);background-color:var(--atom-dk);}
+.nui-lut-tab-min i{font-size:16px;width:26px;text-align:center;}
+.nui-lut-tab-min ins{margin-left:0;}
+.nui-lut-group.--min > .nui-lut-group-item{flex:none !important;height:auto !important;}
+.nui-lut-group.--min > .nui-lut-group-item > .nui-lut-line{pointer-events:none;}
+.nui-lut-group.--min .nui-lut-panel{position:absolute;z-index:2;top:0;left:100%;display:none;margin:0 4px;border-radius:0 0 3px 3px;box-shadow:0 5px 10px #0003;}
+.nui-lut-group.--min .nui-lut-tabs{margin-top:5px;border-top:1px solid #0002;}
+.nui-lut-group.--min:focus-within .nui-lut-panel{z-index:3;}
+.nui-lut-side.--right .nui-lut-group.--min .nui-lut-panel{right:100%;left:auto;}
+.nui-lut-group.--min .nui-lut-panel.--active{display:flex;}
+
+.nui-lut-float-item > .nui-lut-group.--min.--right .nui-lut-panel{right:100%;left:auto;}
+
+/* 弹出内容 */
+.nui-app-popup-root{position:absolute;z-index:1;pointer-events:none;}
+.nui-app-popup-msg{position:fixed;z-index:9;top:38px;right:15px;display:flex;align-items:flex-end;flex-direction:column;width:0;height:0;pointer-events:none;}
+/* overscroll-behavior:contain; 阻止底层滚动 */
+.nui-popup-mask{position:fixed;z-index:1;top:0;right:0;bottom:0;left:0;display:flex;overflow:hidden;align-items:center;justify-content:center;pointer-events:auto;overscroll-behavior:contain;}
+.nui-popup-mask:before{position:absolute;top:30px;right:0;bottom:0;left:0;content:'';transition:opacity .2s;opacity:1;background-color:#1d1f25de;}
+.nui-popup-mask.--am:before{animation:fadeIn .2s;}
+.nui-popup-mask > *{min-width:0;max-width:100%;min-height:0;max-height:100%;}

@@ -1,0 +1,375 @@
+<template>
+  <div class="nui-container --p demo-test">
+    <h3 class="m-none">
+      布局框架
+    </h3>
+    <div class="nui-row">
+      <div class="nui-col-6">
+        <h5>侧边布局模式</h5>
+        <div
+          class="nui-app-root"
+          style="position:relative;height:300px;background: #0001">
+          <div class="nui-app-head">
+            <div class="nui-app-logo">
+              <ins>LOGO</ins>
+            </div>
+            <div class="nui-app-dynamic-tools">
+              <i class="nui-icon-tools" />
+              <div>
+                <ins> 工具栏</ins>
+              </div>
+              <i class="nui-icon-chevron-up" />
+            </div>
+            <div class="nui-app-window-controls">
+              <span>
+                <i class="nui-icon-chrome-close" />
+              </span>
+            </div>
+          </div>
+          <div class="nui-app-views">
+            <div class="nui-lut-side --left">
+              <div
+                class="nui-lut-group --min"
+                style="width: 40px;">
+                <div class="nui-lut-line" />
+                <div
+                  class="nui-lut-group-item"
+                  style="height: 100%;">
+                  <div class="nui-lut-tabs-min">
+                    <div class="nui-lut-tab-min --active">
+                      <i class="nui-icon-files" />
+                      <ins>C</ins>
+                    </div>
+                    <div
+                      class="nui-lut-tab-min">
+                      <i class="nui-icon-pen" />
+                      <ins>D</ins>
+                    </div>
+                  </div>
+                  <div
+                    class="nui-lut-panel --active"
+                    style="width: 100px; height: 202px;">
+                    <div class="nui-lut-tabs">
+                      <div
+                        class="nui-lut-tab --active">
+                        <i class="nui-icon-files" />
+                        <ins>C</ins>
+                      </div>
+                      <div
+                        class="nui-lut-tab">
+                        <i class="nui-icon-pen" />
+                        <ins>D</ins>
+                      </div>
+                    </div>
+                    <div class="nui-lut-content">
+                      <div class="nui-lut-component --active" />
+                    </div>
+                    <div class="nui-lut-group-foot" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nui-lut-main">
+              主视图
+            </div>
+            <div class="nui-lut-side --right">
+              <div
+                class="nui-lut-group"
+                style="width: 108px;">
+                <div class="nui-lut-line" />
+                <div
+                  class="nui-lut-group-item"
+                  style="height: 60%;">
+                  <div class="nui-lut-panel">
+                    <div class="nui-lut-tabs">
+                      <div
+                        class="nui-lut-tab --active">
+                        <i class="nui-icon-tools" />
+                        <ins>B</ins>
+                      </div>
+                    </div>
+                    <div class="nui-lut-content">
+                      <div class="nui-lut-component --active" />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="nui-lut-group-item"
+                  style="height: 40%;">
+                  <div class="nui-lut-line" />
+                  <div class="nui-lut-panel">
+                    <div class="nui-lut-tabs">
+                      <div
+                        class="nui-lut-tab --active">
+                        <i class="nui-icon-files" />
+                        <ins>C</ins>
+                      </div>
+                      <div
+                        class="nui-lut-tab">
+                        <i class="nui-icon-pen" />
+                        <ins>D</ins>
+                      </div>
+                    </div>
+                    <div class="nui-lut-content">
+                      <div class="nui-lut-component --active" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nui-lut-float">
+              <div
+                class="nui-lut-float-item"
+
+                style="width: 40px; height: 200px; top: 21px; left: 185px;">
+                <div class="nui-lut-float-item-head" />
+                <div
+                  class="nui-lut-group --min">
+                  <div
+                    class="nui-lut-group-item"
+                    style="height: 40%;">
+                    <div class="nui-lut-tabs-min">
+                      <div
+                        class="nui-lut-tab-min">
+                        <i class="nui-icon-tools" />
+                        <ins>B</ins>
+                      </div>
+                    </div>
+                    <div
+                      class="nui-lut-panel"
+                      style="width: 200px; height: 300px;">
+                      <div class="nui-lut-tabs">
+                        <div
+                          class="nui-lut-tab --active">
+                          <i class="nui-icon-tools" />
+                          <ins>B</ins>
+                        </div>
+                      </div>
+                      <div class="nui-lut-content">
+                        <div class="nui-lut-component --active" />
+                      </div>
+                      <div class="nui-lut-group-foot" />
+                    </div>
+                  </div>
+                  <div
+                    class="nui-lut-group-item"
+                    style="height: 60%;">
+                    <div class="nui-lut-line" />
+                    <div class="nui-lut-tabs-min">
+                      <div
+                        class="nui-lut-tab-min">
+                        <i class="nui-icon-files" />
+                        <ins>C</ins>
+                      </div>
+                      <div
+                        class="nui-lut-tab-min">
+                        <i class="nui-icon-pen" />
+                        <ins>D</ins>
+                      </div>
+                    </div>
+                    <div
+                      class="nui-lut-panel"
+                      style="width: 200px; height: 300px;">
+                      <div class="nui-lut-tabs">
+                        <div
+                          class="nui-lut-tab --active">
+                          <i class="nui-icon-files" />
+                          <ins>C</ins>
+                        </div>
+                        <div
+                          class="nui-lut-tab">
+                          <i class="nui-icon-pen" />
+                          <ins>D</ins>
+                        </div>
+                      </div>
+                      <div class="nui-lut-content">
+                        <div class="nui-lut-component --active" />
+                      </div>
+                      <div class="nui-lut-group-foot" />
+                    </div>
+                  </div>
+                </div>
+                <div class="nui-lut-float-item-foot" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nui-col-6">
+        <h5>嵌套布局模式</h5>
+        <div
+          class="nui-app-root"
+          style="position:relative;height:300px;background: #0001">
+          <div class="nui-app-head">
+            <div class="nui-app-logo">
+              <ins>LOGO</ins>
+            </div>
+            <div class="nui-app-window-controls">
+              <span>
+                <i class="nui-icon-chrome-close" />
+              </span>
+            </div>
+          </div>
+          <div class="nui-app-views">
+            <div class="nui-lut-col --h">
+              <div
+                class="nui-lut-col --v"
+                style="width: 30%;">
+                <div
+                  class="nui-lut-col --h --panel"
+                  style="height: 30%;">
+                  <div class="nui-lut-panel">
+                    <div class="nui-lut-tabs">
+                      <div
+                        class="nui-lut-tab --active">
+                        <i class="nui-icon-home" />
+                        <ins>A</ins>
+                      </div>
+                    </div>
+                    <div class="nui-lut-content">
+                      <div class="nui-lut-component --active" />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="nui-lut-col --h --panel"
+                  style="height: 70%;">
+                  <div class="nui-lut-panel">
+                    <div class="nui-lut-tabs">
+                      <div
+                        class="nui-lut-tab --active">
+                        <i class="nui-icon-files" />
+                        <ins>C</ins>
+                      </div>
+                    </div>
+                    <div class="nui-lut-content">
+                      <div class="nui-lut-component --active" />
+                    </div>
+                  </div>
+                  <div class="nui-lut-line" />
+                </div>
+              </div>
+              <div
+                class="nui-lut-col --v"
+                style="width: 40%;">
+                <div
+                  class="nui-lut-col --h"
+                  style="height: 40%;">
+                  <div
+                    class="nui-lut-col --v --panel"
+                    style="width: 50%;">
+                    <div class="nui-lut-panel">
+                      <div class="nui-lut-tabs">
+                        <div
+                          class="nui-lut-tab --active">
+                          <i class="nui-icon-tools" />
+                          <ins>B</ins>
+                        </div>
+                      </div>
+                      <div class="nui-lut-content">
+                        <div class="nui-lut-component --active" />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="nui-lut-col --v --panel"
+                    style="width: 50%;">
+                    <div class="nui-lut-panel">
+                      <div class="nui-lut-tabs">
+                        <div
+                          class="nui-lut-tab --active">
+                          <i class="nui-icon-home" />
+                          <ins>A</ins>
+                        </div>
+                      </div>
+                      <div class="nui-lut-content">
+                        <div class="nui-lut-component --active" />
+                      </div>
+                    </div>
+                    <div class="nui-lut-line" />
+                  </div>
+                </div>
+                <div
+                  class="nui-lut-col --h --panel"
+                  style="height: 60%;">
+                  <div class="nui-lut-panel">
+                    <div class="nui-lut-tabs">
+                      <div
+                        class="nui-lut-tab --active">
+                        <i class="nui-icon-home" />
+                        <ins>A</ins>
+                      </div>
+                      <div
+                        class="nui-lut-tab">
+                        <i class="nui-icon-tools" />
+                        <ins>B</ins>
+                      </div>
+                    </div>
+                    <div class="nui-lut-content">
+                      <div class="nui-lut-component --active" />
+                    </div>
+                  </div>
+                  <div class="nui-lut-line" />
+                </div>
+                <div class="nui-lut-line" />
+              </div>
+              <div
+                class="nui-lut-col --v --panel"
+                style="width: 30%;">
+                <div class="nui-lut-panel">
+                  <div class="nui-lut-tabs">
+                    <div
+                      class="nui-lut-tab --active">
+                      <i class="nui-icon-files" />
+                      <ins>C</ins>
+                    </div>
+                  </div>
+                  <div class="nui-lut-content">
+                    <div class="nui-lut-component --active" />
+                  </div>
+                </div>
+                <div class="nui-lut-line" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="nui-row"
+      style="height: 420px;">
+      <div class="nui-col nui-row --h">
+        <nui-code
+          lang="html"
+          :code="demoCode.html">
+          <h6>组件</h6>
+        </nui-code>
+        <nui-code :code="demoCode.mods">
+          <h6>模块数据</h6>
+        </nui-code>
+      </div>
+      <div class="nui-col">
+        <nui-code
+          :code="demoCode.sidebar">
+          <h6>侧边布局模式</h6>
+        </nui-code>
+      </div>
+      <div class="nui-col">
+        <nui-code :code="demoCode.nested">
+          <h6>嵌套布局模式</h6>
+        </nui-code>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import demoCode from './datas/layout';
+export default {
+  name: 'DemoViews',
+  setup(){
+    return {
+      demoCode
+    };
+  }
+};
+</script>

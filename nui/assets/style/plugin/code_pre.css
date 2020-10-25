@@ -1,0 +1,40 @@
+/*
+Atom One Dark With support for ReasonML by Gidi Morris, based off work by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+*/
+
+.nui-code,
+.nui-code > ._block{display:flex;flex-direction:column;width:100%;max-height:100%;}
+.nui-code ._block{position:relative;flex:1;min-height:40px;max-height:100%;padding:5px;border-radius:5px;background:#22252c;}
+.nui-code ._lang{font-size:10px;line-height:1.5;position:absolute;top:3px;right:10px;display:flex;align-items:center;color:#fff1;}
+/* overflow:overlay; white-space:pre-wrap;word-wrap:break-word;color:#757f90; */
+.nui-code ._pre{font:normal 12px/1.5 Consolas, Monaco, "Courier New", monospace;overflow:auto;flex:1;min-width:0;min-height:0;margin:0;padding:10px;white-space:pre;position:relative;color:#abb2bf;}
+
+.nui-code--keyword, .nui-code--operator{color:#f92672;}
+.nui-code--pattern-match{color:#f92672;}
+.nui-code--pattern-match .nui-code--constructor{color:#61aeee;}
+.nui-code--function{color:#61aeee;}
+.nui-code--function .nui-code--params{color:#a6e22e;}
+.nui-code--function .nui-code--params .nui-code--typing{color:#fd971f;}
+.nui-code--module-access .nui-code--module{color:#7e57c2;}
+.nui-code--constructor{color:#e2b93d;}
+.nui-code--constructor .nui-code--string{color:#9ccc65;}
+.nui-code--comment, .nui-code--quote{color:#424752;}
+.nui-code--doctag, .nui-code--formula{color:#c678dd;}
+.nui-code--section, .nui-code--name, .nui-code--selector-tag, .nui-code--deletion, .nui-code--subst{color:#e06c75;}
+.nui-code--literal{color:#56b6c2;}
+.nui-code--string, .nui-code--regexp, .nui-code--addition, .nui-code--attribute, .nui-code--meta-string{color:#98c379;}
+.nui-code--built_in, .nui-code--class .nui-code--title{color:#e6c07b;}
+.nui-code--attr, .nui-code--variable, .nui-code--template-variable, .nui-code--type, .nui-code--selector-class, .nui-code--selector-attr, .nui-code--selector-pseudo, .nui-code--number{color:#d19a66;}
+.nui-code--symbol, .nui-code--bullet, .nui-code--link, .nui-code--meta, .nui-code--selector-id, .nui-code--title{color:#61aeee;}
+.nui-code--emphasis{font-style:italic;}
+.nui-code--strong{font-weight:bold;}
+.nui-code--link{text-decoration:underline;}
+
+.nui-code--attr{color:#d19a66;}
+.nui-code--keyword{color:#c678dd;}
+
+.nui-code.--json .nui-code--attr{color:#e06c75;}
+
+
+/* punctuation */

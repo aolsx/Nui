@@ -1,0 +1,123 @@
+/* 基础样式 */
+/* 滚动容器 overscroll-behavior:contain; */
+.nui-container,
+.nui-container-in{position:relative;overflow:overlay;min-width:0;max-width:100%;max-height:100%;}
+.nui-container{flex:1;width:100%;height:100%;}
+.nui-container.--p{padding:15px 15px 30px 15px;}
+
+/* 弹性 */
+.nui-flex, .nui-flex-c{display:flex;min-width:0;max-width:100%;}
+.nui-flex-c, .nui-flex-hc, .nui-flex.--hc{align-items:center;}
+.nui-flex-c, .nui-flex-vc, .nui-flex.--vc{justify-content:center;}
+.nui-flex-vb, .nui-flex.--vb{justify-content:space-between;}
+
+/* 栅格布局 */
+.nui-row-grid{display:grid;}
+.nui-row-grid.--min-80{grid-template-columns:repeat(auto-fill, minmax(80px, 1fr));}
+.nui-row-grid.--sp-10{padding:10px;grid-gap:10px;}
+/* .nui-row-grid.--auto-2{grid-template-columns:auto 1fr;} */
+/* .nui-row-grid.--sp-2{padding:2px;grid-gap:2px;} */
+
+.nui-row{display:flex;flex-wrap:wrap;margin-right:-5px;margin-left:-5px;}
+.nui-row.--h{flex-direction:column;flex-wrap:nowrap;}
+.nui-row > *{min-width:0;max-width:100%;min-height:0;max-height:100%;padding:5px;}
+.nui-row.--sp-10{margin-right:-10px;margin-left:-10px;}
+.nui-row.--sp-10 > *{padding:10px;}
+.nui-row.--sp-none{margin-right:0;margin-left:0;}
+.nui-row.--sp-none > *{padding:0;}
+
+.nui-col{flex-basis:0;flex-grow:1;}
+.nui-col-none{flex:none;}
+.nui-col-1{flex:0 0 8.333333%;max-width:8.333333%;}
+.nui-col-2{flex:0 0 16.666667%;max-width:16.666667%;}
+.nui-col-3{flex:0 0 25%;max-width:25%;}
+.nui-col-4{flex:0 0 33.333333%;max-width:33.333333%;}
+.nui-col-5{flex:0 0 41.666667%;max-width:41.666667%;}
+.nui-col-6{flex:0 0 50%;max-width:50%;}
+.nui-col-7{flex:0 0 58.333333%;max-width:58.333333%;}
+.nui-col-8{flex:0 0 66.666667%;max-width:66.666667%;}
+.nui-col-9{flex:0 0 75%;max-width:75%;}
+.nui-col-10{flex:0 0 83.333333%;max-width:83.333333%;}
+.nui-col-11{flex:0 0 91.666667%;max-width:91.666667%;}
+.nui-col-12{flex:0 0 100%;max-width:100%;}
+
+.op-7{opacity:.7;}
+.op-5{opacity:.5;}
+.op-3{opacity:.3;}
+.op-1{opacity:.1;}
+
+/* 内间距 */
+.p-lr-15, .p-l-15{padding-left:15px;}
+.p-lr-15, .p-r-15{padding-right:15px;}
+.p-lr-10, .p-l-10{padding-left:10px;}
+.p-lr-10, .p-r-10{padding-right:10px;}
+.p-lr-5, .p-l-5{padding-left:5px;}
+.p-lr-5, .p-r-5{padding-right:5px;}
+.p-tb-15, .p-t-15{padding-top:15px;}
+.p-tb-15, .p-b-15{padding-bottom:15px;}
+.p-tb-10, .p-t-10{padding-top:10px;}
+.p-tb-10, .p-b-10{padding-bottom:10px;}
+.p-tb-5, .p-t-5{padding-top:5px;}
+.p-tb-5, .p-b-5{padding-bottom:5px;}
+
+.p-15{padding:15px;}
+.p-10{padding:10px;}
+.p-5{padding:5px;}
+.p-none{padding:0 !important;}
+
+.m-lr-15, .m-l-15{margin-left:15px;}
+.m-lr-15, .m-r-15{margin-right:15px;}
+.m-lr-10, .m-l-10{margin-left:10px;}
+.m-lr-10, .m-r-10{margin-right:10px;}
+.m-lr-5, .m-l-5{margin-left:5px;}
+.m-lr-5, .m-r-5{margin-right:5px;}
+.m-tb-15, .m-t-15{margin-top:15px;}
+.m-tb-15, .m-b-15{margin-bottom:15px;}
+.m-tb-10, .m-t-10{margin-top:10px;}
+.m-tb-10, .m-b-10{margin-bottom:10px;}
+.m-tb-5, .m-t-5{margin-top:5px;}
+.m-tb-5, .m-b-5{margin-bottom:5px;}
+
+.m-15{margin:15px;}
+.m-10{margin:10px;}
+.m-5{margin:5px;}
+.m-none{margin:0 !important;}
+
+h1, h2, h3, h4, h5, h6{font-weight:500;}
+h1, h2, h3{margin-top:.75em;margin-bottom:.5em;}
+h4, h5, h6{margin-top:.5em;margin-bottom:.25em;}
+
+.h1, h1{font-size:2.4rem;}
+.h2, h2{font-size:2rem;}
+.h3, h3{font-size:1.8rem;}
+.h4, h4{font-size:1.6rem;}
+.h5, h5{font-size:1.4rem;}
+.h6, h6{font-size:1.2rem;}
+.h7{font-size:1rem;}
+/* 超出隐藏 */
+ins, .-eps{line-height:inherit;overflow:hidden;flex-shrink:1;min-width:0;max-width:100%;white-space:nowrap;text-decoration:none;text-overflow:ellipsis;}
+ins{display:inline-block;vertical-align:middle;}
+
+/* 图标类 */
+i{font-style:normal;flex:none;}
+i + ins, i + .-eps{margin-left:.25em;}
+
+.tt-c{text-align:center;}
+.tt-r{text-align:right;}
+.tt-bd{font-weight:bold;}
+/* 首字母大写 */
+.tt-cab{text-transform:capitalize;}
+/* 全大写 */
+.tt-cb{text-transform:uppercase;}
+/* 全小写 */
+.tt-cs{text-transform:lowercase;}
+/* 文字可选中 caret-color: red; */
+.tt-copy{cursor:copy;user-select:all;transition:color .2s, background-color .25s;}
+
+/* 全局常用 */
+.-link{cursor:pointer;}
+.-link > *{pointer-events:none;}
+.-float{position:absolute !important;top:0;left:0;}
+.-float.--r{right:0;left:auto;}
+.-float.--b{top:auto;bottom:0;}
+.-none{display:none !important;}
