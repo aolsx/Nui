@@ -1,11 +1,11 @@
 <template>
   <div class="nui-container --p">
     <h3 class="m-none">
-      列表类组件
+      列表面板
     </h3>
     <div class="nui-row">
       <div class="nui-col-3">
-        <h5>基础列表 <span class="h6">To: </span><code>{{ list.ac }}</code></h5>
+        <h5>基础列表 <code>组件</code> <span class="h6">To: </span><code>{{ list.ac }}</code></h5>
         <nui-list
           class="bg-atom --dk"
           :list="list.arr"
@@ -20,7 +20,7 @@
           :code="codes.list.arr" />
       </div>
       <div class="nui-col-3">
-        <h5>树列表 <span class="h6">To: </span><code>{{ tree.ac }}</code></h5>
+        <h5>树列表 <code>组件</code> <span class="h6">To: </span><code>{{ tree.ac }}</code></h5>
         <nui-tree
           style="height:120px"
           :tree="tree.arr"
@@ -41,7 +41,7 @@
           :code="codes.tree.arr" />
       </div>
       <div class="nui-col-3">
-        <h5>折叠列表 嵌套组件</h5>
+        <h5>折叠列表嵌套 <code>组件</code></h5>
         <div style="height:160px">
           <nui-cpe>
             <nui-cpe-item open>
@@ -69,6 +69,48 @@
         <nui-code
           lang="html"
           :code="codes.cpe.html" />
+      </div>
+      <div class="nui-col-3">
+        <h5>面板 <code>样式</code></h5>
+        <div
+          class="nui-panel"
+          style="height:160px">
+          <div class="nui-panel-head">
+            <b>标题</b>
+            <div>
+              <nui-btn
+                class="color-gn"
+                icon="nui-icon-home" />
+              <nui-btn
+                class="color-gn"
+                icon="nui-icon-home" />
+            </div>
+          </div>
+          <div class="nui-panel-body">
+            <div class="p-tb-15">
+              内容
+            </div>
+            <div class="p-tb-15">
+              内容
+            </div>
+            <div class="p-tb-15">
+              内容
+            </div>
+          </div>
+          <div class="nui-panel-foot">
+            <nui-btn
+              class="color-gn"
+              icon="nui-icon-home" />
+            <span>面板底部</span>
+            <nui-btn
+              class="color-gn"
+              icon="nui-icon-home" />
+          </div>
+        </div>
+        <br>
+        <nui-code
+          lang="html"
+          :code="codes.panel.html" />
       </div>
     </div>
   </div>

@@ -384,3 +384,15 @@
 .nui-form .nui-col-line, .nui-form-submit{border-top:1px solid #0002;}
 .nui-form .nui-col-line{flex:0 0 100%;margin:5px 0 5px;padding:0;}
 .nui-modal-body > .nui-form{margin:-10px;border-radius:0 0 10px 10px;}
+
+/* 面板 */
+.nui-panel{display:flex;flex-direction:column;background:var(--atom-dk);}
+.nui-panel-head, .nui-panel-foot{line-height:1;display:flex;align-items:center;flex:none;justify-content:space-between;min-height:27px;padding:5px 5px 5px 8px;}
+.nui-panel-head .nui-btn, .nui-panel-foot .nui-btn{font-size:.75em;}
+
+.nui-panel-head .nui-btn:before,
+.nui-panel-foot .nui-btn:before{display:none;}
+
+.nui-panel-head{border-bottom:1px solid #0002;}
+.nui-panel-foot{border-top:1px solid #0002;}
+.nui-panel-body{overflow:overlay;flex:1;padding:8px;background:var(--atom-dks);}

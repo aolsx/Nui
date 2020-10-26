@@ -57,9 +57,22 @@ const cpe = {
   }
 ]`,
 };
-
+const panel = {
+  html: `<div class="nui-panel -full">
+  <div class="nui-panel-head">
+    head
+  </div>
+  <div class="nui-panel-body">
+    内容超出滚动
+  </div>
+  <div class="nui-panel-foot">
+    foot
+  </div>
+</div>`
+};
 export default {
   list,
   tree,
   cpe,
+  panel
 };
