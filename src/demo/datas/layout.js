@@ -101,15 +101,22 @@ const sidebar = {
 };
 
 const demoCode = {
-  html: `<nui-views-root
+  html: `<nui-view-root
+  :bgicon="nui-icon-ng-logo"
   :mods="mods"
   :layout="layout"
-  @save="eveSave"
-  @win="eveWinDow">
-  <template #tool>
-    <div>工具栏</div>
-  </template>
-</nui-views-root>`,
+  @save="eveSave">
+  <nui-view-head
+    :logo="{icon:'ng-logo',label:'NG IDE'}"
+    @win="eveWinDow($event)">
+    工具栏插槽
+    <slot /> i+div+i
+  </nui-view-head>
+  <nui-view-main
+    :mods="mods"
+    :layout="layout"
+    @save="eveSave()" />
+</nui-view-root>`,
   mods: JSON.stringify(mods,null,2),
   nested: JSON.stringify(nested,null,2),
   sidebar: JSON.stringify(sidebar,null,2),

@@ -1,4 +1,7 @@
-import NuiViewsRoot from './views/Root.vue';
+import NuiViewRoot from './views/Root.vue';
+import NuiViewHead from './views/Head.vue';
+import NuiViewMain from './views/Main.vue';
+
 import NuiList from './list/List.vue';
 import NuiTree from './tree/Tree.vue';
 import NuiCode from './code/Code.vue';
@@ -20,7 +23,9 @@ import NuiFormSt from './form/Select.vue';
 import NuiFormItem from './form/Item.vue';
 
 export default [
-  NuiViewsRoot,
+  NuiViewRoot,
+  NuiViewHead,
+  NuiViewMain,
   NuiList,
   NuiTree,
   NuiCode,

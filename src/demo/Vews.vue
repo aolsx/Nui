@@ -337,8 +337,8 @@
     </div>
     <div
       class="nui-row"
-      style="height: 420px;">
-      <div class="nui-col nui-row --h">
+      style="height: 545px;">
+      <div class="nui-col">
         <nui-code
           lang="html"
           :code="demoCode.html">
