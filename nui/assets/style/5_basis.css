@@ -16,8 +16,17 @@
 .nui-row-grid{display:grid;}
 .nui-row-grid.--min-80{grid-template-columns:repeat(auto-fill, minmax(80px, 1fr));}
 .nui-row-grid.--sp-10{padding:10px;grid-gap:10px;}
+/* .nui-row-grid  */
 /* .nui-row-grid.--auto-2{grid-template-columns:auto 1fr;} */
 /* .nui-row-grid.--sp-2{padding:2px;grid-gap:2px;} */
+/* 属性表 两列 */
+.nui-row-grid.--attr > *{padding:5px 10px;border-top:.5px solid #0003;}
+.nui-row-grid.--attr > :nth-child(odd){color:var(--gy-dker);}
+.nui-row-grid.--attr:not(.--line) > :nth-child(even){padding-left:0;}
+.nui-row-grid.--attr.--line > :nth-child(even){border-left:.5px solid #0003;}
+.nui-row-grid.--attr > :first-child, .nui-row-grid.--attr > *:nth-child(2){border-top:0;}
+.nui-row-grid.--attr.--c > :nth-child(odd){text-align:center;}
+.nui-row-grid.--attr.--r > :nth-child(even){text-align:right;}
 
 .nui-row{display:flex;flex-wrap:wrap;margin-right:-5px;margin-left:-5px;}
 .nui-row.--h{flex-direction:column;flex-wrap:nowrap;}

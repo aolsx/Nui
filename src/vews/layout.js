@@ -6,6 +6,11 @@ const mods = {
     icon: 'nui-icon-home',
     component: 'VewsList'
   },
+  vewsTemp: {
+    label: 'DEMO',
+    icon: 'nui-icon-home',
+    component: 'VewsTemp'
+  },
 };
 // 侧边布局
 const sidebar = {
@@ -25,7 +30,7 @@ const sidebar = {
       cols: [
         {
           pos: {
-            flex: 1,
+            flex: .7,
             w: 200,
             h: 300
           },
@@ -34,6 +39,18 @@ const sidebar = {
             tabs: ['demoList']
           }
         },
+        {
+          pos: {
+            flex: .3,
+            w: 200,
+            h: 300
+          },
+          col: {
+            active: 'vewsTemp',
+            tabs: ['vewsTemp']
+          }
+        },
+
       ]
     }
   ],

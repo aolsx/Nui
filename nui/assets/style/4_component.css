@@ -77,13 +77,14 @@
 .nui-collapse-head{justify-content:space-between;padding:5px 8px;cursor:pointer;color:var(--gy-dk);background-color:var(--atom-dk);}
 .nui-collapse-head > i{width:1.25em;text-align:center;color:var(--atom-lt);}
 .nui-collapse-body{display:none;color:var(--gy-dk);}
-.nui-collapse-item.--open > .nui-collapse-head{color:inherit;border-bottom:1px solid #0002;}
+.nui-collapse-item.--open > .nui-collapse-head{color:inherit;border-bottom:1px solid #0003;}
 .nui-collapse-item.--open > .nui-collapse-body{display:block;}
+.nui-collapse-item:last-child{border-bottom:1px solid #0002;}
 
 /* 按钮 */
 .nui-btns{font-size:12px;line-height:1;margin:0 -.25em;}
 .nui-btns > *{margin:0 .25em;}
-.nui-btn, .nui-label, .nui-badge{font-size:12px;line-height:1;position:relative;display:inline-flex;overflow:hidden;align-items:center;justify-content:center;text-align:center;vertical-align:middle;}
+.nui-btn, .nui-label{font-size:12px;line-height:1;position:relative;display:inline-flex;overflow:hidden;align-items:center;justify-content:center;text-align:center;vertical-align:middle;}
 .nui-btn{z-index:1;min-width:1.75em;min-height:2em;padding:.5px .5em 0;cursor:pointer;border-radius:.3em;}
 .nui-btn > i{display:flex;align-items:center;flex:none;justify-content:center;width:1em;height:1em;text-align:center;}
 .nui-btn > i + ins{margin-left:.35em;}
@@ -100,8 +101,11 @@
 /* 徽章 标签 */
 .nui-label[class*="bg"]{line-height:1.15;padding:.25em .36em;border-radius:.35em;}
 .nui-label[class*="color"]{line-height:1.15;padding:.25em .36em;border-radius:.35em;}
-.nui-badge{font-size:10px;line-height:1.15;padding:.25em .55em;border-radius:1em;}
-.nui-label[class*="color"]:before, .nui-badge[class*="color"]:before{position:absolute;top:0;right:0;bottom:0;left:0;content:'';opacity:.5;border:1px solid currentColor;border-radius:inherit;}
+
+.nui-badge{font-size:9px;font-weight:600;line-height:16px;position:relative;display:inline-block;min-width:16px;height:16px;padding:0 4px;text-align:center;border-radius:2em;}
+
+.nui-label[class*="color"]:before,
+.nui-badge[class*="color"]:before{position:absolute;top:0;right:0;bottom:0;left:0;content:'';opacity:.5;border:1px solid currentColor;border-radius:inherit;}
 
 /* 卡片 */
 .nui-card{font-size:16px;position:relative;overflow:hidden;border-radius:5px;background-color:var(--atom-dk);box-shadow:0 1px 5px #0005;}
@@ -386,13 +390,14 @@
 .nui-modal-body > .nui-form{margin:-10px;border-radius:0 0 10px 10px;}
 
 /* 面板 */
-.nui-panel{display:flex;flex-direction:column;font-size:12px;}
+.nui-panel{font-size:12px;display:flex;flex-direction:column;}
 .nui-panel-head, .nui-panel-foot{line-height:1;display:flex;align-items:center;flex:none;min-height:27px;padding:5px 7px;background:var(--atom-dk);}
+.nui-panel-head{padding:5px 6px;border-bottom:1px solid #0002;}
+.nui-panel-foot{border-top:1px solid #0002;}
 .nui-panel-head .nui-btn, .nui-panel-foot .nui-btn{margin:-5px 0;}
+.nui-panel-head > :first-child.nui-btn{margin-left:-4px;}
+.nui-panel-head > :last-child.nui-btn{margin-right:-4px;}
 
 .nui-panel-head .nui-btn:before,
 .nui-panel-foot .nui-btn:before{display:none;}
-
-.nui-panel-head{border-bottom:1px solid #0002;}
-.nui-panel-foot{border-top:1px solid #0002;}
 .nui-panel-body{overflow:overlay;flex:1;padding:8px;background:var(--atom-dks);}
