@@ -1,7 +1,7 @@
 import copy from './copy';
 import popup from './popup';
 import load from './load';
-// import {debounce,throttle} from './deTe';
+import dee from './dee';
 // navigator 浏览器对象
 
 // 常用方法
@@ -15,6 +15,7 @@ const sleep = function(t){
 export default {
   sleep,
   copy,
+  dee,
   ...popup,
   ...load,
 };

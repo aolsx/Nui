@@ -386,9 +386,9 @@
 .nui-modal-body > .nui-form{margin:-10px;border-radius:0 0 10px 10px;}
 
 /* 面板 */
-.nui-panel{display:flex;flex-direction:column;background:var(--atom-dk);}
-.nui-panel-head, .nui-panel-foot{line-height:1;display:flex;align-items:center;flex:none;justify-content:space-between;min-height:27px;padding:5px 5px 5px 8px;}
-.nui-panel-head .nui-btn, .nui-panel-foot .nui-btn{font-size:.75em;}
+.nui-panel{display:flex;flex-direction:column;font-size:12px;}
+.nui-panel-head, .nui-panel-foot{line-height:1;display:flex;align-items:center;flex:none;min-height:27px;padding:5px 7px;background:var(--atom-dk);}
+.nui-panel-head .nui-btn, .nui-panel-foot .nui-btn{margin:-5px 0;}
 
 .nui-panel-head .nui-btn:before,
 .nui-panel-foot .nui-btn:before{display:none;}

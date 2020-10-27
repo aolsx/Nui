@@ -7,6 +7,7 @@
 
 /* 弹性 */
 .nui-flex, .nui-flex-c{display:flex;min-width:0;max-width:100%;}
+.nui-flex.--h, .nui-flex-c.--h{flex-direction:column;}
 .nui-flex-c, .nui-flex-hc, .nui-flex.--hc{align-items:center;}
 .nui-flex-c, .nui-flex-vc, .nui-flex.--vc{justify-content:center;}
 .nui-flex-vb, .nui-flex.--vb{justify-content:space-between;}

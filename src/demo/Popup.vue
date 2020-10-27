@@ -71,10 +71,20 @@
           </div>
           <div class="nui-col-4">
             <h3>加载动画 <code>AIP</code></h3>
-            <nui-btn
-              class="color-gn"
-              label="显示加载动画"
-              @click="loadAm()" />
+            <div class="nui-btns">
+              <nui-btn
+                class="color-gn"
+                label="显示加载动画"
+                @click="loadAm()" />
+              <nui-btn
+                class="color-gn"
+                label="节流大于500"
+                @click="loadAm(600)" />
+              <nui-btn
+                class="color-gn"
+                label="节流小于不显示"
+                @click="loadAm(400)" />
+            </div>
             <p />
             <nui-code
               :code="codeObj.load.am" />
@@ -223,13 +233,19 @@ export default {
       };
       this.$Nui.menu(line ? arrLine : arr,pos,line);
     },
-    loadAm(){
-      this.$Nui.loadAm.show();
-      setTimeout(()=>{
-        this.$Nui.loadAm.hide();
-      },5000);
+    loadAm(t){
+      if (t){
+        this.$Nui.loadAm.dee(true);
+        setTimeout(()=>{
+          this.$Nui.loadAm.dee(false);
+        },t);
+      } else {
+        this.$Nui.loadAm.show();
+        setTimeout(()=>{
+          this.$Nui.loadAm.hide();
+        },3000);
+      }
     },
-
     async loadToPro(type){
       this.loadToProstate = 'Start';
       // 异步方法 返回实例

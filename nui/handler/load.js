@@ -1,21 +1,32 @@
-export const LoadAmState = {
+import dee from './dee';
+const LoadAmState = {
   v: {
     isPlay: false
-  }
+  },
 };
-export const loadAm = {
+// 防抖800
+const loadAm = {
+  dee: null,
+  // 重新定义防抖函数
+  setDee(time){
+    if (this.dee){this.dee.cancel()}
+    this.dee = dee.debounce(function(type){
+      LoadAmState.v.isPlay = type;
+    },time);
+  },
   show(){
     LoadAmState.v.isPlay = true;
   },
   hide(){
     LoadAmState.v.isPlay = false;
-  },
+  }
 };
+loadAm.setDee(500);
 // const GoFrame = self.requestAnimationFrame;
 // const CclFrame = self.cancelAnimationFrame;
 // Pro Load
 // 组件载入响应式
-export const ProItemArr = {v: []};
+const ProItemArr = {v: []};
 
 class NuiLoadPro{
   constructor(params,msg){
@@ -133,6 +144,8 @@ class NuiLoadPro{
     });
   }
 }
+
+export {LoadAmState,ProItemArr,loadAm};
 
 export default {
   loadAm,

@@ -2,20 +2,17 @@
 /** Detect free variable `globalThis` */
 // const freeGlobalThis = typeof globalThis === 'object' && globalThis !== null && globalThis.Object == Object && globalThis;
 const freeWindow = typeof window === 'object' && window !== null && window.Object == Object && window;
-
 const freeGlobal = typeof global === 'object' && global !== null && global.Object === Object && global;
 /** Detect free variable `self`. */
 const freeSelf = typeof self === 'object' && self !== null && self.Object === Object && self;
-
 /** Used as a reference to the global object. */
 const root = freeWindow || freeGlobal || freeSelf || Function('return this')();
-
 function isObject(value){
   const type = typeof value;
   return value != null && (type === 'object' || type === 'function');
 }
-
-export function debounce(func,wait,options){
+// 防抖
+function debounce(func,wait,options){
   let lastArgs,
     lastThis,
     maxWait,
@@ -162,8 +159,8 @@ export function debounce(func,wait,options){
   debounced.pending = pending;
   return debounced;
 }
-
-export function throttle(func,wait,options){
+// 节流
+function throttle(func,wait,options){
   let leading = true;
   let trailing = true;
 
@@ -181,4 +178,4 @@ export function throttle(func,wait,options){
   });
 }
 
-// export default {debounce,throttle};
+export default {debounce,throttle};

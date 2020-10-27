@@ -72,10 +72,15 @@ const load = {
     Pro.hide(100,'设置100并关闭').then(()=>{});
 }`,
   am: `loadAm(){
+  // 节流 默认 500 毫秒
+  this.$Nui.loadAm.dee(true);
+  this.$Nui.loadAm.dee(false);
+  // 重新设置间隔时间
+  this.$Nui.loadAm.setDee(500);
+
+  // 直接显示
   this.$Nui.loadAm.show();
-  setTimeout(()=>{
-    this.$Nui.loadAm.hide();
-  },5000);
+  this.$Nui.loadAm.hide();
 }
 `
 };
