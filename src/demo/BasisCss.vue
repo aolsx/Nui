@@ -82,7 +82,7 @@ export default {
               ['^.--h','横向排列 Horizontal'],
               ['^.--v','纵向排列 Vertical'],
               ['^.--hc | ^.--vc','居中对齐'],
-              ['^.--hb | ^.--vb','两端对齐'],
+              ['^.--hb','两端对齐'],
               ['.nui-flex-auto','占剩超缩 ！'],
               ['.nui-flex-none','固定自身 ！'],
             ],

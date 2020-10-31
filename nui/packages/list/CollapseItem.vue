@@ -4,6 +4,7 @@
     :class="isActive && '--open'">
     <div
       class="nui-collapse-head"
+      :class="left&&'--l'"
       @click.stop.prevent="isActive=!isActive">
       <div>
         <i
@@ -12,7 +13,7 @@
         <ins v-if="label">{{ label }}</ins>
         <slot name="head" />
       </div>
-      <i :class="`nui-icon-chevron-${isActive?'down':'left'}`" />
+      <i :class="`nui-icon-chevron-${isActive?'down':left?'right':'left'}`" />
     </div>
     <div class="nui-collapse-body">
       <slot />
@@ -31,7 +32,8 @@ export default {
       type: String,
       default: null
     },
-    open: Boolean
+    open: Boolean,
+    left: Boolean,
   },
   data(){
     return {

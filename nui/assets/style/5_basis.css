@@ -10,22 +10,23 @@
 .nui-flex > *{min-width:0;max-width:100%;}
 .nui-flex.--h, .nui-flex-c.--h{flex-direction:row;}
 .nui-flex.--v, .nui-flex-c.--v{flex-direction:column;}
-.nui-flex.--cc, .nui-flex.--hc{align-items:center;}
-.nui-flex.--cc, .nui-flex.--vc{justify-content:center;}
-.nui-flex.--hb{align-items:space-between;}
-.nui-flex.--vb{justify-content:space-between;}
+
+.nui-flex.--cc, .nui-flex.--hc{justify-content:center;}
+.nui-flex.--cc, .nui-flex.--vc{align-items:center;}
+.nui-flex.--hb{justify-content:space-between;}
+
 .nui-flex-auto{flex:1 !important;}
 .nui-flex-none{flex:none !important;}
 
 /* 栅格布局 */
-.nui-row-grid{display:grid;}
+.nui-row-grid{display:grid;overflow:auto;}
 .nui-row-grid.--min-80{grid-template-columns:repeat(auto-fill, minmax(80px, 1fr));}
 .nui-row-grid.--sp-10{padding:10px;grid-gap:10px;}
 /* .nui-row-grid  */
 /* .nui-row-grid.--auto-2{grid-template-columns:auto 1fr;} */
 /* .nui-row-grid.--sp-2{padding:2px;grid-gap:2px;} */
 /* 属性表 两列 */
-.nui-row-grid.--attr > *{padding:5px 10px;border-top:.5px solid #0003;}
+.nui-row-grid.--attr > *{padding:5px 10px;border-top:.5px solid #0003;word-break:break-all;}
 .nui-row-grid.--attr > :nth-child(odd){color:var(--gy-dker);}
 .nui-row-grid.--attr:not(.--line) > :nth-child(even){padding-left:0;}
 .nui-row-grid.--attr.--line > :nth-child(even){border-left:.5px solid #0003;}

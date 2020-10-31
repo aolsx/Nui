@@ -44,7 +44,7 @@
         <h5>折叠列表嵌套 <code>组件</code></h5>
         <div style="height:160px">
           <nui-cpe>
-            <nui-cpe-item open>
+            <nui-cpe-item>
               <template #head>
                 <i class="nui-icon-tools" />
                 <ins>Slot 分配</ins>
@@ -54,13 +54,12 @@
             <nui-cpe-item
               open
               icon="nui-icon-home"
-              label="属性参数 默认开启">
+              label=":open 默认开启">
               <ins>文字内容</ins>
             </nui-cpe-item>
             <nui-cpe-item
-              open
-              icon="nui-icon-home"
-              label="属性参数2">
+              label=":left 箭头左侧"
+              left>
               <ins>文字内容</ins>
             </nui-cpe-item>
           </nui-cpe>
@@ -101,7 +100,7 @@
             <nui-btn
               class="color-gn"
               icon="nui-icon-home" />
-            <span>面板底部</span>
+            <span class="nui-flex-auto">面板底部</span>
             <nui-btn
               class="color-gn"
               icon="nui-icon-home" />

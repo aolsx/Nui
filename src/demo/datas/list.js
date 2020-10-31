@@ -49,13 +49,7 @@ const cpe = {
     label="属性参数">
     <div>文字内容</div>
   </nui-cpe-item>
-</nui-cpe>`,
-  arr: `const treeList = [
-  {icon:'',label:'',to:''，
-    // 包含子类
-    tree: [],open: false
-  }
-]`,
+</nui-cpe>`
 };
 const panel = {
   html: `<div class="nui-panel -full">
@@ -66,7 +60,7 @@ const panel = {
     内容超出滚动
   </div>
   <div class="nui-panel-foot">
-    foot
+    i span.nui-flex-auto i
   </div>
 </div>`
 };
