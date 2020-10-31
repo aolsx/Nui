@@ -1,9 +1,9 @@
 {
   "name": "aolsx-nui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "aolsx",
   "private": false,
-  "license":"MIT",
+  "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

@@ -102,10 +102,7 @@ const sidebar = {
 
 const demoCode = {
   html: `<nui-view-root
-  :bgicon="nui-icon-ng-logo"
-  :mods="mods"
-  :layout="layout"
-  @save="eveSave">
+  :bgicon="nui-icon-ng-logo">
   <nui-view-head
     :logo="{icon:'ng-logo',label:'NG IDE'}"
     @win="eveWinDow($event)">

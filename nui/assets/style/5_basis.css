@@ -5,12 +5,17 @@
 .nui-container{flex:1;width:100%;height:100%;}
 .nui-container.--p{padding:15px 15px 30px 15px;}
 
-/* 弹性 */
-.nui-flex, .nui-flex-c{display:flex;min-width:0;max-width:100%;}
-.nui-flex.--h, .nui-flex-c.--h{flex-direction:column;}
-.nui-flex-c, .nui-flex-hc, .nui-flex.--hc{align-items:center;}
-.nui-flex-c, .nui-flex-vc, .nui-flex.--vc{justify-content:center;}
-.nui-flex-vb, .nui-flex.--vb{justify-content:space-between;}
+/* 弹性 纵向 Vertical、横向 Horizontal */
+.nui-flex{display:flex;min-width:0;max-width:100%;}
+.nui-flex > *{min-width:0;max-width:100%;}
+.nui-flex.--h, .nui-flex-c.--h{flex-direction:row;}
+.nui-flex.--v, .nui-flex-c.--v{flex-direction:column;}
+.nui-flex.--cc, .nui-flex.--hc{align-items:center;}
+.nui-flex.--cc, .nui-flex.--vc{justify-content:center;}
+.nui-flex.--hb{align-items:space-between;}
+.nui-flex.--vb{justify-content:space-between;}
+.nui-flex-auto{flex:1 !important;}
+.nui-flex-none{flex:none !important;}
 
 /* 栅格布局 */
 .nui-row-grid{display:grid;}
