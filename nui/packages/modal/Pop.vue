@@ -1,15 +1,20 @@
 <template>
-  <div
-    v-if="isShow"
-    class="nui-pop"
-    tabindex="-1"
-    :style="pop_style"
-    @blur="isShow = false">
-    <div class="nui-pop-body">
-      <slot />
+  <teleport to="#ToPppDbs">
+    <div
+      v-if="isShow"
+      ref="pop"
+      class="nui-pop"
+      :style="pop_style"
+      tabindex="-1"
+      @focusin="isInFocus = true"
+      @focusout="eveFocusout">
+      <div
+        class="nui-pop-body">
+        <slot />
+      </div>
+      <span class="nui-pop-arrow" />
     </div>
-    <span class="nui-pop-arrow" />
-  </div>
+  </teleport>
 </template>
 <script>
 export default {
@@ -28,6 +33,7 @@ export default {
     return {
       isShow: false,
       isTop: false,
+      isInFocus: false,
       pos: {
         left: 0,
         top: 0,
@@ -53,12 +59,22 @@ export default {
       this.pos.left = left;
       this.pos.top = top;
       this.isShow = true;
-      // this.$el.focus();
       this.$nextTick(()=>{
-        this.$el.focus();
+        this.$refs.pop.parentElement.__vueParentComponent.ctx.bindRolling();
+        this.$refs.pop.focus();
+        this.isInFocus = false;
       });
-      console.log(this);
+    },
+    eveFocusout(){
+      setTimeout(()=>{
+        if (!this.isInFocus){
+          this.$refs.pop.parentElement.__vueParentComponent.ctx.bindDestroy();
+          this.isShow = false;
+        }
+        this.isInFocus = false;
+      },1);
     }
   },
+
 };
 </script>

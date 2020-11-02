@@ -1,17 +1,17 @@
 <template>
   <div
     v-if="menu.arr"
-    class="nui-pp-menu"
     tabindex="-1"
+    class="nui-pp-menu"
     :class="menu.line&&'--line'"
     :style="c_Style"
-    @blur="empty()">
+    @blur="menu.arr && blurDestroy()">
     <div
       v-for="(im,k) in menu.arr"
       :key="k"
       class="nui-pp-menu-item"
       :class="im.cls"
-      @click="im.fn();empty()">
+      @click="im.fn();blurDestroy()">
       <i
         v-if="im.icon"
         :class="im.icon" />
@@ -45,8 +45,8 @@ export default {
     'menu.arr'(v){
       if (v){
         this.$nextTick(()=>{
-          console.log(this);
-          // this.$el.focus();
+          this.$el.focus();
+          this.$parent.bindRolling();
         });
       }
     }
@@ -55,10 +55,11 @@ export default {
     MenuObj.v = this.menu;
   },
   methods: {
-    empty(){
+    blurDestroy(){
       this.menu.arr = null;
       this.menu.pos = null;
       this.menu.line = false;
+      this.$parent.bindDestroy();
     }
   },
 };

@@ -89,7 +89,7 @@ class NuiLoadPro{
   }
 
   onComplete(){
-    // console.log('默认回调复写');
+    // 默认回调复写;
   }
 
   _delItem(){

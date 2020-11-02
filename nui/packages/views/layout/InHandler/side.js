@@ -258,7 +258,6 @@ const ClickSide = {
     const $G = Basic.getEleVue(el);
     const imNode = Basic.getEleVNode(el);
     if ($G.uid === aTab.gid && aTab.only && imNode.key === aTab.pkey){
-      // console.log('同组独苗忽略');
       return;
     }
     const pos = Basic.getElePos(el);
@@ -473,7 +472,6 @@ export class NuiLayoutSdDrag{
   }
   // 销毁
   destroy(){
-    // console.log('销毁');
     document.body.classList.remove('nui-drag-model','nui-drag-lutsd');
     document.ondragenter = null;
     document.ondragover = null;

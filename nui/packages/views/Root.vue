@@ -1,10 +1,4 @@
 <template>
-  <div class="nui-app-root">
-    <div class="nui-app-bg">
-      <i :class="bgicon" />
-    </div>
-    <slot />
-  </div>
   <in-confirm />
   <div
     id="ToPppMod"
@@ -15,6 +9,14 @@
     <in-load-am />
   </div>
   <in-msg />
+  <div
+    class="nui-app-root"
+    tabindex="-1">
+    <div class="nui-app-bg">
+      <i :class="bgicon" />
+    </div>
+    <slot />
+  </div>
 </template>
 <script>
 import InConfirm from './popup/InConfirm.vue';

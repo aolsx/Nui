@@ -12,5 +12,16 @@ export default {
   components: {
     InMenu,
   },
+  methods: {
+    bindRolling(){
+      document.onwheel = function(){
+        document.onwheel = null;
+        document.activeElement?.blur();
+      };
+    },
+    bindDestroy(){
+      document.onwheel = null;
+    },
+  },
 };
 </script>

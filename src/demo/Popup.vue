@@ -40,7 +40,13 @@
               ref="pop"
               :w="100"
               :h="60">
-              <input type="text">
+              <input
+                type="text"
+                style="background:#fff1">
+              <br>
+              <nui-btn
+                label="提交测试"
+                class="color-sky" />
             </nui-pop>
             <p />
             <nui-code

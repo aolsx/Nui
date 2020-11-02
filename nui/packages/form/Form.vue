@@ -108,7 +108,7 @@ export default {
     },
     // 提交表单
     formSubmit(){
-      // const aa = this.$el.reportValidity();
+      // this.$el.reportValidity();
       if (this.$el.checkValidity()){
         this.$emit('confirm',this.toOriginalData(this.datas));
       } else {
@@ -122,8 +122,6 @@ export default {
     },
     // 重置表单
     formReset(){
-      // console.log(this.backupDatas);
-      // this.$el.reset();
       const datas = this.datas;
       const backup = this.backupDatas;
       for (const key in datas){

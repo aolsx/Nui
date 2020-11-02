@@ -4,11 +4,10 @@ hljs.configure({
 });
 // hljs.addPlugin({
 //   'before:highlightBlock': (args)=>{
-//     console.log(args);
 //   }
 // });
 // hljs.debugMode();
-// console.log(hljs);
+
 export default function(Str,lang){
   let o;
   if (lang){

@@ -225,7 +225,6 @@
 .nui-pop{position:fixed;z-index:99;}
 .nui-pop-body{overflow:auto;}
 .nui-pop-arrow{position:absolute;top:-7px;left:50%;}
-/* .nui-pop:focus, .nui-pop:focus-within{display:block;} */
 
 /* 内联弹出 */
 .nui-tip-block{position:relative;display:inline-block;}

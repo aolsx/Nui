@@ -44,19 +44,6 @@ export default {
     eveChange(e){
       this.$emit('update:modelValue',e.target.value.trim());
     }
-    // eveInvalid(e){
-    // e.preventDefault();
-    // e.stopPropagation();
-    // this.$refs.input.focus();
-    // this.$refs.input.checkValidity();
-    // validity willValidate .validationMessage
-    // e.target.checkValidity();
-    // this.$refs.input.oninvalid = function(){
-    //   this.setCustomValidity("请输入合法的1-18位....");
-    // };
-    // e.target.setCustomValidity('123');
-    // console.log('eveInvalid');
-    // },
   },
 };
 </script>

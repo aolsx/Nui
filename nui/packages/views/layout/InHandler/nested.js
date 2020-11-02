@@ -75,7 +75,6 @@ const ResetNested = {
   delCol({k,ptCols}){
     const {pos: {flex}} = ptCols[k];
     ptCols.splice(k,1);
-    // console.log('delCol');
     // 如果小于一等待下一轮提升
     if (ptCols.length > 1){
       const fx = flex / ptCols.length;
@@ -83,19 +82,16 @@ const ResetNested = {
         const newF = (c.pos.flex + fx).toFixed(5) * 1;
         c.pos.flex = newF > 1 ? 1 : newF;
       }
-      // console.log('Col 重置占位');
     }
   },
   // 提升Col 到上层
   upCol({k,ptCols}){
-    // console.log('upCol');
     const {cols,pos} = ptCols[k];
     const col = cols[0].col;
     ptCols.splice(k,1,{pos,col});
   },
   // 拆分Cols 到上层
   upCols({k,ptCols}){
-    // console.log('upCols');
     const {cols,pos} = ptCols[k];
     const acCols = cols[0].cols;
     for (const c of acCols){
@@ -105,7 +101,6 @@ const ResetNested = {
     ptCols.splice(k,1,...acCols);
   },
   check(loop = 0){
-    // console.log('检查',loop);
     // 最大次数 防止死循环
     if (loop > 10){
       throw 'max Check Layout!';
@@ -148,7 +143,6 @@ const ToNested = {
       pos: {flex}
     };
     cols.splice(pm.tokey + pm.isDown,0,newCol);
-    // console.log('重构插入');
   },
   // 重构原地拆分
   toSplit(tab,$Col,pm){
@@ -168,7 +162,6 @@ const ToNested = {
       pos: {flex}
     };
     cols.splice(pm.tokey,1,newCols);
-    // console.log('重构原地拆分');
   },
   toRoot(tab,$Col,pm){
     const cols = $Col.ctx.cols;
@@ -293,7 +286,6 @@ const ClickNested = {
       pos.top = pos.bottom - 16;
       pos.height = 16;
       isDown = 1;
-      // console.log('col 下');
     }
     Basic.setArea(1,pos);
     return {
@@ -346,7 +338,6 @@ export class NuiLayoutNdDrag{
   }
   // 销毁
   destroy(){
-    // console.log('销毁');
     document.body.classList.remove('nui-drag-model','nui-drag-lutnd');
     document.ondragenter = null;
     document.ondragover = null;
