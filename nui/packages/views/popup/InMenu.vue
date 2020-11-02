@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="menu.arr"
-    class="nui-ppmenu"
+    class="nui-pp-menu"
     tabindex="-1"
     :class="menu.line&&'--line'"
     :style="c_Style"
@@ -9,7 +9,7 @@
     <div
       v-for="(im,k) in menu.arr"
       :key="k"
-      class="nui-ppmenu-item"
+      class="nui-pp-menu-item"
       :class="im.cls"
       @click="im.fn();empty()">
       <i
@@ -45,7 +45,8 @@ export default {
     'menu.arr'(v){
       if (v){
         this.$nextTick(()=>{
-          this.$el.focus();
+          console.log(this);
+          // this.$el.focus();
         });
       }
     }

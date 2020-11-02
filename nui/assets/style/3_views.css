@@ -1,8 +1,31 @@
 /* 视图 pointer-events:none; content,content-visibility */
 [data-v-app]{display:contents;}
-.nui-app-root{position:fixed;width:100%;height:100%;}
+/* 主容器 */
+.nui-app-root{overflow:hidden;width:100%;height:100%;}
+
+/* 弹出容器 */
+.nui-app-ppp-mod,
+.nui-app-ppp-debris,
+.nui-app-ppp-load,
+.nui-app-ppp-msg{position:fixed;z-index:1;width:0;height:0;pointer-events:none;}
+
+.nui-app-ppp-mod,
+.nui-app-ppp-debris,
+.nui-app-ppp-load{top:0;left:0;}
+
+/* 层级 */
+.nui-app-ppp-msg{z-index:9;top:38px;right:15px;display:flex;align-items:flex-end;flex-direction:column;}
+
+/* 浮动遮罩容器内容居中 */
+/* overscroll-behavior:contain; 阻止底层滚动 */
+.nui-popup-mask{position:fixed;z-index:1;top:0;right:0;bottom:0;left:0;display:flex;overflow:hidden;align-items:center;justify-content:center;pointer-events:none;overscroll-behavior:contain;}
+.nui-popup-mask:before{position:absolute;top:30px;right:0;bottom:0;left:0;content:'';transition:opacity .2s;pointer-events:auto;opacity:1;background-color:#1d1f25de;}
+.nui-popup-mask.--am:before{animation:fadeIn .2s;}
+.nui-popup-mask > *{min-width:0;max-width:100%;min-height:0;max-height:100%;pointer-events:auto;}
+
+/* 主视图内容 */
 .nui-app-root > *{position:absolute;right:0;left:0;}
-/* 背景图标 */
+/* 背景 */
 .nui-app-bg{font-size:40rem;z-index:-1;top:0;bottom:0;display:flex;align-items:center;justify-content:center;pointer-events:none;color:#20222878;}
 /* 头部 */
 .nui-app-head{top:0;display:flex;justify-content:space-between;height:30px;background-color:var(--atom-dk);}
@@ -15,7 +38,7 @@
 .nui-app-window-controls > span{font-size:16px;display:flex;align-items:center;flex:none;justify-content:center;width:46px;min-width:0;text-align:center;border-radius:0;}
 .nui-app-window-controls > span:hover{background-color:var(--atom-lt);}
 .nui-app-window-controls > span:last-child:hover{color:#fff;background-color:var(--red-dker);}
-/* 动态组件容器 */
+/* 头部 动态组件容器 */
 .nui-app-dynamic-tools{position:relative;z-index:1;display:flex;flex:1;margin:0 40px;transition:transform .3s;transform:translate3d(0, 0, 0);background-color:var(--atom-dk);box-shadow:0 2px 3px #0004;-webkit-app-region:no-drag;}
 .nui-app-dynamic-tools > *{min-width:0;}
 .nui-app-dynamic-tools:before, .nui-app-dynamic-tools:after{position:absolute;z-index:-1;top:0;left:0;width:30px;height:100%;content:'';transform:skewX(30deg);transform-origin:bottom;border-radius:0 0 0 10px;background-color:inherit;box-shadow:-3px 1px 3px #0004;}
@@ -25,8 +48,9 @@
 .nui-app-dynamic-tools > .nui-icon-chevron-up{margin-right:0;cursor:pointer;}
 .nui-app-dynamic-tools > div{flex:1;min-width:0;border-right:.5px solid #0006;border-left:.5px solid #0006;}
 
-/* 视图 */
+/* 头部视图 */
 .nui-app-views{top:30px;bottom:0;display:flex;}
+
 /* 嵌套布局 */
 .nui-lut-col, .nui-lut-tabs, .nui-lut-tab, .nui-lut-content{min-width:0;max-width:100%;min-height:0;max-height:100%;}
 .nui-lut-col{position:relative;display:flex;flex:none;}
@@ -107,12 +131,3 @@
 .nui-lut-group.--min .nui-lut-panel.--active{display:flex;}
 
 .nui-lut-float-item > .nui-lut-group.--min.--right .nui-lut-panel{right:100%;left:auto;}
-
-/* 弹出内容 */
-.nui-app-popup-root{position:absolute;z-index:1;pointer-events:none;}
-.nui-app-popup-msg{position:fixed;z-index:9;top:38px;right:15px;display:flex;align-items:flex-end;flex-direction:column;width:0;height:0;pointer-events:none;}
-/* overscroll-behavior:contain; 阻止底层滚动 */
-.nui-popup-mask{position:fixed;z-index:1;top:0;right:0;bottom:0;left:0;display:flex;overflow:hidden;align-items:center;justify-content:center;pointer-events:auto;overscroll-behavior:contain;}
-.nui-popup-mask:before{position:absolute;top:30px;right:0;bottom:0;left:0;content:'';transition:opacity .2s;opacity:1;background-color:#1d1f25de;}
-.nui-popup-mask.--am:before{animation:fadeIn .2s;}
-.nui-popup-mask > *{min-width:0;max-width:100%;min-height:0;max-height:100%;}

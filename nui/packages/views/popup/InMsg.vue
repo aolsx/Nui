@@ -1,7 +1,7 @@
 <template>
   <transition-group
     name="msg"
-    class="nui-app-popup-msg"
+    class="nui-app-ppp-msg"
     :duration="1000"
     tag="div"
     @after-enter="startTime">

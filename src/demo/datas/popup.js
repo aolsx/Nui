@@ -86,15 +86,17 @@ const load = {
 };
 
 const tip = {
-  html: `<!-- 方向 lt|rt|tp -->
-<!-- 尺寸 w|h -->
+  html: `<!-- 方向 lt|rt|tp 尺寸 w|h -->
 <nui-tip lt :h="100" :w="210">
-  <template #in>
-  <!-- 显示内容 -->
-  </template>
-  <!-- 弹出内容 V-->
-  ...
+  <template #in>显示内容</template>
+  <!-- 弹出内容-->
 </nui-tip>`
+};
+const pop = {
+  html: `<!-- 尺寸 w|h $ref.pop.show(e)-->
+<nui-pop :h="100" :w="210" ref="pop">
+  <!-- 弹出内容-->
+</nui-pop>`
 };
 
 export default {
@@ -103,5 +105,6 @@ export default {
   mod,
   menu,
   load,
-  tip
+  tip,
+  pop
 };

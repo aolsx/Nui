@@ -5,19 +5,21 @@
     </div>
     <slot />
   </div>
-  <div
-    id="ToPopup"
-    class="nui-app-popup-root" />
   <in-confirm />
-  <in-menu />
-  <in-load-pro />
-  <in-load-am />
+  <div
+    id="ToPppMod"
+    class="nui-app-ppp-mod" />
+  <in-pop-debris />
+  <div class="nui-app-ppp-load">
+    <in-load-pro />
+    <in-load-am />
+  </div>
   <in-msg />
 </template>
 <script>
 import InConfirm from './popup/InConfirm.vue';
 import InMsg from './popup/InMsg.vue';
-import InMenu from './popup/InMenu.vue';
+import InPopDebris from './popup/InPopDebris';
 import InLoadAm from './popup/InLoadAm.vue';
 import InLoadPro from './popup/InLoadPro.vue';
 export default {
@@ -25,7 +27,7 @@ export default {
   components: {
     InConfirm,
     InMsg,
-    InMenu,
+    InPopDebris,
     InLoadAm,
     InLoadPro
   },

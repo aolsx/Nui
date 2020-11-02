@@ -190,14 +190,14 @@
 .nui-modal-body{overflow:overlay;flex:1;padding:10px;color:var(--gy);}
 
 /* 弹出菜单 */
-.nui-ppmenu{font-size:12px;position:fixed;z-index:999;display:flex;flex-direction:column;padding:5px 0;border:1px solid #2a2d52;border-radius:4px;background-color:var(--atom-dker);box-shadow:0 4px 8px #0005;}
-.nui-ppmenu-item{line-height:1;display:flex;align-items:center;min-width:0;height:24px;min-height:0;padding:0 6px;cursor:pointer;color:var(--gy-lt);background-color:var(--atom-dk);}
-.nui-ppmenu-item + .nui-ppmenu-item{margin-top:1px;}
-.nui-ppmenu.--line{flex-direction:row;padding:0;}
-.nui-ppmenu.--line > .nui-ppmenu-item:first-child{border-radius:4px 0 0 4px;}
-.nui-ppmenu.--line > .nui-ppmenu-item:last-child{border-radius:0 4px 4px 0;}
-.nui-ppmenu.--line > .nui-ppmenu-item + .nui-ppmenu-item{margin-top:0;margin-left:1px;}
-.nui-ppmenu-item:hover{opacity:.8;}
+.nui-pp-menu{font-size:12px;position:fixed;z-index:999;display:flex;flex-direction:column;padding:5px 0;border:1px solid #2a2d52;border-radius:4px;background-color:var(--atom-dker);box-shadow:0 4px 8px #0005;}
+.nui-pp-menu-item{line-height:1;display:flex;align-items:center;min-width:0;height:24px;min-height:0;padding:0 6px;cursor:pointer;color:var(--gy-lt);background-color:var(--atom-dk);}
+.nui-pp-menu-item + .nui-pp-menu-item{margin-top:1px;}
+.nui-pp-menu.--line{flex-direction:row;padding:0;}
+.nui-pp-menu.--line > .nui-pp-menu-item:first-child{border-radius:4px 0 0 4px;}
+.nui-pp-menu.--line > .nui-pp-menu-item:last-child{border-radius:0 4px 4px 0;}
+.nui-pp-menu.--line > .nui-pp-menu-item + .nui-pp-menu-item{margin-top:0;margin-left:1px;}
+.nui-pp-menu-item:hover{opacity:.8;}
 
 /* 加载动画 */
 .nui-loadam, .nui-loadpro{position:relative;pointer-events:none;}
@@ -218,18 +218,27 @@
 .nui-loadpro-num{font-family:sans-serif;font-size:80px;font-weight:100;line-height:1;top:0;bottom:0;flex-direction:column;}
 .nui-loadpro-msg{font-size:12px;top:100%;padding:10px 0;color:var(--gy-dker);}
 
+/* 弹出块全局浮动 */
+.nui-pop, .nui-tip{margin:6px 0;transform:translateX(-50%);border:1px solid #2a2d52;border-radius:3px;background-color:var(--atom-dk);box-shadow:0 1px 5px #0004;}
+.nui-pop-arrow, .nui-tip-arrow{width:0;height:0;margin:-6px;border:6px solid transparent;border-bottom-color:var(--dm-dker);}
+
+.nui-pop{position:fixed;z-index:99;}
+.nui-pop-body{overflow:auto;}
+.nui-pop-arrow{position:absolute;top:-7px;left:50%;}
+/* .nui-pop:focus, .nui-pop:focus-within{display:block;} */
+
 /* 内联弹出 */
-.nui-poptip-block{position:relative;display:inline-block;}
-.nui-poptip, .nui-poptip-arrow{line-height:1.5;position:absolute;z-index:999;top:100%;left:50%;display:none;}
-.nui-poptip{overflow:overlay;min-width:0;margin:6px 0;transform:translateX(-50%);border:1px solid #2a2d52;border-radius:3px;background-color:var(--atom-dk);box-shadow:0 1px 5px #0004;}
-.nui-poptip-arrow{width:0;height:0;margin:-6px;content:'';pointer-events:none;border:6px solid transparent;border-bottom-color:var(--dm-dker);}
-.nui-poptip-block:focus-within .nui-poptip, .nui-poptip-block:focus-within .nui-poptip-arrow{display:block;}
-.nui-poptip.--l{left:0;transform:none;}
-.nui-poptip.--l ~ .nui-poptip-arrow{left:0;margin-left:3px;}
-.nui-poptip.--r{right:0;left:auto;transform:none;}
-.nui-poptip.--r ~ .nui-poptip-arrow{right:0;left:auto;margin-right:3px;}
-.nui-poptip.--t{top:auto;bottom:100%;}
-.nui-poptip.--t ~ .nui-poptip-arrow{top:auto;bottom:100%;border-top-color:var(--dm-dker);border-bottom-color:transparent;}
+.nui-tip-block{position:relative;display:inline-block;}
+.nui-tip, .nui-tip-arrow{position:absolute;z-index:99;top:100%;left:50%;display:none;}
+.nui-tip{line-height:1.5;overflow:overlay;min-width:0;}
+.nui-tip-arrow{pointer-events:none;}
+.nui-tip-block:focus-within .nui-tip, .nui-tip-block:focus-within .nui-tip-arrow{display:block;}
+.nui-tip.--l{left:0;transform:none;}
+.nui-tip.--l ~ .nui-tip-arrow{left:0;margin-left:3px;}
+.nui-tip.--r{right:0;left:auto;transform:none;}
+.nui-tip.--r ~ .nui-tip-arrow{right:0;left:auto;margin-right:3px;}
+.nui-tip.--t{top:auto;bottom:100%;}
+.nui-tip.--t ~ .nui-tip-arrow{top:auto;bottom:100%;border-top-color:var(--dm-dker);border-bottom-color:transparent;}
 
 /* 表单 */
 .nui-form-str{font-size:12px;line-height:1;position:relative;display:flex;align-items:center;flex:1;height:2em;padding:0 .5em;color:var(--gy);}

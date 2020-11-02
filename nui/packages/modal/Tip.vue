@@ -1,15 +1,15 @@
 <template>
   <div
-    class="nui-poptip-block"
+    class="nui-tip-block"
     tabindex="-1">
     <slot name="in" />
     <div
-      class="nui-poptip"
+      class="nui-tip"
       :class="{'--l':lt,'--r':rt,'--t':tp}"
       :style="{width:w+'px',height:h+'px'}">
       <slot />
     </div>
-    <span class="nui-poptip-arrow" />
+    <span class="nui-tip-arrow" />
   </div>
 </template>
 <script>

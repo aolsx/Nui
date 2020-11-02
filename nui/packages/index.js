@@ -14,6 +14,7 @@ import NuiCard from './btn/Card.vue';
 
 import NuiModal from './modal/Modal.vue';
 import NuiTip from './modal/Tip.vue';
+import NuiPop from './modal/Pop.vue';
 
 import NuiForm from './form/Form.vue';
 import NuiFormStr from './form/Str.vue';
@@ -35,6 +36,7 @@ export default [
   NuiCard,
   NuiModal,
   NuiTip,
+  NuiPop,
   NuiForm,
   NuiFormStr,
   NuiFormNum,

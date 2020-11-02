@@ -31,13 +31,26 @@
               :code="codeObj.mod.html" />
           </div>
           <div class="nui-col-4">
-            <h3>内联弹出 <code>组件</code></h3>
+            <h3>弹出块 <code>组件</code></h3>
+            <nui-btn
+              label="弹出"
+              class="color-sky"
+              @click="popShow" />
+            <nui-pop
+              ref="pop"
+              :w="100"
+              :h="60">
+              <input type="text">
+            </nui-pop>
+            <p />
+            <nui-code
+              lang="html"
+              :code="codeObj.pop.html" />
+            <h5>内联弹出 <code>组件</code></h5>
             <div class="nui-btns">
               <nui-tip>
                 <template #in>
-                  <nui-btn
-                    class="color-sky"
-                    label="默认中" />
+                  默认中
                 </template>
                 <div>显示内容</div>
                 <input type="text">
@@ -57,7 +70,10 @@
                 </template>
                 <div>显示内容</div>
               </nui-tip>
-              <nui-tip tp>
+              <nui-tip
+                tp
+                :w="100"
+                :h="30">
                 <template #in>
                   下对齐
                 </template>
@@ -295,7 +311,11 @@ export default {
       Pro.to(60);
       await this.$Nui.sleep(1000);
       Pro.to(100,'自动关闭');
+    },
+    popShow(e){
+      this.$refs.pop.show(e);
     }
+
   },
 };
 </script>

@@ -71,7 +71,7 @@ const listArr = [
 ];
 
 const listTo = reactive({
-  component: 'DemoForm'
+  component: 'DemoBasisCss'
 });
 export {listTo,listArr};
 
