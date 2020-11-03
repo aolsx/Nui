@@ -4,8 +4,66 @@
       <div class="nui-col-8">
         <div class="nui-row">
           <div class="nui-col-4">
+            <h3>弹出块 <code>组件</code></h3>
+            <nui-btn
+              label="弹出块"
+              class="color-sky"
+              @click="popShow" />
+            <nui-pop
+              ref="pop"
+              :w="100"
+              :h="60">
+              <input
+                type="text"
+                style="background:#fff1">
+              <br>
+              <nui-btn
+                label="提交测试"
+                class="color-sky" />
+            </nui-pop>
+            <p />
+            <nui-code
+              lang="html"
+              :code="codeObj.pop.html" />
+            <h5>内联弹出 <code>组件</code></h5>
+            <div class="m-in-25em">
+              <nui-tip lt>
+                <template #in>
+                  左对齐
+                </template>
+                <div>显示内容</div>
+              </nui-tip>
+              <nui-tip>
+                <template #in>
+                  默认中
+                </template>
+                <div>显示内容</div>
+                <input type="text">
+              </nui-tip>
+              <nui-tip
+                rt
+                :w="100"
+                :h="100">
+                <template #in>
+                  右对齐
+                </template>
+                <div>显示内容</div>
+              </nui-tip>
+              <nui-tip tp>
+                <template #in>
+                  上对齐
+                </template>
+                <div>显示内容</div>
+              </nui-tip>
+            </div>
+            <p />
+            <nui-code
+              lang="html"
+              :code="codeObj.tip.html" />
+          </div>
+          <div class="nui-col-4">
             <h3>弹出菜单 <code>AIP</code></h3>
-            <div class="nui-btns">
+            <div class="m-in-25em">
               <nui-btn
                 class="color-sky"
                 label="点击垂直"
@@ -31,69 +89,8 @@
               :code="codeObj.mod.html" />
           </div>
           <div class="nui-col-4">
-            <h3>弹出块 <code>组件</code></h3>
-            <nui-btn
-              label="弹出"
-              class="color-sky"
-              @click="popShow" />
-            <nui-pop
-              ref="pop"
-              :w="100"
-              :h="60">
-              <input
-                type="text"
-                style="background:#fff1">
-              <br>
-              <nui-btn
-                label="提交测试"
-                class="color-sky" />
-            </nui-pop>
-            <p />
-            <nui-code
-              lang="html"
-              :code="codeObj.pop.html" />
-            <h5>内联弹出 <code>组件</code></h5>
-            <div class="nui-btns">
-              <nui-tip>
-                <template #in>
-                  默认中
-                </template>
-                <div>显示内容</div>
-                <input type="text">
-              </nui-tip>
-              <nui-tip lt>
-                <template #in>
-                  左对齐
-                </template>
-                <div>显示内容</div>
-              </nui-tip>
-              <nui-tip
-                rt
-                :w="100"
-                :h="100">
-                <template #in>
-                  右对齐
-                </template>
-                <div>显示内容</div>
-              </nui-tip>
-              <nui-tip
-                tp
-                :w="100"
-                :h="30">
-                <template #in>
-                  下对齐
-                </template>
-                <div>显示内容</div>
-              </nui-tip>
-            </div>
-            <p />
-            <nui-code
-              lang="html"
-              :code="codeObj.tip.html" />
-          </div>
-          <div class="nui-col-4">
             <h3>加载动画 <code>AIP</code></h3>
-            <div class="nui-btns">
+            <div class="m-in-25em">
               <nui-btn
                 class="color-gn"
                 label="显示加载动画"
@@ -113,7 +110,7 @@
           </div>
           <div class="nui-col-8">
             <h3>加载进度 <code>AIP</code> <code>{{ loadToProstate }}</code></h3>
-            <div class="nui-btns">
+            <div class="m-in-25em">
               <nui-btn
                 label="自动关闭"
                 class="bg-gn"
@@ -135,7 +132,7 @@
       </div>
       <div class="nui-col-4">
         <h3>提示消息 <code>API</code></h3>
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <nui-btn
             v-for="t in typeArr"
             :key="t"
@@ -152,7 +149,7 @@
         <nui-code
           :code="codeObj.msg.js" />
         <h3>问询确认 <code>API</code></h3>
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <nui-btn
             v-for="t in typeArr"
             :key="t"

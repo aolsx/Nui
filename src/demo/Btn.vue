@@ -10,7 +10,7 @@
           标签/徽章 <span class="h6">样式</span> | 按钮 <span class="h6">组件</span>
         </h3>
         <h5>通用尺寸 <code>.h[1-7]</code> <code v-if="sz">.{{ sz }}</code> </h5>
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <nui-btn
             v-for="(z,k) in szArr"
             :key="k"
@@ -21,7 +21,7 @@
         <p />
         <h4>标签样式 <span class="h6">简化版Btn</span> <code>.nui-label</code></h4>
         <p />
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <span
             v-for="(c,k) in colorArr"
             :key="k"
@@ -32,7 +32,7 @@
           </span>
         </div>
         <p />
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <span
             v-for="(c,k) in colorArr"
             :key="k"
@@ -42,7 +42,7 @@
         <p />
         <h4>徽章样式 <span class="h6">数字状态</span> <code>.nui-badge</code></h4>
         <p />
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <span
             v-for="(c,k) in colorArr"
             :key="k"
@@ -57,7 +57,7 @@
         <p />
         <h3>按钮组件 <code>NuiBtn</code></h3>
         <h5>按钮属性 <code>.--r</code> | <code>:ac</code> | <code>:dd</code> </h5>
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <nui-btn
             class="color-gy"
             label="圆角"
@@ -73,7 +73,7 @@
             @click="dd = !dd" />
         </div>
         <p />
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <nui-btn
             v-for="(c,k) in colorArr"
             :key="k"
@@ -84,7 +84,7 @@
             label="文字" />
         </div>
         <p />
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <nui-btn
             v-for="(c,k) in colorArr"
             :key="k"
@@ -95,7 +95,7 @@
             label="文字" />
         </div>
         <p />
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <nui-btn
             v-for="(c,k) in colorArr"
             :key="k"

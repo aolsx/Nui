@@ -7,9 +7,11 @@
       class="nui-tip"
       :class="{'--l':lt,'--r':rt,'--t':tp}"
       :style="{width:w+'px',height:h+'px'}">
-      <slot />
+      <div class="nui-tip-body">
+        <slot />
+      </div>
+      <span class="nui-tip-arrow" />
     </div>
-    <span class="nui-tip-arrow" />
   </div>
 </template>
 <script>

@@ -86,8 +86,6 @@
 .nui-collapse-item:last-child{border-bottom:1px solid #0002;}
 
 /* 按钮 */
-.nui-btns{font-size:12px;line-height:1;margin:0 -.25em;}
-.nui-btns > *{margin:0 .25em;}
 .nui-btn, .nui-label{font-size:12px;line-height:1;position:relative;display:inline-flex;overflow:hidden;align-items:center;justify-content:center;text-align:center;vertical-align:middle;}
 .nui-btn{z-index:1;min-width:1.75em;min-height:2em;padding:.5px .5em 0;cursor:pointer;border-radius:.3em;}
 .nui-btn > i{display:flex;align-items:center;flex:none;justify-content:center;width:1em;height:1em;text-align:center;}
@@ -219,25 +217,28 @@
 .nui-loadpro-msg{font-size:12px;top:100%;padding:10px 0;color:var(--gy-dker);}
 
 /* 弹出块全局浮动 */
-.nui-pop, .nui-tip{margin:6px 0;transform:translateX(-50%);border:1px solid #2a2d52;border-radius:3px;background-color:var(--atom-dk);box-shadow:0 1px 5px #0004;}
-.nui-pop-arrow, .nui-tip-arrow{width:0;height:0;margin:-6px;border:6px solid transparent;border-bottom-color:var(--dm-dker);}
+.nui-pop, .nui-tip{z-index:99;padding:6px;transform:translateX(-50%);}
 
-.nui-pop{position:fixed;z-index:99;}
-.nui-pop-body{overflow:auto;}
-.nui-pop-arrow{position:absolute;top:-7px;left:50%;}
+.nui-pop{position:fixed;}
+.nui-tip{position:absolute;top:100%;left:50%;min-width:0;display:none;white-space:nowrap;}
+
+.nui-pop-body,
+.nui-tip-body{position:relative;z-index:1;overflow:auto;width:100%;height:100%;border:1px solid #2a2d52;border-radius:3px;background-color:var(--atom-dk);box-shadow:0 1px 5px #0004;}
+
+.nui-pop-arrow,
+.nui-tip-arrow{position:absolute;top:-6px;left:50%;width:0;height:0;border:6px solid transparent;border-bottom-color:var(--dm-dker);transform:translateX(-50%);}
 
 /* 内联弹出 */
 .nui-tip-block{position:relative;display:inline-block;}
-.nui-tip, .nui-tip-arrow{position:absolute;z-index:99;top:100%;left:50%;display:none;}
-.nui-tip{line-height:1.5;overflow:overlay;min-width:0;}
-.nui-tip-arrow{pointer-events:none;}
-.nui-tip-block:focus-within .nui-tip, .nui-tip-block:focus-within .nui-tip-arrow{display:block;}
-.nui-tip.--l{left:0;transform:none;}
-.nui-tip.--l ~ .nui-tip-arrow{left:0;margin-left:3px;}
-.nui-tip.--r{right:0;left:auto;transform:none;}
-.nui-tip.--r ~ .nui-tip-arrow{right:0;left:auto;margin-right:3px;}
+.nui-tip-block:focus-within .nui-tip{display:block;}
+.nui-tip.--l{left:-6px;transform:none;}
+.nui-tip.--l > .nui-tip-arrow{left:15px;}
+.nui-tip.--r{right:-6px;left:auto;transform:none;}
+.nui-tip.--r > .nui-tip-arrow{right:3px;left:auto;}
 .nui-tip.--t{top:auto;bottom:100%;}
-.nui-tip.--t ~ .nui-tip-arrow{top:auto;bottom:100%;border-top-color:var(--dm-dker);border-bottom-color:transparent;}
+
+.nui-tip.--t > .nui-tip-arrow,
+.nui-pop.--t > .nui-pop-arrow{top:auto;bottom:-6px;border-top-color:var(--dm-dker);border-bottom-color:transparent;}
 
 /* 表单 */
 .nui-form-str{font-size:12px;line-height:1;position:relative;display:flex;align-items:center;flex:1;height:2em;padding:0 .5em;color:var(--gy);}

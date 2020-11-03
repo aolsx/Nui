@@ -6,7 +6,7 @@
           通用配置
         </h3>
         <p />
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <nui-btn
             class="color-yl"
             label="只读"
@@ -21,7 +21,7 @@
             @click="formCfg.rules.required = !formCfg.rules.required" />
         </div>
         <p />
-        <div class="nui-btns">
+        <div class="m-in-25em">
           <nui-btn
             class="color-bl"
             label="前置图标"

@@ -94,6 +94,15 @@
 .m-tb-5, .m-t-5{margin-top:5px;}
 .m-tb-5, .m-b-5{margin-bottom:5px;}
 
+.m-in-10{margin:-5px;}
+.m-in-10 > *{margin:5px;}
+.m-in-8{margin:-4px;}
+.m-in-8 > *{margin:4px;}
+.m-in-6{margin:-3px;}
+.m-in-6 > *{margin:3px;}
+.m-in-25em{margin:-.25em;}
+.m-in-25em > *{margin:.25em;}
+
 .m-15{margin:15px;}
 .m-10{margin:10px;}
 .m-5{margin:5px;}
