@@ -51,10 +51,9 @@ export default {
         top: `${top}px`,
         left: `${left}px`,
       };
-      style.width = `${500}px`;
-      // if (this.w){
-      //   style.width = `${this.w}px`;
-      // }
+      if (this.w){
+        style.width = `${this.w}px`;
+      }
       if (this.h){
         style.height = `${this.h}px`;
       }
