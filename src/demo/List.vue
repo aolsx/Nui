@@ -5,7 +5,11 @@
     </h3>
     <div class="nui-row">
       <div class="nui-col-3">
-        <h5>基础列表 <code>组件</code> <span class="h6">To: </span><code>{{ list.ac }}</code></h5>
+        <h5>
+          基础列表 <code>组件</code>
+          <span class="h6"> To: </span>
+          <code> {{ list.ac }}</code>
+        </h5>
         <nui-list
           class="bg-atom --dk"
           :list="list.arr"
@@ -20,17 +24,24 @@
           :code="codes.list.arr" />
       </div>
       <div class="nui-col-3">
-        <h5>树列表 <code>组件</code> <span class="h6">To: </span><code>{{ tree.ac }}</code></h5>
+        <h5>
+          树列表 <code>组件</code>
+          <span class="h6"> Ck: </span>
+          <code>{{ tree.ac?.label }}</code>
+          <span class="h6"> RCk: </span>
+          <code>{{ tree.r?.k }}</code>
+        </h5>
+        <nui-btn
+          label="切换行模式"
+          class="color-sky"
+          @click="tree.line=!tree.line" />
         <nui-tree
-          style="height:120px"
+          style="height:190px"
+          :line="tree.line"
           :tree="tree.arr"
-          @click="tree.ac=$event" />
-        <br>
-        <h6>行模式 <code>line</code></h6>
-        <nui-tree
-          style="height:135px"
-          line
-          :tree="tree.arr"
+          child="tree"
+          @open="tree.ac=$event"
+          @rclick="tree.r=$event"
           @click="tree.ac=$event" />
         <br>
         <nui-code
@@ -137,7 +148,9 @@ export default {
         ],
       },
       tree: {
+        r: null,
         ac: '',
+        line: false,
         arr: [
           {icon: 'nui-icon-home',label: 'List 1',to: 'AcList 1'},
           {label: 'List 2',to: 'AcList 2'},

@@ -2,8 +2,7 @@
   <div
     class="nui-tree"
     :class="line&&'--line'"
-    @dragstart.stop="eveDragstart"
-    @click.stop.prevent="eveClick">
+    @dragstart.stop="sort && eveDragstart($event)">
     <ul tabindex="-1">
       <in-tree-item
         v-for="(item,k) in tree"
@@ -20,28 +19,45 @@ export default {
   components: {
     InTreeItem
   },
+  provide(){
+    return {
+      dragType: this.dragType,
+      p_child: this.child,
+      p_click: (item)=>{
+        this.$emit('click',item);
+      },
+      p_open: (item)=>{
+        this.$emit('open',item);
+      },
+      p_rclick: (ptObj)=>{
+        this.$emit('rclick',ptObj);
+      },
+    };
+  },
   props: {
+    dragType: {
+      type: String,
+      default: ''
+    },
+    child: {
+      type: String,
+      default: 'child'
+    },
     tree: {
       type: Array,
       required: true
     },
-    line: Boolean
+    line: Boolean,
+    sort: {
+      type: Boolean,
+      default: true
+    }
   },
-  emits: ['click'],
+  emits: ['click','open','rclick'],
   methods: {
-    eveClick(e){
-      const item = e.target.__vueParentComponent.ctx.item;
-      if (!item){
-        return;
-      }
-      if (item.tree){
-        item.open = !item.open;
-      } else {
-        this.$emit('click',item.to);
-      }
-    },
     eveDragstart(e){
-      TreedragFn(e.target,this.$el);
+      TreedragFn(e.target,this.$el,this.child);
+      // this.$emit('stor',item);
     },
   },
 };

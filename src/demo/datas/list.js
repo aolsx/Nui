@@ -20,17 +20,22 @@ const list = {
 ]`,
 };
 const tree = {
-  html: `<!-- line 行模式 -->
-<nui-tree
-  line
-  :tree="treeList"
-  @click="<to><$event>" />`,
-  arr: `const treeList = [
-  {icon:'',label:'',to:''，
-    // 包含子类
-    tree: [],open: false
-  }
-]`,
+  html: `<nui-tree
+  line='<Boolean> 开关行模式 '
+  dragType="<Str> 标识拖拽用"
+  child="<Str> 子节点对象名"
+  sort="<Boolean> 禁用排序 默认开启"
+  :tree="TreeList 树数组"
+  @open="<$event itemObj> 展开节点"
+  @rclick="<$event Obj{ptArr,k}> 右键"
+  @click="<$event itemObj> 左键" /> `,
+  arr: `const TreeList = [
+  {
+    icon:'',label:'',
+    open:false, // 记忆开关 可选
+    [child]: [] // 子节点数组
+    ...
+}]`
 };
 
 const cpe = {

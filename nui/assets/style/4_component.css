@@ -223,7 +223,7 @@
 .nui-tip{position:absolute;top:100%;left:50%;min-width:0;display:none;white-space:nowrap;}
 
 .nui-pop-body,
-.nui-tip-body{position:relative;z-index:1;overflow:auto;width:100%;height:100%;border:1px solid #2a2d52;border-radius:3px;background-color:var(--atom-dk);box-shadow:0 1px 5px #0004;}
+.nui-tip-body{position:relative;z-index:1;overflow:auto;width:100%;height:100%;border:1px solid #2a2d52;border-radius:3px;background-color:var(--atom-dks);box-shadow:0 1px 5px #0004;}
 
 .nui-pop-arrow,
 .nui-tip-arrow{position:absolute;top:-6px;left:50%;width:0;height:0;border:6px solid transparent;border-bottom-color:var(--dm-dker);transform:translateX(-50%);}

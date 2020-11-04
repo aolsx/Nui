@@ -8,7 +8,7 @@
       :style="pop_style"
       tabindex="-1"
       @focusin="isInFocus = true"
-      @focusout="eveFocusout">
+      @focusout="_eveFocusout">
       <div
         class="nui-pop-body">
         <slot />
@@ -70,14 +70,22 @@ export default {
       this.isTop = false;
       this.isShow = true;
       this.$nextTick(()=>{
-        this.$refs.pop.parentElement?.__vueParentComponent?.ctx?.bindRolling?.();
-        this.$refs.pop.focus();
-        this.isInFocus = false;
-        this.checkPos(pos.top);
+        if (this.isShow){
+          this.$refs.pop.parentElement?.__vueParentComponent?.ctx.bindRolling();
+          this.$refs.pop.focus();
+          this.isInFocus = false;
+          this._checkPos(pos.top);
+        }
       });
     },
+    hide(){
+      if (this.isShow){
+        this.$refs.pop?.parentElement?.__vueParentComponent?.ctx.bindDestroy();
+        this.isShow = false;
+      }
+    },
     // 检查
-    checkPos(tgTop){
+    _checkPos(tgTop){
       const {offsetHeight: H,offsetWidth: W} = document.body;
       const pos = this.$refs.pop.getBoundingClientRect().toJSON();
       if (pos.left <= 0){
@@ -94,16 +102,14 @@ export default {
         this.pos.top = tgTop - pos.height;
       }
     },
-    eveFocusout(){
+    _eveFocusout(){
       setTimeout(()=>{
         if (!this.isInFocus){
-          this.$refs.pop.parentElement?.__vueParentComponent?.ctx?.bindDestroy?.();
-          this.isShow = false;
+          this.hide();
         }
         this.isInFocus = false;
       },1);
     }
-  },
-
+  }
 };
 </script>

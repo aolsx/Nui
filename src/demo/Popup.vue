@@ -11,7 +11,7 @@
               @click="popShow" />
             <nui-pop
               ref="pop"
-              :w="100"
+              :w="200"
               :h="60">
               <input
                 type="text"

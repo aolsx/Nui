@@ -123,26 +123,32 @@
               :icon="formCfg.icon" />
           </div>
           <div class="nui-col-6">
-            <h4>单多选 <code>&lt;nui-form-rc/&gt;</code></h4>
+            <h4>单多选 <code>&lt;nui-form-rc/&gt;</code> <small>开关样式 <code>:sw = true</code></small></h4>
             <div class="nui-row">
-              <div class="nui-col-6">
-                <h6>默认 <code>v:Str|Num / v:Array</code></h6>
+              <div class="nui-col-4">
+                <h6>单选绑定值 <code>v:Str|Num</code></h6>
                 <nui-form-rc
                   v-model="form.checkbox"
                   :items="valueList" />
                 <nui-form-rc
-                  v-model="form.radio"
+                  v-model="form.checkbox"
+                  sw
                   :items="valueList" />
               </div>
-              <div class="nui-col-6">
-                <h6>开关样式 <code>:sw = true</code></h6>
+              <div class="nui-col-4">
+                <h6>多选绑定数组 <code>v:Array</code></h6>
                 <nui-form-rc
-                  v-model="form.checkbox"
-                  sw
+                  v-model="form.radio"
                   :items="valueList" />
                 <nui-form-rc
                   v-model="form.radio"
                   sw
+                  :items="valueList" />
+              </div>
+              <div class="nui-col-4">
+                <h6>单项切换布尔值 <code>v:Boolean</code></h6>
+                <nui-form-rc
+                  v-model="form.boolean"
                   :items="valueList" />
               </div>
             </div>
@@ -253,6 +259,7 @@ export default {
         num: 0,
         radio: '',
         checkbox: [2],
+        boolean: false
       },
       formDatas: {
         str: '',

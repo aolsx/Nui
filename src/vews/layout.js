@@ -71,7 +71,7 @@ const listArr = [
 ];
 
 const listTo = reactive({
-  component: 'DemoPopup'
+  component: 'DemoBasisCss'
 });
 export {listTo,listArr};
 

@@ -80,7 +80,7 @@ export default [
         row: 12,
         list: [
           ['.-link','连接光标样式','-link'],
-          ['.-float|.--[r|b]','元素强制浮动 ！'],
+          ['.-float & .--[r|b]','元素强制浮动 ！'],
           ['.-none','元素强制禁用 ！'],
           ['.-full','宽高100%强制 ！']
         ],
@@ -102,5 +102,12 @@ export default [
       ['.tt-copy','文字可选中 配合 $Nui.copy(API)','tt-copy'],
       ['ins | .-eps','强制一行超出显示省略号。','-eps','width:140px;']
     ],
+    child: [
+      {
+        title: '边线',
+        row: 12,
+        list: [['.b-[t|r|b|l|none]','四个方向边线 1px solid #0003']],
+      },
+    ]
   }
 ];

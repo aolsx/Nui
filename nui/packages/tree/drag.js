@@ -7,10 +7,11 @@ const Basic = {
   },
 };
 class NuiTreeDrag{
-  constructor(ele,rootEle){
+  constructor(ele,rootEle,child){
+    this.childName = child;
     this.$RootEl = rootEle;
     const ve = Basic.getEleVue(ele);
-    const arr = ve.parent.ctx.tree || ve.parent.ctx.item.tree;
+    const arr = ve.parent.ctx.tree || ve.parent.ctx.item[this.childName];
     const key = ve.vnode.key;
     this.$ItemEl = ele;
     this.Item = {
@@ -83,11 +84,11 @@ class NuiTreeDrag{
     this.Item.arr[this.Item.key] = "NULL";
     // 主节点 或者 子节点
     if (this.ToObj.down){
-      const ToArr = ToVe.ctx.tree || ToVe.ctx.item.tree;
+      const ToArr = ToVe.ctx.tree || ToVe.ctx.item[this.childName];
       ToArr.push(im);
     } else {
       const key = ToVe.vnode.key;
-      const ToArr = ToVe.parent.ctx.tree || ToVe.parent.ctx.item.tree;
+      const ToArr = ToVe.parent.ctx.tree || ToVe.parent.ctx.item[this.childName];
       ToArr.splice(key,0,im);
     }
     const delK = this.Item.arr.findIndex(v=>v === 'NULL');
@@ -96,6 +97,6 @@ class NuiTreeDrag{
   }
 }
 
-export default function(ele,rootEle){
-  new NuiTreeDrag(ele,rootEle);
+export default function(ele,rootEle,child){
+  new NuiTreeDrag(ele,rootEle,child);
 }
