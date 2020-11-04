@@ -5,13 +5,13 @@
     class="nui-pp-menu"
     :class="menu.line&&'--line'"
     :style="c_Style"
-    @blur="menu.arr && blurDestroy()">
+    @blur="blurDestroy(null)">
     <div
       v-for="(im,k) in menu.arr"
       :key="k"
       class="nui-pp-menu-item"
       :class="im.cls"
-      @click="im.fn();blurDestroy()">
+      @click="blurDestroy(im.name)">
       <i
         v-if="im.icon"
         :class="im.icon" />
@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import {MenuObj} from '../../../handler/popup';
+import {handlerMenu} from '../../../handler/popup';
 export default {
   name: 'InMenu',
   data(){
@@ -41,21 +41,21 @@ export default {
       };
     }
   },
-  watch: {
-    'menu.arr'(v){
-      if (v){
-        this.$nextTick(()=>{
-          this.$el.focus();
-          this.$parent.bindRolling();
-        });
-      }
-    }
-  },
   created(){
-    MenuObj.v = this.menu;
+    this.onResolve = handlerMenu._onResolve;
+    handlerMenu.setDatas = (arr,pos,line)=>{
+      this.menu.arr = arr;
+      this.menu.pos = pos;
+      this.menu.line = line;
+      this.$nextTick(()=>{
+        this.$el.focus();
+        this.$parent.bindRolling();
+      });
+    };
   },
   methods: {
-    blurDestroy(){
+    blurDestroy(name){
+      this.onResolve(name);
       this.menu.arr = null;
       this.menu.pos = null;
       this.menu.line = false;

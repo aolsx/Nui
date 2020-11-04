@@ -1,10 +1,10 @@
 <template>
   <teleport to="#ToPppDbs">
     <div
-      v-if="isShow"
+      v-if="isOpen"
       ref="pop"
       class="nui-pop"
-      :class="isTop&&'--t'"
+      :class="[{'--ws':w,'--t':isTop},$attrs.class]"
       :style="pop_style"
       tabindex="-1"
       @focusin="isInFocus = true"
@@ -22,6 +22,7 @@
 <script>
 export default {
   name: 'NuiPop',
+  inheritAttrs: false,
   props: {
     w: {
       type: Number,
@@ -32,9 +33,10 @@ export default {
       default: null,
     },
   },
+  emits: ['open','close'],
   data(){
     return {
-      isShow: false,
+      isOpen: false,
       isTop: false,
       isInFocus: false,
       pos: {
@@ -61,27 +63,29 @@ export default {
     }
   },
   methods: {
-    show(e){
+    open(e){
       // 触发元素的坐标参数
       const pos = e.target.getBoundingClientRect().toJSON();
       this.pos.left = pos.left + pos.width / 2;
       this.pos.top = pos.bottom;
       this.pos.mLeft = 0;
       this.isTop = false;
-      this.isShow = true;
+      this.isOpen = true;
       this.$nextTick(()=>{
-        if (this.isShow){
+        if (this.isOpen){
           this.$refs.pop.parentElement?.__vueParentComponent?.ctx.bindRolling();
           this.$refs.pop.focus();
           this.isInFocus = false;
           this._checkPos(pos.top);
+          this.$emit('open');
         }
       });
     },
-    hide(){
-      if (this.isShow){
+    close(){
+      if (this.isOpen){
         this.$refs.pop?.parentElement?.__vueParentComponent?.ctx.bindDestroy();
-        this.isShow = false;
+        this.isOpen = false;
+        this.$emit('close');
       }
     },
     // 检查
@@ -105,7 +109,7 @@ export default {
     _eveFocusout(){
       setTimeout(()=>{
         if (!this.isInFocus){
-          this.hide();
+          this.close();
         }
         this.isInFocus = false;
       },1);

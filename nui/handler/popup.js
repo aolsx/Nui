@@ -12,9 +12,8 @@ const attrs = {
   // 疑问
   q: ['color-dm','nui-icon-question']
 };
-
 // 问询确认
-export const ConfirmArr = {v: []};
+const ConfirmArr = {v: []};
 const cfm = function(msg,type){
   const arr = type && attrs[type] || attrs.d;
   const state = {
@@ -41,7 +40,7 @@ for (const type of ['d','i','w','e','s','q']){
 }
 
 // 消息
-export const MsgArr = {v: []};
+const MsgArr = {v: []};
 const msg = function(msg,time = 3000,type){
   const arr = type && attrs[type] || attrs.d;
   const state = {
@@ -61,19 +60,30 @@ for (const type of ['d','i','w','e','s','q']){
   };
 }
 
-export const MenuObj = {
-  v: {
-    line: false,
-    arr: [],
-    pos: {}
-  }
+// 菜单
+let MenuResolve = null;
+const handlerMenu = {
+  _onResolve(name){
+    if (MenuResolve){
+      MenuResolve(name);
+      MenuResolve = null;
+    }
+  },
+  // 组件内复写
+  setDatas(){}
 };
 const menu = function(arr,pos,line = false){
-  MenuObj.v.line = line;
-  MenuObj.v.pos = pos;
-  MenuObj.v.arr = arr;
+  // 存在则回调一次取消
+  handlerMenu._onResolve(null);
+  handlerMenu.setDatas(arr,pos,line);
+  const newPm = new Promise((resolve)=>{
+    MenuResolve = resolve;
+  });
+  // reject
+  return newPm;
 };
 
+export {handlerMenu,MsgArr,ConfirmArr};
 export default {
   cfm,
   msg,

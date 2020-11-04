@@ -4,7 +4,7 @@
       <div class="nui-col-8">
         <div class="nui-row">
           <div class="nui-col-4">
-            <h3>弹出块 <code>组件</code></h3>
+            <h3>弹出块 <code>组件</code> <code>{{ evePop }}</code></h3>
             <nui-btn
               label="弹出块"
               class="color-sky"
@@ -12,7 +12,9 @@
             <nui-pop
               ref="pop"
               :w="200"
-              :h="60">
+              :h="60"
+              @open="evePop='eveOpen'"
+              @close="evePop='eveClose'">
               <input
                 type="text"
                 style="background:#fff1">
@@ -33,7 +35,7 @@
                 </template>
                 <div>显示内容</div>
               </nui-tip>
-              <nui-tip>
+              <nui-tip class="color-red">
                 <template #in>
                   默认中
                 </template>
@@ -62,7 +64,10 @@
               :code="codeObj.tip.html" />
           </div>
           <div class="nui-col-4">
-            <h3>弹出菜单 <code>AIP</code></h3>
+            <h3>
+              弹出菜单 <code>AIP </code>
+              <code> Call: {{ menuCk }}</code>
+            </h3>
             <div class="m-in-25em">
               <nui-btn
                 class="color-sky"
@@ -188,6 +193,8 @@ export default {
   },
   data(){
     return {
+      eveTip: '',
+      evePop: '',
       typeArr: ['d','i','w','e','s','q'],
       typeObj: {
         d: ['color-gy','nui-icon-question'],
@@ -202,6 +209,7 @@ export default {
         // 疑问
         q: ['color-dm','nui-icon-question']
       },
+      menuCk: '',
       showMod: false,
       loadToProstate: ''
     };
@@ -226,31 +234,38 @@ export default {
           icon: 'nui-icon-home',
           label: '菜单A',
           cls: 'color-gn',
-          fn(){}
+          name: 'fnA'
         },
         {
           icon: 'nui-icon-home',
           label: '菜单B',
-          fn(){}
+          name: 'fnB'
         }
       ];
       const arrLine = [
         {
           icon: 'nui-icon-home',
           cls: 'bg-gn',
-          fn(){}
+          name: 'fnA'
         },
         {
           icon: 'nui-icon-home',
           cls: 'bg-yl',
-          fn(){}
+          name: 'fnB'
         }
       ];
       const pos = {
         top: e.clientY,
         left: e.clientX,
       };
-      this.$Nui.menu(line ? arrLine : arr,pos,line);
+      this.$Nui.menu(line ? arrLine : arr,pos,line)
+        .then((name)=>{
+          if (name){
+            this.menuCk = name;
+          } else {
+            this.menuCk = '取消';
+          }
+        });
     },
     loadAm(t){
       if (t){
@@ -316,9 +331,8 @@ export default {
       Pro.to(100,'自动关闭');
     },
     popShow(e){
-      this.$refs.pop.show(e);
+      this.$refs.pop.open(e);
     }
-
-  },
+  }
 };
 </script>

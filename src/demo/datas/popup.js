@@ -40,23 +40,23 @@ const mod = {
 </nui-modal>`,
 };
 const menu = {
-  js: `const arr = [
-  {
-    icon: 'nui-icon-home',
-    label: '菜单A ',
-    cls: 'color-gn',
-    fn(){} // 调用方法A
-  }
-];
+  js: `const arr = [{
+  name:'xxx' // 方法识别
+  icon: 'nui-icon-home',
+  label: '菜单A ',
+  cls: 'color-gn'}];
 const pos = {
-  top: e.clientY,
-  left: e.clientX,
+  top:e.clientY,
+  left:e.clientX
 };
-// line<false|true> 行模式
-this.$Nui.menu(arr,pos,line);`
+// line行模式
+this.$Nui.menu(arr,pos,line)
+  .then((name)=>{
+    if (!name){}// 取消
+  });`
 };
-const load = {
-  js: `async loadToPro(type){
+
+const load = {js: `async loadToPro(type){
     // 异步方法返回实例 等待呈现动画
     const Pro = await this.$Nui.loadPro({
       sz: 120,       // 尺寸
@@ -71,7 +71,7 @@ const load = {
     // 强制完成回调
     Pro.hide(100,'设置100并关闭').then(()=>{});
 }`,
-  am: `loadAm(){
+am: `loadAm(){
   // 节流 默认 500 毫秒
   this.$Nui.loadAm.dee(true);
   this.$Nui.loadAm.dee(false);
@@ -81,9 +81,7 @@ const load = {
   // 直接显示
   this.$Nui.loadAm.show();
   this.$Nui.loadAm.hide();
-}
-`
-};
+}`};
 
 const tip = {
   html: `<!-- 方向 lt|rt|tp 尺寸 w|h -->
@@ -93,9 +91,9 @@ const tip = {
 </nui-tip>`
 };
 const pop = {
-  html: `<!-- 尺寸 w|h $ref.pop.show(e)-->
-<nui-pop :h="100" :w="210" ref="pop">
-  <!-- 弹出内容-->
+  html: `<!-- $ref.pop.[open(e)|close()]-->
+<nui-pop ref="pop" :h="100" :w="210"
+@open="" @close="">
 </nui-pop>`
 };
 

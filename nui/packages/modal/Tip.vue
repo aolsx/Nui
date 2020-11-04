@@ -5,7 +5,7 @@
     <slot name="in" />
     <div
       class="nui-tip"
-      :class="{'--l':lt,'--r':rt,'--t':tp}"
+      :class="[{'--l':lt,'--r':rt,'--t':tp,'--ws':w},$attrs.class]"
       :style="{width:w+'px',height:h+'px'}">
       <div class="nui-tip-body">
         <slot />
@@ -18,6 +18,7 @@
 // @focusin @mousedown
 export default {
   name: 'NuiTip',
+  inheritAttrs: false,
   props: {
     lt: Boolean,
     rt: Boolean,
@@ -30,6 +31,6 @@ export default {
       type: Number,
       default: null
     }
-  },
+  }
 };
 </script>
