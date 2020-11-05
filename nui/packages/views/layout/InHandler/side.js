@@ -105,16 +105,13 @@ export class NuiLayoutSdMouse{
 }
 
 const Basic = {
-  getEleVueTest(el){
-    const on_vue = el._vei?.on_vue || el.parentElement?._vei?.on_vue;
-    if (!on_vue){
-      console.log(el);
-    }
-    return on_vue.value();
-  },
   getEleVue(el){
-    this.getEleVueTest(el);
-    return el.__vueParentComponent;
+    const on_vue = el._vei?.on_vue || el.parentElement?._vei?.on_vue;
+    // if (!on_vue){
+    //   console.log(el);
+    // }
+    // return el.__vueParentComponent;
+    return on_vue.value();
   },
   getEleVNodeKey(el){
     // @_nodeKey="()=>[tk,k]"
@@ -125,7 +122,7 @@ const Basic = {
     }
   },
   getEleVNode(el){
-    this.getEleVNodeKey(el);
+    // this.getEleVNodeKey(el);
     return el.__vnode;
   },
   getElePos(el){
@@ -166,12 +163,13 @@ const Basic = {
 
 const ClickSide = {
   clickTab(el,aTab,pm){
-    const $G = Basic.getEleVue(el);
+    const $Gvue = Basic.getEleVue(el);
+    const _Gid = $Gvue.$.uid;
     const TabsNode = Basic.getEleVNode(el.parentElement);
     const TabNode = Basic.getEleVNode(el);
     const pos = Basic.getElePos(el);
     let tokey = TabNode.key;
-    if ($G.uid === aTab.gid && TabsNode.key === aTab.pkey){
+    if (_Gid === aTab.gid && TabsNode.key === aTab.pkey){
       // '忽略自身'
       if (tokey === aTab.key){
         return;
@@ -199,7 +197,7 @@ const ClickSide = {
     Basic.setArea(1,pos);
     return {
       fn: 'toTab',
-      gid: $G.uid,
+      gid: _Gid,
       pm: {
         tokey,
         pkey: TabsNode.key
@@ -207,10 +205,11 @@ const ClickSide = {
     };
   },
   clickTabs(el,aTab,pm){
-    const $G = Basic.getEleVue(el);
+    const $Gvue = Basic.getEleVue(el);
+    const _Gid = $Gvue.$.uid;
     const TabsNode = Basic.getEleVNode(el);
     const before = pm.min && pm.y < 16 ? 1 : 0;
-    if ($G.uid === aTab.gid && TabsNode.key === aTab.pkey){
+    if (_Gid === aTab.gid && TabsNode.key === aTab.pkey){
       if ((!pm.min && aTab.last) || (pm.min && (before && aTab.key === 0) || (!before && aTab.last))){
         return;
       }
@@ -237,7 +236,7 @@ const ClickSide = {
     Basic.setArea(1,pos);
     return {
       fn: 'toTabs',
-      gid: $G.uid,
+      gid: _Gid,
       pm: {
         before,
         tokey: TabsNode.key
@@ -245,14 +244,15 @@ const ClickSide = {
     };
   },
   clickPanel(el,aTab,pm){
-    const $G = Basic.getEleVue(el);
+    const $Gvue = Basic.getEleVue(el);
+    const _Gid = $Gvue.$.uid;
     const imNode = Basic.getEleVNode(el.parentElement);
     const pkey = imNode.key;
     const pos = Basic.getElePos(el);
     const trH = pos.height * .4;
     const isDown = pm.y > trH ? 1 : 0;
     // 独苗上紧邻下 忽略 || !isDown && pkey === aTab.pkey + 1
-    if ($G.uid === aTab.gid && aTab.only && (pkey === aTab.pkey || isDown && pkey === aTab.pkey - 1)){
+    if (_Gid === aTab.gid && aTab.only && (pkey === aTab.pkey || isDown && pkey === aTab.pkey - 1)){
       return;
     }
     if (isDown){
@@ -262,7 +262,7 @@ const ClickSide = {
     Basic.setArea(1,pos);
     return {
       fn: 'toItem',
-      gid: $G.uid,
+      gid: _Gid,
       pm: {
         isDown,
         tokey: pkey
@@ -271,9 +271,10 @@ const ClickSide = {
   },
   clickItem(el,aTab,pm){
     // 同组独苗忽略
-    const $G = Basic.getEleVue(el);
+    const $Gvue = Basic.getEleVue(el);
+    const _Gid = $Gvue.$.uid;
     const imNode = Basic.getEleVNode(el);
-    if ($G.uid === aTab.gid && aTab.only && imNode.key === aTab.pkey){
+    if (_Gid === aTab.gid && aTab.only && imNode.key === aTab.pkey){
       return;
     }
     const pos = Basic.getElePos(el);
@@ -285,7 +286,7 @@ const ClickSide = {
     Basic.setArea(1,pos);
     return {
       fn: 'toItem',
-      gid: $G.uid,
+      gid: _Gid,
       pm: {
         isDown,
         tokey: imNode.key
@@ -293,7 +294,8 @@ const ClickSide = {
     };
   },
   clickSide(el,aTab,pm){
-    const $G = Basic.getEleVue(el);
+    const $Gvue = Basic.getEleVue(el);
+    const _Gid = $Gvue.$.uid;
     const pos = Basic.getElePos(el);
     const root = pm.root;
     if (root){
@@ -302,7 +304,7 @@ const ClickSide = {
       Basic.setArea(1,pos);
       return {
         fn: 'toSide',
-        gid: $G.uid,
+        gid: _Gid,
         pm: {root}
       };
     } else {
@@ -315,10 +317,10 @@ const ClickSide = {
       Basic.setArea(1,pos);
       return {
         fn: 'toSide',
-        gid: $G.uid,
+        gid: _Gid,
         pm: {
           isDown,
-          tokey: $G.vnode.key
+          tokey: $Gvue.$.vnode.key
         }
       };
     }
@@ -327,12 +329,12 @@ const ClickSide = {
 
 const ToSide = {
   toTab(tab,$G,pm){
-    const col = $G.ctx.group.cols[pm.pkey].col;
+    const col = $G.group.cols[pm.pkey].col;
     col.active = tab;
     col.tabs.splice(pm.tokey,0,tab);
   },
   toTabs(tab,$G,pm){
-    const col = $G.ctx.group.cols[pm.tokey].col;
+    const col = $G.group.cols[pm.tokey].col;
     col.active = tab;
     if (pm.before){
       col.tabs.unshift(tab);
@@ -341,7 +343,7 @@ const ToSide = {
     }
   },
   toItem(tab,$G,pm,pos){
-    const cols = $G.ctx.group.cols;
+    const cols = $G.group.cols;
     const newCol = {
       col: {active: tab,tabs: [tab]},
       pos: {...pos}
@@ -369,9 +371,9 @@ const ToSide = {
       }
     };
     if (pm.root){
-      $G.ctx.layout.push(newCols);
+      $G.layout.push(newCols);
     } else {
-      $G.parent.ctx.layout.splice(pm.tokey + pm.isDown,0,newCols);
+      $G.$parent.layout.splice(pm.tokey + pm.isDown,0,newCols);
     }
   },
   toFloat(tab,tl,pos){
@@ -427,7 +429,7 @@ const ResetSide = {
   },
   // 重置浮动面板POS
   floatPos($G){
-    const g = $G.ctx.group;
+    const g = $G.group;
     const {minH,minMinH} = Basic.getMinH(null,g.cols);
     const acH = g.pos.min ? minMinH : minH;
     if (g.pos.h < acH){
@@ -438,20 +440,22 @@ const ResetSide = {
 
 export class NuiLayoutSdDrag{
   constructor(el){
-    const $G = Basic.getEleVue(el);
-    const $Root = $G.parent;
+    const $Gvue = Basic.getEleVue(el);
+    const _Gid = $Gvue.$.uid;
+    const $Root = $Gvue.$parent;
+    console.log($Root);
     const TabsNode = Basic.getEleVNode(el.parentElement);
     const TabNode = Basic.getEleVNode(el);
     const pkey = TabsNode.key;
     const key = TabNode.key;
-    const g = $G.ctx.group;
+    const g = $Gvue.group;
     const Cols = g.cols[pkey];
     const Tabslen = Cols.col.tabs.length;
     let area;
-    if ($Root.type.name === 'InSidebarFloat'){
+    if ($Root.$options.name === 'InSidebarFloat'){
       area = 'float';
     } else {
-      area = $Root.ctx.left ? 'left' : 'right';
+      area = $Root.left ? 'left' : 'right';
     }
     this.Tab = {
       area,
@@ -459,8 +463,8 @@ export class NuiLayoutSdDrag{
       pkey,
       last: Tabslen === key + 1,
       only: Tabslen === 1,
-      gid: $G.uid,
-      // gkey: $G.vnode.key,
+      gid: _Gid,
+      // gkey: $Gxx.$.vnode.key,
     };
     this.Cols = Cols;
     this.toObj = null;
@@ -551,13 +555,14 @@ export class NuiLayoutSdDrag{
       ToSide.toFloat(tab,{t: e.clientY,l: e.clientX},this.Cols.pos);
       ResetSide.delNull(this.Tab.area);
     } else {
-      const $G = Basic.getEleVue(e.target);
-      if (To.gid === $G.uid){
+      const $Gvue = Basic.getEleVue(e.target);
+      const _Gid = $Gvue.$.uid;
+      if (To.gid === _Gid){
         // 放置
-        ToSide[To.fn](tab,$G,To.pm,this.Cols.pos);
+        ToSide[To.fn](tab,$Gvue,To.pm,this.Cols.pos);
         ResetSide.delNull(this.Tab.area);
-        if ($G.parent.ctx.floatRoot){
-          ResetSide.floatPos($G);
+        if ($Gvue.$parent.floatRoot){
+          ResetSide.floatPos($Gvue);
         }
       }
     }

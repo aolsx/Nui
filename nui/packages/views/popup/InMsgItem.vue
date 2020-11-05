@@ -1,5 +1,7 @@
 <template>
-  <div class="nui-msg-item">
+  <div
+    class="nui-msg-item"
+    @_startTime="startTime">
     <div
       class="nui-msg-body"
       :class="`${params.color}`"

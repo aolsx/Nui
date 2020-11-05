@@ -1,5 +1,7 @@
 <template>
-  <div class="nui-lut-float">
+  <div
+    v-if="layout.length"
+    class="nui-lut-float">
     <div
       v-for="(g,k) in layout"
       :key="k"
@@ -37,9 +39,9 @@ export default {
       // required: true
     },
   },
-  created(){
-    this.floatRoot = true;
-    this.mods = Handler.GetMod();
+  setup(){
+    const mods = Handler.GetMod();
+    return {floatRoot: true,mods};
   },
   methods: {
     colSize(e,ve,curIndex){

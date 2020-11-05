@@ -1,7 +1,9 @@
 <template>
   <div
     id="ToPppDbs"
-    class="nui-app-ppp-debris">
+    class="nui-app-ppp-debris"
+    @_bindRolling="bindRolling"
+    @_bindDestroy="bindDestroy">
     <in-menu />
   </div>
 </template>
@@ -21,7 +23,7 @@ export default {
     },
     bindDestroy(){
       document.onwheel = null;
-    },
+    }
   },
 };
 </script>

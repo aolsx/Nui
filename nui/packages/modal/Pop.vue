@@ -73,7 +73,7 @@ export default {
       this.isOpen = true;
       this.$nextTick(()=>{
         if (this.isOpen){
-          this.$refs.pop.parentElement?.__vueParentComponent?.ctx.bindRolling();
+          this.$refs.pop.parentElement._vei?.on_bindRolling?.value();
           this.$refs.pop.focus();
           this.isInFocus = false;
           this._checkPos(pos.top);
@@ -83,7 +83,7 @@ export default {
     },
     close(){
       if (this.isOpen){
-        this.$refs.pop?.parentElement?.__vueParentComponent?.ctx.bindDestroy();
+        this.$refs.pop.parentElement._vei?.on_bindDestroy?.value();
         this.isOpen = false;
         this.$emit('close');
       }

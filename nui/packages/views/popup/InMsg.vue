@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     startTime(e){
-      e.__vueParentComponent.ctx.startTime();
+      e._vei.on_startTime.value();
     },
     eveDel(id){
       const i = this.msgArr.findIndex((o)=>o.id == id);
