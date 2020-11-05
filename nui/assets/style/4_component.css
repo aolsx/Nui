@@ -50,6 +50,8 @@
 .nui-tree.--line .nui-tree-nodes.--open > hr{display:block;}
 
 /* 拖放排序 .--drag */
+.nui-tree.--drag .nui-tree-item *{pointer-events:none;}
+
 .nui-tree.--drag ul:after,
 .nui-tree.--drag ul:before,
 .nui-tree.--drag .nui-tree-item:before{position:absolute;left:0;width:100%;content:'';}

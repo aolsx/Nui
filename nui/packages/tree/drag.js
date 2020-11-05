@@ -1,10 +1,13 @@
 const Basic = {
   getEleVue(el){
-    return el.__vueParentComponent;
+    if (el._vueGet){
+      return el._vueGet();
+    }
+    return el.parentElement._vueGet();
   },
-  getEleVNode(el){
-    return el.__vnode;
-  },
+  // getEleVNode(el){
+  //   return el.__vnode;
+  // },
 };
 class NuiTreeDrag{
   constructor(ele,rootEle,child){

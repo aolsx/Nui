@@ -1,22 +1,20 @@
 <template>
-  <li
-    v-if="item[p_child]"
-    class="nui-tree-nodes"
-    :class="isOpen&&'--open'">
+  <li :class="c_class">
     <hr>
     <div
       tabindex="-1"
       class="nui-tree-item"
       draggable="true"
-      @click.stop.prevent="isOpen=!isOpen,p_open(item)">
+      @click.stop.prevent="eveClick()">
       <i
+        v-if="!c_notChild"
         class="nui-tree-arrow"
         :class="`nui-icon-angle-${isOpen?'down':'right'}`" />
-      <span @contextmenu.stop.prevent="rclick">
+      <span @contextmenu.stop.prevent="eveRclick">
         <i
           v-if="item.icon"
           :class="item.icon" />
-        <ins>{{ item.label || item.to }}</ins>
+        <ins>{{ item.label }}</ins>
       </span>
     </div>
     <ul
@@ -27,21 +25,6 @@
         :key="k"
         :item="im" />
     </ul>
-  </li>
-  <li v-else>
-    <hr>
-    <div
-      tabindex="-1"
-      class="nui-tree-item"
-      draggable="true"
-      @click.stop.prevent="p_click(item)">
-      <span @contextmenu.stop.prevent="rclick">
-        <i
-          v-if="item.icon"
-          :class="item.icon" />
-        <ins>{{ item.label || item.to }}</ins>
-      </span>
-    </div>
   </li>
 </template>
 <script>
@@ -59,8 +42,34 @@ export default {
       isOpen: this.item.open || false
     };
   },
+  computed: {
+    c_notChild(){
+      return !this.item[this.p_child];
+    },
+    c_class(){
+      if (this.c_notChild){
+        return null;
+      }
+      return ['nui-tree-nodes',{'--open': this.isOpen}];
+    }
+  },
+  created(){
+    this.$nextTick(()=>{
+      this.$el._vueGet = ()=>this.$;
+      this.$el.children[1]._vueGet = ()=>this.$;
+      this.$el.children[1]._dragType = this.dragType;
+    });
+  },
   methods: {
-    rclick(e){
+    eveClick(){
+      if (this.c_notChild){
+        this.p_click(this.item);
+      } else {
+        this.isOpen = !this.isOpen;
+        this.p_open(this.item);
+      }
+    },
+    eveRclick(e){
       const ptArr = this.$parent.tree || this.$parent.item[this.p_child];
       this.p_rclick({
         ptArr,

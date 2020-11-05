@@ -31,13 +31,13 @@ export default {
       },
       p_rclick: (ptObj)=>{
         this.$emit('rclick',ptObj);
-      },
+      }
     };
   },
   props: {
     dragType: {
       type: String,
-      default: ''
+      default: 'tree'
     },
     child: {
       type: String,
@@ -54,6 +54,11 @@ export default {
     }
   },
   emits: ['click','open','rclick'],
+  created(){
+    this.$nextTick(()=>{
+      this.$el._vueGet = ()=>this.$;
+    });
+  },
   methods: {
     eveDragstart(e){
       TreedragFn(e.target,this.$el,this.child);
