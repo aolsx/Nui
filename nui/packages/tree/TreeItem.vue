@@ -1,10 +1,14 @@
 <template>
-  <li :class="c_class">
+  <li
+    :class="c_class"
+    @_vue="()=>this">
     <hr>
     <div
       tabindex="-1"
       class="nui-tree-item"
       draggable="true"
+      @_vue="()=>this"
+      @_dragType="()=>dragType"
       @click.stop.prevent="eveClick()">
       <i
         v-if="!c_notChild"
@@ -52,13 +56,6 @@ export default {
       }
       return ['nui-tree-nodes',{'--open': this.isOpen}];
     }
-  },
-  created(){
-    this.$nextTick(()=>{
-      this.$el._vueGet = ()=>this;
-      this.$el.children[1]._vueGet = ()=>this;
-      this.$el.children[1]._dragType = this.dragType;
-    });
   },
   methods: {
     eveClick(){

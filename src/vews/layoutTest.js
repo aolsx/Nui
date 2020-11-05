@@ -35,12 +35,12 @@ const sidebar = {
     {
       pos: {
         min: false,
-        w: 120,
+        w: 220,
       },
       cols: [
         {
           pos: {
-            flex: .7,
+            flex: .4,
             w: 200,
             h: 300
           },
@@ -51,7 +51,18 @@ const sidebar = {
         },
         {
           pos: {
-            flex: .3,
+            flex: .4,
+            w: 200,
+            h: 300
+          },
+          col: {
+            active: 'test1',
+            tabs: ['test1']
+          }
+        },
+        {
+          pos: {
+            flex: .4,
             w: 200,
             h: 300
           },
@@ -68,12 +79,12 @@ const sidebar = {
     {
       pos: {
         min: false,
-        w: 120,
+        w: 200,
       },
       cols: [
         {
           pos: {
-            flex: .7,
+            flex: .3,
             w: 200,
             h: 300
           },
@@ -84,7 +95,7 @@ const sidebar = {
         },
         {
           pos: {
-            flex: .3,
+            flex: .7,
             w: 200,
             h: 300
           },

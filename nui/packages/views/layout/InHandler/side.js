@@ -522,7 +522,6 @@ export class NuiLayoutSdDrag{
     if (!this.toObj){
       return;
     }
-    const $G = Basic.getEleVue(e.target);
     const To = this.toObj;
     // 标记删除
     const col = this.Cols.col;
@@ -535,12 +534,15 @@ export class NuiLayoutSdDrag{
     if (To === 'float'){
       ToSide.toFloat(tab,{t: e.clientY,l: e.clientX},this.Cols.pos);
       ResetSide.delNull(this.Tab.area);
-    } else if (To.gid === $G.uid){
-      // 放置
-      ToSide[To.fn](tab,$G,To.pm,this.Cols.pos);
-      ResetSide.delNull(this.Tab.area);
-      if ($G.parent.ctx.floatRoot){
-        ResetSide.floatPos($G);
+    } else {
+      const $G = Basic.getEleVue(e.target);
+      if (To.gid === $G.uid){
+        // 放置
+        ToSide[To.fn](tab,$G,To.pm,this.Cols.pos);
+        ResetSide.delNull(this.Tab.area);
+        if ($G.parent.ctx.floatRoot){
+          ResetSide.floatPos($G);
+        }
       }
     }
     // 保存

@@ -27,8 +27,9 @@ export default {
       // required: true
     }
   },
-  created(){
-    this.mods = Handler.GetMod();
+  setup(){
+    const mods = Handler.GetMod();
+    return {mods};
   },
   methods: {
     colSize(e,ve,curIndex){
@@ -46,6 +47,6 @@ export default {
     dragStart(e){
       Handler.SdDragDrop(e.target);
     },
-  },
+  }
 };
 </script>

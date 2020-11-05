@@ -2,6 +2,7 @@
   <div
     class="nui-tree"
     :class="line&&'--line'"
+    @_vue="()=>this"
     @dragstart.stop="sort && eveDragstart($event)">
     <ul tabindex="-1">
       <in-tree-item
@@ -54,11 +55,6 @@ export default {
     }
   },
   emits: ['click','open','rclick'],
-  created(){
-    this.$nextTick(()=>{
-      this.$el._vueGet = ()=>this;
-    });
-  },
   methods: {
     eveDragstart(e){
       TreedragFn(e.target,this.$el,this.child);
