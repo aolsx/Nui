@@ -105,11 +105,27 @@ export class NuiLayoutSdMouse{
 }
 
 const Basic = {
-  // 百分比单位转换
+  getEleVueTest(el){
+    const on_vue = el._vei?.on_vue || el.parentElement?._vei?.on_vue;
+    if (!on_vue){
+      console.log(el);
+    }
+    return on_vue.value();
+  },
   getEleVue(el){
+    this.getEleVueTest(el);
     return el.__vueParentComponent;
   },
+  getEleVNodeKey(el){
+    // @_nodeKey="()=>[tk,k]"
+    if (!el._vei || !el._vei.on_nodeKey){
+      console.log(el);
+    } else {
+      console.log(el._vei.on_nodeKey.value());
+    }
+  },
   getEleVNode(el){
+    this.getEleVNodeKey(el);
     return el.__vnode;
   },
   getElePos(el){

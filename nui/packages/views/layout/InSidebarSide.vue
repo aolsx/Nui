@@ -1,7 +1,8 @@
 <template>
   <div
     class="nui-lut-side"
-    :class="left?'--left':'--right'">
+    :class="left?'--left':'--right'"
+    @_vue="()=>this">
     <in-sd-group
       v-for="(g,k) in layout"
       :key="k"

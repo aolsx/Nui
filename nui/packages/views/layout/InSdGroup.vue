@@ -3,7 +3,8 @@
     class="nui-lut-group"
     tabIndex="-1"
     :class="min&&'--min'"
-    :style="`width:${group.pos.w}px`">
+    :style="`width:${group.pos.w}px`"
+    @_vue="()=>this">
     <div
       class="nui-lut-line"
       @mousedown.stop.prevent="$parent.colSizeSide($event,group.pos)" />
@@ -11,7 +12,8 @@
       v-for="(pt,k) in group.cols"
       :key="k"
       class="nui-lut-group-item"
-      :style="pt.pos.flex>1?`height:${pt.pos.flex}px`:`height:${pt.pos.flex*100}%`">
+      :style="pt.pos.flex>1?`height:${pt.pos.flex}px`:`height:${pt.pos.flex*100}%`"
+      @_vue="()=>this">
       <div
         v-if="k > 0"
         class="nui-lut-line"
@@ -19,7 +21,8 @@
       <div
         v-if="min"
         :key="k"
-        class="nui-lut-tabs-min">
+        class="nui-lut-tabs-min"
+        @_vue="()=>this">
         <div
           v-for="(tab,tk) in pt.col.tabs"
           :key="tk"
@@ -40,7 +43,8 @@
         :style="min&&`width:${pt.pos.w}px;height:${pt.pos.h}px`">
         <div
           :key="k"
-          class="nui-lut-tabs">
+          class="nui-lut-tabs"
+          @_vue="()=>this">
           <div
             v-for="(tab,tk) in pt.col.tabs"
             :key="tk"

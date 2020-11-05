@@ -4,7 +4,7 @@ const Basic = {
       return el._vei.on_vue.value();
     }
     return el.parentElement._vei.on_vue.value();
-  },
+  }
 };
 class NuiTreeDrag{
   constructor(ele,rootEle,child){
