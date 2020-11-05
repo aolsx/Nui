@@ -14,12 +14,12 @@ class NuiTreeDrag{
     this.childName = child;
     this.$RootEl = rootEle;
     const ve = Basic.getEleVue(ele);
-    const arr = ve.parent.ctx.tree || ve.parent.ctx.item[this.childName];
-    const key = ve.vnode.key;
+    const arr = ve.$parent.tree || ve.$parent.item[this.childName];
+    const key = ve.$.vnode.key;
     this.$ItemEl = ele;
     this.Item = {
-      uid: ve.uid,
-      pid: ve.parent.uid,
+      uid: ve.$.uid,
+      pid: ve.$parent.$.uid,
       last: arr.length === key + 1,
       key,
       arr,
@@ -67,7 +67,7 @@ class NuiTreeDrag{
     this.ToObj = null;
     // 排除自身
     const ve = Basic.getEleVue(ele);
-    if (ve.uid === this.Item.uid || ele.classList.contains("nui-tree")){
+    if (ve.$.uid === this.Item.uid || ele.classList.contains("nui-tree")){
       this.$ItemEl.focus();
       return;
     }
@@ -75,23 +75,23 @@ class NuiTreeDrag{
     // ul 插入元素内部最下 否则插入上
     this.ToObj = {
       down: ele.tagName === 'UL',
-      uid: ve.uid
+      uid: ve.$.uid
     };
   }
   eveDrop(ele){
     const ToVe = Basic.getEleVue(ele);
-    if (!this.ToObj || !ToVe || ToVe.uid !== this.ToObj.uid){
+    if (!this.ToObj || !ToVe || ToVe.$.uid !== this.ToObj.uid){
       return;
     }
     const im = this.Item.arr[this.Item.key];
     this.Item.arr[this.Item.key] = "NULL";
     // 主节点 或者 子节点
     if (this.ToObj.down){
-      const ToArr = ToVe.ctx.tree || ToVe.ctx.item[this.childName];
+      const ToArr = ToVe.tree || ToVe.item[this.childName];
       ToArr.push(im);
     } else {
-      const key = ToVe.vnode.key;
-      const ToArr = ToVe.parent.ctx.tree || ToVe.parent.ctx.item[this.childName];
+      const key = ToVe.$.vnode.key;
+      const ToArr = ToVe.$parent.tree || ToVe.$parent.item[this.childName];
       ToArr.splice(key,0,im);
     }
     const delK = this.Item.arr.findIndex(v=>v === 'NULL');

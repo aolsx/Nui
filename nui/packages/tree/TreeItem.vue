@@ -55,8 +55,8 @@ export default {
   },
   created(){
     this.$nextTick(()=>{
-      this.$el._vueGet = ()=>this.$;
-      this.$el.children[1]._vueGet = ()=>this.$;
+      this.$el._vueGet = ()=>this;
+      this.$el.children[1]._vueGet = ()=>this;
       this.$el.children[1]._dragType = this.dragType;
     });
   },

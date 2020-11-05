@@ -56,14 +56,14 @@ export default {
   emits: ['click','open','rclick'],
   created(){
     this.$nextTick(()=>{
-      this.$el._vueGet = ()=>this.$;
+      this.$el._vueGet = ()=>this;
     });
   },
   methods: {
     eveDragstart(e){
       TreedragFn(e.target,this.$el,this.child);
       // this.$emit('stor',item);
-    },
+    }
   },
 };
 </script>

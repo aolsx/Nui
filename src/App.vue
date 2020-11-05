@@ -12,7 +12,8 @@
 </template>
 <script>
 import {reactive} from 'vue';
-import layoutDatas from './vews/layout';
+// import layoutDatas from './vews/layout';
+import layoutDatas from './vews/layoutTest';
 export default {
   name: 'App',
   setup(){
