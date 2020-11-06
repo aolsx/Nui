@@ -113,17 +113,9 @@ const Basic = {
     // return el.__vueParentComponent;
     return on_vue.value();
   },
-  getEleVNodeKey(el){
+  getEleNodeKey(el){
     // @_nodeKey="()=>[tk,k]"
-    if (!el._vei || !el._vei.on_nodeKey){
-      console.log(el);
-    } else {
-      console.log(el._vei.on_nodeKey.value());
-    }
-  },
-  getEleVNode(el){
-    // this.getEleVNodeKey(el);
-    return el.__vnode;
+    return el._vei.on_nodeKey.value();
   },
   getElePos(el){
     return el.getBoundingClientRect().toJSON();
@@ -161,15 +153,23 @@ const Basic = {
   }
 };
 
-const ClickSide = {
+const ClickCallMatch = {
+  tab: 'clickTab',
+  tabmin: 'clickTab',
+  tabs: 'clickTabs',
+  tabsmin: 'clickTabs',
+  panel: 'clickPanel',
+  item: 'clickItem',
+  group: 'clickSide',
+  side: 'clickSide',
+};
+const ClickTarget = {
   clickTab(el,aTab,pm){
     const $Gvue = Basic.getEleVue(el);
     const _Gid = $Gvue.$.uid;
-    const TabsNode = Basic.getEleVNode(el.parentElement);
-    const TabNode = Basic.getEleVNode(el);
+    let [tokey,pkey] = Basic.getEleNodeKey(el);
     const pos = Basic.getElePos(el);
-    let tokey = TabNode.key;
-    if (_Gid === aTab.gid && TabsNode.key === aTab.pkey){
+    if (_Gid === aTab.gid && pkey === aTab.pkey){
       // '忽略自身'
       if (tokey === aTab.key){
         return;
@@ -200,16 +200,16 @@ const ClickSide = {
       gid: _Gid,
       pm: {
         tokey,
-        pkey: TabsNode.key
+        pkey
       }
     };
   },
   clickTabs(el,aTab,pm){
     const $Gvue = Basic.getEleVue(el);
     const _Gid = $Gvue.$.uid;
-    const TabsNode = Basic.getEleVNode(el);
+    const [tokey] = Basic.getEleNodeKey(el.parentElement);
     const before = pm.min && pm.y < 16 ? 1 : 0;
-    if (_Gid === aTab.gid && TabsNode.key === aTab.pkey){
+    if (_Gid === aTab.gid && tokey === aTab.pkey){
       if ((!pm.min && aTab.last) || (pm.min && (before && aTab.key === 0) || (!before && aTab.last))){
         return;
       }
@@ -239,20 +239,19 @@ const ClickSide = {
       gid: _Gid,
       pm: {
         before,
-        tokey: TabsNode.key
+        tokey
       }
     };
   },
   clickPanel(el,aTab,pm){
     const $Gvue = Basic.getEleVue(el);
     const _Gid = $Gvue.$.uid;
-    const imNode = Basic.getEleVNode(el.parentElement);
-    const pkey = imNode.key;
+    const [tokey] = Basic.getEleNodeKey(el);
     const pos = Basic.getElePos(el);
     const trH = pos.height * .4;
     const isDown = pm.y > trH ? 1 : 0;
     // 独苗上紧邻下 忽略 || !isDown && pkey === aTab.pkey + 1
-    if (_Gid === aTab.gid && aTab.only && (pkey === aTab.pkey || isDown && pkey === aTab.pkey - 1)){
+    if (_Gid === aTab.gid && aTab.only && (tokey === aTab.pkey || isDown && tokey === aTab.pkey - 1)){
       return;
     }
     if (isDown){
@@ -265,7 +264,7 @@ const ClickSide = {
       gid: _Gid,
       pm: {
         isDown,
-        tokey: pkey
+        tokey
       }
     };
   },
@@ -273,8 +272,8 @@ const ClickSide = {
     // 同组独苗忽略
     const $Gvue = Basic.getEleVue(el);
     const _Gid = $Gvue.$.uid;
-    const imNode = Basic.getEleVNode(el);
-    if (_Gid === aTab.gid && aTab.only && imNode.key === aTab.pkey){
+    const [tokey] = Basic.getEleNodeKey(el);
+    if (_Gid === aTab.gid && aTab.only && tokey === aTab.pkey){
       return;
     }
     const pos = Basic.getElePos(el);
@@ -289,7 +288,7 @@ const ClickSide = {
       gid: _Gid,
       pm: {
         isDown,
-        tokey: imNode.key
+        tokey
       }
     };
   },
@@ -443,11 +442,7 @@ export class NuiLayoutSdDrag{
     const $Gvue = Basic.getEleVue(el);
     const _Gid = $Gvue.$.uid;
     const $Root = $Gvue.$parent;
-    console.log($Root);
-    const TabsNode = Basic.getEleVNode(el.parentElement);
-    const TabNode = Basic.getEleVNode(el);
-    const pkey = TabsNode.key;
-    const key = TabNode.key;
+    const [key,pkey] = Basic.getEleNodeKey(el);
     const g = $Gvue.group;
     const Cols = g.cols[pkey];
     const Tabslen = Cols.col.tabs.length;
@@ -506,37 +501,19 @@ export class NuiLayoutSdDrag{
   eveDragenter(e){
     Basic.setArea(0);
     this.toObj = null;
-    const list = e.target.classList;
-    const pm = {
-      x: e.offsetX,
-      y: e.offsetY,
-    };
-    let clickFn;
-    if (list.contains('nui-lut-tab')){
-      clickFn = 'clickTab';
-    } else if (list.contains('nui-lut-tabs')){
-      clickFn = 'clickTabs';
-    } else if (list.contains('nui-lut-tab-min')){
-      clickFn = 'clickTab';
+    const lutype = e.target.attributes.lutype?.value;
+    if (!lutype){
+      this.toObj = 'float';
+      return;
+    }
+    const pm = {x: e.offsetX,y: e.offsetY};
+    if (lutype === 'tabmin' || lutype === 'tabsmin'){
       pm.min = true;
-    } else if (list.contains('nui-lut-tabs-min')){
-      clickFn = 'clickTabs';
-      pm.min = true;
-    } else if (list.contains('nui-lut-panel')){
-      clickFn = 'clickPanel';
-    } else if (list.contains('nui-lut-group-item')){
-      clickFn = 'clickItem';
-    } else if (list.contains('nui-lut-group')){
-      clickFn = 'clickSide';
-    } else if (list.contains('nui-lut-side')){
-      clickFn = 'clickSide';
+    } else if (lutype === 'side'){
       pm.root = true;
     }
-    if (clickFn){
-      this.toObj = ClickSide[clickFn](e.target,this.Tab,pm);
-    } else {
-      this.toObj = 'float';
-    }
+    const fn = ClickCallMatch[lutype];
+    this.toObj = ClickTarget[fn](e.target,this.Tab,pm);
   }
   eveDrop(e){
     if (!this.toObj){

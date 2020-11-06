@@ -1,6 +1,7 @@
 <template>
   <div
     class="nui-lut-group"
+    lutype="group"
     tabIndex="-1"
     :class="{'--min':min,'--right':floatRt}"
     @_vue="()=>this">
@@ -8,7 +9,9 @@
       v-for="(pt,k) in group.cols"
       :key="k"
       class="nui-lut-group-item"
+      lutype="item"
       :style="pt.pos.flex>1?`height:${pt.pos.flex}px`:`height:${pt.pos.flex*100}%`"
+      @_nodeKey="()=>[k]"
       @_vue="()=>this">
       <div
         v-if="k > 0"
@@ -16,16 +19,18 @@
         @mousedown.prevent="$parent.colSize($event,this,k)" />
       <div
         v-if="min"
-        :key="k"
         class="nui-lut-tabs-min"
-        @dragstart.stop="$parent.dragStart($event)"
-        @_vue="()=>this">
+        lutype="tabsmin"
+        @_vue="()=>this"
+        @dragstart.stop="$parent.dragStart($event)">
         <div
           v-for="(tab,tk) in pt.col.tabs"
           :key="tk"
           class="nui-lut-tab-min"
+          lutype="tabmin"
           draggable="true"
           :class="minAc==k&&pt.col.active==tab&&'--active'"
+          @_nodeKey="()=>[tk,k]"
           @click.stop="clickMin(k,pt,tab)"
           @dragstart.stop="$parent.dragStart($event)">
           <i
@@ -36,18 +41,22 @@
       </div>
       <div
         class="nui-lut-panel"
+        lutype="panel"
         :class="min&&minAc==k&&'--active'"
-        :style="min&&`width:${pt.pos.w}px;height:${pt.pos.h}px`">
+        :style="min&&`width:${pt.pos.w}px;height:${pt.pos.h}px`"
+        @_nodeKey="()=>[k]">
         <div
-          :key="k"
           class="nui-lut-tabs"
+          lutype="tabs"
           @_vue="()=>this">
           <div
             v-for="(tab,tk) in pt.col.tabs"
             :key="tk"
             class="nui-lut-tab"
+            lutype="tab"
             draggable="true"
             :class="pt.col.active==tab&&'--active'"
+            @_nodeKey="()=>[tk,k]"
             @click.stop="pt.col.active=tab"
             @dragstart.stop="$parent.dragStart($event)">
             <i

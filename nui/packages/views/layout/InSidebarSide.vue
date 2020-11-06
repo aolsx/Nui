@@ -1,6 +1,7 @@
 <template>
   <div
     class="nui-lut-side"
+    lutype="side"
     :class="left?'--left':'--right'"
     @_vue="()=>this">
     <in-sd-group
