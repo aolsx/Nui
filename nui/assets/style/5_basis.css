@@ -144,7 +144,10 @@ i + ins, i + .-eps{margin-left:.25em;}
 /* 全小写 */
 .tt-cs{text-transform:lowercase;}
 /* 文字可选中 caret-color: red; */
-.tt-copy{cursor:copy;user-select:all;transition:color .2s, background-color .25s;}
+
+.tt-copy{cursor:copy;user-select:all;pointer-events:auto;}
+.tt-copy::selection{color:inherit;background-color:inherit;}
+.tt-copy:active::selection{color:var(--white-dk);background-color:var(--sky-o5);}
 
 /* 全局常用 */
 .-link{cursor:pointer;}
