@@ -1,4 +1,3 @@
-import {reactive} from 'vue';
 // toRefs
 const mods = {
   test1: {
@@ -109,8 +108,110 @@ const sidebar = {
     }
   ]
 };
-
+// 嵌套布局
+const nested = {
+  vertical: false,
+  pos: {
+    flex: 1
+  },
+  cols: [
+    {
+      pos: {
+        flex: .3
+      },
+      cols: [
+        {
+          pos: {
+            flex: .3
+          },
+          col: {
+            active: 'test1',
+            tabs: ['test1']
+          }
+        },
+        {
+          pos: {
+            flex: .3
+          },
+          col: {
+            active: 'test1',
+            tabs: ['test1','test2','test4']
+          }
+        },
+        {
+          pos: {
+            flex: .4
+          },
+          col: {
+            active: 'test3',
+            tabs: ['test3','test2']
+          }
+        },
+      ]
+    },
+    {
+      pos: {
+        flex: .5
+      },
+      cols: [
+        {
+          pos: {
+            flex: .2
+          },
+          col: {
+            active: 'test3',
+            tabs: ['test3','test4','test1']
+          }
+        },
+        {
+          pos: {
+            flex: .5
+          },
+          col: {
+            active: 'test3',
+            tabs: ['test3','test2','test1']
+          }
+        },
+        {
+          pos: {
+            flex: .3
+          },
+          col: {
+            active: 'test3',
+            tabs: ['test3','test4']
+          }
+        },
+      ]
+    },
+    {
+      pos: {
+        flex: .2
+      },
+      cols: [
+        {
+          pos: {
+            flex: .3
+          },
+          col: {
+            active: 'test1',
+            tabs: ['test1','test4']
+          }
+        },
+        {
+          pos: {
+            flex: .7
+          },
+          col: {
+            active: 'test2',
+            tabs: ['test2']
+          }
+        },
+      ]
+    },
+  ]
+};
 export default {
   mods,
-  sidebar
+  sidebar,
+  nested
 };

@@ -106,12 +106,8 @@ export class NuiLayoutSdMouse{
 
 const Basic = {
   getEleVue(el){
-    const on_vue = el._vei?.on_vue || el.parentElement?._vei?.on_vue;
-    // if (!on_vue){
-    //   console.log(el);
-    // }
-    // return el.__vueParentComponent;
-    return on_vue.value();
+    const onVue = el._vei?.on_vue || el.parentElement?._vei?.on_vue;
+    return onVue.value();
   },
   getEleNodeKey(el){
     // @_nodeKey="()=>[tk,k]"

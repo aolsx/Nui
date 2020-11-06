@@ -1,8 +1,10 @@
 <template>
   <div
     class="nui-lut-col"
+    lutype="col"
     :class="`${vertical?'--v':'--h'}${col?' --panel':''}`"
-    :style="c_style">
+    :style="c_style"
+    @_vue="()=>this">
     <template v-if="cols">
       <in-nested
         v-for="(im,key) in cols"
@@ -12,14 +14,20 @@
     </template>
     <div
       v-else
-      class="nui-lut-panel">
-      <div class="nui-lut-tabs">
+      class="nui-lut-panel"
+      lutype="panel">
+      <div
+        class="nui-lut-tabs"
+        lutype="tabs"
+        @_vue="()=>this">
         <div
           v-for="(tab,k) in c_modInfo"
           :key="k"
           class="nui-lut-tab"
+          lutype="tab"
           draggable="true"
           :class="col.active==tab.name&&'--active'"
+          @_nodeKey="()=>[k]"
           @click.stop="clickTab(tab.name)"
           @dragstart.stop="dragstart($event)">
           <i

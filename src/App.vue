@@ -13,13 +13,17 @@
 <script>
 import {reactive} from 'vue';
 // import layoutDatas from './vews/layout';
-import layoutDatas from './vews/layoutTest';
+import layoutDatasTest from './vews/layoutTest';
 export default {
   name: 'App',
   setup(){
     return {
-      layout: reactive(layoutDatas.sidebar),
-      mods: layoutDatas.mods,
+      // layout: reactive(layoutDatas.sidebar),
+      // mods: layoutDatas.mods,
+
+      // layout: reactive(layoutDatasTest.sidebar),
+      layout: reactive(layoutDatasTest.nested),
+      mods: layoutDatasTest.mods,
     };
   },
   methods: {

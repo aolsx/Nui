@@ -4,8 +4,14 @@ import {NuiLtState} from './state';
 const Basic = {
   // 百分比单位转换
   perToPx(total,cols){
+    // 可能存在剩余 补给最后一个
+    let dn = total;
     for (const col of cols){
       col.pos.flex = (col.pos.flex * total).toFixed(5) * 1;
+      dn -= col.pos.flex;
+    }
+    if (dn > 0){
+      cols[cols.length - 1].pos.flex += dn;
     }
   },
   pxToPer(total,cols){
@@ -14,10 +20,12 @@ const Basic = {
     }
   },
   getEleVue(el){
-    return el.__vueParentComponent;
+    const onVue = el._vei?.on_vue || el.parentElement?._vei?.on_vue;
+    return onVue.value();
   },
-  getEleVNode(el){
-    return el.__vnode;
+  getEleNodeKey(el){
+    // @_nodeKey="()=>[tk,k]"
+    return el._vei.on_nodeKey.value();
   },
   getElePos(el){
     return el.getBoundingClientRect().toJSON();
@@ -119,19 +127,19 @@ const ResetNested = {
 };
 // 嵌套 放置
 const ToNested = {
-  toTab(tab,$Col,pm){
-    const col = $Col.ctx.col;
+  toTab(tab,$Cve,pm){
+    const col = $Cve.col;
     col.active = tab;
     col.tabs.splice(pm.tokey,0,tab);
   },
-  toTabs(tab,$Col){
-    const col = $Col.ctx.col;
+  toTabs(tab,$Cve){
+    const col = $Cve.col;
     col.active = tab;
     col.tabs.push(tab);
   },
   // 重构插入
-  toInsert(tab,$Col,pm){
-    const cols = $Col.parent.ctx.cols;
+  toInsert(tab,$Cve,pm){
+    const cols = $Cve.$parent.cols;
     let flex = 0;
     for (const c of cols){
       const r = c.pos.flex * .2;
@@ -145,10 +153,10 @@ const ToNested = {
     cols.splice(pm.tokey + pm.isDown,0,newCol);
   },
   // 重构原地拆分
-  toSplit(tab,$Col,pm){
-    const cols = $Col.parent.ctx.cols;
-    const col = $Col.ctx.col;
-    const flex = $Col.ctx.pos.flex;
+  toSplit(tab,$Cve,pm){
+    const cols = $Cve.$parent.cols;
+    const col = $Cve.col;
+    const flex = $Cve.pos.flex;
     const newCol = {
       col: {active: tab,tabs: [tab]},
       pos: {flex: .5}
@@ -163,8 +171,8 @@ const ToNested = {
     };
     cols.splice(pm.tokey,1,newCols);
   },
-  toRoot(tab,$Col,pm){
-    const cols = $Col.ctx.cols;
+  toRoot(tab,$Cve,pm){
+    const cols = $Cve.cols;
     const newCol = {
       col: {active: tab,tabs: [tab]},
       pos: {flex: .2}
@@ -173,7 +181,7 @@ const ToNested = {
       cols: [...cols],
       pos: {flex: .8}
     };
-    $Col.parent.ctx.layout.vertical = !$Col.ctx.vertical;
+    $Cve.$parent.layout.vertical = !$Cve.vertical;
     if (pm.isDown){
       cols.splice(0,cols.length,oldCols,newCol);
     } else {
@@ -184,10 +192,10 @@ const ToNested = {
 // 嵌套 检查放置区域
 const ClickNested = {
   clickTab(el,aTab){
-    const $Col = Basic.getEleVue(el);
-    const TabNode = Basic.getEleVNode(el);
-    const isBrother = $Col.uid === aTab.cid;
-    let tokey = TabNode.key;
+    const $ColVe = Basic.getEleVue(el);
+    const cid = $ColVe.$.uid;
+    let [tokey] = Basic.getEleNodeKey(el);
+    const isBrother = cid === aTab.cid;
     // '忽略自身'
     if (isBrother && tokey === aTab.key){
       return;
@@ -205,14 +213,15 @@ const ClickNested = {
     Basic.setArea(1,pos);
     return {
       fn: 'toTab',
-      cid: $Col.uid,
+      cid,
       pm: {tokey}
     };
   },
   clickTabs(el,aTab){
-    const $Col = Basic.getEleVue(el);
+    const $ColVe = Basic.getEleVue(el);
+    const cid = $ColVe.$.uid;
     // 同组最后一个忽略
-    if ($Col.uid === aTab.cid && aTab.last){
+    if (cid === aTab.cid && aTab.last){
       return;
     }
     const pos = Basic.getElePos(el.lastElementChild);
@@ -223,24 +232,23 @@ const ClickNested = {
     Basic.setArea(1,pos);
     return {
       fn: 'toTabs',
-      cid: $Col.uid
+      cid
     };
   },
   clickPanel(el,aTab,e){
-    const $Col = Basic.getEleVue(el);
+    const $ColVe = Basic.getEleVue(el);
+    const cid = $ColVe.$.uid;
     // 同面板 独苗 忽略内拆
-    if ($Col.uid === aTab.cid && aTab.only){
+    if (cid === aTab.cid && aTab.only){
       return;
     }
-
-    const ckey = $Col.vnode.key;
-    const vc = $Col.ctx.vertical;
+    const ckey = $ColVe.$.vnode.key;
+    const vc = $ColVe.vertical;
     const pos = Basic.getElePos(el);
     const trH = pos.height * .4;
     const isDown = e.offsetY > trH ? 1 : 0;
-
     // 独苗上紧邻下 忽略 || !isDown && ckey === aTab.ckey + 1
-    if (aTab.only && $Col.parent.uid === aTab.csid && !vc && isDown && ckey === aTab.ckey - 1){
+    if (aTab.only && $ColVe.$parent.$.uid === aTab.csid && !vc && isDown && ckey === aTab.ckey - 1){
       return;
     }
     if (isDown){
@@ -248,20 +256,20 @@ const ClickNested = {
     }
     pos.height = trH;
     Basic.setArea(1,pos);
-
     return {
       fn: vc ? 'toSplit' : 'toInsert',
-      cid: $Col.uid,
+      cid,
       pm: {tokey: ckey,isDown}
     };
   },
   clickCol(el,aTab,e){
-    const $Col = Basic.getEleVue(el);
+    const $ColVe = Basic.getEleVue(el);
+    const cid = $ColVe.$.uid;
     const pos = Basic.getElePos(el);
-    const ckey = $Col.vnode.key;
-    const vc = $Col.ctx.vertical;
+    const tokey = $ColVe.$.vnode.key;
+    const vc = $ColVe.vertical;
     let isDown = e.offsetX > pos.width * .5 ? 1 : 0;
-    if ($Col.ctx.col || $Col.ctx.vertical){
+    if ($ColVe.col || $ColVe.vertical){
       pos.width = 10;
       if (isDown){
         pos.left = pos.right - 5;
@@ -270,16 +278,16 @@ const ClickNested = {
       }
     }
     // 左右
-    if ($Col.ctx.col){
+    if ($ColVe.col){
       // 同面板 独苗 忽略内拆
-      if (aTab.only && $Col.uid === aTab.cid || ($Col.parent.uid === aTab.csid && (isDown && ckey === aTab.ckey - 1 || !isDown && ckey === aTab.ckey + 1))){
+      if (aTab.only && cid === aTab.cid || ($ColVe.$parent.$.uid === aTab.csid && (isDown && tokey === aTab.ckey - 1 || !isDown && tokey === aTab.ckey + 1))){
         return;
       }
       Basic.setArea(1,pos);
       return {
         fn: !vc ? 'toSplit' : 'toInsert',
-        cid: $Col.uid,
-        pm: {tokey: ckey,isDown}
+        cid,
+        pm: {tokey,isDown}
       };
     }
     if (!vc){
@@ -289,29 +297,34 @@ const ClickNested = {
     }
     Basic.setArea(1,pos);
     return {
-      fn: $Col.ctx.root ? 'toRoot' : 'toInsert',
-      cid: $Col.uid,
-      pm: {tokey: ckey,isDown}
+      fn: $ColVe.root ? 'toRoot' : 'toInsert',
+      cid,
+      pm: {tokey,isDown}
     };
   }
 };
-
+const ClickCallMatch = {
+  tab: 'clickTab',
+  tabs: 'clickTabs',
+  panel: 'clickPanel',
+  col: 'clickCol'
+};
 // 嵌套 拖拽改变布局
 export class NuiLayoutNdDrag{
   constructor(el){
     // 拿到触发 Tab 各种参数
-    const $Col = Basic.getEleVue(el);
-    const TabNode = Basic.getEleVNode(el);
-    const Tabslen = $Col.ctx.col.tabs.length;
-    const key = TabNode.key;
-    this.Cols = $Col.ctx.col;
+    const $ColVe = Basic.getEleVue(el);
+    const [key] = Basic.getEleNodeKey(el);
+    const cid = $ColVe.$.uid;
+    const Tabslen = $ColVe.col.tabs.length;
+    this.Cols = $ColVe.col;
     this.Tab = {
       key,
       last: Tabslen === key + 1,
       only: Tabslen === 1,
-      cid: $Col.uid,
-      ckey: $Col.vnode.key,
-      csid: $Col.parent.uid
+      cid,
+      ckey: $ColVe.$.vnode.key,
+      csid: $ColVe.$parent.$.uid
     };
     this.toObj = null;
     this.bindingEve();
@@ -352,25 +365,19 @@ export class NuiLayoutNdDrag{
   eveDragenter(e){
     Basic.setArea(0);
     this.toObj = null;
-    const list = e.target.classList;
-    let clickFn;
-    if (list.contains('nui-lut-tab')){
-      clickFn = 'clickTab';
-    } else if (list.contains('nui-lut-tabs')){
-      clickFn = 'clickTabs';
-    } else if (list.contains('nui-lut-panel')){
-      clickFn = 'clickPanel';
-    } else if (list.contains('nui-lut-col')){
-      clickFn = 'clickCol';
+    const lue = e.target.attributes.lutype?.value;
+    if (!lue){
+      return;
     }
-    if (clickFn){
-      this.toObj = ClickNested[clickFn](e.target,this.Tab,e);
-    }
+    const clickFn = ClickCallMatch[lue];
+    this.toObj = ClickNested[clickFn](e.target,this.Tab,e);
   }
   eveDrop(e){
-    const $Col = Basic.getEleVue(e.target);
-    if (this.toObj && this.toObj.cid === $Col.uid){
-
+    if (!this.toObj){
+      return;
+    }
+    const $ColVe = Basic.getEleVue(e.target);
+    if (this.toObj.cid === $ColVe.$.uid){
       // 标记删除
       const tabs = this.Cols.tabs;
       const tab = tabs[this.Tab.key];
@@ -379,9 +386,8 @@ export class NuiLayoutNdDrag{
       if (this.Cols.active === tab){
         this.Cols.active = '';
       }
-
       // 放置
-      ToNested[this.toObj.fn](tab,$Col,this.toObj.pm);
+      ToNested[this.toObj.fn](tab,$ColVe,this.toObj.pm);
       // 重置布局
       ResetNested.check();
       // 保存
@@ -407,10 +413,8 @@ export class NuiLayoutColSize{
       // 最大锚点
       this.minEv = ptSize.left + curIndex * min.minW;
       this.maxEv = ptSize.right - (colsArr.length - curIndex) * min.minW;
-
       cursor = 'col-resize';
       ptv = ptSize.width;
-
       let oldX = e.clientX;
       document.onmousemove = (e)=>{
         const v = e.clientX;
@@ -421,10 +425,8 @@ export class NuiLayoutColSize{
       // 最大锚点
       this.minEv = ptSize.top + curIndex * min.minH;
       this.maxEv = ptSize.bottom - (colsArr.length - curIndex) * min.minH;
-
       cursor = 'row-resize';
       ptv = ptSize.height;
-
       let oldY = e.clientY;
       document.onmousemove = (e)=>{
         const v = e.clientY;
@@ -433,10 +435,8 @@ export class NuiLayoutColSize{
       };
     }
     Basic.perToPx(ptv,colsArr);
-
     document.body.style.cursor = cursor;
     document.body.classList.add('nui-drag-model');
-
     document.onmouseup = ()=>{
       Basic.pxToPer(ptv,this.colsArr);
       this.destroy();
