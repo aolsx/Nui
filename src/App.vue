@@ -12,18 +12,17 @@
 </template>
 <script>
 import {reactive} from 'vue';
-// import layoutDatas from './vews/layout';
-import layoutDatasTest from './vews/layoutTest';
+import layoutDatas from './vews/layout';
+// import layoutDatasTest from './vews/layoutTest';
 export default {
   name: 'App',
   setup(){
     return {
-      // layout: reactive(layoutDatas.sidebar),
-      // mods: layoutDatas.mods,
-
+      layout: reactive(layoutDatas.sidebar),
+      mods: layoutDatas.mods,
       // layout: reactive(layoutDatasTest.sidebar),
-      layout: reactive(layoutDatasTest.nested),
-      mods: layoutDatasTest.mods,
+      // layout: reactive(layoutDatasTest.nested),
+      // mods: layoutDatasTest.mods,
     };
   },
   methods: {
@@ -31,7 +30,7 @@ export default {
       this.$Nui.msg.i(type);
     },
     eveSave(){
-      this.$Nui.msg.s('触发保存 Save');
+      this.$Nui.msg.s('Lut Save');
     }
   }
 };
