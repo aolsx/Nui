@@ -2,6 +2,8 @@ import copy from './copy';
 import popup from './popup';
 import load from './load';
 import dee from './dee';
+import typeCall from "./typeCall";
+import lang from './lang';
 // navigator 浏览器对象
 
 // 常用方法
@@ -18,4 +20,6 @@ export default {
   dee,
   ...popup,
   ...load,
+  typeCall,
+  lang
 };
