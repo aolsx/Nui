@@ -78,9 +78,9 @@
 .nui-collapse{position:relative;color:var(--bl-dker);background-color:var(--atom-dks);}
 .nui-collapse-item + .nui-collapse-item{border-top:1px solid #0002;}
 .nui-collapse-head, .nui-collapse-head > div{display:flex;align-items:center;min-width:0;}
-.nui-collapse-head{justify-content:space-between;padding:5px 8px;cursor:pointer;color:var(--gy-dk);background-color:var(--atom-dk);}
+.nui-collapse-head{justify-content:space-between;padding:5px 8px;color:var(--gy-dk);background-color:var(--atom-dk);}
 .nui-collapse-head > div{flex:1;}
-.nui-collapse-head > i{width:2em;margin-right:-6px;text-align:center;color:var(--atom-lt);}
+.nui-collapse-head > i{width:2em;margin-right:-6px;text-align:center;color:var(--atom-lt);cursor:pointer;}
 .nui-collapse-head.--l > div{order:1;}
 .nui-collapse-head.--l > i{order:0;margin-right:0;margin-left:-7px;}
 
@@ -100,8 +100,8 @@
 .nui-btn:after{display:none;margin:1px;border:2px solid #000;}
 .nui-btn[class*="color"]:after{margin:0;opacity:.1;border:0;background-color:currentColor;}
 .nui-btn.--ac:after{display:block;}
-.nui-btn.--dd{pointer-events:none;color:var(--gy-dker);background-color:#fff1;}
-.nui-btn.--dd[class*="color"]{background-color:transparent;}
+.nui-btn.--dd{pointer-events:none;color:var(--gy-dker);}
+.nui-btn.--dd[class*="bg"]{background-color:#fff1;}
 .nui-btn:active{opacity:.8;}
 
 /* 徽章 标签 */
@@ -114,8 +114,9 @@
 .nui-badge[class*="color"]:before{position:absolute;top:0;right:0;bottom:0;left:0;content:'';opacity:.5;border:1px solid currentColor;border-radius:inherit;}
 
 /* 卡片 */
+.nui-card, .nui-card-body{display:flex;flex-direction:column;}
 .nui-card{font-size:16px;position:relative;overflow:hidden;border-radius:5px;background-color:var(--atom-dk);box-shadow:0 1px 5px #0005;}
-.nui-card-body{position:relative;z-index:1;padding:5px 10px;line-height:0;}
+.nui-card-body{position:relative;z-index:1;padding:5px 10px;line-height:0;flex:1;justify-content:center;}
 .nui-card-body > *{overflow:hidden;line-height:1;white-space:nowrap;text-overflow:ellipsis;}
 .nui-card-title{font-size:2.4em;font-weight:bold;padding:10px 0;}
 .nui-card-subtitle{font-size:.75em;padding:5px 0;opacity:.6;}

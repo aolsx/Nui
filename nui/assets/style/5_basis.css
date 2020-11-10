@@ -156,4 +156,5 @@ i + ins, i + .-eps{margin-left:.25em;}
 .-float.--r{right:0;left:auto;}
 .-float.--b{top:auto;bottom:0;}
 .-none{display:none !important;}
+.-none-eve, .-none-eve *{pointer-events:none !important;}
 .-full{width:100% !important;height:100% !important;}

@@ -7,6 +7,7 @@
       v-if="icon"
       :class="icon" />
     <ins v-if="label">{{ label }}</ins>
+    <slot />
   </span>
 </template>
 <script>
