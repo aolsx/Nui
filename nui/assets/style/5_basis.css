@@ -69,16 +69,23 @@
 .p-lr-10, .p-r-10{padding-right:10px;}
 .p-lr-5, .p-l-5{padding-left:5px;}
 .p-lr-5, .p-r-5{padding-right:5px;}
+.p-lr-25em, .p-l-25em{padding-left:.25em;}
+.p-lr-25em, .p-r-25em{padding-right:.25em;}
+
 .p-tb-15, .p-t-15{padding-top:15px;}
 .p-tb-15, .p-b-15{padding-bottom:15px;}
 .p-tb-10, .p-t-10{padding-top:10px;}
 .p-tb-10, .p-b-10{padding-bottom:10px;}
 .p-tb-5, .p-t-5{padding-top:5px;}
 .p-tb-5, .p-b-5{padding-bottom:5px;}
+.p-tb-25em, .p-t-25em{padding-top:.25em;}
+.p-tb-25em, .p-b-25em{padding-bottom:.25em;}
 
 .p-15{padding:15px;}
 .p-10{padding:10px;}
 .p-5{padding:5px;}
+.p-25em{padding:.25em;}
+
 .p-none{padding:0 !important;}
 
 .m-lr-15, .m-l-15{margin-left:15px;}
@@ -87,12 +94,23 @@
 .m-lr-10, .m-r-10{margin-right:10px;}
 .m-lr-5, .m-l-5{margin-left:5px;}
 .m-lr-5, .m-r-5{margin-right:5px;}
+.m-lr-25em, .m-l-25em{margin-left:.25em;}
+.m-lr-25em, .m-r-25em{margin-right:.25em;}
+
 .m-tb-15, .m-t-15{margin-top:15px;}
 .m-tb-15, .m-b-15{margin-bottom:15px;}
 .m-tb-10, .m-t-10{margin-top:10px;}
 .m-tb-10, .m-b-10{margin-bottom:10px;}
 .m-tb-5, .m-t-5{margin-top:5px;}
 .m-tb-5, .m-b-5{margin-bottom:5px;}
+.m-tb-25em, .m-t-25em{margin-top:.25em;}
+.m-tb-25em, .m-b-25em{margin-bottom:.25em;}
+
+.m-15{margin:15px;}
+.m-10{margin:10px;}
+.m-5{margin:5px;}
+.m-25em{margin:.25em;}
+.m-none{margin:0 !important;}
 
 .m-in-10{margin:-5px;}
 .m-in-10 > *{margin:5px;}
@@ -102,11 +120,7 @@
 .m-in-6 > *{margin:3px;}
 .m-in-25em{margin:-.25em;}
 .m-in-25em > *{margin:.25em;}
-
-.m-15{margin:15px;}
-.m-10{margin:10px;}
-.m-5{margin:5px;}
-.m-none{margin:0 !important;}
+.m-in-l-25em > * + *{margin-left:.25em;}
 
 /* 四个方向线 */
 .b-t{border-top:1px solid #0003;}
@@ -126,6 +140,7 @@ h4, h5, h6{margin-top:.5em;margin-bottom:.25em;}
 .h5, h5{font-size:1.4rem;}
 .h6, h6{font-size:1.2rem;}
 .h7{font-size:1rem;}
+
 /* 超出隐藏 */
 ins, .-eps{line-height:inherit;overflow:hidden;flex-shrink:1;min-width:0;max-width:100%;white-space:nowrap;text-decoration:none;text-overflow:ellipsis;}
 ins{display:inline-block;vertical-align:middle;}
@@ -144,17 +159,26 @@ i + ins, i + .-eps{margin-left:.25em;}
 /* 全小写 */
 .tt-cs{text-transform:lowercase;}
 /* 文字可选中 caret-color: red; */
-
 .tt-copy{cursor:copy;user-select:all;pointer-events:auto;}
-.tt-copy::selection{color:inherit;background-color:inherit;}
-.tt-copy:active::selection{color:var(--white-dk);background-color:var(--sky-o5);}
+.tt-copy::selection, .tt-copy *::selection{color:inherit;background-color:inherit;}
+.tt-copy:active::selection, .tt-copy:active *::selection{color:var(--white-dk);background-color:var(--sky-o5);}
+
+.tt-h-15{line-height:1.5em;}
+.tt-h-2{line-height:2em;}
+.tt-h-1{line-height:1em;}
+.tt-h-it{line-height:inherit !important;}
 
 /* 全局常用 */
 .-link{cursor:pointer;}
 .-link > *{pointer-events:none;}
+
 .-float{position:absolute !important;top:0;left:0;}
 .-float.--r{right:0;left:auto;}
 .-float.--b{top:auto;bottom:0;}
+.-float.--w{right:0 !important;}
+.-float.--h{bottom:0 !important;}
+.-posre{position:relative !important;}
+
 .-none{display:none !important;}
 .-none-eve, .-none-eve *{pointer-events:none !important;}
 .-full{width:100% !important;height:100% !important;}

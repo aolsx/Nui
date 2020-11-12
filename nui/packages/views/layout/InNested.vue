@@ -42,7 +42,7 @@
           :key="`${tab.component}-${k}`"
           class="nui-lut-component"
           :class="col.active==tab.name&&'--active'">
-          {{ tab.component }}
+          <component :is="tab.component" />
         </div>
       </div>
     </div>

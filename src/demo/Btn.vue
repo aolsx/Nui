@@ -1,7 +1,7 @@
 <template>
   <div class="nui-container --p">
     <h3 class="m-none">
-      通用样式 <code>.h[1-7] .color-[*] .bg-[*]</code>
+      通用样式 <code>.h[1-7] .color-[*] .bg-[*] .--b-none</code>
     </h3>
     <br>
     <div class="nui-row">
@@ -9,14 +9,26 @@
         <h3 class="m-none">
           标签/徽章 <span class="h6">样式</span> | 按钮 <span class="h6">组件</span>
         </h3>
-        <h5>通用尺寸 <code>.h[1-7]</code> <code v-if="sz">.{{ sz }}</code> </h5>
-        <div class="m-in-25em">
-          <nui-btn
-            v-for="(z,k) in szArr"
-            :key="k"
-            class="color-gy"
-            :label="z||'none h6'"
-            @click="sz = z" />
+        <div class="nui-row">
+          <div class="nui-col">
+            <h5>通用尺寸 <code>.h[1-7]</code> <code v-if="sz">.{{ sz }}</code></h5>
+            <div class="m-in-25em">
+              <nui-btn
+                v-for="(z,k) in szArr"
+                :key="k"
+                class="color-gy"
+                :label="z||'none h6'"
+                @click="sz = z" />
+            </div>
+          </div>
+          <div class="nui-col-none">
+            <h5>禁用边框 <code>:bnone|.--b-none</code></h5>
+            <nui-btn
+              class="color-gy"
+              label="禁用边框"
+              :bnone="bNone"
+              @click="bNone = !bNone" />
+          </div>
         </div>
         <p />
         <h4>标签样式 <span class="h6">简化版Btn</span> <code>.nui-label</code></h4>
@@ -26,7 +38,7 @@
             v-for="(c,k) in colorArr"
             :key="k"
             class="nui-label"
-            :class="`bg-${c} ${sz} ${sr}`">
+            :class="[`bg-${c} ${sz} ${sr}`,{'--b-none':bNone}]">
             <i class="nui-icon-home" />
             <ins>文字</ins>
           </span>
@@ -37,7 +49,7 @@
             v-for="(c,k) in colorArr"
             :key="k"
             class="nui-label"
-            :class="`color-${c} ${sz} ${sr}`">文字</span>
+            :class="[`color-${c} ${sz} ${sr}`,{'--b-none':bNone}]">文字</span>
         </div>
         <p />
         <h4>徽章样式 <span class="h6">数字状态</span> <code>.nui-badge</code></h4>
@@ -47,12 +59,12 @@
             v-for="(c,k) in colorArr"
             :key="k"
             class="nui-badge"
-            :class="`bg-${c} ${sz} ${sr}`">8</span>
+            :class="[`bg-${c} ${sz} ${sr}`,{'--b-none':bNone}]">8</span>
           <span
             v-for="(c,k) in colorArr"
             :key="k"
             class="nui-badge"
-            :class="`color-${c} ${sz} ${sr}`">26</span>
+            :class="[`color-${c} ${sz} ${sr}`,{'--b-none':bNone}]">26</span>
         </div>
         <p />
         <h3>按钮组件 <code>NuiBtn</code></h3>
@@ -79,7 +91,7 @@
             :key="k"
             :ac="ac"
             :dd="dd"
-            :class="`bg-${c} ${sz} ${sr}`"
+            :class="[`bg-${c} ${sz} ${sr}`,{'--b-none':bNone}]"
             icon="nui-icon-home"
             label="文字" />
         </div>
@@ -88,7 +100,7 @@
           <nui-btn
             v-for="(c,k) in colorArr"
             :key="k"
-            :class="`color-${c} ${sz} ${sr}`"
+            :class="[`color-${c} ${sz} ${sr}`,{'--b-none':bNone}]"
             :ac="ac"
             :dd="dd"
             icon="nui-icon-tools"
@@ -99,14 +111,14 @@
           <nui-btn
             v-for="(c,k) in colorArr"
             :key="k"
-            :class="`bg-${c} ${sz} ${sr}`"
+            :class="[`bg-${c} ${sz} ${sr}`,{'--b-none':bNone}]"
             :dd="dd"
             :ac="ac"
             icon="nui-icon-home" />
           <nui-btn
             v-for="(c,k) in colorArr"
             :key="k"
-            :class="`color-${c} ${sz} ${sr}`"
+            :class="[`color-${c} ${sz} ${sr}`,{'--b-none':bNone}]"
             :ac="ac"
             :dd="dd"
             icon="nui-icon-tools" />
@@ -187,6 +199,7 @@ export default {
       sr: '',
       ac: false,
       dd: false,
+      bNone: false,
     };
   }
 };

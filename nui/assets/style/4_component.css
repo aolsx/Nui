@@ -80,7 +80,7 @@
 .nui-collapse-head, .nui-collapse-head > div{display:flex;align-items:center;min-width:0;}
 .nui-collapse-head{justify-content:space-between;padding:5px 8px;color:var(--gy-dk);background-color:var(--atom-dk);}
 .nui-collapse-head > div{flex:1;}
-.nui-collapse-head > i{width:2em;margin-right:-6px;text-align:center;color:var(--atom-lt);cursor:pointer;}
+.nui-collapse-head > i{width:2em;margin-right:-6px;cursor:pointer;text-align:center;color:var(--atom-lt);}
 .nui-collapse-head.--l > div{order:1;}
 .nui-collapse-head.--l > i{order:0;margin-right:0;margin-left:-7px;}
 
@@ -93,7 +93,8 @@
 .nui-btn, .nui-label{font-size:12px;line-height:1;position:relative;display:inline-flex;overflow:hidden;align-items:center;justify-content:center;text-align:center;vertical-align:middle;}
 .nui-btn{z-index:1;min-width:1.75em;min-height:2em;padding:.5px .5em 0;cursor:pointer;border-radius:.3em;}
 .nui-btn > i{display:flex;align-items:center;flex:none;justify-content:center;width:1em;height:1em;text-align:center;}
-.nui-btn > i + ins{margin-left:.35em;}
+.nui-btn > * + *, .nui-label > * + *{margin-left:.25em;}
+.nui-btn > * + ins, .nui-label > * + ins{margin-left:.35em;}
 .nui-btn.--r{border-radius:1em;}
 .nui-btn:after, .nui-btn[class*="color"]:before{position:absolute;top:0;right:0;bottom:0;left:0;content:'';opacity:.3;border-radius:inherit;}
 .nui-btn[class*="color"]:before{opacity:.3;border:1px solid currentColor;}
@@ -103,6 +104,7 @@
 .nui-btn.--dd{pointer-events:none;color:var(--gy-dker);}
 .nui-btn.--dd[class*="bg"]{background-color:#fff1;}
 .nui-btn:active{opacity:.8;}
+.nui-btn.--b-none:before{display:none;}
 
 /* 徽章 标签 */
 .nui-label[class*="bg"]{line-height:1.15;padding:.25em .36em;border-radius:.35em;}
@@ -113,11 +115,13 @@
 .nui-label[class*="color"]:before,
 .nui-badge[class*="color"]:before{position:absolute;top:0;right:0;bottom:0;left:0;content:'';opacity:.5;border:1px solid currentColor;border-radius:inherit;}
 
+.nui-label.--b-none:before, .nui-badge.--b-none:before{display:none;}
+
 /* 卡片 */
 .nui-card, .nui-card-body{display:flex;flex-direction:column;}
 .nui-card{font-size:16px;position:relative;overflow:hidden;border-radius:5px;background-color:var(--atom-dk);box-shadow:0 1px 5px #0005;}
-.nui-card-body{position:relative;z-index:1;padding:5px 10px;line-height:0;flex:1;justify-content:center;}
-.nui-card-body > *{overflow:hidden;line-height:1;white-space:nowrap;text-overflow:ellipsis;}
+.nui-card-body{line-height:0;position:relative;z-index:1;flex:1;justify-content:center;padding:5px 10px;}
+.nui-card-body > *{line-height:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .nui-card-title{font-size:2.4em;font-weight:bold;padding:10px 0;}
 .nui-card-subtitle{font-size:.75em;padding:5px 0;opacity:.6;}
 .nui-card-title + .nui-card-subtitle{margin-top:-10px;}
@@ -269,8 +273,12 @@
 .nui-form-input:hover ~ .nui-form-verify:not(:empty){display:block;}
 
 /* 输入框扩展 */
-/* 搜索类型 后面清除按钮 pointer-events:none; */
-.nui-form-input[type=search]::-webkit-search-cancel-button{flex:none;width:.75em;height:.75em;margin:0;background:linear-gradient(45deg, transparent calc(50% - 1px), #505561 0, #505561 calc(50% + 1px), transparent 0), linear-gradient(-45deg, transparent calc(50% - 1px), #505561 0, #505561 calc(50% + 1px), transparent 0);appearance:none;}
+/* 搜索类型 后面清除按钮 pointer-events:none;  */
+.nui-form-input[type=search]::-webkit-search-cancel-button{flex:none;width:.75em;height:.75em;margin:0;border:.5em solid transparent;background:linear-gradient(45deg, transparent calc(50% - 1px), #505561 0, #505561 calc(50% + 1px), transparent 0), linear-gradient(-45deg, transparent calc(50% - 1px), #505561 0, #505561 calc(50% + 1px), transparent 0);background-repeat:no-repeat;appearance:none;cursor:pointer;}
+.nui-form-str .nui-form-input[type=search]{margin-right:-.5em;}
+/* 如果有内容则始终保持出现 :-webkit-any(:focus,:hover) */
+.nui-form-str.--search .nui-form-input[type="search" i]:enabled:read-write::-webkit-search-cancel-button{pointer-events:auto;opacity:.5;}
+.nui-form-str.--search .nui-form-input[type="search" i]:enabled:read-write::-webkit-search-cancel-button:hover{opacity:1;}
 
 /* 取颜色 */
 .nui-form-input[type=color]{padding:.3em;}
@@ -279,7 +287,7 @@
 /* .nui-form-input[type=color]:before{content:attr(value);} */
 
 /* 日期 */
-.nui-form-input::-webkit-calendar-picker-indicator{margin-right:-.25em;padding:0;opacity:0;margin-inline-start:5px;}
+.nui-form-input::-webkit-calendar-picker-indicator{margin-right:-.25em;padding:0;opacity:0;margin-inline-start:5px;height:1.5em;width:1.5em;cursor:pointer;}
 
 .nui-form-input[type=date]:after,
 .nui-form-input[type=time]:after,

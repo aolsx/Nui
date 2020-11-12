@@ -1,7 +1,7 @@
 <template>
   <span
     class="nui-btn"
-    :class="[cls,{'--ac':ac,'--dd':dd}]"
+    :class="[cls,{'--ac':ac,'--dd':dd,'--b-none':bnone}]"
     @click.stop.prevent="$emit('click',$event)">
     <i
       v-if="icon"
@@ -16,6 +16,7 @@ export default {
   props: {
     ac: Boolean,
     dd: Boolean,
+    bnone: Boolean,
     icon: {
       type: String,
       default: null

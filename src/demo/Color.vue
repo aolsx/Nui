@@ -25,10 +25,9 @@
           class="nui-col">
           <div
             class="nui-card tt-c tt-copy"
-            :class="`bg-${nm} ${d}`">
-            <div
-              class="nui-card-body"
-              style="height:40px" />
+            :class="`bg-${nm} ${d}`"
+            style="height:60px">
+            <div class="nui-card-body" />
             <div class="nui-card-foot">
               <div class="-eps">
                 .bg-{{ nm }}<span v-if="d">.{{ d }}</span>
@@ -44,13 +43,24 @@
           class="nui-col">
           <div
             class="nui-card tt-c tt-copy"
+            style="height:60px"
             :class="`bg-${nm}`">
-            <div
-              class="nui-card-body"
-              style="height:40px" />
+            <div class="nui-card-body" />
             <div class="nui-card-foot">
               <div class="-eps">
                 .bg-{{ nm }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nui-col">
+          <div
+            class="nui-card tt-c tt-copy"
+            style="height:60px">
+            <div class="nui-card-body bg-grid" />
+            <div class="nui-card-foot">
+              <div class="-eps">
+                .bg-grid
               </div>
             </div>
           </div>
@@ -71,6 +81,7 @@
         class="nui-col">
         <div
           class="nui-card tt-c tt-copy --sdw"
+          style="height:60px"
           :class="`bg-${nm}`">
           <div
             class="nui-card-body"
@@ -88,14 +99,41 @@
     </h4>
     <div class="nui-row">
       <div
-        v-for="(nm,key) in colorName.concat(colorWb)"
+        v-for="(nm,key) in colorName"
+        :key="key"
+        class="nui-col">
+        <div
+          class="nui-card tt-c tt-copy">
+          <div class="nui-card-body">
+            <h4
+              style="line-height:1.5;"
+              :class="`color-${nm} --hover`">
+              {{ nm }}
+            </h4>
+            <h4
+              style="line-height:1.5;"
+              :class="`color-${nm} --cdk --hover`">
+              {{ nm }}
+            </h4>
+          </div>
+          <div class="nui-card-foot">
+            <ins>.color-{{ nm }} | --cdk</ins>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nui-row">
+      <div
+        v-for="(nm,key) in colorWb"
         :key="key"
         class="nui-col">
         <div
           class="nui-card tt-c tt-copy"
           :class="`color-${nm} --hover`">
           <div class="nui-card-body">
-            {{ nm }}
+            <h4 style="line-height:1.5;">
+              {{ nm }}
+            </h4>
           </div>
           <div class="nui-card-foot">
             <ins>.color-{{ nm }}</ins>
@@ -112,7 +150,7 @@ export default {
     const colorName = ['atom','gy','dm','gn','sky','bl','yl','red'];
     const colorEd = ['--lter','--lt','','--dk','--dker','--op'];
     const colorAtom = ['--lter','--lt','','--dk','--dks','--dker','--op'];
-    const colorWb = ['wt','wt --op','bk','bk --op','it','grid'];
+    const colorWb = ['wt','wt --op','bk','bk --op','it'];
     return {colorName,colorEd,colorAtom,colorWb};
   }
 };
