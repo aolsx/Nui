@@ -7,7 +7,7 @@
       <span class="_lang">{{ lang||codeObj.lang }}</span>
       <pre
         class="_pre tt-copy"
-        @click.stop.prevent="$Nui.copy(code)"
+        @click.stop="$Nui.copy(code)"
         v-html="codeObj.html" />
     </div>
   </div>

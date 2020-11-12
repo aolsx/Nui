@@ -5,7 +5,7 @@
     <div
       class="nui-collapse-head"
       :class="left&&'--l'"
-      @click.stop.prevent="isActive=!isActive">
+      @click.stop="isActive=!isActive">
       <div>
         <i
           v-if="icon"
@@ -37,8 +37,11 @@ export default {
   },
   data(){
     return {
-      isActive: this.open
+      isActive: false
     };
-  }
+  },
+  created(){
+    this.isActive = this.open;
+  },
 };
 </script>

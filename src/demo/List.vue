@@ -36,10 +36,12 @@
           class="color-sky"
           @click="tree.line=!tree.line" />
         <nui-tree
-          style="height:190px"
+          style="height:170px"
+          child="tree"
+          arrow
           :line="tree.line"
           :tree="tree.arr"
-          child="tree"
+          :ackeys="tree.ackeys"
           @open="tree.ac=$event"
           @rclick="tree.r=$event"
           @click="tree.ac=$event" />
@@ -151,10 +153,11 @@ export default {
         r: null,
         ac: '',
         line: false,
+        ackeys: [1,2],
         arr: [
-          {icon: 'nui-icon-home',label: 'List 1',to: 'AcList 1'},
-          {label: 'List 2',to: 'AcList 2'},
-          {icon: 'nui-icon-tools',label: 'nodes Info 3',
+          {icon: 'nui-icon-home',label: 'List 1',to: 'AcList 1',id: 1},
+          {label: 'List 2',to: 'AcList 2',},
+          {icon: 'nui-icon-tools',label: 'nodes Info 3',id: 2,
             tree: [
               {label: 'List 3-1',to: 'AcList 3-1',},
               {icon: 'nui-icon-home',label: 'List 3-2',to: 'AcList 3-2',open: false,

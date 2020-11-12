@@ -2,7 +2,7 @@
   <span
     class="nui-btn"
     :class="[cls,{'--ac':ac,'--dd':dd,'--b-none':bnone}]"
-    @click.stop.prevent="$emit('click',$event)">
+    @click.stop="$emit('click',$event)">
     <i
       v-if="icon"
       :class="icon" />

@@ -82,7 +82,8 @@ export default [
         title: '其它元素类',
         row: 12,
         list: [
-          ['.-link','连接光标样式','-link'],
+          ['.-link','手光标样式','-link'],
+          ['.-edit','手光标下划点线','-edit'],
           ['.-float .--[r|b|w|h]','元素强制浮动 ！'],
           ['.-posre','子元素相对 ！'],
           ['.-none','元素强制禁用 ！'],
@@ -106,6 +107,7 @@ export default [
       ['.tt-cs','ABC 全小写','tt-cs'],
       ['.tt-copy','文字可选中 配合 $Nui.copy(API)','tt-copy'],
       ['.tt-h-[1|15|2|it]','行高 1em | 1.5em | 2em | 继承！'],
+      ['.tt-udd','下滑点线','tt-udd'],
       ['ins | .-eps','强制一行超出显示省略号。','-eps','width:140px;']
     ],
     child: [

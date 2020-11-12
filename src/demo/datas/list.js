@@ -22,8 +22,11 @@ const list = {
 const tree = {
   html: `<nui-tree
   line='<Boolean> 开关行模式 '
+  arrow='<Boolean> 仅箭头开关'
   dragType="<Str> 标识拖拽用"
-  child="<Str> 子节点对象名"
+  child="<Str> 子节点对象名 child"
+  idkey="<Str> 节点对象键名 id"
+  ackeys="<Arr> 活动节点 [<idkey>]"
   sort="<Boolean> 禁用排序 默认开启"
   :tree="TreeList 树数组"
   @open="<$event itemObj> 展开节点"

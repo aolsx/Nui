@@ -6,15 +6,18 @@
     <div
       tabindex="-1"
       class="nui-tree-item"
+      :class="{'--arrow':p_arrow,'--ac':c_isAc}"
       draggable="true"
       @_vue="()=>this"
-      @_dragType="()=>dragType"
-      @click.stop.prevent="eveClick()">
+      @_dragType="()=>dragType">
       <i
         v-if="!c_notChild"
         class="nui-tree-arrow"
-        :class="`nui-icon-angle-${isOpen?'down':'right'}`" />
-      <span @contextmenu.stop.prevent="eveRclick">
+        :class="`nui-icon-angle-${isOpen?'down':'right'}`"
+        @click.stop="eveOpen()" />
+      <span
+        @contextmenu.stop.prevent="eveRclick"
+        @click.stop="eveClick()">
         <i
           v-if="item.icon"
           :class="item.icon" />
@@ -34,7 +37,7 @@
 <script>
 export default {
   name: 'InTreeItem',
-  inject: ['p_click','p_rclick','p_open','dragType','p_child'],
+  inject: ['p_click','p_rclick','p_open','dragType','p_child','p_arrow','p_idkey','p_ackeys'],
   props: {
     item: {
       type: Object,
@@ -55,16 +58,29 @@ export default {
         return null;
       }
       return ['nui-tree-nodes',{'--open': this.isOpen}];
+    },
+    c_isAc(){
+      const k = this.item[this.p_idkey];
+      const keys = this.p_ackeys;
+      if (keys?.length && k !== undefined){
+        return keys.includes(k);
+      }
+      return false;
     }
   },
   methods: {
     eveClick(){
-      if (this.c_notChild){
-        this.p_click(this.item);
-      } else {
+      // 存在子节点并且不是箭头则 开关
+      if (!this.c_notChild && !this.p_arrow){
         this.isOpen = !this.isOpen;
         this.p_open(this.item);
+      } else {
+        this.p_click(this.item);
       }
+    },
+    eveOpen(){
+      this.isOpen = !this.isOpen;
+      this.p_open(this.item);
     },
     eveRclick(e){
       const ptArr = this.$parent.tree || this.$parent.item[this.p_child];

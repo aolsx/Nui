@@ -15,12 +15,12 @@
           <div class="nui-confirm-bg" />
           <div
             class="nui-confirm-btn"
-            @click.stop.prevent="item.onConfirm(true);show=false">
+            @click.stop="item.onConfirm(true);show=false">
             <i class="nui-icon-check-circle" />
           </div>
           <div
             class="nui-confirm-close"
-            @click.stop.prevent="item.onConfirm(false);show=false">
+            @click.stop="item.onConfirm(false);show=false">
             <i class="nui-icon-times" />
           </div>
           <div class="nui-confirm-icon">

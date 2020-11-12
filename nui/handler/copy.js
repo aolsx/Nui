@@ -22,10 +22,4 @@ export default function(v){
   // writeText
   navigator.clipboard.writeText(v);
   window.getSelection().empty();
-  // .then(()=>{console.log(e);});
-  // navigator.clipboard.read().then((data)=>{
-  //   data[0].getType('text/plain').then((d)=>{
-  //     console.log(d.text());
-  //   });
-  // });
 }

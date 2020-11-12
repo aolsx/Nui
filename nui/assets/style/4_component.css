@@ -28,7 +28,11 @@
 .nui-tree hr:after{top:-.875em;height:.875em;border-left:1px solid var(--atom-lter);}
 .nui-tree > ul > li > hr{display:none;}
 .nui-tree:not(.--line) li:last-child > hr{border-color:transparent !important;}
-.nui-tree .nui-tree-item:hover > *, .nui-tree li:hover > .nui-tree-item > .nui-tree-arrow{color:inherit;}
+
+.nui-tree .nui-tree-item.--ac > span,
+.nui-tree .nui-tree-item > *:hover,
+.nui-tree li:hover > .nui-tree-item > .nui-tree-arrow{color:inherit;}
+
 .nui-tree li:hover > hr:after, .nui-tree li:hover > hr:before{border-color:currentColor;}
 .nui-tree ul:hover > li > hr, .nui-tree ul:hover > li > hr:after{border-color:currentColor;}
 

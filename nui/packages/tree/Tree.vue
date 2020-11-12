@@ -24,6 +24,9 @@ export default {
     return {
       dragType: this.dragType,
       p_child: this.child,
+      p_arrow: this.arrow,
+      p_idkey: this.idkey,
+      p_ackeys: this.ackeys,
       p_click: (item)=>{
         this.$emit('click',item);
       },
@@ -40,6 +43,16 @@ export default {
       type: String,
       default: 'tree'
     },
+    idkey: {
+      type: String,
+      default: 'id'
+    },
+    ackeys: {
+      type: Array,
+      default(){
+        return null;
+      }
+    },
     child: {
       type: String,
       default: 'child'
@@ -49,6 +62,7 @@ export default {
       required: true
     },
     line: Boolean,
+    arrow: Boolean,
     sort: {
       type: Boolean,
       default: true
