@@ -97,6 +97,18 @@ const pop = {
 </nui-pop>`
 };
 
+const paa = {
+  js: `paa(e,pm){
+  this.$Nui.paa({
+    pos: {x,y}, // 起点坐标
+    to: {x,y},  // 终点坐标
+    time: 2000, // 持续时间
+    icon: 'icon', // 内置图标
+    cls:'bg-color', // 外加样式
+  });
+}`
+};
+
 export default {
   confirm,
   msg,
@@ -104,5 +116,6 @@ export default {
   menu,
   load,
   tip,
-  pop
+  pop,
+  paa
 };

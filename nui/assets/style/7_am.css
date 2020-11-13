@@ -4,6 +4,14 @@
   from{opacity: 0;}
   to{opacity: 1;}
 }
+@keyframes paaZoomIn{
+  from{transform:translate3d(-50%, -50%, 0) scale3d(0,0,0);}
+  to{transform:translate3d(-50%, -50%, 0) scale3d(1,1,1);}
+}
+@keyframes paaZoomOut{
+  from{transform:translate3d(-50%, -50%, 0) scale3d(1,1,1);}
+  to{transform:translate3d(-50%, -50%, 0) scale3d(0,0,0);}
+}
 /* 放大 等待 500毫秒*/
 .zoomfade-enter-active,.zoomfade-leave-active{transition:opacity .3s,transform .3s;pointer-events:none;}
 .zoomfade-enter-from,.zoomfade-leave-to{transform:scale3d(.95,.95,.95);opacity:0;}

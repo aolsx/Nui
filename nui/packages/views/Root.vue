@@ -9,6 +9,7 @@
     <in-load-am />
   </div>
   <in-msg />
+  <in-parabola />
   <div
     class="nui-app-root"
     tabindex="-1">
@@ -21,6 +22,7 @@
 <script>
 import InConfirm from './popup/InConfirm.vue';
 import InMsg from './popup/InMsg.vue';
+import InParabola from './popup/InParabola';
 import InPopDebris from './popup/InPopDebris';
 import InLoadAm from './popup/InLoadAm.vue';
 import InLoadPro from './popup/InLoadPro.vue';
@@ -29,6 +31,7 @@ export default {
   components: {
     InConfirm,
     InMsg,
+    InParabola,
     InPopDebris,
     InLoadAm,
     InLoadPro

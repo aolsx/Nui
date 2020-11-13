@@ -36,7 +36,7 @@
           class="color-sky"
           @click="tree.line=!tree.line" />
         <nui-tree
-          style="height:170px"
+          style="height:140px"
           child="tree"
           arrow
           :line="tree.line"

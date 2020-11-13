@@ -136,6 +136,32 @@
         </div>
       </div>
       <div class="nui-col-4">
+        <h3>抛物曲线 <code>API</code></h3>
+        <div class="m-in-25em">
+          <nui-btn
+            class="color-sky"
+            label="默认"
+            @click="paa" />
+          <nui-btn
+            class="color-sky"
+            label="ms300"
+            @click="paa($event,{time:300})" />
+          <nui-btn
+            class="color-sky"
+            label="ms2000"
+            @click="paa($event,{time:2000})" />
+          <nui-btn
+            class="color-sky"
+            label="抛出图标"
+            icon="nui-icon-home"
+            @click="paa($event,{cls:'bg-dm',icon:'nui-icon-home'})" />
+          <nui-btn
+            class="bg-red"
+            label="自定义cls"
+            @click="paa($event,{cls:'bg-red'})" />
+        </div>
+        <p />
+        <nui-code :code="codeObj.paa.js" />
         <h3>提示消息 <code>API</code></h3>
         <div class="m-in-25em">
           <nui-btn
@@ -332,6 +358,22 @@ export default {
     },
     popShow(e){
       this.$refs.pop.open(e);
+    },
+    paa(e,pm){
+      const pos = {
+        x: e.clientX,
+        y: e.clientY
+      };
+      // 0 - 1000 随机数
+      const to = {
+        x: Math.round(Math.random() * 1000),
+        y: Math.round(Math.random() * 1000)
+      };
+      this.$Nui.paa({
+        pos,
+        to,
+        ...pm
+      });
     }
   }
 };

@@ -5,7 +5,8 @@
 .nui-app-ppp-mod,
 .nui-app-ppp-debris,
 .nui-app-ppp-load,
-.nui-app-ppp-msg{position:fixed;top:0;left:0;}
+.nui-app-ppp-msg,
+.nui-app-ppp-paa{position:fixed;top:0;left:0;}
 
 /* 主容器 */
 .nui-app-root{z-index:1;right:0;bottom:0;overflow:hidden;background-color:var(--atom-dker);}
@@ -14,7 +15,8 @@
 .nui-app-ppp-mod,
 .nui-app-ppp-load,
 .nui-app-ppp-msg,
-.nui-app-ppp-debris{z-index:2;width:0;height:0;pointer-events:none;}
+.nui-app-ppp-debris,
+.nui-app-ppp-paa{z-index:2;width:0;height:0;pointer-events:none;}
 .nui-app-ppp-debris > *{pointer-events:auto;}
 
 /* 消息 */

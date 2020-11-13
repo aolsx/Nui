@@ -83,9 +83,44 @@ const menu = function(arr,pos,line = false){
   return newPm;
 };
 
-export {handlerMenu,MsgArr,ConfirmArr};
+// 抛物线
+const ParabolaArr = {v: []};
+/**
+ * @param {Object} pm 参数
+ * @param {Number} pm.time 动画时间
+ * @param {Object} pm.pos 开始坐标 {x,y}
+ * @param {Object} pm.to 开始坐标 {x,y}
+ * @param {String} pm.icon 内置图标
+ * @param {String} pm.cls 外加样式
+ */
+const paa = function(pm){
+  const id = Date.now() + Math.random();
+  let time;
+  // 根据距离计算时间
+  if (!pm.time){
+    const dx = Math.abs(pm.pos.x - pm.to.x);
+    const dy = Math.abs(pm.pos.y - pm.to.y);
+    var dis = Math.sqrt(Math.pow(dx,2) + Math.pow(dy,2));
+    // 去除小数点后的数字，这样看起来舒服
+    time = parseInt(dis * .6);
+    // console.log(time);
+  } else {
+    time = pm.time;
+  }
+  if (time < 100){
+    time = 100;
+  }
+  ParabolaArr.v.push({
+    id,
+    time,
+    ...pm
+  });
+};
+
+export {handlerMenu,MsgArr,ConfirmArr,ParabolaArr};
 export default {
   cfm,
   msg,
-  menu
+  menu,
+  paa,
 };
