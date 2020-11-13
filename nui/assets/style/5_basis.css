@@ -172,6 +172,8 @@ i + ins, i + .-eps{margin-left:.25em;}
 .-link > *{pointer-events:none;}
 
 .-float{position:absolute !important;top:0;left:0;}
+.-float.--z1{z-index:1;}
+.-float.--z9{z-index:9;}
 .-float.--r{right:0;left:auto;}
 .-float.--b{top:auto;bottom:0;}
 .-float.--w{right:0 !important;}

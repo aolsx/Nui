@@ -147,7 +147,7 @@
 export default {
   name: 'DemoColor',
   setup(){
-    const colorName = ['atom','gy','dm','gn','sky','bl','yl','red'];
+    const colorName = ['atom','gy','sky','bl','dm','gn','red','yl','og'];
     const colorEd = ['--lter','--lt','','--dk','--dker','--op'];
     const colorAtom = ['--lter','--lt','','--dk','--dks','--dker','--op'];
     const colorWb = ['wt','wt --op','bk','bk --op','it'];

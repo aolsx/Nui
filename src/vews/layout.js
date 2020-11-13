@@ -61,6 +61,7 @@ const listArr = [
   {line: true,label: 'Style'},
   {label: '常用样式',to: 'DemoBasisCss'},
   {label: '配色样式',to: 'DemoColor'},
+  {label: '配色工具',to: 'DemoColorPicker'},
   {label: '内置图标',to: 'DemoIcon'},
   {line: true,label: 'Component'},
   {label: '视图布局',to: 'DemoViews'},
@@ -71,7 +72,7 @@ const listArr = [
 ];
 
 const listTo = reactive({
-  component: 'DemoBasisCss'
+  component: 'DemoColorPicker'
 });
 export {listTo,listArr};
 

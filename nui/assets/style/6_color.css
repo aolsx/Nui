@@ -50,6 +50,15 @@
 .bg-yl.--dk{background-color:var(--yl-dk);}
 .bg-yl.--dker{background-color:var(--yl-dker);}
 .bg-yl.--op{background-color:var(--yl-o);}
+
+/* 橙色 */
+.bg-og.--lter{background-color:var(--og-lter);}
+.bg-og.--lt{background-color:var(--og-lt);}
+.bg-og{background-color:var(--og);}
+.bg-og.--dk{background-color:var(--og-dk);}
+.bg-og.--dker{background-color:var(--og-dker);}
+.bg-og.--op{background-color:var(--og-o);}
+
 /* 红 */
 .bg-red.--lter{background-color:var(--red-lter);}
 .bg-red.--lt{background-color:var(--red-lt);}
@@ -58,7 +67,7 @@
 .bg-red.--dker{background-color:var(--red-dker);}
 .bg-red.--op{background-color:var(--red-o);}
 /* 文字色 */
-.bg-dm, .bg-gn, .bg-sky, .bg-bl, .bg-yl, .bg-red{color:var(--white);}
+.bg-dm, .bg-gn, .bg-sky, .bg-bl, .bg-yl, .bg-og, .bg-red{color:var(--white);}
 
 /* 其它 */
 .bg-wt{background-color:var(--white);}
@@ -82,7 +91,7 @@
 .bg-red.--sdw{box-shadow:0 5px 20px -5px var(--red-o);}
 
 /* .sdw.active,.sdw:active{box-shadow:none !important} */
-.sdw-none{box-shadow:none;}
+.-sdw-none{box-shadow:none;}
 
 /* 文字颜色 */
 .--hover{transition:color .25s;}

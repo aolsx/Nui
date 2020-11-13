@@ -181,8 +181,8 @@
 
 /* 抛物线cubic-bezier(.7, 0, .3, 1) will-change:top, left animation-delay:-.05s; */
 /* .nui-paa.--zoom-out{transition:none;}animation-direction:reverse;animation-fill-mode:forwards; */
-.nui-paa{line-height:0;position:fixed;top:0;left:0;padding:3px;transition:top .5s cubic-bezier(.75, -.3, .85, .3), left .5s linear;transform:translate3d(-50%, -50%, 0) scale3d(1, 1, 1);animation:paaZoomIn .15s;pointer-events:none;border-radius:50%;background-color:var(--dm-lter);min-width:12px;min-height:12px;}
-.nui-paa > i{font-size:10px;line-height:14px;width:14px;height:14px;text-align:center;display:block;color:#fff;}
+.nui-paa{line-height:0;position:fixed;top:0;left:0;min-width:12px;min-height:12px;padding:3px;transition:top .5s cubic-bezier(.75, -.3, .85, .3), left .5s linear;transform:translate3d(-50%, -50%, 0) scale3d(1, 1, 1);animation:paaZoomIn .15s;pointer-events:none;border-radius:50%;background-color:var(--dm-lter);}
+.nui-paa > i{font-size:10px;line-height:14px;display:block;width:14px;height:14px;text-align:center;color:#fff;}
 .nui-paa.--zoom-out{transition:none !important;animation:paaZoomOut .15s forwards;}
 
 /* 弹出模态框 */
@@ -425,7 +425,7 @@
 /* 面板 */
 .nui-panel{font-size:12px;display:flex;flex-direction:column;}
 .nui-panel-head, .nui-panel-foot{line-height:1;display:flex;align-items:center;flex:none;min-height:27px;padding:5px 7px;background:var(--atom-dk);}
-.nui-panel-head{padding:5px 6px;border-bottom:1px solid #0002;}
+.nui-panel-head{position:relative;padding:5px 6px;border-bottom:1px solid #0002;}
 .nui-panel-foot{border-top:1px solid #0002;}
 .nui-panel-head .nui-btn, .nui-panel-foot .nui-btn{margin:-5px 0;}
 .nui-panel-head > :first-child.nui-btn{margin-left:-4px;}
