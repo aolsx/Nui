@@ -55,16 +55,25 @@
               :rules="{min:0,max:100}" />
           </div>
           <div class="p-lr-10 color-atom b-t">
-            <p class="m-tb-10">
-              {{ renRaw.Hex }}
+            <p class="m-tb-5 p-t-10">
+              {{ inputHex }}
+              <!-- v-model.lazy.trim="inputHex" -->
+              <label class="nui-form-str">
+                <input
+                  :value="inputHex"
+                  class="nui-form-input"
+                  type="text"
+                  @change="setColorHex">
+                <div class="nui-form-input-bg" />
+              </label>
             </p>
-            <p class="m-tb-10">
+            <p class="m-tb-5">
               {{ `rgb(${renRaw.Rgb})` }}
             </p>
-            <p class="m-tb-10">
+            <p class="m-tb-5">
               {{ `hsl(${renRaw.Hsl.h}, ${renRaw.Hsl.s}%, ${renRaw.Hsl.l}%)` }}
             </p>
-            <p class="m-tb-10">
+            <p class="m-tb-5">
               {{ `hsv(${renRaw.Hsv})` }}
             </p>
           </div>
@@ -203,15 +212,16 @@ export default {
         l: 50,
       },
       gpOffset: {
-        lter: 18,
-        lt: 9,
-        dk: -9,
-        dker: -18
+        lter: 20,
+        lt: 10,
+        dk: -10,
+        dker: -20
       },
-      colorName: 'yl',
+      colorName: '00',
       cssPrefix: 'bg',
       cssBg: true,
       cssStr: '',
+      inputHex: '',
     };
   },
   computed: {
@@ -256,6 +266,8 @@ export default {
           css += `.${prefix}-${cm}.-${cpx}-${fx}{${cssType}:var(--${cm}${cpx}-${fx})}\n`;
         }
       }
+      root += ` --${cm}${cpx}-o:${coObj.dk}40;\n`;
+      css += `.${prefix}-${cm}.-${cpx}-op{${cssType}:var(--${cm}${cpx}-o)}\n`;
       return `:root {\n${root}}\n${css}`;
     }
   },
@@ -293,6 +305,8 @@ export default {
       this.$inp1.color = `hsl(${h}, 100%, 50%)`;
       this.$inp2.color = `hsl(${h}, ${s}%, 50%)`;
       this.$inp3.color = `hsl(${h}, 100%, ${l}%)`;
+
+      this.inputHex = this.renRaw.Hex;
     },
     // 初始化组参数
     resetGpOffv(){
@@ -308,6 +322,12 @@ export default {
     },
     setColorRgb(rgb){
       this.setColor(ColorPicker.rgbToHsl(...rgb));
+    },
+    setColorHex(e){
+      const v = e.target.value.trim();
+      this.inputHex = v;
+      e.target.value = v;
+      this.setColorRgb(ColorPicker.hexToRgb(v));
     }
   }
 };

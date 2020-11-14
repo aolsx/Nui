@@ -1,7 +1,81 @@
 /* font-family:Segoe WPC,Segoe UI,Microsoft YaHei,sans-serif; */
-/* 禁止选中 user-select: none; */
-/* 颜色配置 var(--Colors); */
-:root{--gy-lter:#7a8aa6;--gy-lt:#677690;--gy:#5b6982;--gy-dk:#4e5a6f;--gy-dker:#434d5c;--gy-o:#89a0b9a1;--gy-o1:#4e5a6f10;--gy-o2:#4e5a6f20;--atom-lter:#343946;--atom-lt:#2f333d;--atom:#282c35;--atom-dk:#22252c;--atom-dks:#202329;--atom-dker:#1d2025;--atom-o:#1b1d22b0;--dm-lter:#737ed7;--dm-lt:#626cbf;--dm:#545ca6;--dm-dk:#484f8f;--dm-dker:#3e437a;--dm-o:#6b4aeecc;--gn-lter:#00cc4a;--gn-lt:#00b942;--gn:#00a63b;--gn-dk:#009435;--gn-dker:#00842f;--gn-o:#00b004cf;--sky-lter:#4de2bc;--sky-lt:#3cd8b0;--sky:#27bc96;--sky-dk:#1dac88;--sky-dker:#169676;--sky-o:#00b6efb0;--sky-o5:#00b6ef50;--bl-lter:#4c97da;--bl-lt:#4488ca;--bl:#3e7bb9;--bl-dk:#3970a8;--bl-dker:#315c89;--bl-o:#3872f5b0;--yl-lter:#e8b157;--yl-lt:#dc9d35;--yl:#cc8d24;--yl-dk:#b97b13;--yl-dker:#a96d08;--yl-o:#c18814c2;--og-lter:#e88450;--og-lt:#e27237;--og:#d86325;--og-dk:#bb5018;--og-dker:#a24412;--og-o:#d46015c2;--red-lter:#ff6464;--red-lt:#ff4e4e;--red:#ff4343;--red-dk:#ea3636;--red-dker:#da2d2d;--red-o:#ff0000de;--white-o:#fff5;--white:#fff;--white-dk:#c6d3de;--white-dker:#89a0b9;--black-o:#0005;--black:#000;}
+/* 颜色配置 var(--Colors); -next-line */
+/* stylelint-disable */
+:root{
+  --gy-lter:#7e92b5;
+  --gy-lt:#6c7d9b;
+  --gy:#5a6881;
+  --gy-dk:#495468;
+  --gy-dker:#37404f;
+  --gy-o:#89a0b9a1;
+  --gy-o1:#4e5a6f10;
+  --gy-o2:#4e5a6f20;
+
+  --atom-lter:#343946;
+  --atom-lt:#2f333d;
+  --atom:#282c35;
+  --atom-dk:#22252c;
+  --atom-dks:#202329;
+  --atom-dker:#1d2025;
+  --atom-o:#1b1d22b0;
+
+  --dm-lter:#856ed8;
+  --dm-lt:#7561bf;
+  --dm:#6654a6;
+  --dm-dk:#56478c;
+  --dm-dker:#463a72;
+  --dm-o:#56478c40;
+
+  --gn-lter:#88af5b;
+  --gn-lt:#74964e;
+  --gn:#607c41;
+  --gn-dk:#4d6333;
+  --gn-dker:#394926;
+  --gn-o:#4d633340;
+
+  --sky-lter:#39b596;
+  --sky-lt:#319b81;
+  --sky:#2a836d;
+  --sky-dk:#216856;
+  --sky-dker:#194f41;
+  --sky-o:#21685640;
+  --sky-o5:#00b6ef50;
+
+  --bl-lter:#4383cc;
+  --bl-lt:#3a72b2;
+  --bl:#336399;
+  --bl-dk:#2a517f;
+  --bl-dker:#214166;
+  --bl-o:#2a517f40;
+
+  --yl-lter:#e8c34c;
+  --yl-lt:#ceae44;
+  --yl:#b4983c;
+  --yl-dk:#9b8333;
+  --yl-dker:#826d2a;
+  --yl-o:#9b833340;
+
+  --og-lter:#f28a52;
+  --og-lt:#d87b49;
+  --og:#bf6c40;
+  --og-dk:#a55e38;
+  --og-dker:#8c502f;
+  --og-o:#a55e3840;
+
+  --red-lter:#f25252;
+  --red-lt:#d84949;
+  --red:#bf4040;
+  --red-dk:#a53838;
+  --red-dker:#8c2f2f;
+  --red-o:#a5383840;
+
+  --white-o:#fff5;
+  --white:#fff;
+  --white-dk:#c6d3de;
+  --white-dker:#89a0b9;
+  --black-o:#0005;
+  --black:#000;
+}
 
 /* 滚动条 :window-inactive 窗口失活 */
 ::-webkit-scrollbar{width:8px;height:8px;background:transparent;}

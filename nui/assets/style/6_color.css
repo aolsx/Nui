@@ -15,6 +15,7 @@
 .bg-gy.--dk{background-color:var(--gy-dk);}
 .bg-gy.--dker{background-color:var(--gy-dker);}
 .bg-gy.--op{background-color:var(--gy-o);}
+
 /* 紫 */
 .bg-dm.--lter{background-color:var(--dm-lter);}
 .bg-dm.--lt{background-color:var(--dm-lt);}
@@ -22,6 +23,7 @@
 .bg-dm.--dk{background-color:var(--dm-dk);}
 .bg-dm.--dker{background-color:var(--dm-dker);}
 .bg-dm.--op{background-color:var(--dm-o);}
+
 /* 绿 */
 .bg-gn.--lter{background-color:var(--gn-lter);}
 .bg-gn.--lt{background-color:var(--gn-lt);}
@@ -29,6 +31,7 @@
 .bg-gn.--dk{background-color:var(--gn-dk);}
 .bg-gn.--dker{background-color:var(--gn-dker);}
 .bg-gn.--op{background-color:var(--gn-o);}
+
 /* 淡蓝 */
 .bg-sky.--lter{background-color:var(--sky-lter);}
 .bg-sky.--lt{background-color:var(--sky-lt);}
@@ -36,6 +39,7 @@
 .bg-sky.--dk{background-color:var(--sky-dk);}
 .bg-sky.--dker{background-color:var(--sky-dker);}
 .bg-sky.--op{background-color:var(--sky-o);}
+
 /* 蓝 */
 .bg-bl.--lter{background-color:var(--bl-lter);}
 .bg-bl.--lt{background-color:var(--bl-lt);}
@@ -43,6 +47,7 @@
 .bg-bl.--dk{background-color:var(--bl-dk);}
 .bg-bl.--dker{background-color:var(--bl-dker);}
 .bg-bl.--op{background-color:var(--bl-o);}
+
 /* 黄 */
 .bg-yl.--lter{background-color:var(--yl-lter);}
 .bg-yl.--lt{background-color:var(--yl-lt);}
@@ -66,6 +71,7 @@
 .bg-red.--dk{background-color:var(--red-dk);}
 .bg-red.--dker{background-color:var(--red-dker);}
 .bg-red.--op{background-color:var(--red-o);}
+
 /* 文字色 */
 .bg-dm, .bg-gn, .bg-sky, .bg-bl, .bg-yl, .bg-og, .bg-red{color:var(--white);}
 
@@ -105,7 +111,7 @@
 
 .color-dm{color:var(--dm-lter);}
 .color-dm.--cdk{color:var(--dm);}
-.color-dm.--hover:hover{color:#af95ff;}
+.color-dm.--hover:hover{color:#ad96ff;}
 .color-gn{color:var(--gn);}
 .color-gn.--cdk{color:var(--gn-dker);}
 .color-gn.--hover:hover{color:#22ff72;}
@@ -122,9 +128,13 @@
 .color-yl.--cdk{color:var(--yl-dker);}
 .color-yl.--hover:hover{color:#ffe687;}
 
+.color-og{color:var(--og);}
+.color-og.--cdk{color:var(--og-dker);}
+.color-og.--hover:hover{color:var(--og-lter);}
+
 .color-red{color:var(--red);}
 .color-red.--cdk{color:var(--red-dker);}
-.color-red.--hover:hover{color:#ff6c6c;}
+.color-red.--hover:hover{color:#ff7f7f;}
 
 .color-wt{color:var(--white);}
 .color-bk{color:var(--black);}
