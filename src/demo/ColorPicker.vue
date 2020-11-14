@@ -9,14 +9,16 @@
             v-for="c in colorGroup"
             :key="c"
             class="nui-flex-auto"
-            :style="`background:${renGroup[c]}`" />
+            :style="`background:${renGroup[c]}`"
+            @click="c!=='ac'&&setColorRgb(renGroup[c+'Rgb'])" />
         </div>
         <div class="nui-card-foot nui-flex p-none">
           <div
             v-for="c in colorGroup"
             :key="c"
-            class="nui-flex-auto tt-c b-l p-5"
-            :style="`color:${renGroup[c]}`">
+            class="nui-flex-auto tt-c b-l p-5 tt-copy tt-cb"
+            :style="`color:${renGroup[c]}`"
+            @click="$Nui.copy(renGroup[c])">
             {{ renGroup[c] }}
           </div>
         </div>
@@ -167,8 +169,9 @@
           class="nui-card m-b-15 -sdw-none"
           style="height:55px">
           <div
-            class="nui-card-body"
-            :style="`background-color:${o.hex}`" />
+            class="nui-card-body -link"
+            :style="`background-color:${o.hex}`"
+            @click="setColor(o.hsl)" />
           <div class="nui-card-foot">
             <b>{{ o.weight }}</b>
             <b
@@ -181,8 +184,7 @@
   </div>
 </template>
 <script>
-import ColorPicker from './colorPicker';
-import colors from './datas/colors';
+import {ColorPicker,colors} from './colorPicker';
 export default {
   name: 'DemoColorPicker',
   setup(){
@@ -201,14 +203,14 @@ export default {
         l: 50,
       },
       gpOffset: {
-        lter: 20,
-        lt: 10,
-        dk: -10,
-        dker: -20
+        lter: 18,
+        lt: 9,
+        dk: -9,
+        dker: -18
       },
       colorName: 'yl',
-      cssPrefix: 'color',
-      cssBg: false,
+      cssPrefix: 'bg',
+      cssBg: true,
       cssStr: '',
     };
   },
@@ -229,12 +231,12 @@ export default {
       const off = this.gpOffset;
       const Hsv = this.renRaw.Hsv;
       const ac = this.renRaw.Hex;
-      const lter = ColorPicker.hsvToGroup(Hsv,off.lter);
-      const lt = ColorPicker.hsvToGroup(Hsv,off.lt);
-      const dk = ColorPicker.hsvToGroup(Hsv,off.dk);
-      const dker = ColorPicker.hsvToGroup(Hsv,off.dker);
+      const {rgb: lterRgb,hex: lter} = ColorPicker.hsvToGroup(Hsv,off.lter);
+      const {rgb: ltRgb,hex: lt} = ColorPicker.hsvToGroup(Hsv,off.lt);
+      const {rgb: dkRgb,hex: dk} = ColorPicker.hsvToGroup(Hsv,off.dk);
+      const {rgb: dkerRgb,hex: dker} = ColorPicker.hsvToGroup(Hsv,off.dker);
       return {
-        ac,lter,lt,dk,dker
+        ac,lter,lt,dk,dker,lterRgb,ltRgb,dkRgb,dkerRgb
       };
     },
     renCss(){
@@ -298,6 +300,14 @@ export default {
       this.gpOffset.lt = 10;
       this.gpOffset.dk = -10;
       this.gpOffset.dker = -20;
+    },
+    setColor([h,s,l]){
+      this.form.h = h;
+      this.form.s = s;
+      this.form.l = l;
+    },
+    setColorRgb(rgb){
+      this.setColor(ColorPicker.rgbToHsl(...rgb));
     }
   }
 };
