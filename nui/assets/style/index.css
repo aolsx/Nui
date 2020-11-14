@@ -4,7 +4,6 @@
 @import "./3_views.css";
 /* 视图模块 */
 @import "./4_component.css";
-@import "./devTemp.css";
 
 /* 细粒 基础样式 优先 */
 @import "./5_basis.css";

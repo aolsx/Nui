@@ -5,7 +5,8 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 
 .nui-code,
 .nui-code > ._block{display:flex;flex-direction:column;width:100%;max-height:100%;}
-.nui-code ._block{position:relative;flex:1;min-height:40px;max-height:100%;padding:5px;border-radius:5px;background:#22252c;}
+.nui-code ._block{position:relative;flex:1;min-height:40px;max-height:100%;padding:5px;border-radius:5px;background:var(--atom-dk);}
+.nui-code.bg-none ._block{background:none;}
 .nui-code ._lang{font-size:10px;line-height:1.5;position:absolute;top:3px;right:10px;display:flex;align-items:center;color:#fff1;}
 /* overflow:overlay; white-space:pre-wrap;word-wrap:break-word;color:#757f90; */
 .nui-code ._pre{font:normal 12px/1.5 Consolas, Monaco, "Courier New", monospace;overflow:auto;flex:1;min-width:0;min-height:0;margin:0;padding:10px;white-space:pre;position:relative;color:#abb2bf;}

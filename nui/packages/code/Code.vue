@@ -1,7 +1,7 @@
 <template>
   <div
     class="nui-code"
-    :class="`--${lang||codeObj.lang}`">
+    :class="[`--${lang||codeObj.lang}`,$attrs.class]">
     <slot />
     <div class="_block">
       <span class="_lang">{{ lang||codeObj.lang }}</span>
@@ -24,7 +24,7 @@ export default {
     code: {
       type: String,
       default: ''
-    }
+    },
   },
   computed: {
     codeObj(){

@@ -131,6 +131,7 @@
 .color-wt.--op{color:var(--white-o);}
 .color-bk.--op{color:var(--black-o);}
 .color-it{color:inherit;}
+.color-none{color:transparent;}
 
 .color-grid{background-image:linear-gradient(135deg, #ff3434, #2050ff);background-clip:text;color:transparent;}
 /* .color-grid{mask:linear-gradient(to left, red, transparent);} */
