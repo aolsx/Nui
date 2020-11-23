@@ -21,7 +21,7 @@
         <i
           v-if="item.icon"
           :class="item.icon" />
-        <ins>{{ item.label }}</ins>
+        <ins>{{ item[p_labelkey] }}</ins>
       </span>
     </div>
     <ul
@@ -37,7 +37,7 @@
 <script>
 export default {
   name: 'InTreeItem',
-  inject: ['p_click','p_rclick','p_open','dragType','p_child','p_arrow','p_idkey','p_ackeys'],
+  inject: ['p_click','p_rclick','p_open','dragType','p_child','p_arrow','p_idkey','p_labelkey','p_ackeys'],
   props: {
     item: {
       type: Object,

@@ -26,6 +26,7 @@ export default {
       p_child: this.child,
       p_arrow: this.arrow,
       p_idkey: this.idkey,
+      p_labelkey: this.labelkey,
       p_ackeys: this.ackeys,
       p_click: (item)=>{
         this.$emit('click',item);
@@ -47,15 +48,19 @@ export default {
       type: String,
       default: 'id'
     },
+    labelkey: {
+      type: String,
+      default: 'label'
+    },
+    child: {
+      type: String,
+      default: 'child'
+    },
     ackeys: {
       type: Array,
       default(){
         return null;
       }
-    },
-    child: {
-      type: String,
-      default: 'child'
     },
     tree: {
       type: Array,

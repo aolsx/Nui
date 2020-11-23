@@ -26,6 +26,7 @@ const tree = {
   dragType="<Str> 标识拖拽用"
   child="<Str> 子节点对象名 child"
   idkey="<Str> 节点对象键名 id"
+  labelkey="<Str> 节点对象标签名 id"
   ackeys="<Arr> 活动节点 [<idkey>]"
   sort="<Boolean> 禁用排序 默认开启"
   :tree="TreeList 树数组"
