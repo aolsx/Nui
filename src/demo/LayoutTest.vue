@@ -5,6 +5,9 @@
 </template>
 <script>
 export default {
-  name: 'LayoutTest'
+  name: 'LayoutTest',
+  // mounted(){
+  //   console.log(this);
+  // },
 };
 </script>

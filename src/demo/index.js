@@ -7,7 +7,9 @@ import List from './List.vue';
 import Btn from './Btn.vue';
 import Popup from './Popup.vue';
 import Form from './Form.vue';
+import Api from './Api.vue';
 import LayoutTest from './LayoutTest.vue';
+
 export default [
   BasisCss,
   Color,
@@ -18,5 +20,6 @@ export default [
   Btn,
   Popup,
   Form,
+  Api,
   LayoutTest
 ];

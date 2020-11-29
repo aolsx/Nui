@@ -18,7 +18,12 @@ const sidebar = {
   float: [],
   // 主容器
   main: {
-    component: 'VewsDemo'
+    component: 'VewsDemo',
+    panel: {
+      head: 'LayoutTest',
+      body: 'LayoutTest',
+      foot: 'LayoutTest',
+    }
   },
   // 吸附停靠
   left: [
@@ -63,6 +68,8 @@ const listArr = [
   {label: '配色样式',to: 'DemoColor'},
   {label: '配色工具',to: 'DemoColorPicker'},
   {label: '内置图标',to: 'DemoIcon'},
+  {line: true,label: 'Api'},
+  {label: '内置API',to: 'DemoApi'},
   {line: true,label: 'Component'},
   {label: '视图布局',to: 'DemoViews'},
   {label: '列表组件',to: 'DemoList'},
@@ -72,7 +79,7 @@ const listArr = [
 ];
 
 const listTo = reactive({
-  component: 'DemoColorPicker'
+  component: 'DemoBasisCss'
 });
 export {listTo,listArr};
 

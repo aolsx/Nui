@@ -20,7 +20,11 @@
           <tr
             v-for="(c,k) in im.list"
             :key="k">
-            <td><code class="tt-copy">{{ c[0] }}</code></td>
+            <td>
+              <code
+                class="tt-copy"
+                @click="$Nui.copy(c[0])">{{ c[0] }}</code>
+            </td>
             <td>
               <div
                 :class="c[2]"
@@ -42,7 +46,11 @@
               <tr
                 v-for="(c,k) in cm.list"
                 :key="k">
-                <td><code class="tt-copy">{{ c[0] }}</code></td>
+                <td>
+                  <code
+                    class="tt-copy"
+                    @click="$Nui.copy(c[0])">{{ c[0] }}</code>
+                </td>
                 <td>
                   <div
                     :class="c[2]"

@@ -94,6 +94,17 @@
 .nui-lut-side, .nui-lut-main{min-width:0;height:100%;}
 .nui-lut-side{display:flex;flex:none;max-width:40%;}
 .nui-lut-main{flex:1;}
+
+/* 独立中间主视图分拆 */
+.nui-lut-main.--v{display:flex;flex-direction:column;}
+.nui-lut-main-head, .nui-lut-main-foot{position:relative;flex:none;min-height:24px;}
+
+.nui-lut-main-head:after,
+.nui-lut-main-foot:after{position:absolute;left:0;width:100%;content:'';}
+.nui-lut-main-head:after{bottom:0;border-bottom:1px solid #0002;}
+.nui-lut-main-foot:after{top:0;border-top:1px solid #0002;}
+.nui-lut-main-body{position:relative;flex:1;}
+
 .nui-lut-group{position:relative;display:flex;flex:0 1 auto;flex-direction:column;min-width:40px;height:100%;background-color:var(--atom-dks);}
 .nui-lut-group-item{position:relative;flex:none;min-width:0;min-height:0;}
 .nui-lut-group:not(.--min) > .nui-lut-group-item:last-child{flex:1;height:auto !important;}

@@ -23,28 +23,10 @@ const lang = function(str,...params){
   }
   return str;
 };
+
 lang.set = function(obj){
   Msgs = {...Msgs,...obj};
+  lang.obj = Msgs;
 };
-
-// lang.throw = function(err){
-//   const obj = {msg: null,t: 'e'};
-//   if (typeCc.isNum(err)){
-//     obj.msg = Msgs[err] || Msgs.not + err;
-//   } else if (typeCc.isArr(err) && typeCc.isNum(err[0])){
-//     let msg = Msgs[err[0]] || Msgs.not + err[0];
-//     if (err.length > 1){
-//       err.splice(0,1);
-//       msg = replace(msg,err);
-//     }
-//     obj.msg = msg;
-//   } else if (typeCc.isStr(err)){
-//     obj.msg = err;
-//   }
-//   if (obj.msg){
-//     throw obj;
-//   }
-//   throw err;
-// };
 
 export default lang;
