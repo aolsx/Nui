@@ -9,8 +9,8 @@
     </h2>
     <div class="nui-row h5">
       <div
-        v-for="(arr,k) in apiList"
-        :key="k"
+        v-for="(arr,ka) in apiList"
+        :key="ka"
         class="nui-col-6">
         <div
           v-for="(im,key) in arr"

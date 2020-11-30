@@ -65,7 +65,7 @@
 .nui-lut-col.--v{flex-direction:column;}
 .nui-lut-col.--panel{display:block;}
 .nui-lut-panel{position:relative;display:flex;flex-direction:column;width:100%;height:100%;background-color:var(--atom-dks);}
-.nui-lut-tabs{position:relative;display:flex;flex:none;height:24px;padding-right:10px;background-color:#00000015;}
+.nui-lut-tabs{position:relative;display:flex;flex:none;height:24px;padding-right:10px;background-color:#0001;}
 .nui-lut-tabs:after{position:absolute;bottom:0;left:0;width:100%;content:'';border-bottom:1px solid #0002;}
 
 .nui-lut-tab{font-size:12px;position:relative;display:inline-flex;overflow:hidden;align-items:center;padding:4px 5px 0;cursor:pointer;color:var(--gy-dker);}
@@ -101,9 +101,9 @@
 
 .nui-lut-main-head:after,
 .nui-lut-main-foot:after{position:absolute;left:0;width:100%;content:'';}
-.nui-lut-main-head:after{bottom:0;border-bottom:1px solid #0002;}
-.nui-lut-main-foot:after{top:0;border-top:1px solid #0002;}
-.nui-lut-main-body{position:relative;flex:1;}
+.nui-lut-main-head:after{bottom:0;border-bottom:1px solid #0003;}
+.nui-lut-main-foot:after{top:0;border-top:1px solid #0003;}
+.nui-lut-main-body{position:relative;flex:1;width:100%;min-height:0;max-height:100%;}
 
 .nui-lut-group{position:relative;display:flex;flex:0 1 auto;flex-direction:column;min-width:40px;height:100%;background-color:var(--atom-dks);}
 .nui-lut-group-item{position:relative;flex:none;min-width:0;min-height:0;}

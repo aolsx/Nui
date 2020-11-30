@@ -3,7 +3,7 @@ export default function(ck,cursor = ''){
   document.body.style.cursor = cursor;
   document.body.classList.add('nui-drag-model');
   document.onmousemove = (e)=>{
-    ck(e.movementX,e.movementY);
+    ck(e.clientX,e.clientY,e.movementX,e.movementY);
   };
   document.onmouseup = ()=>{
     document.body.classList.remove('nui-drag-model');
