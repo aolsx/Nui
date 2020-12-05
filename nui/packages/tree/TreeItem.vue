@@ -7,7 +7,7 @@
       tabindex="-1"
       class="nui-tree-item"
       :class="{'--arrow':p_arrow,'--ac':c_isAc}"
-      :draggable="lock||!p_sort?false:true"
+      :draggable="!p_sort?false:true"
       @_vue="()=>this"
       @_dragType="()=>dragType">
       <i
@@ -19,12 +19,9 @@
         @contextmenu.stop.prevent="eveRclick"
         @click.stop="eveClick()">
         <i
-          v-if="lock"
-          class="nui-icon-lock m-r-25em op-5 h7" />
-        <i
-          v-if="icon"
-          :class="icon" />
-        <ins>{{ label }}</ins>
+          v-if="item.icon"
+          :class="item.icon" />
+        <ins>{{ item[p_labelkey] }}</ins>
       </span>
     </div>
     <ul
@@ -40,7 +37,7 @@
 <script>
 export default {
   name: 'InTreeItem',
-  inject: ['p_click','p_rclick','p_open','dragType','p_child','p_arrow','p_idkey','p_labelkey','p_ackeys','p_callback','p_sort'],
+  inject: ['p_click','p_rclick','p_open','dragType','p_child','p_arrow','p_idkey','p_labelkey','p_ackeys','p_sort'],
   props: {
     item: {
       type: Object,
@@ -49,10 +46,7 @@ export default {
   },
   data(){
     return {
-      isOpen: this.item.open || false,
-      icon: this.item.icon,
-      lock: this.item.lock,
-      label: this.item[this.p_labelkey]
+      isOpen: this.item.open || false
     };
   },
   computed: {
@@ -74,16 +68,13 @@ export default {
       return false;
     }
   },
-  mounted(){
-    this.p_callback?.(this);
-  },
   methods: {
     eveClick(){
       // 存在子节点并且不是箭头则 开关
-      if (!this.c_notChild && (!this.p_arrow || this.lock)){
+      if (!this.c_notChild && !this.p_arrow){
         this.isOpen = !this.isOpen;
         this.p_open(this.item);
-      } else if (!this.lock){
+      } else {
         this.p_click(this.item);
       }
     },

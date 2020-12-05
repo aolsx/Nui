@@ -28,7 +28,6 @@ export default {
       p_idkey: this.idkey,
       p_labelkey: this.labelkey,
       p_ackeys: this.ackeys,
-      p_callback: this.callback,
       p_sort: this.sort,
       p_click: (item)=>{
         this.$emit('click',item);
@@ -67,10 +66,6 @@ export default {
     tree: {
       type: Array,
       required: true
-    },
-    callback: {
-      type: Function,
-      default: null
     },
     line: Boolean,
     arrow: Boolean,

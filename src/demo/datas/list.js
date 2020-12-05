@@ -30,7 +30,6 @@ const tree = {
   ackeys="<Arr> 活动节点 [<idkey>]"
   sort="<Boolean> 禁用排序 默认开启"
   :tree="TreeList 树数组"
-  :callback="this mounted 后回调"
   @open="<$event itemObj> 展开节点"
   @rclick="<$event Obj{ptArr,k}> 右键"
   @click="<$event itemObj> 左键" /> `,
@@ -38,7 +37,6 @@ const tree = {
   {
     icon:'',label:'',
     open:false, // 记忆开关 可选
-    lock:false,// 锁定 仅响应展开
     [child]: [] // 子节点数组
     ...
 }]`
