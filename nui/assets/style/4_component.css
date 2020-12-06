@@ -1,6 +1,6 @@
 /* 基础列表 */
 .nui-list{font-size:12px;position:relative;color:var(--bl-dk);}
-.nui-list-item{line-height:1.5;position:relative;display:flex;align-items:center;padding:.5em .35em;cursor:pointer;transition:color .15s;color:var(--gy);border-bottom:1px solid #0002;}
+.nui-list-item{line-height:1.5;position:relative;display:flex;align-items:center;padding:.5em .35em;cursor:pointer;transition:color .15s;color:var(--gy-dk);border-bottom:1px solid #0002;}
 .nui-list-item:before{position:absolute;top:0;right:0;bottom:0;left:0;content:'';transition:background-color .15s;opacity:.1;}
 .nui-list-item *{z-index:1;pointer-events:none;}
 .nui-list-item i{width:1.25em;text-align:center;}
@@ -9,6 +9,7 @@
 
 .nui-list-item:hover, .nui-list-item.--active{color:inherit;}
 .nui-list-item.--active:before{background-color:currentColor;}
+.nui-list.--sm .nui-list-item{padding:.25em .35em;}
 
 /* 树列表 */
 .nui-tree{font-size:12px;overflow:overlay;flex:1;min-width:0;max-width:100%;min-height:0;max-height:100%;padding:5px 10px 30px;color:var(--bl-dk);}
@@ -436,3 +437,7 @@
 .nui-panel-head .nui-btn:before,
 .nui-panel-foot .nui-btn:before{display:none;}
 .nui-panel-body{overflow:overlay;flex:1;padding:8px;background:var(--atom-dks);}
+
+/* 拖拽 */
+.nui-drag-line{display:flex;flex:none;justify-content:center;min-width:1px;min-height:1px;background:#0003;position:relative;z-index:1;align-items:center;}
+.nui-drag-line:after{content:'';width:100%;height:100%;position:absolute;min-width:9px;min-height:9px;}
