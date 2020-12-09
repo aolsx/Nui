@@ -21,6 +21,7 @@
 /* 栅格布局 */
 .nui-row-grid{display:grid;overflow:auto;}
 .nui-row-grid.--min-80{grid-template-columns:repeat(auto-fill, minmax(80px, 1fr));}
+.nui-row-grid.--min-90{grid-template-columns:repeat(auto-fill, minmax(90px, 1fr));}
 .nui-row-grid.--sp-10{padding:10px;grid-gap:10px;}
 /* .nui-row-grid  */
 /* .nui-row-grid.--auto-2{grid-template-columns:auto 1fr;} */
@@ -182,3 +183,5 @@ i + ins, i + .-eps{margin-left:.25em;}
 .-none{display:none !important;}
 .-none-eve, .-none-eve *{pointer-events:none !important;}
 .-full{width:100% !important;height:100% !important;}
+.-hidden{overflow:hidden !important;}
+.-overlay{overflow:overlay !important;}

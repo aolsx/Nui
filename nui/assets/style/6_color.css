@@ -112,6 +112,7 @@
 .color-dm{color:var(--dm-lter);}
 .color-dm.--cdk{color:var(--dm);}
 .color-dm.--hover:hover{color:#ad96ff;}
+
 .color-gn{color:var(--gn);}
 .color-gn.--cdk{color:var(--gn-dker);}
 .color-gn.--hover:hover{color:#22ff72;}
@@ -142,6 +143,8 @@
 .color-bk.--op{color:var(--black-o);}
 .color-it{color:inherit;}
 .color-none{color:transparent;}
+
+[class^="color-"].--focus:not(:focus), [class*=" color-"].--focus:not(:focus){color:inherit;}
 
 .color-grid{background-image:linear-gradient(135deg, #ff3434, #2050ff);background-clip:text;color:transparent;}
 /* .color-grid{mask:linear-gradient(to left, red, transparent);} */

@@ -94,8 +94,7 @@
     </div>
     <h4 class="nui-col-12">
       文字色
-      <code class="h6">.color-[*]</code> |
-      <code class="h6">.--hover</code>
+      <code class="h6">.color-[*] .--hover .--focus</code>
     </h4>
     <div class="nui-row">
       <div
