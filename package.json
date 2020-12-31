@@ -1,6 +1,6 @@
 {
   "name": "aolsx-nui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "aolsx",
   "private": false,
   "license": "MIT",
@@ -9,9 +9,12 @@
   },
   "files": ["/dist"],
   "main": "dist/nui.umd.min.js",
+  "typings": "dist/nui.d.ts",
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build --target lib --name nui nui/index.js",
+    "build:nui": "vue-cli-service build --target lib --name nui nui/index.js",
+    "build:copy":"node copyDts.js",
+    "build": "yarn build:nui && yarn build:copy",
     "demo:build": "vue-cli-service build --dest demo",
     "npm:publish": "yarn build & npm publish",
     "lint": "vue-cli-service lint"

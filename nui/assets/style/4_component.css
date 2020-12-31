@@ -96,6 +96,7 @@
 
 /* 按钮 */
 .nui-btn, .nui-label{font-size:12px;line-height:1;position:relative;display:inline-flex;overflow:hidden;align-items:center;justify-content:center;text-align:center;vertical-align:middle;}
+.nui-btn *, .nui-label *{pointer-events:none;}
 .nui-btn{z-index:1;min-width:1.75em;min-height:2em;padding:.5px .5em 0;cursor:pointer;border-radius:.3em;}
 .nui-btn > i{display:flex;align-items:center;flex:none;justify-content:center;width:1em;height:1em;text-align:center;}
 .nui-btn > * + *, .nui-label > * + *{margin-left:.25em;}

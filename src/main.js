@@ -6,7 +6,6 @@ import VewsList from './vews/VewsList.vue';
 import VewsDemo from './vews/VewsDemo.vue';
 import VewsTemp from './vews/VewsTemp.vue';
 
-
 import App from './App.vue';
 
 const app = createApp(App);
