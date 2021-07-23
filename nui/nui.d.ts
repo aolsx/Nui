@@ -1,9 +1,5 @@
 import {ComponentCustomProperties} from 'vue';
 
-declare module 'aolsx-nui' {
-  export const install: (v: any) => void;
-}
-
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $Nui: {
@@ -64,4 +60,8 @@ declare module '@vue/runtime-core' {
       loadPro(params:object,msg:string):Function;
     };
   }
+}
+
+declare module 'aolsx-nui' {
+  export const install: (v: any) => void;
 }

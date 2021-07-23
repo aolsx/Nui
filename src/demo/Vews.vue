@@ -14,15 +14,15 @@
               <ins>LOGO</ins>
             </div>
             <div class="nui-app-dynamic-tools">
-              <i class="nui-icon-tools" />
+              <i class="nicon-tools" />
               <div>
                 <ins> 工具栏</ins>
               </div>
-              <i class="nui-icon-chevron-up" />
+              <i class="nicon-chevron-up" />
             </div>
             <div class="nui-app-window-controls">
               <span>
-                <i class="nui-icon-chrome-close" />
+                <i class="nicon-chrome-close" />
               </span>
             </div>
           </div>
@@ -37,12 +37,12 @@
                   style="height: 100%;">
                   <div class="nui-lut-tabs-min">
                     <div class="nui-lut-tab-min --active">
-                      <i class="nui-icon-files" />
+                      <i class="nicon-info" />
                       <ins>C</ins>
                     </div>
                     <div
                       class="nui-lut-tab-min">
-                      <i class="nui-icon-pen" />
+                      <i class="nicon-info-circle" />
                       <ins>D</ins>
                     </div>
                   </div>
@@ -52,12 +52,12 @@
                     <div class="nui-lut-tabs">
                       <div
                         class="nui-lut-tab --active">
-                        <i class="nui-icon-files" />
+                        <i class="nicon-info" />
                         <ins>C</ins>
                       </div>
                       <div
                         class="nui-lut-tab">
-                        <i class="nui-icon-pen" />
+                        <i class="nicon-info-circle" />
                         <ins>D</ins>
                       </div>
                     </div>
@@ -84,7 +84,7 @@
                     <div class="nui-lut-tabs">
                       <div
                         class="nui-lut-tab --active">
-                        <i class="nui-icon-tools" />
+                        <i class="nicon-tools" />
                         <ins>B</ins>
                       </div>
                     </div>
@@ -101,12 +101,12 @@
                     <div class="nui-lut-tabs">
                       <div
                         class="nui-lut-tab --active">
-                        <i class="nui-icon-files" />
+                        <i class="nicon-info" />
                         <ins>C</ins>
                       </div>
                       <div
                         class="nui-lut-tab">
-                        <i class="nui-icon-pen" />
+                        <i class="nicon-info-circle" />
                         <ins>D</ins>
                       </div>
                     </div>
@@ -131,7 +131,7 @@
                     <div class="nui-lut-tabs-min">
                       <div
                         class="nui-lut-tab-min">
-                        <i class="nui-icon-tools" />
+                        <i class="nicon-tools" />
                         <ins>B</ins>
                       </div>
                     </div>
@@ -141,7 +141,7 @@
                       <div class="nui-lut-tabs">
                         <div
                           class="nui-lut-tab --active">
-                          <i class="nui-icon-tools" />
+                          <i class="nicon-tools" />
                           <ins>B</ins>
                         </div>
                       </div>
@@ -158,12 +158,12 @@
                     <div class="nui-lut-tabs-min">
                       <div
                         class="nui-lut-tab-min">
-                        <i class="nui-icon-files" />
+                        <i class="nicon-info" />
                         <ins>C</ins>
                       </div>
                       <div
                         class="nui-lut-tab-min">
-                        <i class="nui-icon-pen" />
+                        <i class="nicon-info-circle" />
                         <ins>D</ins>
                       </div>
                     </div>
@@ -173,12 +173,12 @@
                       <div class="nui-lut-tabs">
                         <div
                           class="nui-lut-tab --active">
-                          <i class="nui-icon-files" />
+                          <i class="nicon-info" />
                           <ins>C</ins>
                         </div>
                         <div
                           class="nui-lut-tab">
-                          <i class="nui-icon-pen" />
+                          <i class="nicon-info-circle" />
                           <ins>D</ins>
                         </div>
                       </div>
@@ -206,7 +206,7 @@
             </div>
             <div class="nui-app-window-controls">
               <span>
-                <i class="nui-icon-chrome-close" />
+                <i class="nicon-chrome-close" />
               </span>
             </div>
           </div>
@@ -222,7 +222,7 @@
                     <div class="nui-lut-tabs">
                       <div
                         class="nui-lut-tab --active">
-                        <i class="nui-icon-home" />
+                        <i class="nicon-cog" />
                         <ins>A</ins>
                       </div>
                     </div>
@@ -238,7 +238,7 @@
                     <div class="nui-lut-tabs">
                       <div
                         class="nui-lut-tab --active">
-                        <i class="nui-icon-files" />
+                        <i class="nicon-info" />
                         <ins>C</ins>
                       </div>
                     </div>
@@ -262,7 +262,7 @@
                       <div class="nui-lut-tabs">
                         <div
                           class="nui-lut-tab --active">
-                          <i class="nui-icon-tools" />
+                          <i class="nicon-tools" />
                           <ins>B</ins>
                         </div>
                       </div>
@@ -278,7 +278,7 @@
                       <div class="nui-lut-tabs">
                         <div
                           class="nui-lut-tab --active">
-                          <i class="nui-icon-home" />
+                          <i class="nicon-cog" />
                           <ins>A</ins>
                         </div>
                       </div>
@@ -296,12 +296,12 @@
                     <div class="nui-lut-tabs">
                       <div
                         class="nui-lut-tab --active">
-                        <i class="nui-icon-home" />
+                        <i class="nicon-cog" />
                         <ins>A</ins>
                       </div>
                       <div
                         class="nui-lut-tab">
-                        <i class="nui-icon-tools" />
+                        <i class="nicon-tools" />
                         <ins>B</ins>
                       </div>
                     </div>
@@ -320,7 +320,7 @@
                   <div class="nui-lut-tabs">
                     <div
                       class="nui-lut-tab --active">
-                      <i class="nui-icon-files" />
+                      <i class="nicon-info" />
                       <ins>C</ins>
                     </div>
                   </div>

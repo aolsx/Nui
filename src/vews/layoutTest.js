@@ -2,22 +2,22 @@
 const mods = {
   test1: {
     label: 'test 1',
-    icon: 'nui-icon-home',
+    icon: 'nicon-cog',
     component: 'LayoutTest'
   },
   test2: {
     label: 'test 2',
-    icon: 'nui-icon-cloud',
+    icon: 'nicon-info-circle',
     component: 'LayoutTest'
   },
   test3: {
     label: 'test 3',
-    icon: 'nui-icon-cube',
+    icon: 'nicon-calendar-alt',
     component: 'LayoutTest'
   },
   test4: {
     label: 'test 4',
-    icon: 'nui-icon-images',
+    icon: 'nicon-clock',
     component: 'LayoutTest'
   },
 };

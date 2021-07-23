@@ -153,8 +153,8 @@
           <nui-btn
             class="color-sky"
             label="抛出图标"
-            icon="nui-icon-home"
-            @click="paa($event,{cls:'bg-dm',icon:'nui-icon-home'})" />
+            icon="nicon-cog"
+            @click="paa($event,{cls:'bg-dm',icon:'nicon-cog'})" />
           <nui-btn
             class="bg-red"
             label="自定义cls"
@@ -197,7 +197,7 @@
     <nui-modal
       v-if="showMod"
       v-slot="{ hideFn }"
-      icon="nui-icon-home"
+      icon="nicon-cog"
       label="Title"
       color="color-gn"
       @close="showMod = false">
@@ -223,17 +223,17 @@ export default {
       evePop: '',
       typeArr: ['d','i','w','e','s','q'],
       typeObj: {
-        d: ['color-gy','nui-icon-question'],
+        d: ['color-gy','nicon-question'],
         // 信息
-        i: ['color-bl','nui-icon-info'],
+        i: ['color-bl','nicon-info'],
         // 警告
-        w: ['color-yl','nui-icon-exclamation'],
+        w: ['color-yl','nicon-exclamation'],
         // 错误
-        e: ['color-red','nui-icon-exclamation-triangle'],
+        e: ['color-red','nicon-exclamation-triangle'],
         // 正确
-        s: ['color-gn','nui-icon-shield-check'],
+        s: ['color-gn','nicon-shield-check'],
         // 疑问
-        q: ['color-dm','nui-icon-question']
+        q: ['color-dm','nicon-question']
       },
       menuCk: '',
       showMod: false,
@@ -257,25 +257,25 @@ export default {
     menuShow(e,line){
       const arr = [
         {
-          icon: 'nui-icon-home',
+          icon: 'nicon-cog',
           label: '菜单A',
           cls: 'color-gn',
           name: 'fnA'
         },
         {
-          icon: 'nui-icon-home',
+          icon: 'nicon-cog',
           label: '菜单B',
           name: 'fnB'
         }
       ];
       const arrLine = [
         {
-          icon: 'nui-icon-home',
+          icon: 'nicon-cog',
           cls: 'bg-gn',
           name: 'fnA'
         },
         {
-          icon: 'nui-icon-home',
+          icon: 'nicon-cog',
           cls: 'bg-yl',
           name: 'fnB'
         }

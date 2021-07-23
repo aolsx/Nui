@@ -3,7 +3,7 @@ const mods = {
   // 模块信息
   a_mod: {
     label: 'A标签',
-    icon: 'nui-icon-home',
+    icon: 'nicon-cog',
     component: 'a_component'
   },
 };
@@ -102,7 +102,7 @@ const sidebar = {
 
 const demoCode = {
   html: `<nui-view-root
-  :bgicon="nui-icon-ng-logo">
+  :bgicon="nicon-logo">
   <nui-view-head
     :logo="{icon:'ng-logo',label:'NG IDE'}"
     @win="eveWinDow($event)">

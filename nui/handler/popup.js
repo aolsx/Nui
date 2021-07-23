@@ -1,16 +1,16 @@
 // 取消
 const attrs = {
-  d: ['color-gy','nui-icon-question'],
+  d: ['color-gy','nicon-question'],
   // 信息
-  i: ['color-bl','nui-icon-info'],
+  i: ['color-bl','nicon-info'],
   // 警告
-  w: ['color-yl','nui-icon-exclamation'],
+  w: ['color-yl','nicon-exclamation'],
   // 错误
-  e: ['color-red','nui-icon-exclamation-triangle'],
+  e: ['color-red','nicon-exclamation-triangle'],
   // 正确
-  s: ['color-gn','nui-icon-shield-check'],
+  s: ['color-gn','nicon-shield-check'],
   // 疑问
-  q: ['color-dm','nui-icon-question']
+  q: ['color-dm','nicon-question']
 };
 // 问询确认
 const ConfirmArr = {v: []};

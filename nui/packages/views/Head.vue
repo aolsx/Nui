@@ -13,14 +13,19 @@
       <slot />
     </div>
     <div class="nui-app-window-controls">
+      <span
+        v-if="reload"
+        @click.stop="$emit('win','reload')">
+        <i class="nicon-chrome-refresh" />
+      </span>
       <span @click.stop="$emit('win','min')">
-        <i class="nui-icon-chrome-minimize" />
+        <i class="nicon-chrome-minimize" />
       </span>
       <span @click.stop="$emit('win','reset')">
-        <i class="nui-icon-chrome-restore" />
+        <i class="nicon-chrome-restore" />
       </span>
       <span @click.stop="$emit('win','close')">
-        <i class="nui-icon-chrome-close" />
+        <i class="nicon-chrome-close" />
       </span>
     </div>
   </div>
@@ -33,11 +38,12 @@ export default {
       type: Object,
       default(){
         return {
-          icon: 'nui-icon-ng-logo',
+          icon: 'nicon-logo',
           label: 'NG IDE'
         };
       }
     },
+    reload: Boolean
   },
   emits: ['win'],
 };

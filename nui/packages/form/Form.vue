@@ -3,38 +3,46 @@
     class="nui-form"
     novalidate="true"
     autocomplete="off">
-    <div
-      v-if="items"
-      class="nui-row">
+    <div class="nui-form-body">
       <div
-        v-for="(im,k) in items"
-        :key="k"
-        :class="`nui-col-${im.col||12}`">
+        v-if="items"
+        class="nui-row">
         <div
-          v-if="im.label"
-          class="nui-form-label">
-          {{ im.label }}
+          v-for="(im,k) in items"
+          :key="k"
+          :class="`nui-col-${im.col||12}`">
+          <div
+            v-if="im.label"
+            class="nui-form-label">
+            {{ im.label }}
+          </div>
+          <nui-form-str
+            v-if="im.mod=='str'"
+            v-model="vlues[im.field]"
+            v-bind="im.bind" />
+          <nui-form-num
+            v-else-if="im.mod=='num'"
+            v-model="vlues[im.field]"
+            v-bind="im.bind" />
+          <nui-form-rc
+            v-else-if="im.mod=='rc'"
+            v-model="vlues[im.field]"
+            v-bind="im.bind" />
+          <nui-form-st
+            v-else-if="im.mod=='st'"
+            v-model="vlues[im.field]"
+            v-bind="im.bind" />
         </div>
-        <nui-form-str
-          v-if="im.mod=='str'"
-          v-model="vlues[im.field]"
-          v-bind="im.bind" />
-        <nui-form-num
-          v-else-if="im.mod=='num'"
-          v-model="vlues[im.field]"
-          v-bind="im.bind" />
-        <nui-form-rc
-          v-else-if="im.mod=='rc'"
-          v-model="vlues[im.field]"
-          v-bind="im.bind" />
-        <nui-form-st
-          v-else-if="im.mod=='st'"
-          v-model="vlues[im.field]"
-          v-bind="im.bind" />
       </div>
+      <slot />
     </div>
-    <slot />
-    <div class="nui-form-submit">
+    <slot
+      name="submit"
+      :reset="formReset"
+      :submit="formSubmit" />
+    <div
+      v-if="!$slots.submit"
+      class="nui-form-submit">
       <nui-btn
         v-if="backupDatas && resetbtn"
         :class="resetbtn.cls||'color-gy'"

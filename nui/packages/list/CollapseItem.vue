@@ -13,7 +13,7 @@
         <ins v-if="label">{{ label }}</ins>
         <slot name="head" />
       </div>
-      <i :class="`nui-icon-chevron-${isActive?'down':left?'right':'left'}`" />
+      <i :class="`nicon-chevron-${isActive?'down':left?'right':'left'}`" />
     </div>
     <div class="nui-collapse-body">
       <slot />

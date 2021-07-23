@@ -1,7 +1,7 @@
 /* 基础样式 */
 /* 滚动容器 overscroll-behavior:contain; */
 .nui-container,
-.nui-container-in{position:relative;overflow:overlay;min-width:0;max-width:100%;max-height:100%;}
+.nui-container-in{position:relative;min-width:0;max-width:100%;max-height:100%;overflow:overlay;}
 .nui-container{flex:1;width:100%;height:100%;}
 .nui-container.--p{padding:15px 15px 30px 15px;}
 
@@ -22,12 +22,12 @@
 .nui-row-grid{display:grid;overflow:auto;}
 .nui-row-grid.--min-80{grid-template-columns:repeat(auto-fill, minmax(80px, 1fr));}
 .nui-row-grid.--min-90{grid-template-columns:repeat(auto-fill, minmax(90px, 1fr));}
-.nui-row-grid.--sp-10{padding:10px;grid-gap:10px;}
+.nui-row-grid.--sp-10{grid-gap:10px;padding:10px;}
 /* .nui-row-grid  */
 /* .nui-row-grid.--auto-2{grid-template-columns:auto 1fr;} */
 /* .nui-row-grid.--sp-2{padding:2px;grid-gap:2px;} */
 /* 属性表 两列 */
-.nui-row-grid.--attr > *{padding:3px 8px;border-top:.5px solid #0003;word-break:break-all;}
+.nui-row-grid.--attr > *{padding:3px 8px;word-break:break-all;border-top:.5px solid #0003;}
 .nui-row-grid.--attr > :nth-child(odd){color:var(--gy-dker);}
 .nui-row-grid.--attr:not(.--line) > :nth-child(even){padding-left:0;}
 .nui-row-grid.--attr.--line > :nth-child(even){border-left:.5px solid #0003;}
@@ -141,11 +141,11 @@ h4, h5, h6{margin-top:.5em;margin-bottom:.25em;}
 .h7{font-size:1rem;}
 
 /* 超出隐藏 */
-ins, .-eps{line-height:inherit;overflow:hidden;flex-shrink:1;min-width:0;max-width:100%;white-space:nowrap;text-decoration:none;text-overflow:ellipsis;}
+ins, .-eps{flex-shrink:1;min-width:0;max-width:100%;overflow:hidden;line-height:inherit;text-decoration:none;text-overflow:ellipsis;white-space:nowrap;}
 ins{display:inline-block;vertical-align:middle;}
 
 /* 图标类 */
-i{font-style:normal;flex:none;}
+i{flex:none;font-style:normal;}
 i + ins, i + .-eps{margin-left:.25em;}
 
 .tt-c{text-align:center;}
@@ -158,7 +158,7 @@ i + ins, i + .-eps{margin-left:.25em;}
 /* 全小写 */
 .tt-cs{text-transform:lowercase;}
 /* 文字可选中 caret-color: red; */
-.tt-copy{cursor:copy;user-select:all;pointer-events:auto;}
+.tt-copy{pointer-events:auto;cursor:copy;user-select:all;}
 .tt-copy::selection, .tt-copy *::selection{color:inherit;background-color:inherit;}
 .tt-copy:active::selection, .tt-copy:active *::selection{color:var(--white-dk);background-color:var(--sky-o5);}
 

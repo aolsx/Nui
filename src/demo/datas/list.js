@@ -54,7 +54,7 @@ const cpe = {
   <!-- 默认开启 open -->
   <nui-cpe-item
     open
-    icon="nui-icon-home"
+    icon="nicon-cog"
     label="属性参数">
     <div>文字内容</div>
   </nui-cpe-item>

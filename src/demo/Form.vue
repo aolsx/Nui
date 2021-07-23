@@ -25,11 +25,11 @@
           <nui-btn
             class="color-bl"
             label="前置图标"
-            @click="formCfg.icon[0] = formCfg.icon[0]?'':'nui-icon-home'" />
+            @click="formCfg.icon[0] = formCfg.icon[0]?'':'nicon-cog'" />
           <nui-btn
             class="color-bl"
             label="后缀图标"
-            @click="formCfg.icon[1] = formCfg.icon[1]?'':'nui-icon-tools'" />
+            @click="formCfg.icon[1] = formCfg.icon[1]?'':'nicon-tools'" />
         </div>
         <p />
         <nui-code

@@ -39,7 +39,7 @@
             :key="k"
             class="nui-label"
             :class="[`bg-${c} ${sz} ${sr}`,{'--b-none':bNone}]">
-            <i class="nui-icon-home" />
+            <i class="nicon-cog" />
             <ins>文字</ins>
           </span>
         </div>
@@ -92,7 +92,7 @@
             :ac="ac"
             :dd="dd"
             :class="[`bg-${c} ${sz} ${sr}`,{'--b-none':bNone}]"
-            icon="nui-icon-home"
+            icon="nicon-cog"
             label="文字" />
         </div>
         <p />
@@ -103,7 +103,7 @@
             :class="[`color-${c} ${sz} ${sr}`,{'--b-none':bNone}]"
             :ac="ac"
             :dd="dd"
-            icon="nui-icon-tools"
+            icon="nicon-tools"
             label="文字" />
         </div>
         <p />
@@ -114,14 +114,14 @@
             :class="[`bg-${c} ${sz} ${sr}`,{'--b-none':bNone}]"
             :dd="dd"
             :ac="ac"
-            icon="nui-icon-home" />
+            icon="nicon-cog" />
           <nui-btn
             v-for="(c,k) in colorArr"
             :key="k"
             :class="[`color-${c} ${sz} ${sr}`,{'--b-none':bNone}]"
             :ac="ac"
             :dd="dd"
-            icon="nui-icon-tools" />
+            icon="nicon-tools" />
         </div>
         <p />
         <div class="nui-row">
@@ -164,7 +164,7 @@
               class="bg-bl h2"
               title="1280"
               sub="副标题"
-              icon="nui-icon-home">
+              icon="nicon-cog">
               <span>自定义slot</span>
               <template #foot>
                 <div>#foot slot</div>

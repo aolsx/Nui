@@ -1,6 +1,6 @@
 {
   "name": "aolsx-nui",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "author": "aolsx",
   "private": false,
   "license": "MIT",
@@ -8,8 +8,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "files": ["/dist"],
-  "main": "dist/nui.umd.min.js",
-  "typings": "dist/nui.d.ts",
+  "main": "./dist/nui.umd.min.js",
+  "typings": "./dist/nui.d.ts",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build:nui": "vue-cli-service build --target lib --name nui nui/index.js",
@@ -24,12 +24,15 @@
     "@vue/cli-plugin-babel": "^4.5.9",
     "@vue/cli-plugin-eslint": "^4.5.9",
     "@vue/cli-service": "^4.5.9",
-    "@vue/compiler-sfc": "^3.0.3",
+    "@vue/compiler-sfc": "^3.1.5",
     "babel-eslint": "^10.1.0",
     "core-js": "^3.8.0",
     "eslint": "^7.14.0",
     "eslint-plugin-vue": "^7.1.0",
-    "vue": "^3.0.3"
+    "vue": "^3.1.5"
+  },
+  "peerDependencies": {
+    "vue": ">=3.1.5"
   },
   "browserslist": [
     "> 1%",

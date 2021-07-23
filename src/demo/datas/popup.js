@@ -27,7 +27,7 @@ const mod = {
   html: `<nui-modal
   v-if="showMod"
   v-slot="{ hideFn }"
-  icon="nui-icon-home"
+  icon="nicon-cog"
   label="Title"
   color="color-gn"
   @close="showMod = false">
@@ -42,7 +42,7 @@ const mod = {
 const menu = {
   js: `const arr = [{
   name:'xxx' // 方法识别
-  icon: 'nui-icon-home',
+  icon: 'nicon-cog',
   label: '菜单A ',
   cls: 'color-gn'}];
 const pos = {

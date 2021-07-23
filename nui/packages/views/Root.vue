@@ -39,7 +39,7 @@ export default {
   props: {
     bgicon: {
       type: String,
-      default: 'nui-icon-ng-logo'
+      default: 'nicon-logo'
     },
   }
 };

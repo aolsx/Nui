@@ -20,7 +20,7 @@
       <div
         class="nui-msg-close"
         @click.stop.prevent="delItem()">
-        <i class="nui-icon-times" />
+        <i class="nicon-times" />
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ export default {
       type: Object,
       default(){
         return {
-          icon: 'nui-icon-info',
+          icon: 'nicon-info',
           color: 'color-gy',
           msg: 'Show Infos...',
           time: 3000,

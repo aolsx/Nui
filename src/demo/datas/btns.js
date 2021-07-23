@@ -45,7 +45,7 @@ const card = {
   class="bg-bl h2"
   :title="主标题"
   :sub="副标题"
-  :icon="nui-icon-home">
+  :icon="nicon-cog">
   <span>自定义slot</span>
   <template #foot>
     <div>#foot slot</div>

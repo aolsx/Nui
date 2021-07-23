@@ -59,14 +59,14 @@
           <nui-cpe>
             <nui-cpe-item>
               <template #head>
-                <i class="nui-icon-tools" />
+                <i class="nicon-tools" />
                 <ins>Slot 分配</ins>
               </template>
               <ins>文字内容</ins>
             </nui-cpe-item>
             <nui-cpe-item
               open
-              icon="nui-icon-home"
+              icon="nicon-cog"
               label=":open 默认开启">
               <ins>文字内容</ins>
             </nui-cpe-item>
@@ -92,10 +92,10 @@
             <div>
               <nui-btn
                 class="color-gn"
-                icon="nui-icon-home" />
+                icon="nicon-cog" />
               <nui-btn
                 class="color-gn"
-                icon="nui-icon-home" />
+                icon="nicon-cog" />
             </div>
           </div>
           <div class="nui-panel-body">
@@ -112,11 +112,11 @@
           <div class="nui-panel-foot">
             <nui-btn
               class="color-gn"
-              icon="nui-icon-home" />
+              icon="nicon-cog" />
             <span class="nui-flex-auto">面板底部</span>
             <nui-btn
               class="color-gn"
-              icon="nui-icon-home" />
+              icon="nicon-cog" />
           </div>
         </div>
         <br>
@@ -141,8 +141,8 @@ export default {
       list: {
         ac: 'AcList 1',
         arr: [
-          {icon: 'nui-icon-tools',label: 'line Info 1'},
-          {icon: 'nui-icon-home',label: 'List 1-1',to: 'AcList 1-1'},
+          {icon: 'nicon-tools',label: 'line Info 1'},
+          {icon: 'nicon-cog',label: 'List 1-1',to: 'AcList 1-1'},
           {label: 'List 1-2',to: 'AcList 1-2'},
           {label: 'line Info 2'},
           {label: 'List 2-1',to: 'AcList 2-1'},
@@ -155,19 +155,19 @@ export default {
         line: false,
         ackeys: [1,2],
         arr: [
-          {icon: 'nui-icon-home',label: 'List 1',to: 'AcList 1',id: 1},
+          {icon: 'nicon-cog',label: 'List 1',to: 'AcList 1',id: 1},
           {label: 'List 2',to: 'AcList 2',},
-          {icon: 'nui-icon-tools',label: 'nodes Info 3',id: 2,
+          {icon: 'nicon-tools',label: 'nodes Info 3',id: 2,
             tree: [
               {label: 'List 3-1',to: 'AcList 3-1',},
-              {icon: 'nui-icon-home',label: 'List 3-2',to: 'AcList 3-2',open: false,
+              {icon: 'nicon-cog',label: 'List 3-2',to: 'AcList 3-2',open: false,
                 tree: [
                   {label: 'List 3-2-1',to: 'AcList 3-2-1'},
-                  {icon: 'nui-icon-home',label: 'List 3-2-2',to: 'AcList 3-2-2'}
+                  {icon: 'nicon-cog',label: 'List 3-2-2',to: 'AcList 3-2-2'}
                 ]},
               {label: 'List 3-3',to: 'AcList 3-3'},
             ]},
-          {icon: 'nui-icon-home',label: 'List 5',to: 'AcList 5'},
+          {icon: 'nicon-cog',label: 'List 5',to: 'AcList 5'},
         ]
       }
     };

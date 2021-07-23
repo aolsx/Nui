@@ -17,7 +17,7 @@
           <div
             class="nui-modal-btn"
             @click.stop.prevent="hide=true">
-            <i class="nui-icon-times" />
+            <i class="nicon-times" />
           </div>
           <div class="nui-modal-head">
             <i

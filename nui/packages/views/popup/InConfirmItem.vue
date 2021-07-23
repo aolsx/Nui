@@ -16,15 +16,15 @@
           <div
             class="nui-confirm-btn"
             @click.stop="item.onConfirm(true);show=false">
-            <i class="nui-icon-check-circle" />
+            <i class="nicon-check-circle" />
           </div>
           <div
             class="nui-confirm-close"
             @click.stop="item.onConfirm(false);show=false">
-            <i class="nui-icon-times" />
+            <i class="nicon-times" />
           </div>
           <div class="nui-confirm-icon">
-            <i :class="item.pm.icon||'nui-icon-question'" />
+            <i :class="item.pm.icon||'nicon-question'" />
           </div>
           <div class="nui-confirm-body">
             <span>{{ item.pm.msg||'是否确认该操作?' }}</span>

@@ -18,7 +18,7 @@
       :disabled="dd"
       :readonly="rd"
       :placeholder="info">
-    <i class="nui-icon-angle-down" />
+    <i class="nicon-angle-down" />
     <span class="nui-form-input-bg" />
     <div class="nui-form-verify">
       {{ errorMsg }}

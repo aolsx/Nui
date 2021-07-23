@@ -3,12 +3,12 @@ import {reactive} from 'vue';
 const mods = {
   demoList: {
     label: 'DEMO',
-    icon: 'nui-icon-home',
+    icon: 'nicon-cog',
     component: 'VewsList'
   },
   vewsTemp: {
     label: 'DEMO',
-    icon: 'nui-icon-home',
+    icon: 'nicon-cog',
     component: 'VewsTemp'
   },
 };

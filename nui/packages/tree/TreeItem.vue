@@ -13,7 +13,7 @@
       <i
         v-if="!c_notChild"
         class="nui-tree-arrow"
-        :class="`nui-icon-angle-${isOpen?'down':'right'}`"
+        :class="`nicon-angle-${isOpen?'down':'right'}`"
         @click.stop="eveOpen()" />
       <span
         @contextmenu.stop.prevent="eveRclick"
