@@ -307,17 +307,14 @@
 .nui-form-input[type=time]:after,
 .nui-form-input[type=datetime-local]:after,
 .nui-form-input[type=month]:after,
-.nui-form-input[type=week]:after{display:block;width:1.5em;margin-right:-.25em;margin-left:-1.2em;font-family:'nuiicon';text-align:center;pointer-events:none;content:'\e970';opacity:.3;}
-
-.nui-form-input[type=time]:after{content:'\e973';}
-.nui-form-input[type=month]:after{content:'\e971';}
-.nui-form-input[type=week]:after{content:'\e972';}
-
-
-/* .nicon-calendar-alt:before{content:"\e970";}
-.nicon-clock:before{content:"\e973";}
-.nicon-calendar-day:before{content:"\e971";}
-.nicon-calendar-week:before{content:"\e972";} */
+.nui-form-input[type=week]:after{display:block;width:1.5em;margin-right:-.25em;margin-left:-1.2em;font-family:'nicon';text-align:center;pointer-events:none;content:'\e918';opacity:.3;}
+/* .nicon-calendar-alt \e918 */
+/* .nicon-clock */
+.nui-form-input[type=time]:after{content:'\e90d';}
+/* .nicon-calendar-day */
+.nui-form-input[type=month]:after{content:'\e91a';}
+/* nicon-calendar-week */
+.nui-form-input[type=week]:after{content:'\e91b';}
 
 /* 数字微调 */
 .nui-form-input[type=number]{padding:0;margin-right:-.5em;}
