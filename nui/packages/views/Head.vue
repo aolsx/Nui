@@ -4,8 +4,8 @@
       class="nui-app-drag"
       style="-webkit-app-region: drag;" />
     <div class="nui-app-logo">
-      <i :class="logo.icon" />
-      <ins>{{ logo.label }}</ins>
+      <i :class="logo.icon||'nicon-logo'" />
+      <ins>{{ logo.label||'NGIDE' }}</ins>
     </div>
     <div
       v-if="$slots.default"
@@ -16,7 +16,7 @@
       <span
         v-if="reload"
         @click.stop="$emit('win','reload')">
-        <i class="nicon-chrome-refresh" />
+        <i class="nicon-refresh" />
       </span>
       <span @click.stop="$emit('win','min')">
         <i class="nicon-chrome-minimize" />
@@ -39,7 +39,7 @@ export default {
       default(){
         return {
           icon: 'nicon-logo',
-          label: 'NG IDE'
+          label: 'NGIDE'
         };
       }
     },

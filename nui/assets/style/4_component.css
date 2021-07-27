@@ -428,7 +428,7 @@
 .nui-form-label{display:block;margin:.25em 0;font-size:12px;color:var(--gy-dker);}
 
 .nui-form-submit{display:flex;justify-content:center;padding:10px;font-weight:500;line-height:1;background:#0001;border-radius:inherit;}
-.nui-form-submit > *{flex:none;min-width:25%;max-width:50%;}
+.nui-form-submit > *{flex:none;}
 .nui-form-submit > * + *{margin-left:1em;}
 
 .nui-form .nui-col-line, .nui-form-submit{border-top:1px solid #0002;}
