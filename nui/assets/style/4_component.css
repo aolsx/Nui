@@ -1,14 +1,24 @@
 /* 基础列表 */
 .nui-list{position:relative;font-size:12px;color:var(--bl-dk);}
-.nui-list-item{position:relative;display:flex;align-items:center;padding:.5em .35em;line-height:1.5;color:var(--gy-dk);cursor:pointer;border-bottom:1px solid #0002;transition:color .15s;}
-.nui-list-item:before{position:absolute;top:0;right:0;bottom:0;left:0;content:'';opacity:.1;transition:background-color .15s;}
+.nui-list-item{position:relative;display:flex;align-items:center;padding:.5em;line-height:1.5;color:var(--gy-dk);cursor:pointer;border-bottom:.56px solid #0002;transition:color .15s;}
+
+.nui-list-item:before,
+.nui-list-item:after{position:absolute;transition:background-color .15s;}
+.nui-list-item:before{top:0;right:0;bottom:0;left:0;opacity:.1;}
+.nui-list-item:after{right:.5em;display:block;width:.5em;height:.5em;border-radius:50%;opacity:.5;}
+
 .nui-list-item *{z-index:1;pointer-events:none;}
 .nui-list-item i{width:1.25em;text-align:center;}
-.nui-list-item.--line{padding:2px 4px;font-size:12px;line-height:1.2;color:var(--gy-dker);pointer-events:none;background-color:#0001;}
+.nui-list-item ins{flex:1;}
+.nui-list-item.--line{padding:4px;font-size:10px;line-height:1.2;color:var(--gy-dker);pointer-events:none;background-color:#0001;}
 .nui-list-item.--line:before{display:none;}
 
-.nui-list-item:hover, .nui-list-item.--active{color:inherit;}
-.nui-list-item.--active:before{background-color:currentColor;}
+.nui-list-item:hover,
+.nui-list-item.--active{color:inherit;}
+
+.nui-list-item.--active:before,
+.nui-list-item.--active:after{content:'';background-color:currentColor;}
+
 .nui-list.--sm .nui-list-item{padding:.25em .35em;}
 
 /* 树列表 */

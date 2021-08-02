@@ -94,7 +94,7 @@
     </div>
     <h4 class="nui-col-12">
       文字色
-      <code class="h6">.color-[*] .--hover .--focus</code>
+      <code class="h6">.color-[*] .--cdk .--hover .--focus</code>
     </h4>
     <div class="nui-row">
       <div
@@ -106,17 +106,17 @@
           <div class="nui-card-body">
             <h4
               style="line-height:1.5;"
-              :class="`color-${nm} --hover`">
+              :class="`color-${nm}`">
               {{ nm }}
             </h4>
             <h4
               style="line-height:1.5;"
-              :class="`color-${nm} --cdk --hover`">
+              :class="`color-${nm} --cdk`">
               {{ nm }}
             </h4>
           </div>
           <div class="nui-card-foot">
-            <ins>.color-{{ nm }} | --cdk</ins>
+            <ins>.color-{{ nm }}</ins>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@
         class="nui-col">
         <div
           class="nui-card tt-c tt-copy"
-          :class="`color-${nm} --hover`">
+          :class="`color-${nm}`">
           <div class="nui-card-body">
             <h4 style="line-height:1.5;">
               {{ nm }}

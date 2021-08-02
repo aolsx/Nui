@@ -1,6 +1,7 @@
 <template>
   <nui-list
     :list="listArr"
+    :ac="listTo.component"
     @click="listTo.component = $event" />
 </template>
 <script>
