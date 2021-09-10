@@ -104,6 +104,7 @@ const demoCode = {
   html: `<nui-view-root
   :bgicon="nicon-logo">
   <nui-view-head
+    reload
     :logo="{icon:'ng-logo',label:'NG IDE'}"
     @win="eveWinDow($event)">
     工具栏插槽

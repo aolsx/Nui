@@ -165,9 +165,14 @@
               title="1280"
               sub="副标题"
               icon="nicon-cog">
+              <template #head>
+                <div>#head slot</div>
+                <div>right</div>
+              </template>
               <span>自定义slot</span>
               <template #foot>
                 <div>#foot slot</div>
+                <div>right</div>
               </template>
             </nui-card>
             <br>

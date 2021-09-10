@@ -1,5 +1,10 @@
 <template>
   <div class="nui-card">
+    <div
+      v-if="$slots.head"
+      class="nui-card-head">
+      <slot name="head" />
+    </div>
     <div class="nui-card-body">
       <i
         v-if="icon"

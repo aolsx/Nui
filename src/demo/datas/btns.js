@@ -32,8 +32,11 @@ const btn = {
 
 const card = {
   html: `<div class="nui-card">
+  <div class="nui-card-head">
+    <slot name="head" />
+  </div>
   <div class="nui-card-body">
-    <i class="bg-icon"/>
+    <i class="nui-card-iconbg"/>
     <div class="nui-card-title"></div>
     <div class="nui-card-subtitle"></div>
   </div>
@@ -46,6 +49,9 @@ const card = {
   :title="主标题"
   :sub="副标题"
   :icon="nicon-cog">
+  <template #head>
+   <div>#head slot</div>
+  </template>
   <span>自定义slot</span>
   <template #foot>
     <div>#foot slot</div>

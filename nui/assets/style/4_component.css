@@ -138,14 +138,14 @@
 /* 卡片 */
 .nui-card, .nui-card-body{display:flex;flex-direction:column;}
 .nui-card{position:relative;overflow:hidden;font-size:16px;background-color:var(--atom-dk);border-radius:5px;box-shadow:0 1px 5px #0005;}
-.nui-card-body{position:relative;z-index:1;flex:1;justify-content:center;padding:5px 10px;line-height:0;}
-.nui-card-body > *{overflow:hidden;line-height:1;text-overflow:ellipsis;white-space:nowrap;}
-.nui-card-title{padding:10px 0;font-size:2.4em;font-weight:bold;}
+.nui-card-body{position:relative;z-index:1;flex:1;justify-content:center;padding:5px 10px;line-height:1.2;}
+.nui-card-title, .nui-card-subtitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.nui-card-title{font-size:2.4em;font-weight:bold;}
 .nui-card-subtitle{padding:5px 0;font-size:.75em;opacity:.6;}
-.nui-card-title + .nui-card-subtitle{margin-top:-10px;}
-.nui-card .nui-card-iconbg{position:absolute;top:0;right:5%;bottom:0;z-index:-1;display:flex;align-items:center;font-size:3em;color:#d2d5ff0d;}
-.nui-card-foot{display:flex;align-items:center;padding:3px 5px;font-size:12px;line-height:1.5;background-color:#0002;border-top:1px solid #0002;}
-.nui-card-foot > *{flex:1;}
+.nui-card-iconbg{position:absolute;top:0;right:5%;bottom:0;z-index:-1;display:flex;align-items:center;font-size:3em;color:#d2d5ff0d;}
+.nui-card-head, .nui-card-foot{display:flex;align-items:center;justify-content:space-between;padding:3px 5px;font-size:12px;line-height:1.5;background-color:#0002;}
+.nui-card-head{border-bottom:1px solid #0002;}
+.nui-card-foot{border-top:1px solid #0002;}
 
 /* 弹出确认 */
 .nui-confirm,

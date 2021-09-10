@@ -1,3 +1,4 @@
+@import "./icon.css";
 /* 全局重新定义 */
 @import "./1_normalize.css";
 @import "./2_global.css";
@@ -11,8 +12,6 @@
 @import "./7_am.css";
 
 /* 插件扩展 */
-@import "./icon.css";
 @import "./plugin/code_pre.css";
-
 /* 拖拽类 最高级 */
 @import "./8_drag_events.css";

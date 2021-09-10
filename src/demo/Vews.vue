@@ -120,7 +120,6 @@
             <div class="nui-lut-float">
               <div
                 class="nui-lut-float-item"
-
                 style="width: 40px; height: 200px; top: 21px; left: 185px;">
                 <div class="nui-lut-float-item-head" />
                 <div
