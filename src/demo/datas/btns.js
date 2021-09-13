@@ -36,7 +36,7 @@ const card = {
     <slot name="head" />
   </div>
   <div class="nui-card-body">
-    <i class="nui-card-iconbg"/>
+    <div class="nui-card-icon"><i class="icon-home"/></div>
     <div class="nui-card-title"></div>
     <div class="nui-card-subtitle"></div>
   </div>

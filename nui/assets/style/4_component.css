@@ -142,10 +142,10 @@
 .nui-card-title, .nui-card-subtitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .nui-card-title{font-size:2.4em;font-weight:bold;}
 .nui-card-subtitle{padding:5px 0;font-size:.75em;opacity:.6;}
-.nui-card-iconbg{position:absolute;top:0;right:5%;bottom:0;z-index:-1;display:flex;align-items:center;font-size:3em;color:#d2d5ff0d;}
+.nui-card-icon{position:absolute;top:0;right:5%;bottom:0;z-index:-1;display:flex;align-items:center;font-size:3em;color:#d2d5ff0d;}
 .nui-card-head, .nui-card-foot{display:flex;align-items:center;justify-content:space-between;padding:3px 5px;font-size:12px;line-height:1.5;background-color:#0002;}
-.nui-card-head{border-bottom:1px solid #0002;}
-.nui-card-foot{border-top:1px solid #0002;}
+.nui-card-head{border-bottom:.56px solid #0002;}
+.nui-card-foot{border-top:.56px solid #0002;}
 
 /* 弹出确认 */
 .nui-confirm,
@@ -280,7 +280,7 @@
 
 .nui-form-input-bg:before,
 .nui-form-input-bg:after{position:absolute;left:0;display:none;width:0;height:0;content:'';}
-.nui-form-input-bg:before{top:0;border:4px solid;border-color:currentColor transparent transparent currentColor;opacity:.5;transition:border-color .2s;}
+.nui-form-input-bg:before{top:0;border:4px solid;border-color:currentColor transparent transparent currentColor;transition:border-color .2s;}
 .nui-form-input-bg:after{bottom:0;border:3px solid transparent;}
 .nui-form-input:focus ~ .nui-form-input-bg{background-color:var(--atom-lt);}
 /* 无效 */
@@ -424,11 +424,11 @@
 /* 表单项 */
 .nui-form-item{display:flex;flex:1;min-width:0;font-size:12px;background-color:var(--atom);}
 .nui-form-item-before, .nui-form-item-after{display:flex;flex:none;align-items:center;min-width:0;padding:0 5px;}
-.nui-form-item-before > *, .nui-form-item-after > *{flex:1;min-width:0;margin:0 -5px;}
 .nui-form-item-content{flex:1;min-width:0;}
 .nui-form-item-content > *{font-size:inherit;}
 .nui-form-item-before{border-right:1px solid #0003;}
 .nui-form-item-after{border-left:1px solid #0003;}
+.nui-form-item-before > *, .nui-form-item-after > *{flex:1;min-width:0;margin:0 -5px;border-radius:0;}
 
 /* 表单 */
 .nui-form{font-size:12px;background-color:var(--atom-dk);}
@@ -441,15 +441,15 @@
 .nui-form-submit > *{flex:none;}
 .nui-form-submit > * + *{margin-left:1em;}
 
-.nui-form .nui-col-line, .nui-form-submit{border-top:1px solid #0002;}
+.nui-form .nui-col-line, .nui-form-submit{border-top:.56px solid #0002;}
 .nui-form .nui-col-line{flex:0 0 100%;padding:0;margin:5px 0 5px;}
 .nui-modal-body > .nui-form{margin:-10px;border-radius:0 0 10px 10px;}
 
 /* 面板 */
 .nui-panel{display:flex;flex-direction:column;font-size:12px;}
 .nui-panel-head, .nui-panel-foot{display:flex;flex:none;align-items:center;min-height:27px;padding:5px 7px;line-height:1;background:var(--atom-dk);}
-.nui-panel-head{position:relative;padding:5px 6px;border-bottom:1px solid #0003;}
-.nui-panel-foot{border-top:1px solid #0003;}
+.nui-panel-head{position:relative;padding:5px 6px;border-bottom:.56px solid #0003;}
+.nui-panel-foot{border-top:.56px solid #0003;}
 .nui-panel-head .nui-btn, .nui-panel-foot .nui-btn{margin:-5px 0;}
 .nui-panel-head > :first-child.nui-btn{margin-left:-4px;}
 .nui-panel-head > :last-child.nui-btn{margin-right:-4px;}

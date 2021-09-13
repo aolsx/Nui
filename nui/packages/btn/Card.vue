@@ -6,10 +6,12 @@
       <slot name="head" />
     </div>
     <div class="nui-card-body">
-      <i
+      <div
         v-if="icon"
         ref="icon"
-        :class="`nui-card-iconbg ${icon}`" />
+        class="nui-card-icon">
+        <i :class="icon" />
+      </div>
       <div
         v-if="title"
         class="nui-card-title">
