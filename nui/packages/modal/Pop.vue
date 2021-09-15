@@ -1,7 +1,8 @@
 <template>
-  <teleport to="#ToPppDbs">
+  <teleport
+    v-if="isOpen"
+    to="#ToPppDbs">
     <div
-      v-if="isOpen"
       ref="pop"
       class="nui-pop"
       :class="[{'--ws':w,'--t':isTop},$attrs.class]"
@@ -9,8 +10,7 @@
       tabindex="-1"
       @focusin="isInFocus = true"
       @focusout="_eveFocusout">
-      <div
-        class="nui-pop-body">
+      <div class="nui-pop-body">
         <slot />
       </div>
       <span
@@ -31,7 +31,7 @@ export default {
     h: {
       type: Number,
       default: null,
-    },
+    }
   },
   emits: ['open','close'],
   data(){
@@ -62,10 +62,13 @@ export default {
       return style;
     }
   },
+  created(){
+
+  },
   methods: {
-    open(e){
-      // 触发元素的坐标参数
-      const pos = e.target.getBoundingClientRect().toJSON();
+    open(ele){
+      // 触发元素的坐标参数  e.target
+      const pos = ele.getBoundingClientRect().toJSON();
       this.pos.left = pos.left + pos.width / 2;
       this.pos.top = pos.bottom;
       this.pos.mLeft = 0;
@@ -73,6 +76,8 @@ export default {
       this.isOpen = true;
       this.$nextTick(()=>{
         if (this.isOpen){
+          // console.dir(this.$refs.pop.parentElement);
+          // #ToPppDbs 元素绑定滚动事件
           this.$refs.pop.parentElement._vei?.on_bindRolling?.value();
           this.$refs.pop.focus();
           this.isInFocus = false;
@@ -83,6 +88,7 @@ export default {
     },
     close(){
       if (this.isOpen){
+        // #ToPppDbs 元素删除滚动事件
         this.$refs.pop.parentElement._vei?.on_bindDestroy?.value();
         this.isOpen = false;
         this.$emit('close');

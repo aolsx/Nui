@@ -97,8 +97,6 @@
 .bg-red.--sdw{box-shadow:0 5px 20px -5px var(--red-o);}
 
 /* .sdw.active,.sdw:active{box-shadow:none !important} */
-.-sdw-none{box-shadow:none !important;}
-
 /* 文字颜色 */
 .color-atom, .color-atom.--hover:hover{color:var(--atom-lter);}
 .color-atom.--cdk{color:var(--atom);}

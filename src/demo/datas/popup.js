@@ -91,7 +91,7 @@ const tip = {
 </nui-tip>`
 };
 const pop = {
-  html: `<!-- $ref.pop.[open(e)|close()]-->
+  html: `<!--$ref.pop.[open(e.target)|close()]-->
 <nui-pop ref="pop" :h="100" :w="210"
 @open="" @close="">
 </nui-pop>`

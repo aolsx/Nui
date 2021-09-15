@@ -215,6 +215,10 @@
             <nui-form
               :datas="formDatas"
               :items="formItem"
+              :resetbtn="{
+                label: '重置',
+                cls: 'color-atom'
+              }"
               :submitbtn="{
                 label: '提交',
                 cls: 'color-bl'

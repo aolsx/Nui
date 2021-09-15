@@ -221,6 +221,7 @@ export default {
     return {
       eveTip: '',
       evePop: '',
+      showPopEle: null,
       typeArr: ['d','i','w','e','s','q'],
       typeObj: {
         d: ['color-gy','nicon-question'],
@@ -357,7 +358,7 @@ export default {
       Pro.to(100,'自动关闭');
     },
     popShow(e){
-      this.$refs.pop.open(e);
+      this.$refs.pop.open(e.target);
     },
     paa(e,pm){
       const pos = {

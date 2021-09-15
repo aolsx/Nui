@@ -52,16 +52,16 @@ const form = {
   html: `<nui-form
   :datas="formDatas"
   :items="formItem"
-  :resetbtn="{
-    label:'重置按钮',
-    cls:'color-bl'
-  }"
-  :submitbtn="{
-    label: '提交按钮',
-    cls: 'color-bl'
-  }"
+  :resetbtn="{label:'重置',cls:''}"
+  :submitbtn="{label:'提交',cls:''}"
   @confirm="fn($event<datas>)">
-  <solt/>
+  <div>
+    自定义表单
+  </div>
+  <template #submit={reset,submit}>
+   <btn @click="reset()"/>
+   <btn @click="submit()"/>
+  </template>
 </nui-form>`,
   js: `// 表单数据 重置|返回
 const formDatas = {'<field>':'值'};

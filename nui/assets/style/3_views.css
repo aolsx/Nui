@@ -57,6 +57,12 @@
 /* 头部视图 */
 .nui-app-views{top:30px;bottom:0;display:flex;}
 
+/* 首页独立视图容器 */
+.nui-app-home{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.nui-app-home-title{flex:none;font-size:46px;font-weight:bolder;text-align:center;}
+.nui-app-home-body{max-width:100%;min-height:50%;max-height:100%;padding:15px;overflow:overlay;}
+.nui-app-head ~ .nui-app-home{top:30px;bottom:0;}
+
 /* 嵌套布局 */
 .nui-lut-col, .nui-lut-tabs, .nui-lut-tab, .nui-lut-content{min-width:0;max-width:100%;min-height:0;max-height:100%;}
 .nui-lut-col{position:relative;display:flex;flex:none;}

@@ -1,6 +1,7 @@
 import NuiViewRoot from './views/Root.vue';
 import NuiViewHead from './views/Head.vue';
 import NuiViewMain from './views/Main.vue';
+import NuiViewHome from './views/Home.vue';
 
 import NuiDragLine from './views/DragLine.vue';
 
@@ -29,6 +30,7 @@ export default [
   NuiViewRoot,
   NuiViewHead,
   NuiViewMain,
+  NuiViewHome,
   NuiDragLine,
   NuiList,
   NuiTree,

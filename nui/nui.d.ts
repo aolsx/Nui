@@ -10,9 +10,9 @@ declare interface $Nui {
   /** 节流防抖 */
   dee: {
     /** 防抖 */
-    debounce: (func: Function, wait: number, options: object) => void;
+    debounce: (func: Function, wait: number, options?: object) => void;
     /** 防抖 */
-    throttle: (func: Function, wait: number, options: object) => void;
+    throttle: (func: Function, wait: number, options?: object) => void;
   };
   /** 问询确认 'd','i','w','e','s','q' */
   cfm: {

@@ -12,6 +12,7 @@
     "parser": "babel-eslint"
   },
   "rules": {
+    "vue/script-setup-uses-vars":"off",
     "vue/html-closing-bracket-newline": [
       "warn",
       {

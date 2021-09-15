@@ -336,7 +336,7 @@
     </div>
     <div
       class="nui-row"
-      style="height: 545px;">
+      style="height:600px;">
       <div class="nui-col">
         <nui-code
           lang="html"

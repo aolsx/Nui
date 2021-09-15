@@ -16,9 +16,10 @@ export default {
   },
   methods: {
     bindRolling(){
+      // 滚动时 焦点元素取消焦点 一次性
       document.onwheel = function(){
-        document.onwheel = null;
         document.activeElement?.blur();
+        document.onwheel = null;
       };
     },
     bindDestroy(){

@@ -1,6 +1,6 @@
 {
   "name": "aolsx-nui",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "aolsx",
   "private": false,
   "license": "MIT",
@@ -21,18 +21,18 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.9",
-    "@vue/cli-plugin-eslint": "^4.5.9",
-    "@vue/cli-service": "^4.5.9",
-    "@vue/compiler-sfc": "^3.1.5",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/compiler-sfc": "^3.2.11",
     "babel-eslint": "^10.1.0",
-    "core-js": "^3.8.0",
-    "eslint": "^7.14.0",
-    "eslint-plugin-vue": "^7.1.0",
-    "vue": "^3.1.5"
+    "core-js": "^3.17.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^7.17.0",
+    "vue": "^3.2.11"
   },
   "peerDependencies": {
-    "vue": ">=3.1.5"
+    "vue": ">=3.2.0"
   },
   "browserslist": [
     "> 1%",
