@@ -110,10 +110,10 @@ const demoCode = {
     工具栏插槽
     <slot /> i+div+i
   </nui-view-head>
-  <nui-View-home v-if="**">
+  <nui-view-home v-if="**">
     <slot name="title" />
     <slot />
-  </nui-View-home>
+  </nui-view-home>
   <nui-view-main
     v-else
     :mods="mods"
