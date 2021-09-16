@@ -45,8 +45,7 @@
       class="nui-form-submit">
       <nui-btn
         v-if="backupDatas && resetbtn"
-        :class="resetbtn.cls||'color-gy'"
-        :label="resetbtn.label||'Reset'"
+        v-bind="resetbtn"
         @click="formReset()" />
       <nui-btn
         v-bind="submitbtn"
