@@ -59,7 +59,7 @@
 
 /* 首页独立视图容器 */
 .nui-app-home{display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.nui-app-home-title{flex:none;font-size:46px;font-weight:bolder;text-align:center;}
+.nui-app-home-title{flex:none;font-size:46px;font-weight:bolder;line-height:1.15;color:var(--atom);text-align:center;text-transform:uppercase;}
 .nui-app-home-body{max-width:100%;min-height:50%;max-height:100%;padding:15px;overflow:overlay;}
 .nui-app-head ~ .nui-app-home{top:30px;bottom:0;}
 

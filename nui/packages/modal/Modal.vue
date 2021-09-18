@@ -5,31 +5,31 @@
       name="modal"
       :duration="1400"
       @after-leave="$emit('close')">
+      <div
+        v-show="!hide"
+        class="nui-popup-mask">
         <div
-          v-show="!hide"
-          class="nui-popup-mask">
+          class="nui-modal"
+          :class="color">
+          <div class="nui-modal-cobg" />
+          <div class="nui-modal-cobg" />
+          <div class="nui-modal-bg" />
           <div
-            class="nui-modal"
-            :class="color">
-            <div class="nui-modal-cobg" />
-            <div class="nui-modal-cobg" />
-            <div class="nui-modal-bg" />
-            <div
-              class="nui-modal-btn"
-              @click.stop.prevent="hide=true">
-              <i class="nicon-times" />
-            </div>
-            <div class="nui-modal-head">
-              <i
-                v-if="icon"
-                :class="icon" />
-              <ins v-if="label">{{ label }}</ins>
-            </div>
-            <div class="nui-modal-body">
-              <slot :hideFn="hideFn" />
-            </div>
+            class="nui-modal-btn"
+            @click.stop.prevent="hide=true">
+            <i class="nicon-times" />
+          </div>
+          <div class="nui-modal-head">
+            <i
+              v-if="icon"
+              :class="icon" />
+            <ins v-if="label">{{ label }}</ins>
+          </div>
+          <div class="nui-modal-body">
+            <slot :hideFn="hideFn" />
           </div>
         </div>
+      </div>
     </transition>
   </teleport>
 </template>

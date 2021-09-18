@@ -28,7 +28,7 @@
             :class="`bg-${nm} ${d}`"
             style="height:60px">
             <div class="nui-card-body" />
-            <div class="nui-card-foot">
+            <div class="nui-card-foot tt-c">
               <div class="-eps">
                 .bg-{{ nm }}<span v-if="d">.{{ d }}</span>
               </div>
@@ -46,7 +46,7 @@
             style="height:60px"
             :class="`bg-${nm}`">
             <div class="nui-card-body" />
-            <div class="nui-card-foot">
+            <div class="nui-card-foot tt-c">
               <div class="-eps">
                 .bg-{{ nm }}
               </div>
@@ -58,7 +58,7 @@
             class="nui-card tt-c tt-copy"
             style="height:60px">
             <div class="nui-card-body bg-grid" />
-            <div class="nui-card-foot">
+            <div class="nui-card-foot tt-c">
               <div class="-eps">
                 .bg-grid
               </div>
@@ -86,7 +86,7 @@
           <div
             class="nui-card-body"
             style="height:40px" />
-          <div class="nui-card-foot">
+          <div class="nui-card-foot tt-c">
             <ins>.bg-{{ nm }}.--sdw</ins>
           </div>
         </div>
@@ -115,7 +115,7 @@
               {{ nm }}
             </h4>
           </div>
-          <div class="nui-card-foot">
+          <div class="nui-card-foot tt-c">
             <ins>.color-{{ nm }}</ins>
           </div>
         </div>
@@ -134,7 +134,7 @@
               {{ nm }}
             </h4>
           </div>
-          <div class="nui-card-foot">
+          <div class="nui-card-foot tt-c">
             <ins>.color-{{ nm }}</ins>
           </div>
         </div>

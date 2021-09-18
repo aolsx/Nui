@@ -21,6 +21,7 @@ export default [
           ['^.--hb','两端对齐'],
           ['.nui-flex-auto','占剩超缩 ！'],
           ['.nui-flex-none','固定自身 ！'],
+          ['.nui-flex-line','一行两端 ins:1'],
         ],
       },
       {

@@ -181,7 +181,7 @@
             class="nui-card-body -link"
             :style="`background-color:${o.hex}`"
             @click="setColor(o.hsl)" />
-          <div class="nui-card-foot">
+          <div class="nui-card-foot tt-c">
             <b>{{ o.weight }}</b>
             <b
               class="tt-copy tt-r"

@@ -18,6 +18,10 @@
 .nui-flex-auto{flex:1 !important;}
 .nui-flex-none{flex:none !important;}
 
+/* 一行 */
+.nui-flex-line{display:flex;align-items:center;justify-content:space-between;width:200px;max-width:100%;}
+.nui-flex-line ins{flex:1;}
+
 /* 栅格布局 */
 .nui-row-grid{display:grid;overflow:auto;}
 .nui-row-grid.--min-80{grid-template-columns:repeat(auto-fill, minmax(80px, 1fr));}
@@ -148,7 +152,7 @@ ins{display:inline-block;vertical-align:middle;}
 
 /* 图标类 */
 i{flex:none;font-style:normal;}
-i + ins, i + .-eps{margin-left:.25em;}
+i + ins, i + .-eps{margin-left:.35em;}
 
 .tt-c{text-align:center;}
 .tt-r{text-align:right;}
@@ -169,6 +173,7 @@ i + ins, i + .-eps{margin-left:.25em;}
 .tt-h-1{line-height:1em;}
 .tt-h-it{line-height:inherit !important;}
 .-edit, .tt-udd{text-decoration:underline dotted;}
+
 /* 全局常用 */
 .-link, .-edit{cursor:pointer;}
 .-link > *{pointer-events:none;}

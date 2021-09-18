@@ -88,13 +88,14 @@
 
 /* 彩色投影 */
 .bg-atom.--sdw{box-shadow:0 5px 20px -5px #070708;}
-.bg-gy.--sdw{box-shadow:0 5px 20px -5px var(--gy-o);}
-.bg-dm.--sdw{box-shadow:0 5px 20px -5px var(--dm-o);}
-.bg-gn.--sdw{box-shadow:0 5px 20px -5px var(--gn-o);}
-.bg-sky.--sdw{box-shadow:0 5px 20px -5px var(--sky-o);}
-.bg-bl.--sdw{box-shadow:0 5px 20px -5px var(--bl-o);}
-.bg-yl.--sdw{box-shadow:0 5px 20px -5px var(--yl-o);}
-.bg-red.--sdw{box-shadow:0 5px 20px -5px var(--red-o);}
+.bg-gy.--sdw{box-shadow:0 5px 20px -5px #65759096;}
+.bg-dm.--sdw{box-shadow:0 5px 20px -5px #8260ffd4;}
+.bg-gn.--sdw{box-shadow:0 5px 20px -5px #85ff0085;}
+.bg-sky.--sdw{box-shadow:0 5px 20px -5px #00eaaf8c;}
+.bg-bl.--sdw{box-shadow:0 5px 20px -5px #0d69dad6;}
+.bg-yl.--sdw{box-shadow:0 5px 20px -5px #ffc800a8;}
+.bg-red.--sdw{box-shadow:0 5px 20px -5px #ff1d1dd9;}
+.bg-og.--sdw{box-shadow:0 5px 20px -5px #ff5800db;}
 
 /* .sdw.active,.sdw:active{box-shadow:none !important} */
 /* 文字颜色 */
