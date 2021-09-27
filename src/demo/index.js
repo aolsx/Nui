@@ -10,6 +10,8 @@ import Form from './Form.vue';
 import Api from './Api.vue';
 import LayoutTest from './LayoutTest.vue';
 
+import Chart from './Chart.vue';
+
 export default [
   BasisCss,
   Color,
@@ -21,5 +23,6 @@ export default [
   Popup,
   Form,
   Api,
+  Chart,
   LayoutTest
 ];

@@ -26,6 +26,9 @@ import NuiFormRc from './form/Rc.vue';
 import NuiFormSt from './form/Select.vue';
 import NuiFormItem from './form/Item.vue';
 
+import NuiProRound from './chart/ProRound.vue';
+import NuiProBox from './chart/ProBox.vue';
+
 export default [
   NuiViewRoot,
   NuiViewHead,
@@ -47,5 +50,7 @@ export default [
   NuiFormNum,
   NuiFormRc,
   NuiFormSt,
-  NuiFormItem
+  NuiFormItem,
+  NuiProRound,
+  NuiProBox
 ];

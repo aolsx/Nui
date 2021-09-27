@@ -3,8 +3,12 @@
 @import "./1_normalize.css";
 @import "./2_global.css";
 @import "./3_views.css";
-/* 视图模块 */
+
+/* 组件模块 */
 @import "./4_component.css";
+
+/* 图表 */
+@import "./4_chart.css";
 
 /* 细粒 基础样式 优先 */
 @import "./5_basis.css";

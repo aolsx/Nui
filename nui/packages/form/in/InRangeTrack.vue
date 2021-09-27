@@ -17,7 +17,7 @@
 export default {
   name: 'InRangeTrack',
   data(){
-    const {max = 100,min = 0} = this.$parent.rules;
+    const {max = 100,min = 0} = this.$parent.rules || {};
     return {
       width: 0,
       max,

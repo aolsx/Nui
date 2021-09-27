@@ -205,7 +205,7 @@
 .nui-modal,
 .nui-modal-head,
 .nui-modal-btn i{display:flex;}
-.nui-modal{position:relative;z-index:1;flex-direction:column;min-width:220px;max-width:80%;min-height:180px;max-height:80%;padding-top:8px;margin-bottom:10%;color:var(--dm);}
+.nui-modal{position:relative;z-index:1;flex-direction:column;min-width:220px;max-width:80%;min-height:180px;max-height:70%;padding-top:8px;margin-bottom:10%;color:var(--dm);}
 
 .nui-modal-cobg,
 .nui-modal-cobg:before,
@@ -242,7 +242,7 @@
 .nui-loadam-loop svg{display:block;transform-origin:50%;}
 
 /* 加载进度 */
-.nui-loadpro{position:relative;}
+.nui-loadpro{position:relative;display:flex;align-items:center;justify-content:center;}
 .nui-loadpro svg{display:block;transform:rotate(-90deg);}
 /* .nui-loadpro circle{transition:stroke-dashoffset .3s;} */
 .nui-loadpro + .nui-loadpro{margin-left:10px;}

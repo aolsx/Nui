@@ -19,7 +19,7 @@
 .nui-flex-none{flex:none !important;}
 
 /* 一行 */
-.nui-flex-line{display:flex;align-items:center;justify-content:space-between;width:200px;max-width:100%;}
+.nui-flex-line{display:flex;align-items:center;justify-content:space-between;max-width:100%;}
 .nui-flex-line ins{flex:1;}
 
 /* 栅格布局 */

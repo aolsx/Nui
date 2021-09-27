@@ -76,6 +76,7 @@ const listArr = [
   {label: '按钮标签',to: 'DemoBtn'},
   {label: '弹出模块',to: 'DemoPopup'},
   {label: '表单组件',to: 'DemoForm'},
+  {label: '数据图表',to: 'DemoChart'},
 ];
 
 const listTo = reactive({

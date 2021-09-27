@@ -1,0 +1,67 @@
+/* xx stylelint-disable xx */
+
+/* 图表 */
+/* 3d 进度条 */
+.nui-pro-box{position:relative;padding:1em .5em .5em;font-size:var(--fz-num, 30px);color:var(--bl-lter);}
+.nui-pro-box > div{width:100%;height:1em;perspective-origin:50% 50%;perspective:var(--pce-num, 10em);}
+.nui-pro-box-in{width:100%;height:100%;transform-style:preserve-3d;transform:rotateX(60deg);}
+.nui-pro-box-in > div{position:absolute;top:0;right:0;bottom:0;left:0;}
+/* 片 */
+.nui-pro-box-fc{opacity:.5;transform-origin:50% 100%;backface-visibility:visible;}
+.nui-pro-box-fc.--a{background-color:var(--atom);transform:translateZ(1em);}
+.nui-pro-box-fc.--b{background-color:var(--atom-dker);transform:rotateX(-90deg) translateZ(-1em);}
+.nui-pro-box-fc.--c{background-color:var(--atom-dker);}
+.nui-pro-box-fc.--d{background-color:var(--atom);opacity:.7;transform:rotateX(-90deg);}
+.nui-pro-box-fc.--e{right:4px;left:4px;background-color:#0003;filter:blur(8px);transform:translateY(.7em);}
+/* 内片 */
+.nui-pro-box-fc > div{width:100%;height:100%;}
+.nui-pro-box-fc.--a > div{opacity:.7;}
+.nui-pro-box-fc.--b > div{opacity:.6;}
+
+/* 背景纹理  */
+.nui-pro-box-fc:after,
+.nui-pro-box-fc:before{position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;content:'';opacity:.06;}
+.nui-pro-box-fc:after{border:1px solid #fff;}
+
+.nui-pro-box-fc.--e:after,
+.nui-pro-box-fc.--e:before{display:none;}
+
+
+
+/* .nui-pro-box-fc.--c:after{border-bottom:10px;} */
+/* 纹理 A  */
+.nui-pro-box-in.--bg-a > .nui-pro-box-fc:before{background-image:linear-gradient(to right, #fff 1px, transparent 1px);background-position:center;background-size:11.3% 100%;}
+/* 纹理 B */
+.nui-pro-box-in.--bg-b > .nui-pro-box-fc:before{background-image:linear-gradient(to right, #fff 50%, transparent 50%);background-size:10.5% 100%;opacity:.03;}
+.nui-pro-box-in.--bg-c > .nui-pro-box-fc:before{background-image:radial-gradient(#fff 1px, transparent 1px), radial-gradient(#fff 1px, transparent 1px);background-position:0 0, .25em .25em;background-size:.5em .5em;}
+
+/* 单色 */
+.nui-pro-box-in.--sin > .nui-pro-box-fc > div{width:calc(var(--pro-num) * 1%);background-color:currentColor;}
+/* .nui-pro-box-fc.--c > div{box-shadow:0 .4em .5em -.1em currentColor;} */
+/* 渐变色  no-repeat */
+.nui-pro-box-in.--grad > .nui-pro-box-fc > div{clip-path:inset(0 calc((100 - var(--pro-num)) * 1%) 0 0);background:linear-gradient(to right, var(--start-color) 0%, var(--end-color) 100%);}
+
+/* 文字 color:#6a6f79; */
+.nui-pro-box-tt{font-weight:bolder;line-height:1em;text-align:center;text-shadow:0 4px 1px #0003;white-space:nowrap;opacity:1;transform:translateY(1em);}
+.nui-pro-box-tt > *{font-size:.6em;}
+.nui-pro-box-tt.--in-num{width:calc(var(--pro-num) * 1%);}
+
+/* 无数值 */
+.nui-pro-box-in.--emp > .nui-pro-box-tt{color:var(--gy-dker);}
+
+/* 渐变文字色 */
+.nui-pro-box-in.--grad:not(.--emp) > .nui-pro-box-tt > span{background:linear-gradient(to right, var(--start-color), var(--end-color)) no-repeat;-webkit-text-fill-color:transparent;background-clip:text;}
+
+
+/* 圆环进度 progress */
+.nui-pro-round{position:relative;display:flex;align-items:center;justify-content:center;color:var(--bl-lter);}
+.nui-pro-round svg{display:block;transform:rotate(-90deg);}
+/* .nui-loadpro circle{transition:stroke-dashoffset .3s;} */
+.nui-pro-round circle{stroke-linecap:round;}
+/* 配色 */
+.nui-pro-round-in-circle{stroke:var(--atom);}
+.nui-pro-round-pro-circle{stroke:currentColor;}
+/* 文字 */
+.nui-pro-round-tt{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.nui-pro-round-tt.--in-num > div{padding:5px;font-family:sans-serif;font-size:80px;font-weight:300;line-height:1;}
+.nui-pro-round-tt.--in-num > span{font-size:12px;color:var(--gy-dker);}
