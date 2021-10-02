@@ -12,6 +12,8 @@ import LayoutTest from './LayoutTest.vue';
 
 import Chart from './Chart.vue';
 
+import Table from './Table.vue';
+
 export default [
   BasisCss,
   Color,
@@ -24,5 +26,6 @@ export default [
   Form,
   Api,
   Chart,
+  Table,
   LayoutTest
 ];

@@ -29,6 +29,8 @@ import NuiFormItem from './form/Item.vue';
 import NuiProRound from './chart/ProRound.vue';
 import NuiProBox from './chart/ProBox.vue';
 
+import NuiTable from './table/Table.vue';
+
 export default [
   NuiViewRoot,
   NuiViewHead,
@@ -52,5 +54,6 @@ export default [
   NuiFormSt,
   NuiFormItem,
   NuiProRound,
-  NuiProBox
+  NuiProBox,
+  NuiTable
 ];
