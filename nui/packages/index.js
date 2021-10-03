@@ -30,6 +30,7 @@ import NuiProRound from './chart/ProRound.vue';
 import NuiProBox from './chart/ProBox.vue';
 
 import NuiTable from './table/Table.vue';
+import NuiPaging from './table/Paging.vue';
 
 export default [
   NuiViewRoot,
@@ -55,5 +56,6 @@ export default [
   NuiFormItem,
   NuiProRound,
   NuiProBox,
-  NuiTable
+  NuiTable,
+  NuiPaging
 ];

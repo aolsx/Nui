@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="nui-table"
-    :class="{'--line-none':bno,'--sp-none':spno}">
+  <div class="nui-table">
     <div class="nui-table-head">
       <table>
         <colgroup>
@@ -20,13 +18,10 @@
               <div
                 v-if="sort!==undefined"
                 class="nui-table-sort"
+                :class="'--'+sortK[sort]"
                 @click="sortBtn(sort)">
-                <i
-                  class="nicon-caret-up"
-                  :class="sortK[sort]=='asc'&&'color-gn'" />
-                <i
-                  class="nicon-caret-down"
-                  :class="sortK[sort]=='desc'&&'color-gn'" />
+                <i class="nicon-caret-up" />
+                <i class="nicon-caret-down" />
               </div>
             </th>
           </tr>
@@ -68,10 +63,6 @@ export default {
     InTableTd,
   },
   props: {
-    // 竖线
-    bno: Boolean,
-    // 条纹
-    spno: Boolean,
     // 字段设置
     fields: {
       type: Array,

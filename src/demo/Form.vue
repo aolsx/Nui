@@ -103,7 +103,7 @@
             <h4>
               下拉菜单 <code>&lt;nui-form-st/&gt;</code>
             </h4>
-            <h6>单选 <code>v:Str|Num</code></h6>
+            <h6>单选 <code>v:Str|Num</code> </h6>
             <nui-form-st
               v-model="form.radio"
               :items="valueList"
@@ -112,7 +112,7 @@
               :rules="formCfg.rules"
               :info="formCfg.info"
               :icon="formCfg.icon" />
-            <h6>多选 <code>v:Array</code></h6>
+            <h6>多选 <code>v:Array</code> 上弹出<code> :up [boolean] </code></h6>
             <nui-form-st
               v-model="form.checkbox"
               :items="valueList"
@@ -120,7 +120,8 @@
               :dd="formCfg.dd"
               :rules="formCfg.rules"
               :info="formCfg.info"
-              :icon="formCfg.icon" />
+              :icon="formCfg.icon"
+              up />
           </div>
           <div class="nui-col-6">
             <h4>单多选 <code>&lt;nui-form-rc/&gt;</code> <small>开关样式 <code>:sw = true</code></small></h4>

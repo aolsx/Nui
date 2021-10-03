@@ -1,6 +1,6 @@
 <template>
   <div class="nui-container --p">
-    <h3>数据表格 <code>组件</code> <code>{{ cogTt }}</code> <code>{{ sortTt }}</code></h3>
+    <h3>数据表格 <code>{{ cogTt }}</code> <code>{{ sortTt }}</code></h3>
     <div class="nui-row">
       <div class="nui-col-8">
         <nui-table
@@ -8,16 +8,16 @@
           :fields="fields"
           :datas="listData"
           @sort="sortBtn"
-          @cog="cogBtn">
-          自定义内容 放置分页组件
-        </nui-table>
+          @cog="cogBtn" />
         <div class="p-5" />
         <nui-table
           :fields="fields_a"
           :datas="listData_a"
           @sort="sortBtn"
           @cog="cogBtn">
-          自定义内容 放置分页组件
+          <nui-paging
+            :total="100"
+            @to="toBtn" />
         </nui-table>
         <div class="p-5" />
         <div class="nui-row">
@@ -36,6 +36,21 @@
         <nui-code :code="tableData.fields" />
       </div>
     </div>
+    <h3>分页组件 <code>{{ tobb }}</code></h3>
+    <div class="nui-row">
+      <div class="nui-col-6">
+        <nui-paging
+          class="color-og"
+          :total="131"
+          :pg-sz-opt="[10,30,100]"
+          @to="toBtn" />
+        <div class="p-5" />
+        <nui-code
+          lang="html"
+          :code="tableData.paging" />
+      </div>
+      <div class="nui-col-6" />
+    </div>
   </div>
 </template>
 
@@ -48,16 +63,6 @@ export default {
   },
   data(){
     return {
-      // typeList: [
-      //   {label: 'OpenId',v: 'OpenId'},
-      //   {label: 'UUID',v: 'UUID'},
-      //   {label: '昵称',v: 'ncname'},
-      //   {label: '手机号',v: 'phone'},
-      // ],
-      // searchData: {
-      //   tt: '',
-      //   type: 'UUID'
-      // },
       fields: [
         {
           label: '#',
@@ -130,6 +135,8 @@ export default {
           label: '#',
           field: 0,
           col: 60,
+          thCls: 'tt-c color-og',
+          tdCls: 'tt-c tt-bd color-og',
         },
         {
           label: '标题标题',
@@ -160,7 +167,7 @@ export default {
         },
         {
           label: '设置设置',
-          col: 60,
+          col: 80,
           cog: [
             {
               icon: 'nicon-ban',
@@ -179,9 +186,9 @@ export default {
         [3,'文字类型文字类',0,'ccc'],
         [4,'文字类型文字类型文字',1,'ddd'],
       ],
-
       sortTt: '',
       cogTt: '',
+      tobb: '',
     };
   },
   methods: {
@@ -194,8 +201,10 @@ export default {
     },
     cogBtn(e){
       this.cogTt = `[k]${e.k} [data]${e.data.id || e.data[0]}`;
-      // console.log(e);
     },
+    toBtn(e){
+      this.tobb = e;
+    }
   },
 };
 </script>

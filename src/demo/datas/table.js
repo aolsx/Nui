@@ -14,7 +14,6 @@ const fields = [
       { v: '匹配值',
         // 替换成图标 字符串
         i: 'icon-*',
-        // 替换成字符串
         t: '是/否',
         // class 附加
         c:'nui-label'
@@ -41,8 +40,7 @@ const html = `<nui-table
   自定义内容 放置分页组件
 </nui-table>`;
 
-const js = `
-// 数组对象数据 fields{field:'id'}
+const js = `// 数组对象数据 fields{field:'id'}
 const ObjData=[
   {id: 1,a: '文字类型',b: 1,c: 'aaa'},
   {id: 2,a: '文字类型文字',b: 0,c: 'bbb'}
@@ -52,8 +50,17 @@ const ArrData = [
   [1,'文字类型',1,'aaa'],
   [2,'文字类型文',0,'bbb']
 ];`;
-
+const paging = `<nui-paging
+  class="color-og"
+  :total="131" // 总数
+  :icon="icon" // 总数图标
+  :pgSz="10"   // 每页显示
+  :pgSzOpt="[5,10,40]"  // 每页显示设置
+  // 事件 页面:1 / 条数:10
+  @to="fn($event{page:1,size:10})"
+/>
+`;
 export default {
   // fields: JSON.stringify(fields,null,2)
-  fields,html,js
+  fields,html,js,paging
 };
