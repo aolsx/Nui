@@ -1,12 +1,14 @@
 <template>
-  <td :class="[field.tdCls,field.cog&&'tt-c p-none']">
+  <td
+    v-if="field.dd === undefined || $parent.ddData[field.field]"
+    :class="[field.tdCls,field.cog&&'tt-c p-none']">
     <template v-if="field.cog">
       <nui-btn
-        v-for="(btn,k) in field.cog"
+        v-for="(c,k) in field.cog"
         :key="k"
-        v-bind="btn"
+        v-bind="c.btn"
         bnone
-        @click="$parent.$emit('cog',{k,data:item})" />
+        @click="$parent.$emit('cog',{type:c.type,data:item})" />
     </template>
     <span
       v-else

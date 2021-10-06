@@ -29,6 +29,7 @@
         v-model="pgSzNum"
         class="bg-none"
         up
+        :icon="['nicon-bars']"
         :items="pgSzOpt" />
     </div>
   </div>
@@ -41,7 +42,7 @@ export default {
     // 数据总条数
     icon: {
       type: String,
-      default: 'nicon-info-circle'
+      default: 'nicon-database'
     },
     total: {
       type: Number,
@@ -80,15 +81,16 @@ export default {
         this.acPg = v;
       }
     },
-    pgSzNum(){
-      this.eveTo();
+    pgSzNum(n,o){
+      this.eveTo(true);
     },
   },
   methods: {
-    eveTo(){
+    eveTo(upsz = false){
       this.$emit('to',{
         page: this.acPg,
-        size: this.pgSzNum
+        size: this.pgSzNum,
+        upsz
       });
     }
   },

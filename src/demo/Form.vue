@@ -101,21 +101,37 @@
           </div>
           <div class="nui-col-3">
             <h4>
-              下拉菜单 <code>&lt;nui-form-st/&gt;</code>
+              下拉菜单 <code>&lt;nui-form-st/&gt;</code> <code>:up :right</code> <code>:tag</code>
             </h4>
-            <h6>单选 <code>v:Str|Num</code> </h6>
+            <div class="nui-row">
+              <div class="nui-col-6">
+                <h6>单选 <code>v:Str|Num</code> </h6>
+                <nui-form-st
+                  v-model="form.radio"
+                  :items="valueList"
+                  :rd="formCfg.rd"
+                  :dd="formCfg.dd"
+                  :rules="formCfg.rules"
+                  :info="formCfg.info"
+                  :icon="formCfg.icon" />
+              </div>
+              <div class="nui-col-6">
+                <h6>多选 <code>v:Array</code></h6>
+                <nui-form-st
+                  v-model="form.checkbox"
+                  :items="valueList"
+                  :rd="formCfg.rd"
+                  :dd="formCfg.dd"
+                  :rules="formCfg.rules"
+                  :info="formCfg.info"
+                  :icon="formCfg.icon" />
+              </div>
+            </div>
+            <h6>多选 <code>v:Object</code> 上弹<code>:up=true</code> 最多标签<code>:tag=3</code></h6>
             <nui-form-st
-              v-model="form.radio"
+              v-model="form.checkboxObj"
               :items="valueList"
-              :rd="formCfg.rd"
-              :dd="formCfg.dd"
-              :rules="formCfg.rules"
-              :info="formCfg.info"
-              :icon="formCfg.icon" />
-            <h6>多选 <code>v:Array</code> 上弹出<code> :up [boolean] </code></h6>
-            <nui-form-st
-              v-model="form.checkbox"
-              :items="valueList"
+              :tag="1"
               :rd="formCfg.rd"
               :dd="formCfg.dd"
               :rules="formCfg.rules"
@@ -264,6 +280,7 @@ export default {
         num: 0,
         radio: '',
         checkbox: [2],
+        checkboxObj: {},
         boolean: false
       },
       formDatas: {

@@ -1,41 +1,53 @@
 <template>
   <div class="nui-table">
-    <div class="nui-table-head">
+    <div
+      v-if="ddField.length ||shField.length|| $slots.head"
+      class="nui-table-head">
+      <slot name="head" />
+      <nui-form-item
+        v-if="shField.length"
+        class="nui-table-search">
+        <template #before>
+          <nui-form-st
+            v-model="shData.field"
+            class="bg-none"
+            :items="shField" />
+        </template>
+        <nui-form-str
+          v-model="shData.v" />
+        <template #after>
+          <nui-btn
+            icon="nicon-search"
+            @click="eveSearch()" />
+        </template>
+      </nui-form-item>
+      <nui-form-st
+        v-if="ddField.length"
+        v-model="ddData"
+        class="nui-table-column bg-none"
+        right
+        :items="ddField"
+        :icon="['nicon-grip-horizontal']"
+        :tag="null" />
+    </div>
+    <div class="nui-table-field">
       <table>
-        <colgroup>
-          <col
-            v-for="({col},k) in fields"
-            :key="k"
-            :width="col">
-        </colgroup>
+        <in-table-col />
         <thead>
           <tr>
-            <th
-              v-for="({label,cog,sort,thCls},k) in fields"
+            <in-table-th
+              v-for="(field,k) in fields"
               :key="k"
-              :class="[cog&&'tt-c',thCls]">
-              <ins>{{ label }}</ins>
-              <div
-                v-if="sort!==undefined"
-                class="nui-table-sort"
-                :class="'--'+sortK[sort]"
-                @click="sortBtn(sort)">
-                <i class="nicon-caret-up" />
-                <i class="nicon-caret-down" />
-              </div>
-            </th>
+              :field="field" />
           </tr>
         </thead>
       </table>
     </div>
-    <div class="nui-table-body">
+    <div
+      v-if="datas && datas.length"
+      class="nui-table-body">
       <table>
-        <colgroup>
-          <col
-            v-for="({col},k) in fields"
-            :key="k"
-            :width="col">
-        </colgroup>
+        <in-table-col />
         <tbody>
           <tr
             v-for="(im,k) in datas"
@@ -49,18 +61,31 @@
         </tbody>
       </table>
     </div>
+    <div
+      v-else
+      class="nui-table-body-empty">
+      <ins>暂无数据</ins>
+    </div>
     <div class="nui-table-foot">
       <slot />
     </div>
+    <div
+      v-if="load"
+      class="nui-table-load" />
   </div>
 </template>
 
 <script>
+import {toRaw} from 'vue';
+import InTableCol from './TableCol.vue';
+import InTableTh from './TableTh.vue';
 import InTableTd from './TableTd.vue';
 export default {
   name: 'NuiTable',
   components: {
-    InTableTd,
+    InTableCol,
+    InTableTh,
+    InTableTd
   },
   props: {
     // 字段设置
@@ -71,37 +96,52 @@ export default {
     datas: {
       type: Array,
       required: true
-    }
+    },
+    load: Boolean
   },
-  emits: ['sort','cog'],
+  emits: ['sort','cog','search'],
   data(){
     return {
-      sortK: {}
+      // 开关字段
+      ddField: [],
+      ddData: {},
+      // 搜索
+      shField: [],
+      shData: {field: '',v: ''},
+      // 排序
+      sortField: []
     };
   },
-  methods: {
-    sortBtn(k){
-      // asc desc
-      let s = this.sortK[k];
-      if (!s){
-        s = 'asc';
-      } else if (s == 'asc'){
-        s = 'desc';
-      } else {
-        s = '';
+  watch: {
+    sortField: {
+      deep: true,
+      handler(v){
+        this.$emit('sort',toRaw(v));
       }
-      this.sortK[k] = s;
-      this.$emit('sort',{sort: k,state: s});
     }
   },
-  // computed: {
-  //   c_class(){
-  //     let cls = '';
-  //     if (this.sp){
-  //       cls += '--b-none';
-  //     }
-  //     return cls;
-  //   }
-  // },
+  created(){
+    const fields = this.fields;
+    for (const f of fields){
+      const {label,field,dd,sh} = f;
+      // 开启 字段筛选
+      if (dd !== undefined){
+        this.ddField.push({label,v: field});
+        this.ddData[field] = dd;
+      }
+      if (sh){
+        this.shField.push({label,v: field});
+      }
+    }
+  },
+  // computed: {},
+  methods: {
+    eveSearch(){
+      const {field,v} = this.shData;
+      if (field && v !== ''){
+        this.$emit('search',{field,v});
+      }
+    }
+  },
 };
 </script>

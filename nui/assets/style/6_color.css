@@ -81,6 +81,7 @@
 .bg-bk{background-color:var(--black);}
 .bg-bk.--op{background-color:var(--black-o);}
 .bg-it{background-color:inherit;}
+.bg-color{background-color:currentColor;}
 .bg-none{background-color:transparent !important;}
 
 .bg-grid{position:relative;}

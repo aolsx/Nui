@@ -12,6 +12,7 @@
       背景色
       <code class="h6">.bg-[*] </code>
       禁用 <code> .bg-none</code>
+      继承文字色 <code> .bg-color</code>
     </h4>
     <div class="nui-row">
       <div

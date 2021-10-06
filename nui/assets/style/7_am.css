@@ -12,6 +12,10 @@
   from{transform:translate3d(-50%, -50%, 0) scale3d(1,1,1);}
   to{transform:translate3d(-50%, -50%, 0) scale3d(0,0,0);}
 }
+/* 旋转 */
+@keyframes rotation{0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}}
+
 /* 放大 等待 500毫秒*/
 .zoomfade-enter-active,.zoomfade-leave-active{transition:opacity .3s,transform .3s;pointer-events:none;}
 .zoomfade-enter-from,.zoomfade-leave-to{transform:scale3d(.95,.95,.95);opacity:0;}

@@ -68,11 +68,14 @@ export default {
           label: '#',
           field: 'id',
           col: 60,
+          sh: true
         },
         {
           label: '字符串类型值',
           field: 'a',
-          col: 200
+          sort: 'a',
+          col: 200,
+          dd: true,
         },
         {
           label: '代换值[rep] 排序',
@@ -80,6 +83,8 @@ export default {
           col: '20%',
           tdCls: 'tt-c',
           sort: 'b',
+          sh: true,
+          dd: true,
           // 值替换
           rep: [
             {
@@ -98,6 +103,7 @@ export default {
           label: '附加标签样式',
           field: 'c',
           col: '20%',
+          sh: true,
           rep: [
             {
               v: 'aaa',
@@ -114,12 +120,18 @@ export default {
           col: 60,
           cog: [
             {
-              icon: 'nicon-ban',
-              cls: 'color-red --hover'
+              type: 'del',
+              btn: {
+                icon: 'nicon-ban',
+                cls: 'color-red --hover'
+              }
             },
             {
-              icon: 'nicon-cog',
-              cls: 'color-bl --hover'
+              type: 'cog',
+              btn: {
+                icon: 'nicon-cog',
+                cls: 'color-bl --hover'
+              }
             },
           ],
         },
@@ -170,12 +182,18 @@ export default {
           col: 80,
           cog: [
             {
-              icon: 'nicon-ban',
-              cls: 'color-red --hover'
+              type: 'del',
+              btn: {
+                icon: 'nicon-ban',
+                cls: 'color-red --hover'
+              }
             },
             {
-              icon: 'nicon-cog',
-              cls: 'color-bl --hover'
+              type: 'cog',
+              btn: {
+                icon: 'nicon-cog',
+                cls: 'color-bl --hover'
+              }
             },
           ],
         },
@@ -193,14 +211,14 @@ export default {
   },
   methods: {
     sortBtn(e){
-      if (e.state){
+      if (e.length){
         this.sortTt = e;
       } else {
-        this.sortTt = '';
+        this.sortTt = null;
       }
     },
     cogBtn(e){
-      this.cogTt = `[k]${e.k} [data]${e.data.id || e.data[0]}`;
+      this.cogTt = `[type]${e.type} [data]${e.data.id || e.data[0]}`;
     },
     toBtn(e){
       this.tobb = e;
