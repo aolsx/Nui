@@ -48,12 +48,13 @@
         v-bind="resetbtn"
         @click="formReset()" />
       <nui-btn
-        v-bind="submitbtn"
+        v-bind="c_style"
         @click="formSubmit()" />
     </div>
   </form>
 </template>
 <script>
+import {toRaw} from 'vue';
 export default {
   name: 'NuiForm',
   props: {
@@ -72,28 +73,49 @@ export default {
     resetbtn: {
       type: Object,
       default(){
-        // return {
-        //   label: 'Reset',
-        //   cls: 'color-gy'
-        // };
-        return null;
+        return {
+          label: '重置',
+          cls: 'color-gy --cdk',
+          icon: 'nicon-undo-alt'
+        };
       },
     },
     submitbtn: {
       type: Object,
       default(){
         return {
-          label: 'Submit',
-          cls: 'color-bl'
+          label: '提交',
+          cls: 'color-bl',
+          icon: 'nicon-check',
         };
       }
     },
+    formEdit: {
+      type: Boolean,
+      default: null
+    }
   },
   emits: ['confirm'],
   data(){
     return {
       vlues: this.datas
     };
+  },
+  computed: {
+    c_style(){
+      if (this.formEdit === null){
+        return this.submitbtn;
+      }
+      return this.formEdit ? {
+        label: '修改',
+        cls: 'color-bl',
+        icon: 'nicon-edit',
+      } : {
+        label: '新增',
+        cls: 'color-gn',
+        icon: 'nicon-plus',
+      };
+    }
   },
   created(){
     if (this.datas){
@@ -103,15 +125,16 @@ export default {
   },
   methods: {
     toOriginalData(proxyData){
-      const newDatas = {};
-      for (const key in proxyData){
-        if (Array.isArray(proxyData[key])){
-          newDatas[key] = [...proxyData[key]];
-        } else {
-          newDatas[key] = proxyData[key];
-        }
-      }
-      return newDatas;
+      return toRaw(proxyData);
+      // const newDatas = {};
+      // for (const key in proxyData){
+      //   if (Array.isArray(proxyData[key])){
+      //     newDatas[key] = [...proxyData[key]];
+      //   } else {
+      //     newDatas[key] = proxyData[key];
+      //   }
+      // }
+      // return newDatas;
     },
     // 提交表单
     formSubmit(){
@@ -132,11 +155,11 @@ export default {
       const datas = this.datas;
       const backup = this.backupDatas;
       for (const key in datas){
-        if (Array.isArray(datas[key])){
-          datas[key].splice(0,datas[key].length,...backup[key]);
-        } else {
-          datas[key] = backup[key];
-        }
+        // if (Array.isArray(datas[key])){
+        //   datas[key].splice(0,datas[key].length,...backup[key]);
+        // } else {
+        datas[key] = backup[key];
+        // }
         // this.$set(this.datas,key,this.backupDatas[key]);
       }
     }

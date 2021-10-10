@@ -134,6 +134,13 @@
 .b-l{border-left:.56px solid #0002;}
 .b-none{border:0 !important;}
 
+/* 圆角 */
+.r-3{border-radius:3px;}
+.r-5{border-radius:5px;}
+.r-10{border-radius:10px;}
+.r-50{border-radius:50%;}
+.r-none{border-radius:0 !important;}
+
 h1, h2, h3, h4, h5, h6{font-weight:500;}
 h1, h2, h3{margin-top:.75em;margin-bottom:.5em;}
 h4, h5, h6{margin-top:.5em;margin-bottom:.25em;}
@@ -154,8 +161,10 @@ ins{display:inline-block;vertical-align:middle;}
 i{flex:none;font-style:normal;}
 i + ins, i + .-eps{margin-left:.35em;}
 
+.tt-l{text-align:left;}
 .tt-c{text-align:center;}
 .tt-r{text-align:right;}
+
 .tt-bd{font-weight:bold;}
 /* 首字母大写 */
 .tt-cab{text-transform:capitalize;}

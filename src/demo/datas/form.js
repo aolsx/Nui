@@ -52,12 +52,12 @@ const form = {
   html: `<nui-form
   :datas="formDatas"
   :items="formItem"
-  :resetbtn="{label:'重置',cls:''}"
-  :submitbtn="{label:'提交',cls:''}"
+  :resetbtn="btn{}"
+  :submitbtn="btn{}"
+  // 新增编辑 封装
+  :form-edit="false|true"
   @confirm="fn($event<datas>)">
-  <div>
-    自定义表单
-  </div>
+  <div>自定义表单</div>
   <template #submit={reset,submit}>
    <btn @click="reset()"/>
    <btn @click="submit()"/>

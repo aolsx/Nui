@@ -30,13 +30,13 @@ const mod = {
   icon="nicon-cog"
   label="Title"
   color="color-gn"
+  // 新增编辑样式
+  form-edit="false|true"
   @close="showMod = false">
-  <div>
-    <nui-btn
-      class="color-sky"
-      label="关闭MOD"
-      @click="hideFn()" />
-  </div>
+  <slot #head />
+  <nui-btn
+    label="关闭MOD"
+    @click="hideFn()" />
 </nui-modal>`,
 };
 const menu = {

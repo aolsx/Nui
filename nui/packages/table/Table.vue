@@ -51,7 +51,8 @@
         <tbody>
           <tr
             v-for="(im,k) in datas"
-            :key="k">
+            :key="k"
+            :class="acTrKey === k && '--ac'">
             <in-table-td
               v-for="(field,kk) in fields"
               :key="kk"
@@ -97,6 +98,10 @@ export default {
       type: Array,
       required: true
     },
+    acTr: {
+      type: Object,
+      default: null
+    },
     load: Boolean
   },
   emits: ['sort','cog','search'],
@@ -109,7 +114,9 @@ export default {
       shField: [],
       shData: {field: '',v: ''},
       // 排序
-      sortField: []
+      sortField: [],
+
+      acTrKey: 0,
     };
   },
   watch: {

@@ -2,7 +2,7 @@
 /* 深蓝灰 */
 .bg-atom.--lter{background-color:var(--atom-lter);}
 .bg-atom.--lt{background-color:var(--atom-lt);}
-.bg-atom{color:var(--gy-lt);background-color:var(--atom);}
+.bg-atom{background-color:var(--atom);}
 .bg-atom.--dk{background-color:var(--atom-dk);}
 .bg-atom.--dks{background-color:var(--atom-dks);}
 .bg-atom.--dker{background-color:var(--atom-dker);}
@@ -11,7 +11,7 @@
 /* 浅蓝灰 */
 .bg-gy.--lter{background-color:var(--gy-lter);}
 .bg-gy.--lt{background-color:var(--gy-lt);}
-.bg-gy{color:var(--white-dk);background-color:var(--gy);}
+.bg-gy{background-color:var(--gy);}
 .bg-gy.--dk{background-color:var(--gy-dk);}
 .bg-gy.--dker{background-color:var(--gy-dker);}
 .bg-gy.--op{background-color:var(--gy-o);}
@@ -103,7 +103,7 @@
 .color-atom, .color-atom.--hover:hover{color:var(--atom-lter);}
 .color-atom.--cdk{color:var(--atom);}
 
-.color-gy, .color-gy.--hover:hover{color:var(--gy);}
+.color-gy, .color-gy.--hover:hover{color:var(--gy-dk);}
 .color-gy.--cdk{color:var(--gy-dker);}
 
 .color-dm, .color-dm.--hover:hover{color:var(--dm-lter);}

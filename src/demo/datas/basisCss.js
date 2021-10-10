@@ -98,8 +98,9 @@ export default [
     list: [
       ['h[1-6]','标签 文字尺寸 24px-12px'],
       ['.h[1-7]','样式 文字尺寸 24px-10px'],
-      ['.tt-c','居中','tt-c'],
-      ['.tt-r','右侧对齐','tt-r'],
+
+      ['.tt-[l|c|r]','文字对齐 左中右'],
+
       ['.tt-bd','粗体','tt-bd'],
       ['.tt-cab','abc 首字母大写','tt-cab'],
       ['.tt-cb','abc 全大写','tt-cb'],
@@ -114,6 +115,11 @@ export default [
         title: '边线',
         row: 12,
         list: [['.b-[t|r|b|l|none]','四个方向边线 1px solid #0003']],
+      },
+      {
+        title: '圆角',
+        row: 12,
+        list: [['.r-[3|5|10|50|none]','border-radius']],
       },
       {
         title: '透明度',

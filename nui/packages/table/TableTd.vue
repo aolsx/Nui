@@ -8,7 +8,7 @@
         :key="k"
         v-bind="c.btn"
         bnone
-        @click="$parent.$emit('cog',{type:c.type,data:item})" />
+        @click="$parent.$emit('cog',{type:c.type,data:item,e:$event})" />
     </template>
     <span
       v-else
