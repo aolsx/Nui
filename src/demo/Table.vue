@@ -1,25 +1,40 @@
 <template>
   <div class="nui-container --p">
-    <h3>数据表格 <code>{{ cogTt }}</code> <code>{{ sortTt }}</code></h3>
     <div class="nui-row">
-      <div class="nui-col-8">
+      <div class="nui-col-7">
+        <div class="p-b-15">
+          <span class="h3">数据表格</span>
+          排序 <code
+            class="-link"
+            @click.stop="sortTt = ''">@st {{ sortTt }}</code>
+          搜索 <code
+            class="-link"
+            @click.stop="searchTt = ''">@sh {{ searchTt }}</code>
+          分页 <code
+            class="-link"
+            @click.stop="pageTt = ''">@pg {{ pageTt }}</code>
+        </div>
         <nui-table
-          style="height:160px"
+          class="r-5"
+          style="height:240px"
+          empty="暂无数据"
+          :label="{icon:'nicon-home',label:'数据表'}"
           :fields="fields"
           :datas="listData"
-          @sort="sortBtn"
-          @cog="cogBtn" />
-        <div class="p-5" />
-        <nui-table
-          :fields="fields_a"
-          :datas="listData_a"
-          @sort="sortBtn"
-          @cog="cogBtn">
-          <nui-paging
-            :total="100"
-            @to="toBtn" />
+          :paging="{
+            total:131,
+            pgSzOpt:[10,30,100]
+          }"
+          @sh="searchBtn"
+          @st="sortBtn"
+          @pg="toPage">
+          <template #id="{value}">
+            <b>[{{ value }}]</b>
+          </template>
+          <template #cog>
+            <nui-btn icon="nicon-cog" />
+          </template>
         </nui-table>
-        <div class="p-5" />
         <div class="nui-row">
           <div class="nui-col-6">
             <nui-code
@@ -28,28 +43,30 @@
           </div>
           <div class="nui-col-6">
             <nui-code
-              :code="tableData.js" />
+              :code="tableData.fields" />
           </div>
         </div>
       </div>
-      <div class="nui-col-4">
-        <nui-code :code="tableData.fields" />
-      </div>
-    </div>
-    <h3>分页组件 <code>{{ tobb }}</code></h3>
-    <div class="nui-row">
-      <div class="nui-col-6">
+      <div class="nui-col-5">
+        <div class="p-b-15">
+          <span class="h3">分页组件</span>
+          @pg <code
+            class="-link"
+            @click.stop="tobb = ''">{{ tobb }}</code>
+        </div>
         <nui-paging
           class="color-og"
           :total="131"
           :pg-sz-opt="[10,30,100]"
-          @to="toBtn" />
+          @pg="toBtn" />
         <div class="p-5" />
         <nui-code
           lang="html"
           :code="tableData.paging" />
+        <div class="p-5" />
+        <nui-code
+          :code="tableData.js" />
       </div>
-      <div class="nui-col-6" />
     </div>
   </div>
 </template>
@@ -65,160 +82,81 @@ export default {
     return {
       fields: [
         {
-          label: '#',
-          field: 'id',
-          col: 60,
+          label: '编号',
+          field: 'id', // 字段
+          col: 60, // 宽度 必须有一项不定义
+          st: 'id', // 可排序
+          sh: true, // 可搜索
+          dd: true, // 可隐藏
+          slot: 'id',// 自定义插槽
+          cls: 'tt-c', // 附加样式
+          clsTd: 'color-bl',
+          clsTh: 'color-og',
+        },
+        {
+          label: '表单项A',
+          field: 'a',
+          st: 'a',
+          dd: true,
+        },
+        {
+          label: '表单项B',
+          field: 'b',
+          st: 'b',
+          sh: true,
+          dd: false,
+        },
+        {
+          label: '表单项C',
+          field: 'c',
+          col: '20%',
           sh: true
         },
         {
-          label: '字符串类型值',
-          field: 'a',
-          sort: 'a',
-          col: 200,
-          dd: true,
-        },
-        {
-          label: '代换值[rep] 排序',
-          field: 'b',
-          col: '20%',
-          tdCls: 'tt-c',
-          sort: 'b',
-          sh: true,
-          dd: true,
-          // 值替换
-          rep: [
-            {
-              v: 0,
-              i: 'nicon-times',
-              c: 'color-red'
-            },
-            {
-              v: 1,
-              i: 'nicon-check',
-              c: 'color-gn'
-            }
-          ],
-        },
-        {
-          label: '附加标签样式',
-          field: 'c',
-          col: '20%',
-          sh: true,
-          rep: [
-            {
-              v: 'aaa',
-              c: 'nui-label bg-gn'
-            },
-            {
-              v: 'bbb',
-              c: 'nui-label bg-bl'
-            }
-          ],
-        },
-        {
           label: '设置',
-          col: 60,
-          cog: [
-            {
-              type: 'del',
-              btn: {
-                icon: 'nicon-ban',
-                cls: 'color-red --hover'
-              }
-            },
-            {
-              type: 'cog',
-              btn: {
-                icon: 'nicon-cog',
-                cls: 'color-bl --hover'
-              }
-            },
-          ],
-        },
+          field: 'cog',
+          col: '60px',
+          cls: 'tt-c',
+          slot: 'cog'
+        }
       ],
+
+      searchTt: '',
+      sortTt: '',
+      pageTt: '',
+
+      tobb: '',
+
       listData: [
         {id: 1,a: '文字类型',b: 1,c: 'aaa'},
         {id: 2,a: '文字类型文字类型文字类型',b: 0,c: 'bbb'},
         {id: 3,a: '文字类型文字类',b: 0,c: 'ccc'},
         {id: 4,a: '文字类型文字类型文字',b: 1,c: 'ddd'},
+        {id: 5,a: '文型文字',b: 1,c: 'eee'},
+        {id: 6,a: '文字文字文字文字',b: 1,c: 'fff'},
       ],
-      fields_a: [
-        {
-          label: '#',
-          field: 0,
-          col: 60,
-          thCls: 'tt-c color-og',
-          tdCls: 'tt-c tt-bd color-og',
-        },
-        {
-          label: '标题标题',
-          field: 1,
-        },
-        {
-          label: '代换值[rep] 排序',
-          field: 2,
-          col: 100,
-          tdCls: 'tt-c',
-          sort: 'b',
-          // 值替换
-          rep: [
-            {
-              v: 0,
-              i: 'nicon-times'
-            },
-            {
-              v: 1,
-              i: 'nicon-check color-gn'
-            }
-          ],
-        },
-        {
-          label: '标题标题标题标题',
-          field: 3,
-          col: 100,
-        },
-        {
-          label: '设置设置',
-          col: 80,
-          cog: [
-            {
-              type: 'del',
-              btn: {
-                icon: 'nicon-ban',
-                cls: 'color-red --hover'
-              }
-            },
-            {
-              type: 'cog',
-              btn: {
-                icon: 'nicon-cog',
-                cls: 'color-bl --hover'
-              }
-            },
-          ],
-        },
-      ],
-      listData_a: [
-        [1,'文字类型',1,'aaa'],
-        [2,'文字类型文字类型文字类型',0,'bbb'],
-        [3,'文字类型文字类',0,'ccc'],
-        [4,'文字类型文字类型文字',1,'ddd'],
-      ],
-      sortTt: '',
-      cogTt: '',
-      tobb: '',
+
     };
   },
   methods: {
+    searchBtn(e){
+      this.searchTt = e;
+      this.pageTt = '';
+      this.sortTt = '';
+    },
     sortBtn(e){
+      this.pageTt = '';
+      this.searchTt = '';
       if (e.length){
         this.sortTt = e;
       } else {
-        this.sortTt = null;
+        this.sortTt = '';
       }
     },
-    cogBtn(e){
-      this.cogTt = `[type]${e.type} [data]${e.data.id || e.data[0]}`;
+    toPage(e){
+      this.sortTt = '';
+      this.searchTt = '';
+      this.pageTt = e;
     },
     toBtn(e){
       this.tobb = e;

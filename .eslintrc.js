@@ -1,4 +1,4 @@
-{
+module.exports = {
   "root": true,
   "env": {
     "node": true
@@ -8,26 +8,22 @@
     "plugin:vue/vue3-strongly-recommended",
     "eslint:recommended"
   ],
+  "parser": "vue-eslint-parser",
   "parserOptions": {
-    "parser": "babel-eslint"
+    // "parser": "babel-eslint",
+    "sourceType": "module"
   },
   "rules": {
-    "vue/script-setup-uses-vars":"off",
     "vue/html-closing-bracket-newline": [
       "warn",
-      {
-        "multiline": "never"
-      }
+      {"multiline": "never"}
     ],
     "vue/component-name-in-template-casing": [
       "warn",
       "kebab-case",
-      {
-        "registeredComponentsOnly": false
-      }
+      {"registeredComponentsOnly": false}
     ],
-    "vue/no-v-html":"off",
-    "no-console": "warn",
+    "no-console": "off",
     "no-unused-vars": "warn",
     "no-multi-spaces": "warn",
     "indent": [
@@ -40,9 +36,7 @@
         "multiline": true
       }
     ],
-    "array-bracket-spacing": [
-      "warn"
-    ],
+    "array-bracket-spacing": ["warn"],
     "array-element-newline": [
       "warn",
       "consistent"
@@ -164,5 +158,10 @@
     "prefer-template": "warn",
     "template-curly-spacing": "warn",
     "space-infix-ops": "warn"
+  },
+  "globals": {
+    "APP": true,
+    "CloudAPI": true,
+    "EleApi": true
   }
-}
+};

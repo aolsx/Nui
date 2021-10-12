@@ -61,7 +61,7 @@ export default {
       }
     }
   },
-  emits: ['to'],
+  emits: ['pg'],
   data(){
     return {
       // 当前页码
@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     eveTo(upsz = false){
-      this.$emit('to',{
+      this.$emit('pg',{
         page: this.acPg,
         size: this.pgSzNum,
         upsz

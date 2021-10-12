@@ -57,5 +57,6 @@ export default [
   NuiProRound,
   NuiProBox,
   NuiTable,
+
   NuiPaging
 ];

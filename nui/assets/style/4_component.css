@@ -498,10 +498,15 @@
 .nui-table-field th{border-top-left-radius:inherit;border-top-right-radius:inherit;}
 
 /* 搜索 显示列 */
+.nui-table-head-tools{display:flex;flex:1;align-items:center;justify-content:flex-end;}
+
 .nui-table-search,
 .nui-table-column{flex:none;}
-.nui-table-search{width:200px;background-color:var(--atom);}
+
+.nui-table-search{width:200px;border-radius:4px;}
 .nui-table-search .nui-form-st{min-width:40px;max-width:80px;}
+
+.nui-table-column{margin-left:5px;}
 .nui-table-column .nicon-angle-down{display:none;}
 
 /* 字段标题 */
@@ -516,11 +521,12 @@
 
 .nui-table-sort.--asc .nicon-caret-up,
 .nui-table-sort.--desc .nicon-caret-down{color:var(--og);}
+.nui-table-sort + ins{padding-right:10px;pointer-events:none;}
 
 /* 字段内容 */
 .nui-table-body{flex:1;margin:0 -2px;overflow:hidden;overflow-y:overlay;background-color:var(--atom-dker);}
 
-.nui-table-body-empty{display:flex;flex:1;align-items:center;justify-content:center;padding:15px;color:var(--gy-dker);background-color:var(--atom-dker);}
+.nui-table-body-empty{display:flex;flex:1;align-items:center;justify-content:center;height:100%;padding:15px;color:var(--gy-dker);background-color:var(--atom-dker);}
 
 .nui-table-body::-webkit-scrollbar{width:3px;}
 .nui-table-body td{background-color:var(--atom-dks);}
