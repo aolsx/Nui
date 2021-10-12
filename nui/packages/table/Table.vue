@@ -7,6 +7,7 @@
         <i :class="label.icon" />
         <ins>{{ label.label }}</ins>
       </div>
+      <slot name="head" />
       <div class="nui-table-head-tools">
         <nui-form-item
           v-if="fSearch.length"
@@ -101,7 +102,6 @@ export default {
   components: {
     InTableCol
   },
-  // provide(){return {}},
   props: {
     label: {
       type: Object,
