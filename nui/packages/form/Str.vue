@@ -1,9 +1,26 @@
 <template>
-  <label class="nui-form-str">
+  <label
+    class="nui-form-str"
+    :class="type === 'textarea'&&'--textarea'">
     <i
       v-if="icon[0]"
       :class="icon[0]" />
+    <textarea
+      v-if="type == 'textarea'"
+      ref="input"
+      class="nui-form-input"
+      title=""
+      autocomplete="off"
+      spellcheck="false"
+      v-bind="rules"
+      :value="modelValue"
+      :disabled="dd"
+      :readonly="rd"
+      :placeholder="info"
+      @input="eveChange"
+      @change="eveChange" />
     <input
+      v-else
       ref="input"
       class="nui-form-input"
       title=""

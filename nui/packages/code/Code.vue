@@ -1,7 +1,7 @@
 <template>
   <div
     class="nui-code"
-    :class="[`--${lang||codeObj.lang}`,$attrs.class]">
+    :class="`--${lang||codeObj.lang}`">
     <slot />
     <div class="_block">
       <span class="_lang">{{ lang||codeObj.lang }}</span>

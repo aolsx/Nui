@@ -8,7 +8,9 @@
         <ins>{{ label.label }}</ins>
       </div>
       <slot name="head" />
-      <div class="nui-table-head-tools">
+      <div
+        v-if="fSearch.length||fSwitch.length"
+        class="nui-table-head-tools">
         <nui-form-item
           v-if="fSearch.length"
           class="nui-table-search">

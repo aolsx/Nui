@@ -49,7 +49,7 @@
           字符串 <code>&lt;nui-form-str :type='*'/&gt;</code>
         </h4>
         <div class="nui-row">
-          <div class="nui-col-8">
+          <div class="nui-col-7">
             <div class="nui-row">
               <div
                 v-for="type in strType"
@@ -67,7 +67,19 @@
               </div>
             </div>
           </div>
-          <div class="nui-col-4">
+          <div class="nui-col-2">
+            <code>:type='textarea'</code>
+            <nui-form-str
+              v-model="form.str"
+              style="height:100px"
+              type="textarea"
+              :rd="formCfg.rd"
+              :dd="formCfg.dd"
+              :rules="formCfg.rules"
+              :info="formCfg.info"
+              :icon="formCfg.icon" />
+          </div>
+          <div class="nui-col-3">
             <br>
             <nui-code
               lang="html"
