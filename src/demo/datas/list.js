@@ -28,11 +28,14 @@ const tree = {
   idkey="<Str> 节点对象键名 id"
   labelkey="<Str> 节点对象标签名 id"
   ackeys="<Arr> 活动节点 [<idkey>]"
-  sort="<Boolean> 禁用排序 默认开启"
+  sort="<Boolean> 开启排序"
   :tree="TreeList 树数组"
   @open="<$event itemObj> 展开节点"
   @rclick="<$event Obj{ptArr,k}> 右键"
-  @click="<$event itemObj> 左键" /> `,
+  @click="<$event itemObj> 左键">
+  <slot /> 自定义
+  <template #default="{item}"></template>
+  </nui-tree> `,
   arr: `const TreeList = [
   {
     icon:'',label:'',

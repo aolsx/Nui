@@ -11,6 +11,9 @@
 .nui-flex.--h, .nui-flex-c.--h{flex-direction:row;}
 .nui-flex.--v, .nui-flex-c.--v{flex-direction:column;}
 
+.nui-flex-c.--v > *,
+.nui-flex.--v > *{min-height:0;max-height:100%;}
+
 .nui-flex.--cc, .nui-flex.--hc{justify-content:center;}
 .nui-flex.--cc, .nui-flex.--vc{align-items:center;}
 .nui-flex.--hb{justify-content:space-between;}

@@ -24,9 +24,9 @@
 /* 树列表 */
 .nui-tree{flex:1;min-width:0;max-width:100%;min-height:0;max-height:100%;padding:5px 10px 30px;overflow:overlay;font-size:12px;color:var(--bl-dk);}
 .nui-tree ul, .nui-tree li{position:relative;display:block;pointer-events:none;}
-.nui-tree-item{position:relative;z-index:1;display:flex;align-items:center;height:1.75em;padding-right:10px;pointer-events:auto;cursor:pointer;}
+.nui-tree-item{position:relative;z-index:1;display:flex;align-items:center;height:1.75em;padding-right:10px;pointer-events:auto;}
 .nui-tree-item > *{min-width:0;color:var(--gy-dk);}
-.nui-tree-item > span{display:flex;align-items:center;}
+.nui-tree-item > span{display:flex;flex:1;align-items:center;}
 .nui-tree-item i{width:1.25em;text-align:center;}
 .nui-tree-item ins{margin-left:.25em;}
 
@@ -553,6 +553,9 @@
 /* 字段外加脚 */
 .nui-table-foot{margin:2px 0;border-bottom-right-radius:inherit;border-bottom-left-radius:inherit;}
 .nui-table-foot:empty{padding:8px;background:var(--atom-dk);}
+
+.nui-table.--hide > .nui-table-head ~ *{display:none;}
+.nui-code.bg-none > ._block{background:none;}
 
 /* 分页组件 */
 .nui-paging{display:flex;justify-content:space-between;color:var(--bl);background:var(--atom-dk);border-radius:inherit;}

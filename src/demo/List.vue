@@ -38,13 +38,21 @@
         <nui-tree
           style="height:140px"
           child="tree"
-          arrow
+          sort
+          :arrow="false"
           :line="tree.line"
           :tree="tree.arr"
           :ackeys="tree.ackeys"
           @open="tree.ac=$event"
           @rclick="tree.r=$event"
-          @click="tree.ac=$event" />
+          @click="tree.ac=$event">
+          <template #default="{item}">
+            <i :class="item.icon" />
+            <span>
+              {{ item.label }}
+            </span>
+          </template>
+        </nui-tree>
         <br>
         <nui-code
           lang="html"

@@ -16,12 +16,16 @@
         :class="`nicon-angle-${isOpen?'down':'right'}`"
         @click.stop="eveOpen()" />
       <span
+        v-if="!hasslot"
         @contextmenu.stop.prevent="eveRclick"
         @click.stop="eveClick()">
         <i
           v-if="item.icon"
           :class="item.icon" />
         <ins>{{ item[p_labelkey] }}</ins>
+      </span>
+      <span @click.stop="eveClick()">
+        <slot :item="item" />
       </span>
     </div>
     <ul
@@ -30,7 +34,12 @@
       <in-tree-item
         v-for="(im,k) in item[p_child]"
         :key="k"
-        :item="im" />
+        :item="im"
+        :hasslot="hasslot">
+        <template #default="{item}">
+          <slot :item="item" />
+        </template>
+      </in-tree-item>
     </ul>
   </li>
 </template>
@@ -42,7 +51,8 @@ export default {
     item: {
       type: Object,
       required: true
-    }
+    },
+    hasslot: Boolean
   },
   data(){
     return {

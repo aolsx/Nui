@@ -6,9 +6,14 @@
     @dragstart.stop="sort && eveDragstart($event)">
     <ul tabindex="-1">
       <in-tree-item
-        v-for="(item,k) in tree"
+        v-for="(im,k) in tree"
         :key="k"
-        :item="item" />
+        :item="im"
+        :hasslot="!!$slots.default">
+        <template #default="{item}">
+          <slot :item="item" />
+        </template>
+      </in-tree-item>
     </ul>
   </div>
 </template>
@@ -69,12 +74,12 @@ export default {
     },
     line: Boolean,
     arrow: Boolean,
-    sort: {
-      type: Boolean,
-      default: true
-    }
+    sort: Boolean
   },
   emits: ['click','open','rclick'],
+  // created(){
+  //   console.log();
+  // },
   methods: {
     eveDragstart(e){
       TreedragFn(e.target,this.$el,this.child);
