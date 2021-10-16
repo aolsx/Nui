@@ -29,6 +29,7 @@ export default {
     return {
       dragType: this.dragType,
       p_child: this.child,
+      p_childIcon: this.childIcon,
       p_arrow: this.arrow,
       p_idkey: this.idkey,
       p_labelkey: this.labelkey,
@@ -61,6 +62,10 @@ export default {
     child: {
       type: String,
       default: 'child'
+    },
+    childIcon: {
+      type: Array,
+      default: null
     },
     ackeys: {
       type: Array,

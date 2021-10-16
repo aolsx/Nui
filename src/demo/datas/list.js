@@ -25,6 +25,7 @@ const tree = {
   arrow='<Boolean> 仅箭头开关'
   dragType="<Str> 标识拖拽用"
   child="<Str> 子节点对象名 child"
+  childIcon="['close','open']节点展收图标"
   idkey="<Str> 节点对象键名 id"
   labelkey="<Str> 节点对象标签名 id"
   ackeys="<Arr> 活动节点 [<idkey>]"

@@ -43,6 +43,7 @@
           :line="tree.line"
           :tree="tree.arr"
           :ackeys="tree.ackeys"
+          :child-icon="['nicon-folder','nicon-folder-open']"
           @open="tree.ac=$event"
           @rclick="tree.r=$event"
           @click="tree.ac=$event">

@@ -10,21 +10,25 @@
       :draggable="!p_sort?false:true"
       @_vue="()=>this"
       @_dragType="()=>dragType">
-      <i
+      <span
         v-if="!c_notChild"
         class="nui-tree-arrow"
-        :class="`nicon-angle-${isOpen?'down':'right'}`"
-        @click.stop="eveOpen()" />
+        @click.stop="eveOpen()">
+        <i
+          :class="`nicon-angle-${isOpen?'down':'right'}`" />
+        <i
+          v-if="p_childIcon"
+          :class="isOpen?p_childIcon[1]:p_childIcon[0]" />
+      </span>
       <span
-        v-if="!hasslot"
         @contextmenu.stop.prevent="eveRclick"
         @click.stop="eveClick()">
-        <i
-          v-if="item.icon"
-          :class="item.icon" />
-        <ins>{{ item[p_labelkey] }}</ins>
-      </span>
-      <span @click.stop="eveClick()">
+        <template v-if="!hasslot">
+          <i
+            v-if="item.icon"
+            :class="item.icon" />
+          <ins>{{ item[p_labelkey] }}</ins>
+        </template>
         <slot :item="item" />
       </span>
     </div>
@@ -46,7 +50,7 @@
 <script>
 export default {
   name: 'InTreeItem',
-  inject: ['p_click','p_rclick','p_open','dragType','p_child','p_arrow','p_idkey','p_labelkey','p_ackeys','p_sort'],
+  inject: ['p_click','p_rclick','p_open','dragType','p_child','p_childIcon','p_arrow','p_idkey','p_labelkey','p_ackeys','p_sort'],
   props: {
     item: {
       type: Object,
