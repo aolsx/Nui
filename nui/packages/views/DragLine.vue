@@ -17,7 +17,8 @@ export default {
       type: Number,
       default: 1000
     },
-    cy: Boolean
+    cy: Boolean,
+    re: Boolean
   },
   emits: ['update:modelValue'],
   mounted(){
@@ -32,8 +33,9 @@ export default {
       const v = this.modelValue;
       const oldv = e.clientX;
       let newv = 0;
+      const re = this.re ? 1 : -1;
       const setFn = (x)=>{
-        newv = -(oldv - x) + v;
+        newv = re * (oldv - x) + v;
         if (newv <= this.min){
           newv = this.min;
         } else if (newv >= this.max){
@@ -47,8 +49,9 @@ export default {
       const v = this.modelValue;
       const oldv = e.clientY;
       let newv = 0;
+      const re = this.re ? 1 : -1;
       const setFn = (x,y)=>{
-        newv = -(oldv - y) + v;
+        newv = re * (oldv - y) + v;
         if (newv <= this.min){
           newv = this.min;
         } else if (newv >= this.max){

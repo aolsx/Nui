@@ -129,8 +129,8 @@ const demoCode = {
     可调节宽度 px
   </div>
   <nui-drag-line
-  v-model="wNum" :min="100" :max="200" cy />
-  cy 垂直调节
+  v-model="wNum" :min="100" :max="200" cy re/>
+  cy 垂直调节 / re 反向取值
   <div class="nui-col">
     自动占剩
   </div>

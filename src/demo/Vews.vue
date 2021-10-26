@@ -362,7 +362,7 @@
     <h4 class="m-none">
       自定义布局 【样式】
       <code>水平 .nui-page-flex.--v</code>
-      <code class="p-lr-15">调节组件 &lt;nui-drag-line v-model="Numb" :min :max cy/&gt;</code>
+      <code class="p-lr-15">调节组件 &lt;nui-drag-line v-model="Numb" :min :max cy re/&gt;</code>
     </h4>
     <div class="nui-row">
       <div class="nui-col-4">
