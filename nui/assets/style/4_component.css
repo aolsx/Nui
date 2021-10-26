@@ -126,6 +126,7 @@
 .nui-btn.--b-none:before{display:none;}
 
 /* 徽章 标签 */
+.nui-label i{width:1.25em;}
 .nui-label[class*="bg"]{padding:.25em .36em;line-height:1.15;border-radius:.35em;}
 .nui-label[class*="color"]{padding:.25em .36em;line-height:1.15;border-radius:.35em;}
 
@@ -473,6 +474,9 @@
 .nui-panel-head{position:relative;padding:5px 6px;border-bottom:.56px solid #0002;}
 .nui-panel-foot{border-top:.56px solid #0002;}
 .nui-panel-head .nui-btn, .nui-panel-foot .nui-btn{margin:-5px 0;}
+
+.nui-panel-head > i{width:1.25em;}
+.nui-panel-head > ins{flex:1;}
 .nui-panel-head > :first-child.nui-btn{margin-left:-4px;}
 .nui-panel-head > :last-child.nui-btn{margin-right:-4px;}
 

@@ -1,7 +1,7 @@
 <template>
   <div class="nui-container --p demo-test">
     <h3 class="m-none">
-      布局框架
+      布局框架 【组件】
     </h3>
     <div class="nui-row">
       <div class="nui-col-6">
@@ -359,6 +359,48 @@
         </nui-code>
       </div>
     </div>
+    <h4 class="m-none">
+      自定义布局 【样式】
+      <code>水平 .nui-page-flex.--v</code>
+      <code class="p-lr-15">调节组件 &lt;nui-drag-line v-model="Numb" :min :max cy/&gt;</code>
+    </h4>
+    <div class="nui-row">
+      <div class="nui-col-4">
+        <nui-code
+          :code="demoCode.chtml"
+          lang="html" />
+      </div>
+      <div
+        style="height:300px"
+        class="nui-page-flex bg-atom --dks">
+        <div
+          class="nui-col-none tt-c nui-flex --v --cc"
+          :style="`width:${wa}px`">
+          可调节宽度
+          <code>.nui-col-none</code>
+          <code>:style=width:{{ wa }}px </code>
+        </div>
+        <nui-drag-line v-model="wa" />
+        <div class="nui-col nui-flex --v">
+          <div
+            class="nui-col-none nui-flex --v --cc"
+            :style="`height:${ha}px`">
+            可调节高度
+            <code>.nui-col-none</code>
+            <code>:style=height:{{ ha }}px </code>
+          </div>
+          <nui-drag-line
+            v-model="ha"
+            :min="100"
+            :max="200"
+            cy />
+          <div class="nui-col nui-flex --v --cc">
+            自动占剩<br>
+            <code>.nui-col</code>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -369,6 +411,12 @@ export default {
     return {
       demoCode
     };
-  }
+  },
+  data(){
+    return {
+      wa: 200,
+      ha: 100
+    };
+  },
 };
 </script>

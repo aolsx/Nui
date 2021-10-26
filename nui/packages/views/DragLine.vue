@@ -11,11 +11,11 @@ export default {
     },
     min: {
       type: Number,
-      default: 100
+      default: 20
     },
     max: {
       type: Number,
-      default: 300
+      default: 1000
     },
     cy: Boolean
   },
@@ -48,7 +48,7 @@ export default {
       const oldv = e.clientY;
       let newv = 0;
       const setFn = (x,y)=>{
-        newv = oldv - y + v;
+        newv = -(oldv - y) + v;
         if (newv <= this.min){
           newv = this.min;
         } else if (newv >= this.max){

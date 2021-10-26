@@ -123,6 +123,18 @@ const demoCode = {
   mods: JSON.stringify(mods,null,2),
   nested: JSON.stringify(nested,null,2),
   sidebar: JSON.stringify(sidebar,null,2),
+  chtml: `<div class="nui-page-flex">
+  <div class="nui-col-none"
+    :style="width:[wNum]px">
+    可调节宽度 px
+  </div>
+  <nui-drag-line
+  v-model="wNum" :min="100" :max="200" cy />
+  cy 垂直调节
+  <div class="nui-col">
+    自动占剩
+  </div>
+</div>`
 };
 
 export default demoCode;
