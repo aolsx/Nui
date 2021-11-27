@@ -108,10 +108,10 @@ export default {
   },
   computed: {
     c_style(){
-      if (this.formEdit === null){
+      if (this.isedit === null){
         return this.submitbtn;
       }
-      return this.formEdit ? {
+      return this.isedit ? {
         label: '修改',
         cls: 'color-bl',
         icon: 'nicon-edit',
