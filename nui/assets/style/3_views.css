@@ -43,7 +43,7 @@
 .nui-app-window-controls{position:relative;z-index:1;display:flex;-webkit-app-region:no-drag;}
 .nui-app-window-controls > span{display:flex;flex:none;align-items:center;justify-content:center;width:46px;min-width:0;font-size:16px;text-align:center;border-radius:0;}
 .nui-app-window-controls > span:hover{background-color:var(--atom-lt);}
-.nui-app-window-controls > span:last-child:hover{color:#fff;background-color:var(--red-dker);}
+.nui-app-window-controls > span:last-child:hover{color:#fff;background-color:var(--rd-dker);}
 /* 头部 动态组件容器 */
 .nui-app-dynamic-tools{position:relative;z-index:1;display:flex;flex:1;margin:0 40px;background-color:var(--atom-dk);box-shadow:0 2px 3px #0004;transition:transform .3s;transform:translate3d(0, 0, 0);-webkit-app-region:no-drag;}
 .nui-app-dynamic-tools > *{min-width:0;}

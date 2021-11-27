@@ -62,19 +62,19 @@
   --og-dker:#8c502f;
   --og-o:#a55e3840;
 
-  --red-lter:#f25252;
-  --red-lt:#d84949;
-  --red:#bf4040;
-  --red-dk:#a53838;
-  --red-dker:#8c2f2f;
-  --red-o:#a5383840;
+  --rd-lter:#f25252;
+  --rd-lt:#d84949;
+  --rd:#bf4040;
+  --rd-dk:#a53838;
+  --rd-dker:#8c2f2f;
+  --rd-o:#a5383840;
 
-  --white-o:#fff5;
-  --white:#fff;
-  --white-dk:#c6d3de;
-  --white-dker:#89a0b9;
-  --black-o:#0005;
-  --black:#000;
+  --wt-o:#fff5;
+  --wt:#fff;
+  --wt-dk:#c6d3de;
+  --wt-dker:#89a0b9;
+  --bk-o:#0005;
+  --bk:#000;
 }
 
 /* 滚动条 :window-inactive 窗口失活 */
@@ -87,7 +87,7 @@
 ::-webkit-scrollbar-corner{border-radius:50%;background-color:#0002;}
 /* ::-webkit-resizer{background-color:#000;} */
 
-::selection{color:var(--white-dk);background-color:var(--sky-o5);}
+::selection{color:var(--wt-dk);background-color:var(--sky-o5);}
 
 *, *:before, *:after{box-sizing:border-box;}
 *:focus{outline:0;}

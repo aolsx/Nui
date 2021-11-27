@@ -179,7 +179,7 @@
 .nui-confirm-icon i{opacity:.5;}
 .nui-confirm-icon .nicon-exclamation-triangle{margin-top:-13px;font-size:20px;}
 .nui-confirm-btn{right:-28px;bottom:8%;font-size:20px;cursor:pointer;transition:color .2s;}
-.nui-confirm-btn:hover{color:var(--white-dk);}
+.nui-confirm-btn:hover{color:var(--wt-dk);}
 .nui-confirm-body{position:relative;z-index:1;flex:0 1 auto;max-width:95%;margin:10px 20px;overflow:overlay;font-size:16px;}
 
 /* 弹出消息 */
@@ -297,9 +297,9 @@
 
 .nui-form-input:focus ~ .nui-form-input-bg{background-color:var(--atom-lt);}
 /* 无效 */
-.nui-form-input:invalid ~ .nui-form-input-bg:before{display:block;color:var(--red);}
+.nui-form-input:invalid ~ .nui-form-input-bg:before{display:block;color:var(--rd);}
 /* .nui-form-input:required ~ .nui-form-input-bg{color:var(--yl);} */
-.nui-form-input:required:invalid ~ .nui-form-input-bg:before{border-top-color:var(--yl);border-left-color:var(--red);}
+.nui-form-input:required:invalid ~ .nui-form-input-bg:before{border-top-color:var(--yl);border-left-color:var(--rd);}
 
 .nui-form-input[readonly] ~ .nui-form-input-bg:after,
 .nui-form-input[disabled] ~ .nui-form-input-bg:after{display:block;border-left-color:var(--gy-dker);}

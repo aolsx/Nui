@@ -65,21 +65,21 @@
 .bg-og.--op{background-color:var(--og-o);}
 
 /* 红 */
-.bg-red.--lter{background-color:var(--red-lter);}
-.bg-red.--lt{background-color:var(--red-lt);}
-.bg-red{background-color:var(--red);}
-.bg-red.--dk{background-color:var(--red-dk);}
-.bg-red.--dker{background-color:var(--red-dker);}
-.bg-red.--op{background-color:var(--red-o);}
+.bg-red.--lter{background-color:var(--rd-lter);}
+.bg-red.--lt{background-color:var(--rd-lt);}
+.bg-red{background-color:var(--rd);}
+.bg-red.--dk{background-color:var(--rd-dk);}
+.bg-red.--dker{background-color:var(--rd-dker);}
+.bg-red.--op{background-color:var(--rd-o);}
 
 /* 文字色 */
-.bg-dm, .bg-gn, .bg-sky, .bg-bl, .bg-yl, .bg-og, .bg-red{color:var(--white);}
+.bg-dm, .bg-gn, .bg-sky, .bg-bl, .bg-yl, .bg-og, .bg-red{color:var(--wt);}
 
 /* 其它 */
-.bg-wt{background-color:var(--white);}
-.bg-wt.--op{background-color:var(--white-o);}
-.bg-bk{background-color:var(--black);}
-.bg-bk.--op{background-color:var(--black-o);}
+.bg-wt{background-color:var(--wt);}
+.bg-wt.--op{background-color:var(--wt-o);}
+.bg-bk{background-color:var(--bk);}
+.bg-bk.--op{background-color:var(--bk-o);}
 .bg-it{background-color:inherit;}
 .bg-color{background-color:currentColor;}
 .bg-none{background-color:transparent !important;}
@@ -124,13 +124,13 @@
 .color-og, .color-og.--hover:hover{color:var(--og);}
 .color-og.--cdk{color:var(--og-dker);}
 
-.color-red, .color-red.--hover:hover{color:var(--red);}
-.color-red.--cdk{color:var(--red-dker);}
+.color-red, .color-red.--hover:hover{color:var(--rd);}
+.color-red.--cdk{color:var(--rd-dker);}
 
-.color-wt{color:var(--white);}
-.color-bk{color:var(--black);}
-.color-wt.--op{color:var(--white-o);}
-.color-bk.--op{color:var(--black-o);}
+.color-wt{color:var(--wt);}
+.color-bk{color:var(--bk);}
+.color-wt.--op{color:var(--wt-o);}
+.color-bk.--op{color:var(--bk-o);}
 .color-it{color:inherit;}
 .color-none{color:transparent;}
 

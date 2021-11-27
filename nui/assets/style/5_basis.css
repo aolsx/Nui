@@ -179,7 +179,7 @@ i + ins, i + .-eps{margin-left:.35em;}
 /* 文字可选中 caret-color: red; */
 .tt-copy{pointer-events:auto;cursor:copy;user-select:all;}
 .tt-copy::selection, .tt-copy *::selection{color:inherit;background-color:inherit;}
-.tt-copy:active::selection, .tt-copy:active *::selection{color:var(--white-dk);background-color:var(--sky-o5);}
+.tt-copy:active::selection, .tt-copy:active *::selection{color:var(--wt-dk);background-color:var(--sky-o5);}
 
 .tt-h-15{line-height:1.5em;}
 .tt-h-2{line-height:2em;}
