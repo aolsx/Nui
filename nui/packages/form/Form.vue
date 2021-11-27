@@ -1,6 +1,7 @@
 <template>
   <form
     class="nui-form"
+    :class="{'nui-form-border':br}"
     novalidate="true"
     autocomplete="off">
     <div class="nui-form-body">
@@ -90,9 +91,13 @@ export default {
         };
       }
     },
-    formEdit: {
+    isedit: {
       type: Boolean,
       default: null
+    },
+    br: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['confirm'],
@@ -125,16 +130,7 @@ export default {
   },
   methods: {
     toOriginalData(proxyData){
-      return toRaw(proxyData);
-      // const newDatas = {};
-      // for (const key in proxyData){
-      //   if (Array.isArray(proxyData[key])){
-      //     newDatas[key] = [...proxyData[key]];
-      //   } else {
-      //     newDatas[key] = proxyData[key];
-      //   }
-      // }
-      // return newDatas;
+      return JSON.parse(JSON.stringify(toRaw(proxyData)));
     },
     // 提交表单
     formSubmit(){
@@ -155,11 +151,11 @@ export default {
       const datas = this.datas;
       const backup = this.backupDatas;
       for (const key in datas){
-        // if (Array.isArray(datas[key])){
-        //   datas[key].splice(0,datas[key].length,...backup[key]);
-        // } else {
-        datas[key] = backup[key];
-        // }
+        if (Array.isArray(datas[key])){
+          datas[key].splice(0,datas[key].length,...backup[key]);
+        } else {
+          datas[key] = backup[key];
+        }
         // this.$set(this.datas,key,this.backupDatas[key]);
       }
     }

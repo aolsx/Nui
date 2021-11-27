@@ -24,6 +24,7 @@
 /* 一行 */
 .nui-flex-line{display:flex;align-items:center;justify-content:space-between;max-width:100%;}
 .nui-flex-line ins{flex:1;}
+.nui-flex-line > * + *{margin-left:.25em;}
 
 /* 栅格布局 */
 .nui-row-grid{display:grid;overflow:auto;}

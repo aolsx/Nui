@@ -54,13 +54,14 @@ const form = {
   :items="formItem"
   :resetbtn="btn{}"
   :submitbtn="btn{}"
-  // 新增编辑 封装
-  :form-edit="false|true"
+  // 新增|编辑
+  :isedit="false|true"
+  :br // 输入有框边线 无背景
   @confirm="fn($event<datas>)">
   <div>自定义表单</div>
   <template #submit={reset,submit}>
-   <btn @click="reset()"/>
-   <btn @click="submit()"/>
+   <nui-btn @click="reset()"/>
+   <nui-btn @click="submit()"/>
   </template>
 </nui-form>`,
   js: `// 表单数据 重置|返回
@@ -70,9 +71,9 @@ const formItem = [
     label: '提示',
     col: 6,
     // 字段名称 匹配 数据
-    field: 'str',
-    // 组件名称
-    mod: 'str',
+    field: 'fieldName',
+    // 组件类型
+    mod: 'str|num|rc|st',
     // 绑定 对应组件参数
     bind: {...}
   },{col: 'line'}, // 行分割线
