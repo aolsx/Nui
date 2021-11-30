@@ -460,8 +460,9 @@
 .nui-form{font-size:12px;background-color:var(--atom-dk);}
 .nui-form-body{padding:10px;}
 .nui-form-body > .nui-form-str + .nui-form-str{margin-top:.5em;}
+.nui-form-body .nui-row .nui-form-label{margin-top:0;}
 
-.nui-form-label{display:flex;align-items:center;max-width:100%;margin:.75em 0 .5em;font-size:12px;color:var(--gy-dker);}
+.nui-form-label{display:flex;align-items:center;max-width:100%;margin:.5em 0;font-size:12px;color:var(--gy-dker);}
 .nui-form-label ins{flex:1;}
 .nui-form-label > * + *{margin-left:.25em;}
 
@@ -471,11 +472,14 @@
 
 .nui-form .nui-col-line, .nui-form-submit{border-top:.56px solid #0002;}
 .nui-form .nui-col-line{flex:0 0 100%;padding:0;margin:5px 0 5px;}
+
+
 .nui-modal-body > .nui-form{margin:-10px;border-radius:0 0 10px 10px;}
 
 /* 表单线框无背景 */
 .nui-form-border .nui-form-input-bg{background:#0001 !important;border:1px solid #ffffff08;transition:border-color .25s;}
 .nui-form-border .nui-form-input:focus ~ .nui-form-input-bg{border-color:#ffffff15;}
+.nui-form-border .nui-form-item{background:none;}
 
 /* 面板 */
 .nui-panel{display:flex;flex-direction:column;font-size:12px;}

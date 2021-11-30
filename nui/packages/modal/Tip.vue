@@ -8,7 +8,10 @@
       :class="[{'--l':lt,'--r':rt,'--t':tp,'--ws':w},$attrs.class]"
       :style="{width:w+'px',height:h+'px'}">
       <div class="nui-tip-body">
-        <slot />
+        <slot :close="close" />
+        <slot
+          :close="close"
+          name="pop" />
       </div>
       <span class="nui-tip-arrow" />
     </div>
@@ -31,6 +34,13 @@ export default {
       type: Number,
       default: null
     }
+  },
+  methods: {
+    close(){
+      document.activeElement?.blur();
+      // document.body.blur();
+      // this.$refs.tip.blur();
+    },
   }
 };
 </script>

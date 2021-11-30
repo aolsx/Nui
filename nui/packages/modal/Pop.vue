@@ -11,11 +11,11 @@
       @focusin="isInFocus = true"
       @focusout="_eveFocusout">
       <div class="nui-pop-body">
-        <slot />
+        <slot :close="close" />
       </div>
       <span
         class="nui-pop-arrow"
-        :style="pos.mLeft&&`margin-left:${pos.mLeft}px`" />
+        :style="pos.mLeft?`margin-left:${pos.mLeft}px`:''" />
     </div>
   </teleport>
 </template>

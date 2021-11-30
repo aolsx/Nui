@@ -13,6 +13,7 @@
               ref="pop"
               :w="200"
               :h="60"
+              #="{close}"
               @open="evePop='eveOpen'"
               @close="evePop='eveClose'">
               <input
@@ -20,8 +21,9 @@
                 style="background:#fff1">
               <br>
               <nui-btn
-                label="提交测试"
-                class="color-sky" />
+                label="关闭"
+                class="color-sky"
+                @click="close()" />
             </nui-pop>
             <p />
             <nui-code
@@ -33,7 +35,12 @@
                 <template #in>
                   左对齐
                 </template>
-                <div>显示内容</div>
+                <template #pop="{close}">
+                  <div>显示内容</div>
+                  <nui-btn
+                    label="关闭"
+                    @click="close()" />
+                </template>
               </nui-tip>
               <nui-tip class="color-red">
                 <template #in>

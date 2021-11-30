@@ -87,13 +87,14 @@ const tip = {
   html: `<!-- 方向 lt|rt|tp 尺寸 w|h -->
 <nui-tip lt :h="100" :w="210">
   <template #in>显示内容</template>
+  <template #pop="{close}">弹出内容</template>
   <!-- 弹出内容-->
 </nui-tip>`
 };
 const pop = {
   html: `<!--$ref.pop.[open(e.target)|close()]-->
 <nui-pop ref="pop" :h="100" :w="210"
-@open="" @close="">
+@open="" @close="" #="{close}">
 </nui-pop>`
 };
 
