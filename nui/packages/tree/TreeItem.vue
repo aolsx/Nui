@@ -29,19 +29,24 @@
             :class="item.icon" />
           <ins>{{ item[p_labelkey] }}</ins>
         </template>
-        <slot :item="item" />
+        <slot
+          :data="item"
+          :k="itemkey" />
       </span>
     </div>
     <ul
       tabindex="-1"
       class="nui-tree-in">
       <in-tree-item
-        v-for="(im,k) in item[p_child]"
-        :key="k"
+        v-for="(im,kk) in item[p_child]"
+        :key="kk"
         :item="im"
+        :itemkey="kk"
         :hasslot="hasslot">
-        <template #default="{item}">
-          <slot :item="item" />
+        <template #default="{data,k}">
+          <slot
+            :data="data"
+            :k="k" />
         </template>
       </in-tree-item>
     </ul>
@@ -54,6 +59,10 @@ export default {
   props: {
     item: {
       type: Object,
+      required: true
+    },
+    itemkey: {
+      type: [String,Number],
       required: true
     },
     hasslot: Boolean

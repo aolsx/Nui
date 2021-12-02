@@ -47,10 +47,11 @@
           @open="tree.ac=$event"
           @rclick="tree.r=$event"
           @click="tree.ac=$event">
-          <template #default="{item}">
-            <i :class="item.icon" />
+          <template #default="{data,k}">
+            <i :class="data.icon" />
             <span>
-              {{ item.label }}
+              {{ [k] }}
+              {{ data.label }}
             </span>
           </template>
         </nui-tree>

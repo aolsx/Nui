@@ -126,6 +126,15 @@ export default [
         row: 12,
         list: [['.op-[1|3|5|7]','元素透明度']],
       },
+      {
+        title: '表格',
+        row: 12,
+        list: [
+          ['.nui-table','table 定义'],
+          ['.nui-table-line-bk','黑色边框'],
+          ['.nui-table-line-none','取消外边框'],
+        ],
+      },
     ]
   }
 ];

@@ -6,12 +6,15 @@
     @dragstart.stop="sort && eveDragstart($event)">
     <ul tabindex="-1">
       <in-tree-item
-        v-for="(im,k) in tree"
-        :key="k"
+        v-for="(im,kk) in tree"
+        :key="kk"
         :item="im"
+        :itemkey="kk"
         :hasslot="!!$slots.default">
-        <template #default="{item}">
-          <slot :item="item" />
+        <template #default="{data,k}">
+          <slot
+            :data="data"
+            :k="k" />
         </template>
       </in-tree-item>
     </ul>
