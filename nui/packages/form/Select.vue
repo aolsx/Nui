@@ -66,7 +66,7 @@ export default {
       required: true
     },
     items: {
-      type: Array,
+      type: [Array,Object],
       required: true
     },
     up: Boolean,

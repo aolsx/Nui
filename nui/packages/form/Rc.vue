@@ -5,7 +5,8 @@
     <template v-if="isBoolean">
       <label
         v-for="(im,k) in items"
-        :key="k">
+        :key="k"
+        :class="im.c?`${im.c}`:'color-it'">
         <input
           v-model="value"
           :disabled="im.dd"
@@ -17,7 +18,8 @@
     <template v-else>
       <label
         v-for="(im,k) in items"
-        :key="k">
+        :key="k"
+        :class="im.c?`${im.c}`:'color-it'">
         <input
           v-model="value"
           :value="im.v"
@@ -38,7 +40,7 @@ export default {
       required: true
     },
     items: {
-      type: Array,
+      type: [Array,Object],
       required: true
     },
     sw: Boolean

@@ -22,9 +22,9 @@ const rc = {
   v-model="多选值<Array>"
   :items="valueList"
   :sw="开关<Boolean>"/>`,
-  js: `const valueList = [{
+  js: `const valueList[obj|arr] = [{
     label: '选一',v: '1',
-    dd: true,rd: true
+    c:'color-*',dd: true,rd: true
   },...
 ]`
 };
