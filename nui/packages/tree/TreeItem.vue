@@ -20,7 +20,7 @@
           v-if="p_childIcon"
           :class="isOpen?p_childIcon[1]:p_childIcon[0]" />
       </span>
-      <span
+      <div
         @contextmenu.stop.prevent="eveRclick"
         @click.stop="eveClick()">
         <template v-if="!hasslot">
@@ -32,7 +32,7 @@
         <slot
           :data="item"
           :k="itemkey" />
-      </span>
+      </div>
     </div>
     <ul
       tabindex="-1"
@@ -55,7 +55,7 @@
 <script>
 export default {
   name: 'InTreeItem',
-  inject: ['p_click','p_rclick','p_open','dragType','p_child','p_childIcon','p_arrow','p_idkey','p_labelkey','p_ackeys','p_sort'],
+  inject: ['p_click','p_rclick','p_open','dragType','p_child','p_childIcon','p_arrow','p_idkey','p_labelkey','p_ackeys','p_sort','p_expand'],
   props: {
     item: {
       type: Object,
@@ -69,7 +69,7 @@ export default {
   },
   data(){
     return {
-      isOpen: this.item.open || false
+      isOpen: this.item.open || this.p_expand || false
     };
   },
   computed: {

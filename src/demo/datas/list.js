@@ -30,6 +30,7 @@ const tree = {
   labelkey="<Str> 节点对象标签名 id"
   ackeys="<Arr> 活动节点 [<idkey>]"
   sort="<Boolean> 开启排序"
+  expand="<Boolean> 默认展开"
   :tree="TreeList 树数组"
   @open="<$event itemObj> 展开节点"
   @rclick="<$event Obj{ptArr,k}> 右键"

@@ -25,11 +25,11 @@
 .nui-tree{flex:1;min-width:0;max-width:100%;min-height:0;max-height:100%;padding:5px 10px 30px;overflow:overlay;font-size:12px;color:var(--bl-dk);}
 .nui-tree ul, .nui-tree li{position:relative;display:block;pointer-events:none;}
 .nui-tree-item{position:relative;z-index:1;display:flex;align-items:center;min-height:1.75em;padding-right:10px;pointer-events:auto;}
-.nui-tree-item > *{min-width:0;color:var(--gy-dk);}
-.nui-tree-item > span{display:flex;flex:1;align-items:center;}
+.nui-tree-item > *{display:flex;flex:1;align-items:center;min-width:0;color:var(--gy-dk);}
+.nui-tree-item .nui-tree-arrow{flex:none;}
 .nui-tree-item i{width:1.25em;text-align:center;}
 .nui-tree-item ins{margin-left:.25em;}
-.nui-tree-item .nui-tree-arrow{flex:none;}
+
 .nui-tree ul ul{display:none;margin-left:.75em;}
 .nui-tree-nodes.--open > .nui-tree-in{display:block;}
 .nui-tree li:not(.nui-tree-nodes){padding-left:1.25em;}

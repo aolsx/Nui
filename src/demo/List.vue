@@ -39,6 +39,7 @@
           style="height:140px"
           child="tree"
           sort
+          expand
           :arrow="false"
           :line="tree.line"
           :tree="tree.arr"
@@ -48,7 +49,9 @@
           @rclick="tree.r=$event"
           @click="tree.ac=$event">
           <template #default="{data,k}">
-            <i :class="data.icon" />
+            <i
+              v-if="data.icon"
+              :class="data.icon" />
             <span>
               {{ [k] }}
               {{ data.label }}

@@ -38,6 +38,7 @@ export default {
       p_labelkey: this.labelkey,
       p_ackeys: this.ackeys,
       p_sort: this.sort,
+      p_expand: this.expand,
       p_click: (item)=>{
         this.$emit('click',item);
       },
@@ -77,12 +78,13 @@ export default {
       }
     },
     tree: {
-      type: Array,
+      type: [Array,Object],
       required: true
     },
     line: Boolean,
     arrow: Boolean,
-    sort: Boolean
+    sort: Boolean,
+    expand: Boolean
   },
   emits: ['click','open','rclick'],
   // created(){
