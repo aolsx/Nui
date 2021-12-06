@@ -30,6 +30,7 @@
           <ins>{{ item[p_labelkey] }}</ins>
         </template>
         <slot
+          :pdata="$parent.item || $parent.tree"
           :data="item"
           :k="itemkey" />
       </div>
@@ -43,8 +44,9 @@
         :item="im"
         :itemkey="kk"
         :hasslot="hasslot">
-        <template #default="{data,k}">
+        <template #default="{pdata,data,k}">
           <slot
+            :pdata="pdata"
             :data="data"
             :k="k" />
         </template>

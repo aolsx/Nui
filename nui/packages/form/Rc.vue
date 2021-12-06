@@ -1,7 +1,7 @@
 <template>
   <div
     class="nui-form-rc"
-    :class="(sw||isBoolean)?'--switch':''">
+    :class="{'--switch':sw||isBoolean,'--rd':rd}">
     <template v-if="isBoolean">
       <label
         v-for="(im,k) in items"
@@ -43,7 +43,8 @@ export default {
       type: [Array,Object],
       required: true
     },
-    sw: Boolean
+    sw: Boolean,
+    rd: Boolean,
   },
   emits: ['update:modelValue'],
   data(){

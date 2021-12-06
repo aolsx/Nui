@@ -75,6 +75,9 @@
 .p-10{padding:10px;}
 .p-5{padding:5px;}
 .p-25em{padding:.25em;}
+
+.p-t-none, .p-tb-none{padding-top:0 !important;}
+.p-b-none, .p-tb-none{padding-bottom:0 !important;}
 .p-none{padding:0 !important;}
 
 .p-lr-15, .p-l-15{padding-left:15px;}
@@ -99,6 +102,9 @@
 .m-10{margin:10px;}
 .m-5{margin:5px;}
 .m-25em{margin:.25em;}
+
+.m-t-none, .m-tb-none{margin-top:0 !important;}
+.m-b-none, .m-tb-none{margin-bottom:0 !important;}
 .m-none{margin:0 !important;}
 
 .m-lr-15, .m-l-15{margin-left:15px;}

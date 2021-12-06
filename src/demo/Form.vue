@@ -152,33 +152,38 @@
               up />
           </div>
           <div class="nui-col-6">
-            <h4>单多选 <code>&lt;nui-form-rc/&gt;</code> <small>开关样式 <code>:sw = true</code></small></h4>
+            <h4>单多选 <code>&lt;nui-form-rc/&gt;</code> <small>开关样式 <code>:sw = true</code></small> 只读 <code>:rd = true</code></h4>
             <div class="nui-row">
               <div class="nui-col-4">
-                <h6>单选绑定值 <code>v:Str|Num</code></h6>
+                <h6>多选绑定值 <code>v:Array</code></h6>
                 <nui-form-rc
                   v-model="form.checkbox"
-                  :items="valueList" />
+                  :items="valueList"
+                  :rd="formCfg.rd" />
                 <nui-form-rc
                   v-model="form.checkbox"
                   sw
-                  :items="valueList" />
+                  :items="valueList"
+                  :rd="formCfg.rd" />
               </div>
               <div class="nui-col-4">
-                <h6>多选绑定数组 <code>v:Array</code></h6>
+                <h6>单选绑定数组 <code>v:Str|Num</code></h6>
                 <nui-form-rc
                   v-model="form.radio"
-                  :items="valueList" />
+                  :items="valueList"
+                  :rd="formCfg.rd" />
                 <nui-form-rc
                   v-model="form.radio"
                   sw
-                  :items="valueList" />
+                  :items="valueList"
+                  :rd="formCfg.rd" />
               </div>
               <div class="nui-col-4">
                 <h6>单项切换布尔值 <code>v:Boolean</code></h6>
                 <nui-form-rc
                   v-model="form.boolean"
-                  :items="valueList" />
+                  :items="valueList"
+                  :rd="formCfg.rd" />
               </div>
             </div>
           </div>
@@ -275,7 +280,7 @@ export default {
       rules: {required: true},
       icon: ['',''],
     };
-    const valueList = [{label: '选1',v: '1',dd: true},{label: '选2',v: 2},{label: '选3',v: '12'}];
+    const valueList = [{label: '选1',v: '1',dd: true,c: 'color-gn'},{label: '选2',v: 2,c: 'color-og'},{label: '选3',v: '12'}];
     return {
       strType: ['text','search','password','email','url','tel','date','time','datetime-local','month','week'],
       formCfg,

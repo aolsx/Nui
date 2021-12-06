@@ -1,7 +1,7 @@
 <template>
   <div class="nui-container --p">
     <h3 class="m-none">
-      通用样式 <code>.h[1-7] .color-[*] .bg-[*] .--b-none</code>
+      通用样式 <code>.h[1-7] .color-[*] .bg-[*] .--b-none .--sm</code>
     </h3>
     <br>
     <div class="nui-row">

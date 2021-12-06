@@ -11,8 +11,9 @@
         :item="im"
         :itemkey="kk"
         :hasslot="!!$slots.default">
-        <template #default="{data,k}">
+        <template #default="{pdata,data,k}">
           <slot
+            :pdata="pdata"
             :data="data"
             :k="k" />
         </template>

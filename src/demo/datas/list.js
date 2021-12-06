@@ -36,7 +36,7 @@ const tree = {
   @rclick="<$event Obj{ptArr,k}> 右键"
   @click="<$event itemObj> 左键">
   <slot /> 自定义
-  <template #default="{data,k}"></template>
+  <template #default="{pdata,data,k}"></template>
   </nui-tree> `,
   arr: `const TreeList = [
   {

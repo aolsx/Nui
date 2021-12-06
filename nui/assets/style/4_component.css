@@ -125,6 +125,8 @@
 .nui-btn:active{opacity:.8;}
 .nui-btn.--b-none:before{display:none;}
 
+.nui-btn.--sm{min-width:1.5em;min-height:1.5em;padding:0 .25em;}
+
 .nui-flex > .nui-btn{min-width:2em;}
 
 /* 徽章 标签 */
@@ -389,13 +391,7 @@
 .nui-form-rc input:checked:before,
 .nui-form-rc input:checked:after{opacity:1;}
 .nui-form-rc input:checked ~ span{color:inherit;}
-/* 只读 禁用 */
-.nui-form-rc input[readonly] ~ span,
-.nui-form-rc input[disabled] ~ span{pointer-events:none;}
 
-.nui-form-rc input[disabled]:after,
-.nui-form-rc input[disabled]:before,
-.nui-form-rc input[readonly]:before{color:var(--gy) !important;}
 /* 单选 */
 .nui-form-rc input[type=radio]{border-radius:1em;}
 .nui-form-rc input[type=radio]:after{width:70%;height:4px;margin:auto;margin-right:0;background-color:currentColor;border-radius:.5em;}
@@ -403,19 +399,34 @@
 /* 多选 */
 .nui-form-rc input[type=checkbox]{border-radius:.3em;}
 .nui-form-rc input[type=checkbox]:after{width:0;height:0;margin:auto 3px 3px auto;border:4px solid;border-top-color:transparent;border-left-color:transparent;}
+
 .nui-form-rc.--switch input{width:2em;height:calc(1em + 3px);overflow:hidden;}
+.nui-form-rc.--switch input[type]{color:var(--gy);}
+.nui-form-rc.--switch input[type]:checked{color:currentColor;}
+
 .nui-form-rc.--switch input[type]:before{border-color:currentColor !important;opacity:.5;}
 .nui-form-rc.--switch input[type]:after{width:30%;height:calc(.5em - 1px);margin:auto 4px;background-color:currentColor;border:0;border-radius:inherit;opacity:.7;}
 .nui-form-rc.--switch input[type=checkbox]:after{border-radius:1px;}
 .nui-form-rc.--switch input[type]:checked:before{background-color:currentColor;opacity:.3;}
 .nui-form-rc.--switch input[type]:checked:after{margin-left:auto;opacity:1;}
 
+/* 只读 禁用 */
+.nui-form-rc.--rd,
+.nui-form-rc input[readonly] ~ span,
+.nui-form-rc input[disabled] ~ span{pointer-events:none !important;}
+
+.nui-form-rc.--rd input:not(:checked) + span,
+.nui-form-rc.--rd input:before,
+.nui-form-rc input[disabled]:after,
+.nui-form-rc input[disabled]:before,
+.nui-form-rc input[readonly]:before{color:var(--atom-lter) !important;}
+
 /* 下拉菜单 */
 .nui-form-st{position:relative;color:var(--dm-lt);cursor:pointer;}
 .nui-form-st.--disabled, .nui-form-st > input{pointer-events:none;}
 
 .nui-form-st > input{position:absolute;width:0;height:0;overflow:hidden;opacity:0;}
-.nui-form-st > div.nui-form-input{display:flex;align-items:center;color:var(--gy);text-align:center;}
+.nui-form-st > div.nui-form-input{display:flex;align-items:center;color:var(--gy);}
 
 .nui-form-st > i{color:var(--gy);transition:opacity .3s;}
 
