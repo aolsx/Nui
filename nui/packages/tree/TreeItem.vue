@@ -11,7 +11,7 @@
       @_vue="()=>this"
       @_dragType="()=>dragType">
       <span
-        v-if="!c_notChild"
+        v-if="c_child"
         class="nui-tree-arrow"
         @click.stop="eveOpen()">
         <i
@@ -36,10 +36,11 @@
       </div>
     </div>
     <ul
+      v-if="c_child"
       tabindex="-1"
       class="nui-tree-in">
       <in-tree-item
-        v-for="(im,kk) in item[p_child]"
+        v-for="(im,kk) in item[c_child]"
         :key="kk"
         :item="im"
         :itemkey="kk"
@@ -75,11 +76,20 @@ export default {
     };
   },
   computed: {
-    c_notChild(){
-      return !this.item[this.p_child];
+    c_child(){
+      const c = this.p_child;
+      if (typeof c === 'string'){
+        return this.item[c] !== undefined ? c : '';
+      }
+      for (const k of c){
+        if (this.item[k] !== undefined){
+          return k;
+        }
+      }
+      return '';
     },
     c_class(){
-      if (this.c_notChild){
+      if (!this.c_child){
         return null;
       }
       return ['nui-tree-nodes',{'--open': this.isOpen}];
@@ -96,7 +106,7 @@ export default {
   methods: {
     eveClick(){
       // 存在子节点并且不是箭头则 开关
-      if (!this.c_notChild && !this.p_arrow){
+      if (this.c_child && !this.p_arrow){
         this.isOpen = !this.isOpen;
         this.p_open(this.item);
       } else {
@@ -108,7 +118,7 @@ export default {
       this.p_open(this.item);
     },
     eveRclick(e){
-      const ptArr = this.$parent.tree || this.$parent.item[this.p_child];
+      const ptArr = this.$parent.tree || this.$parent.item[this.c_child];
       this.p_rclick({
         ptArr,
         k: this.$.vnode.key,

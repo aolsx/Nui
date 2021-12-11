@@ -65,7 +65,7 @@ export default {
       default: 'label'
     },
     child: {
-      type: String,
+      type: [String,Array],
       default: 'child'
     },
     childIcon: {
@@ -88,12 +88,9 @@ export default {
     expand: Boolean
   },
   emits: ['click','open','rclick'],
-  // created(){
-  //   console.log();
-  // },
   methods: {
     eveDragstart(e){
-      TreedragFn(e.target,this.$el,this.child);
+      TreedragFn(e.target,this.$el);
       // this.$emit('stor',item);
     }
   },

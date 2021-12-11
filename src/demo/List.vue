@@ -37,7 +37,7 @@
           @click="tree.line=!tree.line" />
         <nui-tree
           style="height:140px"
-          child="tree"
+          :child="['tree','items']"
           sort
           expand
           :arrow="false"
@@ -178,7 +178,10 @@ export default {
                   {label: 'List 3-2-1',to: 'AcList 3-2-1'},
                   {icon: 'nicon-cog',label: 'List 3-2-2',to: 'AcList 3-2-2'}
                 ]},
-              {label: 'List 3-3',to: 'AcList 3-3'},
+              {label: 'List 3-3',to: 'AcList 3-3',items: [
+                {label: '回调子类 3-3-1',to: 'AcList 3-3-1'},
+                {label: '回调子类 3-3-2',to: 'AcList 3-3-2'}
+              ]},
             ]},
           {icon: 'nicon-cog',label: 'List 5',to: 'AcList 5'},
         ]
