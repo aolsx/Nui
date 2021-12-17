@@ -37,5 +37,7 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 
 .nui-code.--json .nui-code--attr{color:#e06c75;}
 
+/* 字符换行 */
+.nui-code.--string-wrap .nui-code--string{display:inline-block;white-space:pre-wrap;vertical-align:top;}
 
 /* punctuation */

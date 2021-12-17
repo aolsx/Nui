@@ -31,7 +31,10 @@
 .nui-tree-item ins{margin-left:.25em;}
 
 .nui-tree ul ul{display:none;margin-left:.75em;}
-.nui-tree-nodes.--open > .nui-tree-in{display:block;}
+
+.nui-tree-nodes.--open > .nui-tree-in,
+.nui-tree-nodes.--open > ul{display:block;}
+
 .nui-tree li:not(.nui-tree-nodes){padding-left:1.25em;}
 
 .nui-tree hr{position:absolute;top:.875em;bottom:0;left:-.125em;pointer-events:none;border-left:1px solid var(--atom-lter);opacity:.5;}
@@ -188,15 +191,20 @@
 .nui-confirm-body{position:relative;z-index:1;flex:0 1 auto;max-width:95%;margin:10px 20px;overflow:overlay;font-size:16px;}
 
 /* 弹出消息 */
-.nui-msg-item{position:relative;flex:none;min-width:26px;max-width:300px;height:34px;}
-.nui-msg-body, .nui-msg-icon, .nui-msg-close{position:relative;display:flex;flex:none;align-items:center;min-width:0;line-height:1;}
-.nui-msg-body{z-index:1;height:26px;pointer-events:auto;background-color:#000000db;border-radius:15px;box-shadow:0 2px 5px #0008;}
-.nui-msg-icon, .nui-msg-close{justify-content:center;border-radius:50%;}
-.nui-msg-close{padding-right:8px;cursor:pointer;opacity:.5;}
-.nui-msg-close:hover{opacity:1;}
-.nui-msg-icon{width:26px;height:26px;overflow:hidden;}
+.nui-app-ppp-msg{width:300px;}
+.nui-msg-item{position:relative;flex:none;min-width:26px;max-width:300px;min-height:0;margin-right:10px;}
+.nui-msg-body{position:relative;z-index:1;display:flex;margin-bottom:8px;pointer-events:auto;background-color:#000000db;border-radius:15px;box-shadow:0 2px 5px #0008;}
+
+.nui-msg-icon,
+.nui-msg-close{position:relative;display:flex;flex:none;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;}
+.nui-msg-icon{overflow:hidden;}
 .nui-msg-icon i{font-size:12px;color:#fff;transition:color .3s linear;}
-.nui-msg-info{flex:0 1 auto;min-width:0;padding:0 6px;line-height:26px;text-shadow:0 1px 0 #0006;}
+.nui-msg-close{width:20px;padding-right:8px;font-size:8px;cursor:pointer;opacity:.5;}
+.nui-msg-close:hover{opacity:1;}
+.nui-msg-info{max-height:44px;padding:0 5px;margin:4px 0;overflow:overlay;}
+.nui-msg-info span{display:block;font-size:12px;line-height:1.5;}
+.nui-msg-info::-webkit-scrollbar{width:5px;}
+.nui-msg-info::-webkit-scrollbar-thumb{background-color:currentColor;}
 
 .nui-msg-auto,
 .nui-msg-body:before,

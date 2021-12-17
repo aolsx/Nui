@@ -15,7 +15,7 @@
           :style="c_style_color" />
       </div>
       <div class="nui-msg-info">
-        <ins>{{ params.msg }}</ins>
+        <span>{{ params.msg }}</span>
       </div>
       <div
         class="nui-msg-close"

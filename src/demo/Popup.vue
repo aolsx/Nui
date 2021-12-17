@@ -260,6 +260,7 @@ export default {
       }
     },
     msgShow(v,t,tm){
+      v += '加长版文字测试';
       this.$Nui.msg[t](v,tm);
     },
     menuShow(e,line){

@@ -1,23 +1,25 @@
 import hljs from '../../handler/plugin/highlight.min.js';
+
 hljs.configure({
   classPrefix: 'nui-code--'
 });
+
 // hljs.addPlugin({
 //   'before:highlightBlock': (args)=>{
 //   }
 // });
 // hljs.debugMode();
 
-export default function(Str,lang){
+export default function(Str,language){
   let o;
-  if (lang){
-    o = hljs.highlight(lang,Str);
+  if (language){
+    o = hljs.highlight(Str,{language,ignoreIllegals: true});
     // o = hljs.highlightAuto(Str);
   } else {
     o = hljs.highlightAuto(Str);
   }
   return {
     html: o.value,
-    lang: lang || o.language
+    lang: language || o.language
   };
 }

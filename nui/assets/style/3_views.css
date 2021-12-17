@@ -20,7 +20,7 @@
 .nui-app-ppp-debris > *{pointer-events:auto;}
 
 /* 消息 */
-.nui-app-ppp-msg{top:38px;right:15px;left:auto;z-index:9;display:flex;flex-direction:column;align-items:flex-end;}
+.nui-app-ppp-msg{top:38px;right:0;left:auto;z-index:9;display:flex;flex-direction:column;align-items:flex-end;}
 
 /* 浮动遮罩容器内容居中 */
 /* overscroll-behavior:contain; 阻止底层滚动 */

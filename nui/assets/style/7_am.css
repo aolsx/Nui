@@ -84,8 +84,10 @@
 .cfm-leave-from .nui-confirm-close{transform:scale3d(1, 1, 1);} */
 
 /* 弹出提示消息 1000 ms */
-.msg-enter-active, .msg-leave-active{transform:translateZ(0);}
+.msg-enter-active, .msg-leave-active{transform:translateZ(0);transition:transform 1s ease-out;pointer-events:none;}
+.msg-enter-from,.msg-leave-to{transform:translate3d(calc(100% + 15px),0,0);}
 
+/*
 .msg-enter-active{transition:height .3s, max-width .3s .4s ease-in;}
 .msg-enter-active .nui-msg-body{transition:transform .3s .1s;}
 
@@ -96,17 +98,17 @@
 .msg-leave-active .nui-msg-close{transition:opacity .2s;}
 
 .msg-leave-active{transition:max-width .3s .2s ease-out, height .3s .7s;}
-.msg-leave-active .nui-msg-body{transition:transform .3s .5s;}
+.msg-leave-active .nui-msg-body{transition:transform .3s .5s;} */
 
 /* 参数 */
-.msg-enter-from, .msg-leave-to{max-width:26px;height:0;}
+/* .msg-enter-from, .msg-leave-to{max-width:26px;height:0;}
 .msg-enter-from .nui-msg-body, .msg-leave-to .nui-msg-body{transform:scale3d(0, 0, 0);}
 .msg-enter-to .nui-msg-body, .msg-leave-from .nui-msg-body{transform:scale3d(1, 1, 1);}
 
 .msg-enter-from .nui-msg-info,
 .msg-enter-from .nui-msg-close,
 .msg-leave-to .nui-msg-info,
-.msg-leave-to .nui-msg-close{opacity:0;}
+.msg-leave-to .nui-msg-close{opacity:0;} */
 
 /* 模态框框 动画 transform:translateZ(0); */
 .modal-enter-active .nui-modal-bg,

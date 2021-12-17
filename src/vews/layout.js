@@ -78,6 +78,7 @@ const listArr = [
   {label: '表单组件',to: 'DemoForm'},
   {label: '进度图表',to: 'DemoChart'},
   {label: '数据表格',to: 'DemoTable'},
+  {label: '代码预览',to: 'DemoCode'}
 ];
 
 const listTo = reactive({
