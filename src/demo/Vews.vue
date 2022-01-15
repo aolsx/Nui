@@ -361,8 +361,9 @@
     </div>
     <h4 class="m-none">
       自定义布局 【样式】
-      <code>水平 .nui-page-flex.--v</code>
+      <code>主框架 .nui-page-flex.--v [垂直]</code>
       <code class="p-lr-15">调节组件 &lt;nui-drag-line v-model="Numb" :min :max cy re/&gt;</code>
+      <span>cy:垂直调节 re:反向取值</span>
     </h4>
     <div class="nui-row">
       <div class="nui-col-4">
@@ -371,7 +372,7 @@
           lang="html" />
       </div>
       <div
-        style="height:300px"
+        style="height:260px"
         class="nui-page-flex bg-atom --dks">
         <div
           class="nui-col-none tt-c nui-flex --v --cc"
@@ -401,6 +402,88 @@
         </div>
       </div>
     </div>
+    <h4 class="m-none p-tb-15">
+      面板组件
+      <code> &lt;nui-panel :hv=[min,max,def] | :wv=[min,max,def] | :be /&gt; </code>
+      <nui-btn
+        label="后插"
+        :class="isBe&&'color-og'"
+        @click="isBe=!isBe" />
+    </h4>
+    <div
+      class="nui-row">
+      <div class="nui-col-4">
+        <nui-code
+          :code="demoCode.panel"
+          lang="html" />
+      </div>
+      <div class="nui-col-4 nui-flex --v">
+        <div class="p-10">
+          高度调节 <code>:hv=[min,max,def]</code>
+          <span v-if="isBe">
+            后插 <code>:be</code>
+          </span>
+        </div>
+        <div
+          v-if="!isBe"
+          class="nui-col bg-atom p-15">
+          弹性容器 nui-col
+        </div>
+        <nui-panel
+          :hv="[80,150,90]"
+          :be="isBe">
+          <template #head>
+            #head
+          </template>
+          <template #body>
+            #body
+          </template>
+          <template #foot>
+            #foot
+          </template>
+        </nui-panel>
+        <div
+          v-if="isBe"
+          class="nui-col bg-atom p-15">
+          弹性容器 nui-col
+        </div>
+      </div>
+      <div class="nui-col-4">
+        <div class="p-10">
+          宽度调节 <code>:wv=[min,max,def]</code>
+          <span v-if="isBe">
+            后插 <code>:be</code>
+          </span>
+        </div>
+        <div
+          class="nui-flex"
+          style="height:200px">
+          <div
+            v-if="!isBe"
+            class="nui-col bg-atom p-15">
+            弹性容器 nui-col
+          </div>
+          <nui-panel
+            :wv="[100,200,150]"
+            :be="isBe">
+            <template #head>
+              #head
+            </template>
+            <template #body>
+              #body
+            </template>
+            <template #foot>
+              #foot
+            </template>
+          </nui-panel>
+          <div
+            v-if="isBe"
+            class="nui-col bg-atom p-15">
+            弹性容器 nui-col
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -415,7 +498,8 @@ export default {
   data(){
     return {
       wa: 200,
-      ha: 100
+      ha: 100,
+      isBe: false,
     };
   },
 };

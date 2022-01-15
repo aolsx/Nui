@@ -1,7 +1,7 @@
 <template>
   <label
     class="nui-form-str"
-    :class="type === 'textarea'&&'--textarea'">
+    :class="{'nui-form-border':br,'--textarea':type === 'textarea'}">
     <i
       v-if="icon[0]"
       :class="icon[0]" />
@@ -54,7 +54,8 @@ export default {
     type: {
       type: String,
       default: 'text',
-    }
+    },
+    br: Boolean
   },
   emits: ['update:modelValue'],
   methods: {

@@ -37,11 +37,11 @@ export default {
   },
   data(){
     return {
-      isActive: false
+      isActive: this.open
     };
   },
-  created(){
-    this.isActive = this.open;
-  },
+  // created(){
+  //   this.isActive = ;
+  // },
 };
 </script>

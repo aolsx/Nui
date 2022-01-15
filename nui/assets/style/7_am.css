@@ -84,8 +84,10 @@
 .cfm-leave-from .nui-confirm-close{transform:scale3d(1, 1, 1);} */
 
 /* 弹出提示消息 1000 ms */
-.msg-enter-active, .msg-leave-active{transform:translateZ(0);transition:transform 1s ease-out;pointer-events:none;}
-.msg-enter-from,.msg-leave-to{transform:translate3d(calc(100% + 15px),0,0);}
+.msg-enter-active,
+.msg-leave-active{transform:translateZ(0);transition:transform .35s ease-out;pointer-events:none;}
+.msg-enter-from,
+.msg-leave-to{transform:translate3d(calc(100% + 15px),0,0);}
 
 /*
 .msg-enter-active{transition:height .3s, max-width .3s .4s ease-in;}

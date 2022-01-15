@@ -134,7 +134,21 @@ const demoCode = {
   <div class="nui-col">
     自动占剩
   </div>
-</div>`
+</div>`,
+  panel: `<nui-panel
+  :wv="[100,200,150]"
+  :hv="[100,200,150]"
+  be>
+  <template #head | #body | #foot>
+    插槽
+  </template>
+  自定义
+  <div class="nui-panel-head"></div>
+  <div class="nui-panel-body"></div>
+  <div class="nui-panel-foot"></div>
+</nui-panel>`
 };
+
+
 
 export default demoCode;

@@ -4,6 +4,7 @@ import NuiViewMain from './views/Main.vue';
 import NuiViewHome from './views/Home.vue';
 
 import NuiDragLine from './views/DragLine.vue';
+import NuiPanel from './views/Panel.vue';
 
 import NuiList from './list/List.vue';
 import NuiTree from './tree/Tree.vue';
@@ -38,6 +39,7 @@ export default [
   NuiViewMain,
   NuiViewHome,
   NuiDragLine,
+  NuiPanel,
   NuiList,
   NuiTree,
   NuiCode,

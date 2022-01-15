@@ -5,6 +5,10 @@
 .nui-container{flex:1;width:100%;height:100%;}
 .nui-container.--p{padding:15px 15px 30px 15px;}
 
+/* 分隔线 内部分隔线 */
+.nui-line{z-index:2;display:block;flex:none;align-self:stretch;min-width:.56px;min-height:.56px;color:#0003;background-color:currentColor;}
+
+
 /* 弹性 纵向 Vertical、横向 Horizontal */
 .nui-flex{display:flex;min-width:0;max-width:100%;}
 .nui-flex > *{min-width:0;max-width:100%;}
@@ -17,6 +21,7 @@
 .nui-flex.--cc, .nui-flex.--hc{justify-content:center;}
 .nui-flex.--cc, .nui-flex.--vc{align-items:center;}
 .nui-flex.--hb{justify-content:space-between;}
+.nui-flex.--ha{justify-content:space-around;}
 
 .nui-flex-auto{flex:1 !important;}
 .nui-flex-none{flex:none !important;}
@@ -50,8 +55,12 @@
 .nui-row.--sp-none{margin-right:0;margin-left:0;}
 .nui-row.--sp-none > *{padding:0;}
 
-.nui-col{flex-basis:0;flex-grow:1;}
-.nui-col-none{flex:none;}
+
+.nui-col,
+.nui-col-none{min-width:0;max-width:100%;min-height:0;max-height:100%;}
+/* flex-basis:0;flex-grow:1; */
+.nui-col{flex:1;}
+.nui-col-none{flex:none !important;}
 .nui-col-1{flex:0 0 8.333333%;max-width:8.333333%;}
 .nui-col-2{flex:0 0 16.666667%;max-width:16.666667%;}
 .nui-col-3{flex:0 0 25%;max-width:25%;}
@@ -75,6 +84,7 @@
 .p-10{padding:10px;}
 .p-5{padding:5px;}
 .p-25em{padding:.25em;}
+.p-3{padding:3px;}
 
 .p-t-none, .p-tb-none{padding-top:0 !important;}
 .p-b-none, .p-tb-none{padding-bottom:0 !important;}
@@ -88,6 +98,8 @@
 .p-lr-5, .p-r-5{padding-right:5px;}
 .p-lr-25em, .p-l-25em{padding-left:.25em;}
 .p-lr-25em, .p-r-25em{padding-right:.25em;}
+.p-lr-3, .p-l-3{padding-left:3px;}
+.p-lr-3, .p-r-3{padding-right:3px;}
 
 .p-tb-15, .p-t-15{padding-top:15px;}
 .p-tb-15, .p-b-15{padding-bottom:15px;}
@@ -97,11 +109,14 @@
 .p-tb-5, .p-b-5{padding-bottom:5px;}
 .p-tb-25em, .p-t-25em{padding-top:.25em;}
 .p-tb-25em, .p-b-25em{padding-bottom:.25em;}
+.p-tb-3, .p-t-3{padding-top:3px;}
+.p-tb-3, .p-b-3{padding-bottom:3px;}
 
 .m-15{margin:15px;}
 .m-10{margin:10px;}
 .m-5{margin:5px;}
 .m-25em{margin:.25em;}
+.m-3{margin:3px;}
 
 .m-t-none, .m-tb-none{margin-top:0 !important;}
 .m-b-none, .m-tb-none{margin-bottom:0 !important;}
@@ -115,6 +130,8 @@
 .m-lr-5, .m-r-5{margin-right:5px;}
 .m-lr-25em, .m-l-25em{margin-left:.25em;}
 .m-lr-25em, .m-r-25em{margin-right:.25em;}
+.m-lr-3, .m-l-3{margin-left:3px;}
+.m-lr-3, .m-r-3{margin-right:3px;}
 
 .m-tb-15, .m-t-15{margin-top:15px;}
 .m-tb-15, .m-b-15{margin-bottom:15px;}
@@ -124,6 +141,8 @@
 .m-tb-5, .m-b-5{margin-bottom:5px;}
 .m-tb-25em, .m-t-25em{margin-top:.25em;}
 .m-tb-25em, .m-b-25em{margin-bottom:.25em;}
+.m-tb-3, .m-t-3{margin-top:3px;}
+.m-tb-3, .m-b-3{margin-bottom:3px;}
 
 .m-in-10{margin:-5px;}
 .m-in-10 > *{margin:5px;}
@@ -216,3 +235,7 @@ i + ins, i + .-eps{margin-left:.35em;}
 .-full{width:100% !important;height:100% !important;}
 .-hidden{overflow:hidden !important;}
 .-overlay{overflow:overlay !important;}
+
+/* 强制块元素 */
+.-block{display:block !important;}
+.nui-btn.-block{display:flex !important;}

@@ -1,5 +1,7 @@
 <template>
-  <div class="nui-form-item">
+  <div
+    class="nui-form-item"
+    :class="{'nui-form-border':br}">
     <div
       v-if="$slots.before"
       class="nui-form-item-before">
@@ -17,6 +19,9 @@
 </template>
 <script>
 export default {
-  name: 'NuiFormItem'
+  name: 'NuiFormItem',
+  props: {
+    br: Boolean
+  },
 };
 </script>

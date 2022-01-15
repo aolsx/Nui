@@ -1,5 +1,7 @@
 <template>
-  <label class="nui-form-str">
+  <label
+    class="nui-form-str"
+    :class="{'nui-form-border':br}">
     <i
       v-if="icon[0]"
       :class="icon[0]" />
@@ -47,6 +49,7 @@ export default {
       default: '',
     },
     rg: Boolean,
+    br: Boolean,
   },
   emits: ['update:modelValue'],
   methods: {

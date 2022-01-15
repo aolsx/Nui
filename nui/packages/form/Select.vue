@@ -1,7 +1,7 @@
 <template>
   <div
     class="nui-form-str nui-form-st"
-    :class="[(dd||rd)&&'--disabled',up&&'--up',right&&'--pop-right']"
+    :class="{'nui-form-border':br,'--disabled':dd||rd,'--up':up,'--pop-right':right}"
     tabindex="-1">
     <input
       ref="input"
@@ -74,7 +74,8 @@ export default {
       type: Number,
       default: 3
     },
-    right: Boolean
+    right: Boolean,
+    br: Boolean
   },
   emits: ['update:modelValue'],
   data(){

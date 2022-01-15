@@ -24,6 +24,10 @@
         <div class="m-in-25em">
           <nui-btn
             class="color-bl"
+            label="边框"
+            @click="formCfg.br = !formCfg.br" />
+          <nui-btn
+            class="color-bl"
             label="前置图标"
             @click="formCfg.icon[0] = formCfg.icon[0]?'':'nicon-cog'" />
           <nui-btn
@@ -61,6 +65,7 @@
                   :type="type"
                   :rd="formCfg.rd"
                   :dd="formCfg.dd"
+                  :br="formCfg.br"
                   :rules="formCfg.rules"
                   :info="formCfg.info"
                   :icon="formCfg.icon" />
@@ -75,6 +80,7 @@
               type="textarea"
               :rd="formCfg.rd"
               :dd="formCfg.dd"
+              :br="formCfg.br"
               :rules="formCfg.rules"
               :info="formCfg.info"
               :icon="formCfg.icon" />
@@ -96,6 +102,7 @@
               v-model="form.num"
               :rd="formCfg.rd"
               :dd="formCfg.dd"
+              :br="formCfg.br"
               :rules="formCfg.rules"
               :info="formCfg.info"
               :icon="formCfg.icon" />
@@ -107,6 +114,7 @@
               rg
               :rd="formCfg.rd"
               :dd="formCfg.dd"
+              :br="formCfg.br"
               :rules="formCfg.rules"
               :info="formCfg.info"
               :icon="formCfg.icon" />
@@ -123,6 +131,7 @@
                   :items="valueList"
                   :rd="formCfg.rd"
                   :dd="formCfg.dd"
+                  :br="formCfg.br"
                   :rules="formCfg.rules"
                   :info="formCfg.info"
                   :icon="formCfg.icon" />
@@ -134,6 +143,7 @@
                   :items="valueList"
                   :rd="formCfg.rd"
                   :dd="formCfg.dd"
+                  :br="formCfg.br"
                   :rules="formCfg.rules"
                   :info="formCfg.info"
                   :icon="formCfg.icon" />
@@ -214,7 +224,7 @@
             <h4>
               表单项 <code>&lt;nui-form-item/&gt;</code>
             </h4>
-            <nui-form-item>
+            <nui-form-item :br="formCfg.br">
               <template #before>
                 <nui-form-st
                   v-model="form.radio"
@@ -222,6 +232,7 @@
                   :items="valueList"
                   :rd="formCfg.rd"
                   :dd="formCfg.dd"
+                  :br="formCfg.br"
                   :rules="formCfg.rules"
                   :info="formCfg.info"
                   :icon="formCfg.icon" />
@@ -233,6 +244,7 @@
                 v-model="form.str"
                 :rd="formCfg.rd"
                 :dd="formCfg.dd"
+                :br="formCfg.br"
                 :rules="formCfg.rules"
                 :info="formCfg.info"
                 :icon="formCfg.icon" />
@@ -249,6 +261,7 @@
             <nui-form
               :datas="formDatas"
               :items="formItem"
+              :br="formCfg.br"
               @confirm="isConfirm = !isConfirm" />
           </div>
           <div class="nui-col-3">
@@ -276,6 +289,7 @@ export default {
     const formCfg = {
       rd: false,
       dd: false,
+      br: false,
       info: '填写该项',
       rules: {required: true},
       icon: ['',''],
