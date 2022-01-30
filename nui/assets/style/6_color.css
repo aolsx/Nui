@@ -72,8 +72,10 @@
 .bg-red.--dker{background-color:var(--rd-dker);}
 .bg-red.--op{background-color:var(--rd-o);}
 
+.bg-pk{background-color:var(--pink);}
+
 /* 文字色 */
-.bg-dm, .bg-gn, .bg-sky, .bg-bl, .bg-yl, .bg-og, .bg-red{color:var(--wt);}
+.bg-dm, .bg-gn, .bg-sky, .bg-bl, .bg-yl, .bg-og, .bg-red, .bg-pink{color:var(--wt);}
 
 /* 其它 */
 .bg-wt{background-color:var(--wt);}
@@ -127,6 +129,7 @@
 .color-red, .color-red.--hover:hover{color:var(--rd);}
 .color-red.--cdk{color:var(--rd-dker);}
 
+.color-pk{color:var(--pink);}
 .color-wt{color:var(--wt);}
 .color-bk{color:var(--bk);}
 .color-wt.--op{color:var(--wt-o);}

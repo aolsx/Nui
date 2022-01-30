@@ -6,7 +6,7 @@
 .nui-container.--p{padding:15px 15px 30px 15px;}
 
 /* 分隔线 内部分隔线 */
-.nui-line{z-index:2;display:block;flex:none;align-self:stretch;min-width:.56px;min-height:.56px;color:#0003;background-color:currentColor;}
+.nui-line{z-index:2;display:block;flex:none;align-self:stretch;min-width:.56px !important;min-height:.56px !important;color:#0003;background-color:currentColor;}
 
 
 /* 弹性 纵向 Vertical、横向 Horizontal */
@@ -29,7 +29,7 @@
 /* 一行 */
 .nui-flex-line{display:flex;align-items:center;justify-content:space-between;max-width:100%;}
 .nui-flex-line ins{flex:1;}
-.nui-flex-line > * + *{margin-left:.25em;}
+.nui-flex-line > * + *{margin-left:5px;}
 
 /* 栅格布局 */
 .nui-row-grid{display:grid;overflow:auto;}

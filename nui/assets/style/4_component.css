@@ -115,7 +115,12 @@
 .nui-collapse.bg-none .nui-collapse-item{margin-bottom:5px;border:0;}
 
 /* 按钮 */
-.nui-btn, .nui-label{position:relative;display:inline-flex;align-items:center;justify-content:center;overflow:hidden;font-size:12px;line-height:1.4;text-align:center;vertical-align:middle;}
+.nui-btn,
+.nui-label{position:relative;display:inline-flex;align-items:center;justify-content:center;overflow:hidden;font-size:12px;line-height:1.4;text-align:center;vertical-align:middle;}
+
+div.nui-label,
+div.nui-btn{display:flex;}
+
 .nui-btn *{pointer-events:none;}
 .nui-btn{z-index:1;min-width:2em;min-height:2em;padding:0 .5em;cursor:pointer;border-radius:.3em;}
 .nui-btn > i{display:flex;flex:none;align-items:center;justify-content:center;width:1em;height:1em;text-align:center;}
@@ -150,6 +155,8 @@
 .nui-badge[class*="color"]:before{position:absolute;top:0;right:0;bottom:0;left:0;content:'';border:1px solid currentColor;border-radius:inherit;opacity:.5;}
 
 .nui-label.--b-none:before, .nui-badge.--b-none:before{display:none;}
+.nui-label > ins{flex:1;}
+
 
 /* 卡片 */
 .nui-card, .nui-card-body{display:flex;flex-direction:column;}
@@ -393,7 +400,7 @@
 .nui-form-rc{display:flex;flex-wrap:wrap;margin:0 -3px;font-size:12px;color:var(--sky-dker);}
 .nui-form-rc label{display:flex;flex:none;align-items:center;min-width:0;max-width:100%;margin:5px 3px;}
 .nui-form-rc span{padding:0 5px;color:var(--gy-dk);cursor:pointer;}
-
+.nui-form-rc label > i{margin-right:5px;}
 .nui-form-rc input{position:relative;z-index:1;width:calc(1em + 2px);height:calc(1em + 2px);cursor:pointer;background:#0001;appearance:none;}
 
 .nui-form-rc input:before,
@@ -526,15 +533,19 @@
 .nui-panel-head .nui-btn,
 .nui-panel-foot .nui-btn{margin:-5px 0;}
 
-.nui-panel-head .nui-line{margin-top:5px;margin-bottom:5px;}
+.nui-panel-head .nui-line{margin:5px;}
 
 .nui-panel-head > i{width:1.25em;}
 .nui-panel-head > ins{flex:1;}
-.nui-panel-head > :first-child.nui-btn{margin-left:-4px;}
-.nui-panel-head > :last-child.nui-btn{margin-right:-4px;}
 
+.nui-panel-head > .nui-btn:first-child{margin-left:-5px;}
+.nui-panel-head > .nui-btn:last-child{margin-right:-5px;}
+.nui-panel-head > * + *{margin-left:5px;}
+
+.nui-panel-head .nui-label:before,
 .nui-panel-head .nui-btn:before,
 .nui-panel-foot .nui-btn:before{display:none;}
+
 .nui-panel-body{position:relative;flex:1;padding:8px;overflow:overlay;background:var(--atom-dks);scroll-behavior:smooth;}
 
 /* 面板内置调节 */
@@ -543,8 +554,8 @@
 .nui-panel.--adw > * + .nui-drag-line{right:0;left:auto;}
 
 /* 拖拽线 */
-.nui-drag-line{position:relative;z-index:9;display:flex;flex:none;align-items:center;justify-content:center;min-width:1px !important;min-height:1px !important;background:#0003;}
-.nui-drag-line:after{position:absolute;width:100%;min-width:9px;height:100%;min-height:9px;content:'';}
+.nui-drag-line{position:relative;display:flex;flex:none;align-items:center;justify-content:center;min-width:1px !important;min-height:1px !important;background:#0003;}
+.nui-drag-line:after{position:absolute;z-index:3;width:100%;min-width:9px;height:100%;min-height:9px;content:'';}
 
 /* 表格 background-color:var(--atom-dks); border:.56px solid #ffffff06; */
 .nui-table{position:relative;display:flex;flex-direction:column;max-width:100%;max-height:100%;}

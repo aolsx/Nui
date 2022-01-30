@@ -7,6 +7,9 @@
         v-for="(im,k) in items"
         :key="k"
         :class="im.c?`${im.c}`:'color-it'">
+        <i
+          v-if="im.icon"
+          :class="im.icon" />
         <input
           v-model="value"
           :disabled="im.dd"
@@ -20,6 +23,9 @@
         v-for="(im,k) in items"
         :key="k"
         :class="im.c?`${im.c}`:'color-it'">
+        <i
+          v-if="im.icon"
+          :class="im.icon" />
         <input
           v-model="value"
           :value="im.v"

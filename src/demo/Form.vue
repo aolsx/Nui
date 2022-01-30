@@ -294,7 +294,7 @@ export default {
       rules: {required: true},
       icon: ['',''],
     };
-    const valueList = [{label: '选1',v: '1',dd: true,c: 'color-gn'},{label: '选2',v: 2,c: 'color-og'},{label: '选3',v: '12'}];
+    const valueList = [{label: '选1',v: '1',dd: true,c: 'color-gn',icon: 'nicon-cog'},{label: '选2',v: 2,c: 'color-og'},{label: '选3',v: '12'}];
     return {
       strType: ['text','search','password','email','url','tel','date','time','datetime-local','month','week'],
       formCfg,
