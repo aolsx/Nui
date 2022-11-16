@@ -22,8 +22,8 @@
 <script>
 import InConfirm from './popup/InConfirm.vue';
 import InMsg from './popup/InMsg.vue';
-import InParabola from './popup/InParabola';
-import InPopDebris from './popup/InPopDebris';
+import InParabola from './popup/InParabola.vue';
+import InPopDebris from './popup/InPopDebris.vue';
 import InLoadAm from './popup/InLoadAm.vue';
 import InLoadPro from './popup/InLoadPro.vue';
 export default {

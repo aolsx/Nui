@@ -1,4 +1,12 @@
 export const ColorPicker = {
+  hue2rgb(p,q,t){
+    if (t < 0) t += 1;
+    if (t > 1) t -= 1;
+    if (t < 1 / 6) return p + (q - p) * 6 * t;
+    if (t < 1 / 2) return q;
+    if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+    return p;
+  },
   hslToRgb(h,s,l){
     h /= 360;
     s /= 100;
@@ -7,20 +15,12 @@ export const ColorPicker = {
     if (s == 0){
       r = g = b = l; // achromatic
     } else {
-      var hue2rgb = function hue2rgb(p,q,t){
-        if (t < 0) t += 1;
-        if (t > 1) t -= 1;
-        if (t < 1 / 6) return p + (q - p) * 6 * t;
-        if (t < 1 / 2) return q;
-        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-        return p;
-      };
 
       var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
       var p = 2 * l - q;
-      r = hue2rgb(p,q,h + 1 / 3);
-      g = hue2rgb(p,q,h);
-      b = hue2rgb(p,q,h - 1 / 3);
+      r = this.hue2rgb(p,q,h + 1 / 3);
+      g = this.hue2rgb(p,q,h);
+      b = this.hue2rgb(p,q,h - 1 / 3);
     }
     return [Math.round(r * 255),Math.round(g * 255),Math.round(b * 255)];
   },
@@ -165,10 +165,21 @@ export const ColorPicker = {
     } else if (v > 100){
       v = 100;
     }
-    const rgb = ColorPicker.hsvToRgb(h,s,v);
-    const hex = ColorPicker.rgbToHex(...rgb);
+    const rgb = this.hsvToRgb(h,s,v);
+    const hex = this.rgbToHex(...rgb);
     return {rgb,hex};
   },
+  hslToGroup({h,s,l},ofv){
+    let v =  l + ofv;
+    if (v <= 0){
+      v = 0;
+    } else if (v >= 100){
+      v = 100;
+    }
+    const rgb = this.hslToRgb(h,s,v);
+    const hex = this.rgbToHex(...rgb);
+    return {rgb,hex};
+  }
 };
 
 export const colors = [
@@ -401,13 +412,3 @@ export const colors = [
     {weight: 900,hex: "#263238",hsl: [200,19,18]}
   ]}
 ];
-
-// for (const o of colors){
-//   for (const ov of o.variations){
-//     const reg = ColorPicker.hexToRgb(ov.hex);
-//     // ov.hsv = ColorPicker.rgbToHsv(...reg);
-//     ov.hsl = ColorPicker.rgbToHsl(...reg);
-//   }
-// }
-
-// console.log(JSON.stringify(colors,null));

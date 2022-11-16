@@ -23,7 +23,8 @@
       v-if="icon[1]"
       :class="icon[1]" />
     <in-range-track
-      v-if="rg" />
+      v-if="rg" 
+      :class="showNum?'-show-thumb':''"/>
     <span
       v-else
       class="nui-form-input-bg" />
@@ -48,6 +49,7 @@ export default {
       type: String,
       default: '',
     },
+    showNum:Boolean,
     rg: Boolean,
     br: Boolean,
   },

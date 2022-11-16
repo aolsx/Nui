@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import InParabolaItem from './InParabolaItem';
+import InParabolaItem from './InParabolaItem.vue';
 import {ParabolaArr} from '../../../handler/popup';
 export default {
   name: 'InParabola',

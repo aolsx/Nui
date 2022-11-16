@@ -15,7 +15,7 @@
           :disabled="im.dd"
           :readonly="im.rd"
           :type="type">
-        <span>{{ im.label || im.v }}</span>
+        <span v-if="im.label || im.v">{{ im.label || im.v }}</span>
       </label>
     </template>
     <template v-else>

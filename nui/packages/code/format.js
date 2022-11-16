@@ -1,4 +1,4 @@
-import hljs from '../../handler/plugin/highlight.min.js';
+import hljs from 'highlight.js';
 
 hljs.configure({
   classPrefix: 'nui-code--'

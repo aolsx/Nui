@@ -9,7 +9,7 @@
             v-for="c in colorGroup"
             :key="c"
             class="nui-flex-auto"
-            :style="`background:${renGroup[c]}`"
+            :style="`background-color:${renGroup[c]}`"
             @click="c!=='ac'&&setColorRgb(renGroup[c+'Rgb'])" />
         </div>
         <div class="nui-card-foot nui-flex p-none">
@@ -19,7 +19,7 @@
             class="nui-flex-auto tt-c b-l p-5 tt-copy tt-cb"
             :style="`color:${renGroup[c]}`"
             @click="$Nui.copy(renGroup[c])">
-            {{ renGroup[c] }}
+            {{ renGroup[c] }} 
           </div>
         </div>
       </div>
@@ -33,36 +33,43 @@
             颜色调节
           </div>
           <div class="bg-atom --dker p-10">
+            <div class="p-tb-10">
             <nui-form-num
               ref="inp1"
               v-model="form.h"
               color="--pro-bg-none"
               rg
+              showNum
               :rules="{min:0,max:360}" />
-            <p />
+            </div>
+            <div class="p-tb-10">
             <nui-form-num
               ref="inp2"
               v-model="form.s"
               color="--pro-bg-none"
               rg
+              showNum
               :rules="{min:0,max:100}" />
-            <p />
+            </div>
+            <div class="p-tb-10">
             <nui-form-num
               ref="inp3"
               v-model="form.l"
               color="--pro-bg-none"
               rg
+              showNum
               :rules="{min:0,max:100}" />
+            </div>
           </div>
           <div class="p-lr-10 color-atom b-t">
-            <p class="m-tb-5 p-t-10">
-              {{ inputHex }}
-              <!-- v-model.lazy.trim="inputHex" -->
+            <div class="m-t-5">当前基色</div>
+            <p class="m-t-5">
               <label class="nui-form-str">
                 <input
                   :value="inputHex"
                   class="nui-form-input"
                   type="text"
+                  pattern="^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$"
                   @change="setColorHex">
                 <div class="nui-form-input-bg" />
               </label>
@@ -85,45 +92,42 @@
             输出颜色
           </div>
           <div class="bg-atom --dker p-10">
-            <nui-form-num
-              v-model="gpOffset.lter"
-              :style="`color:${renGroup.lter}`"
+            <div class="m-tb-10" 
+            v-for="Gl in colorGroup"
+              :Key="Gl">
+              <label class="nui-form-str" v-if="Gl=='ac'">
+                <div
+                  class="nui-form-range-track color-it"
+                  :style="`background:${renGroup.ac}`" />
+              </label>
+              <nui-form-num
+              v-else
+              v-model="gpOffset[Gl]"
+              :style="`color:${renGroup[Gl]}`"
               color="color-it --pro-op-none"
               rg
+              showNum
               :rules="{min:0,max:50}" />
-            <p />
-            <nui-form-num
-              v-model="gpOffset.lt"
-              :style="`color:${renGroup.lt}`"
-              color="color-it --pro-op-none"
-              rg
-              :rules="{min:0,max:50}" />
-            <p />
-            <label class="nui-form-str">
-              <div
-                class="nui-form-range-track color-it"
-                :style="`background:${renGroup.ac}`" />
-            </label>
-            <p />
-            <nui-form-num
-              v-model="gpOffset.dk"
-              :style="`color:${renGroup.dk}`"
-              color="color-it --pro-op-none"
-              rg
-              :rules="{min:-50,max:0}" />
-            <p />
-            <nui-form-num
-              v-model="gpOffset.dker"
-              :style="`color:${renGroup.dker}`"
-              color="color-it --pro-op-none"
-              rg
-              :rules="{min:-50,max:0}" />
+            </div>
           </div>
           <div class="p-15">
+            <div class="nui-flex --vc --hb ">
+              <span>梯度间隔</span>
+              <nui-form-rc
+                v-model="gpGradient.isAdd"
+                :items="[{label:'递加',v:false}]"
+                :sw="true"/>
+            </div> 
+            <nui-form-num
+              v-model="gpGradient.v"
+              color="color-gy --pro-op-none"
+              rg
+              :rules="{min:1,max:50}" />
+            <p />
             <nui-btn
-              class="bg-bl"
-              :style="`background:${renGroup.ac}`"
+              class="bg-atom --lt color-gy"
               label="初始化参数"
+              bnone
               @click="resetGpOffv" />
           </div>
         </div>
@@ -133,16 +137,7 @@
             <nui-form-str
               v-model="colorName"
               style="height:18px;width:80px;flex:none"
-              info="颜色名称 0" />
-            <nui-form-str
-              v-model="cssPrefix"
-              style="height:18px;width:80px;flex:none"
-              info="样式前缀 1" />
-            <span
-              class="-link color-dm p-l-5"
-              @click="cssBg=!cssBg,cssPrefix=cssBg?'bg':'color'">
-              {{ cssBg?'背景色':'文字色' }}
-            </span>
+              info="颜色名称" />
           </div>
           <nui-code
             class="-full bg-none"
@@ -152,7 +147,7 @@
       </div>
     </div>
     <div
-      class="bg-atom --dks nui-flex">
+      class="bg-atom --dks nui-flex ">
       <div
         style="width:50px"
         class="nui-container nui-flex-none tt-c p-t-15">
@@ -168,7 +163,7 @@
       <div
         v-if="acc !== null"
         style="width:180px"
-        class="nui-flex-auto b-l nui-container p-lr-10">
+        class="nui-flex-auto b-l nui-container p-lr-10 nui-show-range-thumb">
         <h4>
           {{ colors[acc].color }}
         </h4>
@@ -211,15 +206,17 @@ export default {
         s: 50,
         l: 50,
       },
-      gpOffset: {
-        lter: 20,
-        lt: 10,
-        dk: -10,
-        dker: -20
+      gpGradient:{
+        isAdd:true,
+        v:10
       },
-      colorName: '00',
-      cssPrefix: 'bg',
-      cssBg: true,
+      gpOffset: {
+        lter: 10,
+        lt: 5,
+        dk: 10,
+        dker: 20
+      },
+      colorName: '',
       cssStr: '',
       inputHex: '',
     };
@@ -231,7 +228,7 @@ export default {
       const Hex = ColorPicker.rgbToHex(...Rgb);
       const Hsv = ColorPicker.rgbToHsv(...Rgb);
       return {
-        Hsl: this.form,
+        Hsl: {h,s,l},
         Rgb,
         Hsv,
         Hex
@@ -239,36 +236,36 @@ export default {
     },
     renGroup(){
       const off = this.gpOffset;
-      const Hsv = this.renRaw.Hsv;
+      const Hsl = this.renRaw.Hsl;
       const ac = this.renRaw.Hex;
-      const {rgb: lterRgb,hex: lter} = ColorPicker.hsvToGroup(Hsv,off.lter);
-      const {rgb: ltRgb,hex: lt} = ColorPicker.hsvToGroup(Hsv,off.lt);
-      const {rgb: dkRgb,hex: dk} = ColorPicker.hsvToGroup(Hsv,off.dk);
-      const {rgb: dkerRgb,hex: dker} = ColorPicker.hsvToGroup(Hsv,off.dker);
+      const {rgb: lterRgb,hex: lter} = ColorPicker.hslToGroup(Hsl,off.lter);
+      const {rgb: ltRgb,hex: lt} = ColorPicker.hslToGroup(Hsl,off.lt);
+      const {rgb: dkRgb,hex: dk} = ColorPicker.hslToGroup(Hsl,~off.dk);
+      const {rgb: dkerRgb,hex: dker} = ColorPicker.hslToGroup(Hsl,~off.dker);
+      // console.log(ac,lter,lt,dk,dker);
       return {
         ac,lter,lt,dk,dker,lterRgb,ltRgb,dkRgb,dkerRgb
       };
     },
     renCss(){
       const coObj = this.renGroup;
-      const cm = this.colorName || '0';
-      const prefix = this.cssPrefix || '1';
-      const cssType = this.cssBg ? 'background-color' : 'color';
-      const cpx = this.cssBg ? '' : '-c';
+      const pix = this.colorName|| 'xx';
+      const cm = `--${pix}-co`;
       let root = '';
       let css = '';
       for (const fx of this.colorGroup){
         if (fx === 'ac'){
-          root += ` --${cm}${cpx}:${coObj[fx]};\n`;
-          css += `.${prefix}-${cm}{${cssType}:var(--${cm}${cpx})}\n`;
+          root += ` ${cm}:${coObj[fx]};\n`;
+          css += ` --co:var(${cm});\n`;
+          css += ` --ac-co:var(${cm});\n`;
         } else {
-          root += ` --${cm}${cpx}-${fx}:${coObj[fx]};\n`;
-          css += `.${prefix}-${cm}.-${cpx}-${fx}{${cssType}:var(--${cm}${cpx}-${fx})}\n`;
+          root += ` ${cm}-${fx}:${coObj[fx]};\n`;
+          css += ` --co-${fx}:var(${cm}-${fx});\n`;
         }
       }
-      root += ` --${cm}${cpx}-o:${coObj.dk}40;\n`;
-      css += `.${prefix}-${cm}.-${cpx}-op{${cssType}:var(--${cm}${cpx}-o)}\n`;
-      return `:root {\n${root}}\n${css}`;
+      // root += ` --${cm}-o:${coObj.dk}40;\n`;
+      const csss = `.co--[x]{--ac-co:var(--[x])}\n`;
+      return `:root{\n${root}}\n.co-${pix}{\n${css}}\n${csss}`;
     }
   },
   watch: {
@@ -278,6 +275,18 @@ export default {
       },
       // immediate: true,
       deep: true // 表示开启深度监听
+    },
+    // 梯度
+    'gpGradient.v'(v,old){
+        const ofn = this.gpOffset;
+        if(this.gpGradient.isAdd){
+          for (const key in ofn) {
+            ofn[key] += v>old?1:-1;
+          }
+        }else{
+          ofn.lter = ofn.dker = v * 2;
+          ofn.lt = ofn.dk = v;
+        }
     }
   },
   mounted(){
@@ -310,10 +319,10 @@ export default {
     },
     // 初始化组参数
     resetGpOffv(){
-      this.gpOffset.lter = 20;
-      this.gpOffset.lt = 10;
-      this.gpOffset.dk = -10;
-      this.gpOffset.dker = -20;
+      this.gpOffset.lter = 10;
+      this.gpOffset.lt = 5;
+      this.gpOffset.dk = 10;
+      this.gpOffset.dker = 20;
     },
     setColor([h,s,l]){
       this.form.h = h;
@@ -324,10 +333,18 @@ export default {
       this.setColor(ColorPicker.rgbToHsl(...rgb));
     },
     setColorHex(e){
-      const v = e.target.value.trim();
-      this.inputHex = v;
-      e.target.value = v;
-      this.setColorRgb(ColorPicker.hexToRgb(v));
+      // .trim()
+      let str = e.target.value;
+      str = str.replace(/\s*/g,"");
+      if(str.indexOf("#")!==0){
+        str = "#"+ str
+      }
+      if(/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(str)){
+        this.setColorRgb(ColorPicker.hexToRgb(str));
+      }else{
+        // e.target.value = '';
+      }
+      // this.inputHex = str;
     }
   }
 };
