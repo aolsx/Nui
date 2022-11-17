@@ -3,184 +3,192 @@
     <div class="nui-flex-auto nui-flex --cc --v nui-container --p">
       <div
         class="nui-card"
-        style="height:85px;width:700px">
+        style="height:90px;width:600px">
+        <!-- 主输入色板 -->
         <div class="nui-flex nui-flex-auto">
           <div
-            v-for="c in colorGroup"
-            :key="c"
-            class="nui-flex-auto"
-            :style="`background-color:${renGroup[c]}`"
-            @click="c!=='ac'&&setColorRgb(renGroup[c+'Rgb'])" />
+            v-for="ck in CoGpKeys"
+            :key="ck"
+            class="nui-flex-auto -link"
+            :style="`background-color:${CoGroup[ck].hex}`"
+            @click="upCoHsl(CoGroup[ck].hex)" />
         </div>
         <div class="nui-card-foot nui-flex p-none">
           <div
-            v-for="c in colorGroup"
-            :key="c"
-            class="nui-flex-auto tt-c b-l p-5 tt-copy tt-cb"
-            :style="`color:${renGroup[c]}`"
-            @click="$Nui.copy(renGroup[c])">
-            {{ renGroup[c] }} 
-          </div>
+            v-for="ck in CoGpKeys"
+            :key="ck"
+            class="nui-flex-auto tt-c b-l  p-lr-5 nui-flex --vc --hb"
+            @click="$Nui.copy(CoGroup[ck].hex)">
+            <div 
+              class="p-5 -link"
+              @click="CoGroup[ck].link = !CoGroup[ck].link">
+              <i
+                v-if="CoGroup[ck].link"
+                class="nicon-link" />
+              <i
+                v-else
+                class="nicon-unlink" />
+            </div>
+            <span
+              class="tt-copy tt-cb tt-bd"
+              :style="`color:${CoGroup[ck].hex}`">{{ CoGroup[ck].hex }} </span>
+          </div> 
         </div>
       </div>
       <div
         class="nui-row --sp-10 m-t-15"
-        style="width:700px">
+        style="width:600px">
         <div
           class="nui-card bg-atom --dks h6 p-none tt-c color-atom"
-          style="width:150px">
+          style="width:180px">
           <div class="b-b p-5">
-            颜色调节
+            颜色 / 饱和度 / 明暗度
           </div>
-          <div class="bg-atom --dker p-10">
+          <div class="bg-atom --dker p-10 ">
             <div class="p-tb-10">
-            <nui-form-num
-              ref="inp1"
-              v-model="form.h"
-              color="--pro-bg-none"
-              rg
-              showNum
-              :rules="{min:0,max:360}" />
+              <nui-form-num
+                ref="Hslh"
+                v-model="CoHsl.h"
+                color="--pro-bg-none"
+                rg
+                :rg-bind="{class:'bg-rainbow',style:c_Hsl.style.h}"
+                :rules="{min:0,max:360}"
+                show-num />
             </div>
             <div class="p-tb-10">
-            <nui-form-num
-              ref="inp2"
-              v-model="form.s"
-              color="--pro-bg-none"
-              rg
-              showNum
-              :rules="{min:0,max:100}" />
+              <nui-form-num
+                v-model="CoHsl.s"
+                color="--pro-bg-none"
+                rg
+                :rg-bind="{style:c_Hsl.style.s}"
+                :rules="{min:0,max:100}"
+                show-num />
             </div>
             <div class="p-tb-10">
-            <nui-form-num
-              ref="inp3"
-              v-model="form.l"
-              color="--pro-bg-none"
-              rg
-              showNum
-              :rules="{min:0,max:100}" />
+              <nui-form-num
+                v-model="CoHsl.l"
+                color="--pro-bg-none"
+                rg
+                :rg-bind="{style:c_Hsl.style.l}"
+                :rules="{min:0,max:100}"
+                show-num />
             </div>
           </div>
-          <div class="p-lr-10 color-atom b-t">
-            <div class="m-t-5">当前基色</div>
-            <p class="m-t-5">
-              <label class="nui-form-str">
-                <input
-                  :value="inputHex"
-                  class="nui-form-input"
-                  type="text"
-                  pattern="^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$"
-                  @change="setColorHex">
-                <div class="nui-form-input-bg" />
-              </label>
-            </p>
-            <p class="m-tb-5">
-              {{ `rgb(${renRaw.Rgb})` }}
-            </p>
-            <p class="m-tb-5">
-              {{ `hsl(${renRaw.Hsl.h}, ${renRaw.Hsl.s}%, ${renRaw.Hsl.l}%)` }}
-            </p>
-            <p class="m-tb-5">
-              {{ `hsv(${renRaw.Hsv})` }}
-            </p>
+          <div class="p-5 b-t b-b">
+            当前基色 / Hex
+          </div>
+          <div class="p-10">
+            <label class="nui-form-str">
+              <input
+                ref="inputHex"
+                class="nui-form-input"
+                pattern="^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$"
+                type="text"
+                :value="c_Hsl.Hex"
+                @change="getInputValue($event.target)">
+              <div class="nui-form-input-bg" />
+            </label>
           </div>
         </div>
         <div
-          class="nui-card bg-atom --dks h6 p-none tt-c color-atom m-l-15"
-          style="width:150px">
-          <div class="b-b p-5">
-            输出颜色
-          </div>
-          <div class="bg-atom --dker p-10">
-            <div class="m-tb-10" 
-            v-for="Gl in colorGroup"
-              :Key="Gl">
-              <label class="nui-form-str" v-if="Gl=='ac'">
-                <div
-                  class="nui-form-range-track color-it"
-                  :style="`background:${renGroup.ac}`" />
-              </label>
-              <nui-form-num
-              v-else
-              v-model="gpOffset[Gl]"
-              :style="`color:${renGroup[Gl]}`"
-              color="color-it --pro-op-none"
-              rg
-              showNum
-              :rules="{min:0,max:50}" />
+          class="nui-card bg-atom --dks h6 p-none tt-c color-atom m-lr-15"
+          style="width:180px">
+          <div class="b-b p-5 nui-flex --vc --hb">
+            <span class="p-l-5">梯度</span>
+            <div
+              class="nui-btn"
+              @click="scaleGp()">
+              <span>均化</span>
+            </div>
+            <div
+              class="nui-btn"
+              @click="resetLight()">
+              <i class="nicon-undo-alt" />
             </div>
           </div>
-          <div class="p-15">
-            <div class="nui-flex --vc --hb ">
-              <span>梯度间隔</span>
-              <nui-form-rc
-                v-model="gpGradient.isAdd"
-                :items="[{label:'递加',v:false}]"
-                :sw="true"/>
-            </div> 
+          <div
+            v-for="ck in CoGpKeys" 
+            :Key="ck"
+            class="m-tb-10">
             <nui-form-num
-              v-model="gpGradient.v"
-              color="color-gy --pro-op-none"
+              v-model="CoGpLight[ck]"
+              color="color-it --pro-op-none"
+              :dd="!CoGroup[ck].link"
               rg
-              :rules="{min:1,max:50}" />
-            <p />
-            <nui-btn
-              class="bg-atom --lt color-gy"
-              label="初始化参数"
-              bnone
-              @click="resetGpOffv" />
+              :rules="{min:-50,max:50}"
+              show-num
+              :style="`color:${CoGroup[ck].hex}`" />
           </div>
         </div>
-        <div class="nui-card bg-atom --dks h6 p-none color-atom m-l-15 nui-col ">
-          <div class="b-b p-5 p-lr-10 nui-flex --hb --ac m-in-l-25em">
-            <span class="nui-flex-auto">生成 CSS</span>
+        <div class="nui-card bg-atom --dks h6 p-none color-atom nui-col">
+          <div class="b-b p-5 p-lr-10 nui-flex --hb --vc">
+            <span class="nui-col-none">生成</span>
             <nui-form-str
               v-model="colorName"
-              style="height:18px;width:80px;flex:none"
-              info="颜色名称" />
+              info="颜色名称"
+              style="height:20px;width:80px;flex:none" />
+            <!-- <div class="nui-btn bg-atom --lt">
+              <span class="color-gy">保存</span>
+            </div> -->
           </div>
           <nui-code
             class="-full bg-none"
-            lang="css"
-            :code="renCss" />
+            :code="renCss"
+            lang="css" />
         </div>
       </div>
     </div>
-    <div
-      class="bg-atom --dks nui-flex ">
+    <div class="bg-atom --dks nui-flex">
       <div
-        style="width:50px"
-        class="nui-container nui-flex-none tt-c p-t-15">
+        class="nui-flex-none tt-c nui-flex --v"
+        style="width:50px">
         <div
-          v-for="(co,k) in colors"
-          :key="k">
-          <span
-            class="nui-badge m-t-10 -link"
-            :style="`width:20px;height:20px;background-color:${co.variations[4].hex};border-radius:${acc==k?'4px':'50%'}`"
-            @click="acc = acc==k?null:k" />
+          class="tt-c p-10 b-b -link h3"
+          @click="coPt.op = !coPt.op">
+          <i
+            v-if="coPt.op"
+            class="nicon-angle-double-right color-og" />
+          <i
+            v-else
+            class="nicon-angle-double-left color-bl" />
+        </div>
+        <div
+          class="tt-c p-10 b-b -link h3 tt-bd"
+          @click="coPt.isA = !coPt.isA,coPt.k=0">
+          <span>{{ coPt.isA?'A':'B' }}</span>
+        </div>
+        <div class="nui-container col">
+          <div
+            v-for="(co,k) in CoList"
+            :key="k">
+            <span
+              class="nui-badge m-t-10 -link"
+              :style="`width:20px;height:20px;background-color:${co.list[500]};border-radius:${coPt.k==k?'4px':'50%'}`"
+              @click="coPt.op = true,coPt.k=k" />
+          </div>
         </div>
       </div>
       <div
-        v-if="acc !== null"
-        style="width:180px"
-        class="nui-flex-auto b-l nui-container p-lr-10 nui-show-range-thumb">
-        <h4>
-          {{ colors[acc].color }}
+        v-if="coPt.op"
+        class="nui-flex-auto b-l nui-container p-lr-10 nui-show-range-thumb"
+        style="width:120px">
+        <h4 :style="`color:${CoList[coPt.k].list[500]}`">
+          {{ CoList[coPt.k].name }}
         </h4>
         <div
-          v-for="(o,k) in colors[acc].variations"
+          v-for="(co,k) in CoList[coPt.k].list"
           :key="k"
-          class="nui-card m-b-15 -sdw-none"
+          class="nui-card m-b-10 -sdw-none"
           style="height:55px">
           <div
             class="nui-card-body -link"
-            :style="`background-color:${o.hex}`"
-            @click="setColor(o.hsl)" />
+            :style="`background-color:${co}`"
+            @click="upCoHsl(co)" />
           <div class="nui-card-foot tt-c">
-            <b>{{ o.weight }}</b>
+            <b>{{ k }}</b>
             <b
-              class="tt-copy tt-r"
-              @click="$Nui.copy(o.hex)">{{ o.hex }}</b>
+              class="tt-copy tt-r tt-cb"
+              @click="$Nui.copy(co)">{{ co }}</b>
           </div>
         </div>
       </div>
@@ -188,164 +196,144 @@
   </div>
 </template>
 <script>
-import {ColorPicker,colors} from './colorPicker';
+import {CoListA,CoListB,CoAPI} from './colorPicker';
 export default {
   name: 'DemoColorPicker',
   setup(){
-    return {
-      ColorPicker,
-      colors,
-      colorGroup: ['lter','lt','ac','dk','dker']
-    };
+    const CoGpKeys = ['lter','lt','co','dk','dker'];
+    return {CoAPI,CoListA,CoListB,CoGpKeys};
   },
   data(){
     return {
-      acc: null,
-      form: {
-        h: 0,
-        s: 50,
-        l: 50,
-      },
-      gpGradient:{
-        isAdd:true,
-        v:10
-      },
-      gpOffset: {
-        lter: 10,
-        lt: 5,
-        dk: 10,
-        dker: 20
-      },
       colorName: '',
-      cssStr: '',
-      inputHex: '',
+      // 颜色库
+      coPt: {op: false,k: 0,isA: true},
+      CoHsl: {h: 0,s: 50,l: 50},
+      CoGroup: {
+        lter: {link: true,hex: '',},
+        lt: {link: true,hex: '',},
+        co: {link: true,hex: '',},
+        dk: {link: true,hex: '',},
+        dker: {link: true,hex: '',}
+      },
+      CoGpLight: {lter: 10,lt: 5,co: 0,dk: -10,dker: -15},
+      saveCoGp: [{name: '',co: [{}]}],
     };
   },
   computed: {
-    renRaw(){
-      const {h,s,l} = this.form;
-      const Rgb = ColorPicker.hslToRgb(h,s,l);
-      const Hex = ColorPicker.rgbToHex(...Rgb);
-      const Hsv = ColorPicker.rgbToHsv(...Rgb);
-      return {
-        Hsl: {h,s,l},
-        Rgb,
-        Hsv,
-        Hex
-      };
+    CoList(){
+      return this.coPt.isA ? CoListA : CoListB;
     },
-    renGroup(){
-      const off = this.gpOffset;
-      const Hsl = this.renRaw.Hsl;
-      const ac = this.renRaw.Hex;
-      const {rgb: lterRgb,hex: lter} = ColorPicker.hslToGroup(Hsl,off.lter);
-      const {rgb: ltRgb,hex: lt} = ColorPicker.hslToGroup(Hsl,off.lt);
-      const {rgb: dkRgb,hex: dk} = ColorPicker.hslToGroup(Hsl,~off.dk);
-      const {rgb: dkerRgb,hex: dker} = ColorPicker.hslToGroup(Hsl,~off.dker);
-      // console.log(ac,lter,lt,dk,dker);
-      return {
-        ac,lter,lt,dk,dker,lterRgb,ltRgb,dkRgb,dkerRgb
+    c_Hsl(){
+      const {h,s,l} = this.CoHsl;
+      const Hex = this.CoAPI.HslToHex({h,s,l});
+      const vdln = "linear-gradient";
+      const style = {
+        h: {color: `hsl(${h},100%,50%,1)`},
+        s: {color: `hsl(${h}, ${s}%, 50%,1)`,
+          background: `${vdln}(to right,hsl(${h},0%, 50%,1),hsl(${h},100%, 50%,1))`},
+        l: {color: `hsl(${h}, 100%, ${l}%,1)`,
+          background: `${vdln}(to right,#000,hsl(${h},100%, 50%,1),#FFF)`},
       };
+      return {style,Hex};
     },
     renCss(){
-      const coObj = this.renGroup;
-      const pix = this.colorName|| 'xx';
+      const coObj = this.CoGroup;
+      const pix = this.colorName || 'xx';
       const cm = `--${pix}-co`;
       let root = '';
-      let css = '';
-      for (const fx of this.colorGroup){
+      for (const fx of this.CoGpKeys){
         if (fx === 'ac'){
-          root += ` ${cm}:${coObj[fx]};\n`;
-          css += ` --co:var(${cm});\n`;
-          css += ` --ac-co:var(${cm});\n`;
+          root += ` ${cm}:${coObj[fx].hex};\n`;
+          // css += ` --co:var(${cm});\n`;
+          // css += ` --ac-co:var(${cm});\n`;
         } else {
-          root += ` ${cm}-${fx}:${coObj[fx]};\n`;
-          css += ` --co-${fx}:var(${cm}-${fx});\n`;
+          root += ` ${cm}-${fx}:${coObj[fx].hex};\n`;
+          // css += ` --co-${fx}:var(${cm}-${fx});\n`;
         }
       }
       // root += ` --${cm}-o:${coObj.dk}40;\n`;
-      const csss = `.co--[x]{--ac-co:var(--[x])}\n`;
-      return `:root{\n${root}}\n.co-${pix}{\n${css}}\n${csss}`;
+      // const csss = `.co--[x]{--ac-co:var(--[x])}\n`;
+      return `:root{\n${root}}`;
     }
   },
   watch: {
-    form: {
-      handler(v){
-        this.upColor(v);
+    CoHsl: {
+      handler(){
+        this.upGpColor(this.c_Hsl.Hex);
       },
-      // immediate: true,
-      deep: true // 表示开启深度监听
+      immediate: true,
+      deep: true
     },
-    // 梯度
-    'gpGradient.v'(v,old){
-        const ofn = this.gpOffset;
-        if(this.gpGradient.isAdd){
-          for (const key in ofn) {
-            ofn[key] += v>old?1:-1;
-          }
-        }else{
-          ofn.lter = ofn.dker = v * 2;
-          ofn.lt = ofn.dk = v;
-        }
+    'CoGpLight.lter'(n){
+      this.upLight(this.CoGroup.lter,n);
+    },
+    'CoGpLight.lt'(n){
+      this.upLight(this.CoGroup.lt,n);
+    },
+    'CoGpLight.co'(n){
+      this.upLight(this.CoGroup.co,n);
+    },
+    'CoGpLight.dk'(n){
+      this.upLight(this.CoGroup.dk,n);
+    },
+    'CoGpLight.dker'(n){
+      this.upLight(this.CoGroup.dker,n);
     }
-  },
-  mounted(){
-    const hArr = [];
-    for (let i = 0; i < 360; i++){
-      hArr.push(`hsl(${i + 1}, ${100}%, ${50}%)`);
-    }
-    this.$inp1 = this.$refs.inp1.$el.children[1].style;
-    this.$inp1.background = `linear-gradient(to right, ${hArr.join(", ")})`;
-    this.$inp2 = this.$refs.inp2.$el.children[1].style;
-    this.$inp3 = this.$refs.inp3.$el.children[1].style;
-    this.upColor(this.form);
   },
   methods: {
-    upColor({h,s,l}){
-      const sArr = [];
-      const lArr = [];
-      for (var i = 0; i < 100; i++){
-        sArr.push(`hsl(${h}, ${i}%, 50%)`);
-        lArr.push(`hsl(${h}, 100%, ${i}%)`);
+    // 更新梯度颜色
+    upGpColor(Hex){
+      const CoGpLight = this.CoGpLight;
+      const CoGroup = this.CoGroup;
+      for (const k in CoGpLight){
+        let n = CoGpLight[k];
+        if (CoGroup[k].link){
+          CoGroup[k].hex = this.CoAPI.HexLight(Hex,n);
+        }
       }
-      this.$inp2.background = `linear-gradient(to right, ${sArr.join(", ")})`;
-      this.$inp3.background = `linear-gradient(to right, ${lArr.join(", ")})`;
-
-      this.$inp1.color = `hsl(${h}, 100%, 50%)`;
-      this.$inp2.color = `hsl(${h}, ${s}%, 50%)`;
-      this.$inp3.color = `hsl(${h}, 100%, ${l}%)`;
-
-      this.inputHex = this.renRaw.Hex;
     },
-    // 初始化组参数
-    resetGpOffv(){
-      this.gpOffset.lter = 10;
-      this.gpOffset.lt = 5;
-      this.gpOffset.dk = 10;
-      this.gpOffset.dker = 20;
-    },
-    setColor([h,s,l]){
-      this.form.h = h;
-      this.form.s = s;
-      this.form.l = l;
-    },
-    setColorRgb(rgb){
-      this.setColor(ColorPicker.rgbToHsl(...rgb));
-    },
-    setColorHex(e){
-      // .trim()
-      let str = e.target.value;
-      str = str.replace(/\s*/g,"");
-      if(str.indexOf("#")!==0){
-        str = "#"+ str
+    // 获取或设置输入的hex
+    getInputValue($input){
+      const Hex = $input.value;
+      if ($input.checkValidity() && this.CoAPI.ValidCo(Hex)){
+        this.upCoHsl(Hex);
       }
-      if(/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/.test(str)){
-        this.setColorRgb(ColorPicker.hexToRgb(str));
-      }else{
-        // e.target.value = '';
+    },
+    // 更新Hsl表
+    upCoHsl(Hex){
+      const Hsl = this.CoAPI.HexToHsl(Hex);
+      for (const k in Hsl){
+        this.CoHsl[k] = Hsl[k];
       }
-      // this.inputHex = str;
-    }
-  }
+    },
+    // 更新单独组的亮度
+    upLight(item,n){
+      const Hex = this.c_Hsl.Hex;
+      item.hex = this.CoAPI.HexLight(Hex,n);
+    },
+    // 重置梯度
+    resetLight(){
+      const CoGp = this.CoGpLight;
+      const df = {lter: 10,lt: 5,co: 0,dk: -10,dker: -15};
+      for (const k in CoGp){
+        if (this.CoGroup[k].link){
+          CoGp[k] = df[k];
+        }
+      }
+    },
+    // 均化梯度色
+    scaleGp(){
+      const Gp = this.CoGroup;
+      const arr = [Gp.lter.hex,Gp.dker.hex];
+      const co = this.CoAPI.HexScale(arr);
+      let k = 0;
+      for (const t of this.CoGpKeys){
+        Gp[t].hex = co[k];
+        k++;
+      }
+      // console.log(co);
+    },
+  },
 };
 </script>

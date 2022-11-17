@@ -73,6 +73,8 @@
 .bg-red.--op{background-color:var(--rd-o);}
 
 .bg-pk{background-color:var(--pink);}
+/* 彩虹色 */
+.bg-rainbow{background:linear-gradient(to right, red,#ff0,#0f0,#0ff,#00f,#ff00ff,red)}
 
 /* 文字色 */
 .bg-dm, .bg-gn, .bg-sky, .bg-bl, .bg-yl, .bg-og, .bg-red, .bg-pink{color:var(--wt);}

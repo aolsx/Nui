@@ -18,6 +18,7 @@ export default {
         return [];
       }
     },
+    customErr: ''
   },
   data(){
     return {
@@ -38,11 +39,19 @@ export default {
     setErrorMsg(){
       const msg = this.$refs.input.validationMessage;
       if (msg){
-        this.errorMsg = msg;
+        if (this.customErr){
+          this.errorMsg = this.customErr;
+        } else {
+          this.errorMsg = msg;
+        }
         this.$refs.input.setCustomValidity('');
       } else {
         this.errorMsg = '';
       }
+    },
+    notErr(){
+      this.setErrorMsg();
+      return this.$refs.input.checkValidity();
     }
   }
 };

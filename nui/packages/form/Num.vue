@@ -7,24 +7,25 @@
       :class="icon[0]" />
     <input
       ref="input"
-      class="nui-form-input"
-      title=""
       autocomplete="off"
-      spellcheck="false"
+      class="nui-form-input"
       v-bind="rules"
+      :disabled="dd"
+      :placeholder="info"
+      :readonly="rd"
+      spellcheck="false"
+      title=""
       :type="rg?'range':'number'"
       :value="modelValue"
-      :disabled="dd"
-      :readonly="rd"
-      :placeholder="info"
-      @input="eveChange"
-      @change="eveChange">
+      @change="eveChange"
+      @input="eveChange">
     <i
       v-if="icon[1]"
       :class="icon[1]" />
     <in-range-track
-      v-if="rg" 
-      :class="showNum?'-show-thumb':''"/>
+      v-if="rg || rgBind" 
+      v-bind="rgBind||{}"
+      :class="showNum?'-show-thumb':''" />
     <span
       v-else
       class="nui-form-input-bg" />
@@ -49,7 +50,8 @@ export default {
       type: String,
       default: '',
     },
-    showNum:Boolean,
+    showNum: Boolean,
+    rgBind: Object,
     rg: Boolean,
     br: Boolean,
   },

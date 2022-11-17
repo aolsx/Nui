@@ -8,7 +8,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/nui.umd.min.cjs",
   "module": "./dist/nui.js",
   "typings": "./dist/nui.d.ts",
@@ -30,6 +32,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
-    "vite": "^3.2.3"
+    "chroma-js": "^2.4.2",
+    "eslint": "^8.27.0",
+    "eslint-plugin-vue": "^9.7.0",
+    "vite": "^3.2.3",
+    "vue-eslint-parser": "^9.1.0"
   }
 }

@@ -28,10 +28,10 @@
           :class="im.icon" />
         <input
           v-model="value"
-          :value="im.v"
           :disabled="im.dd"
           :readonly="im.rd"
-          :type="type">
+          :type="type"
+          :value="im.v">
         <span>{{ im.label || im.v }}</span>
       </label>
     </template>

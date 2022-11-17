@@ -194,7 +194,7 @@ i + ins, i + .-eps{margin-left:.35em;}
 .tt-c{text-align:center;}
 .tt-r{text-align:right;}
 
-.tt-bd{font-weight:bold;}
+.tt-bd{font-weight:bolder;}
 /* 首字母大写 */
 .tt-cab{text-transform:capitalize;}
 /* 全大写 */

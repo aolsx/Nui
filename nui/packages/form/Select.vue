@@ -5,15 +5,15 @@
     tabindex="-1">
     <input
       ref="input"
-      type="text"
-      title=""
       autocomplete="off"
-      spellcheck="false"
       v-bind="rules"
-      :value="modelValue.toString()"
       :disabled="dd"
+      :placeholder="info"
       :readonly="rd"
-      :placeholder="info">
+      spellcheck="false"
+      title=""
+      type="text"
+      :value="modelValue.toString()">
     <i
       v-if="icon[0]"
       :class="icon[0]" />
@@ -38,17 +38,17 @@
           <input
             v-if="isObj"
             v-model="value[im.v]"
-            :value="im.v"
             :disabled="im.dd"
             :readonly="im.rd"
-            type="checkbox">
+            type="checkbox"
+            :value="im.v">
           <input
             v-else
             v-model="value"
-            :value="im.v"
             :disabled="im.dd"
             :readonly="im.rd"
-            :type="type">
+            :type="type"
+            :value="im.v">
           <span>{{ im.label || im.v }}</span>
         </label>
       </div>

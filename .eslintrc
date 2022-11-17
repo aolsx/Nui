@@ -1,0 +1,140 @@
+{
+  "root": true,
+  "env": {
+    "node": true
+  },
+  "parser": "vue-eslint-parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:vue/vue3-strongly-recommended"
+  ],
+  "rules": {
+    "vue/html-closing-bracket-newline": [
+      "warn",
+      {
+        "multiline": "never"
+      }
+    ],
+    "vue/component-name-in-template-casing": [
+      "warn",
+      "kebab-case",
+      {
+        "registeredComponentsOnly": false
+      }
+    ],
+    "vue/attributes-order": [
+      "error",
+      {
+        "alphabetical": true
+      }
+    ],
+    "no-console": "warn",
+    "no-multi-spaces": "warn",
+    "indent": ["warn", 2],
+    "array-bracket-newline": [
+      "warn",
+      {
+        "multiline": true
+      }
+    ],
+    "array-bracket-spacing": ["warn"],
+    "array-element-newline": ["warn", "consistent"],
+    "block-spacing": ["warn", "never"],
+    "comma-spacing": [
+      "warn",
+      {
+        "before": false,
+        "after": false
+      }
+    ],
+    "computed-property-spacing": [
+      "warn",
+      "never",
+      {
+        "enforceForClassMembers": true
+      }
+    ],
+    "func-call-spacing": ["warn", "never"],
+    "function-call-argument-newline": ["warn", "consistent"],
+    "function-paren-newline": ["warn", "never"],
+    "key-spacing": [
+      "warn",
+      {
+        "beforeColon": false,
+        "afterColon": true
+      }
+    ],
+    "keyword-spacing": [
+      "warn",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "newline-per-chained-call": [
+      "warn",
+      {
+        "ignoreChainWithDepth": 2
+      }
+    ],
+    "no-whitespace-before-property": "warn",
+    "object-curly-newline": [
+      "warn",
+      {
+        "consistent": true
+      }
+    ],
+    "object-curly-spacing": ["warn", "never"],
+    "operator-assignment": ["warn", "always"],
+    "operator-linebreak": ["warn", "after"],
+    "semi": [
+      "warn",
+      "always",
+      {
+        "omitLastInOneLineBlock": true
+      }
+    ],
+    "semi-spacing": [
+      "warn",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "semi-style": ["warn", "last"],
+    "space-before-blocks": ["warn", "never"],
+    "space-before-function-paren": ["warn", "never"],
+    "space-in-parens": ["warn", "never"],
+    "arrow-body-style": ["warn", "as-needed"],
+    "arrow-spacing": [
+      "warn",
+      {
+        "before": false,
+        "after": false
+      }
+    ],
+    "prefer-template": "warn",
+    "template-curly-spacing": "warn",
+    "space-infix-ops": "warn",
+    "spaced-comment": [
+      "warn",
+      "always",
+      {
+        "line": {
+          "markers": ["/"],
+          "exceptions": ["-", "+"]
+        },
+        "block": {
+          "markers": ["!"],
+          "exceptions": ["*"],
+          "balanced": true
+        }
+      }
+    ]
+  },
+  "globals": {
+    "wx": true,
+    "WxAPI": true
+  }
+}

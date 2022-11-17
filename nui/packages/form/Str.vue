@@ -8,32 +8,32 @@
     <textarea
       v-if="type == 'textarea'"
       ref="input"
-      class="nui-form-input"
-      title=""
       autocomplete="off"
-      spellcheck="false"
+      class="nui-form-input"
       v-bind="rules"
-      :value="modelValue"
       :disabled="dd"
-      :readonly="rd"
       :placeholder="info"
-      @input="eveChange"
-      @change="eveChange" />
+      :readonly="rd"
+      spellcheck="false"
+      title=""
+      :value="modelValue"
+      @change="eveChange"
+      @input="eveInput" />
     <input
       v-else
       ref="input"
-      class="nui-form-input"
-      title=""
       autocomplete="off"
-      spellcheck="false"
+      class="nui-form-input"
       v-bind="rules"
+      :disabled="dd"
+      :placeholder="info"
+      :readonly="rd"
+      spellcheck="false"
+      title=""
       :type="type"
       :value="modelValue"
-      :disabled="dd"
-      :readonly="rd"
-      :placeholder="info"
-      @input="eveChange"
-      @change="eveChange">
+      @change="eveChange"
+      @input="eveInput">
     <i
       v-if="icon[1]"
       :class="icon[1]" />
@@ -55,12 +55,20 @@ export default {
       type: String,
       default: 'text',
     },
-    br: Boolean
+    br: Boolean,
+    noipteve: Boolean,
   },
   emits: ['update:modelValue'],
   methods: {
+    eveInput(e){
+      if (!this.noipteve && this.notErr()){
+        this.$emit('update:modelValue',e.target.value.trim());
+      }
+    },
     eveChange(e){
-      this.$emit('update:modelValue',e.target.value.trim());
+      if (this.notErr()){
+        this.$emit('update:modelValue',e.target.value.trim());
+      }
     }
   },
 };
