@@ -39,12 +39,15 @@
         class="nui-row --sp-10 m-t-15"
         style="width:600px">
         <div
-          class="nui-card bg-atom --dks h6 p-none tt-c color-atom"
+          class="nui-card bg-atom --dks h6 p-none tt-c"
           style="width:180px">
-          <div class="b-b p-5">
-            颜色 / 饱和度 / 明暗度
+          <div class="p-5 b-t b-b">
+            当前基准色
           </div>
-          <div class="bg-atom --dker p-10 ">
+          <div class="bg-atom --dker p-10  color-atom">
+            <div class="b-b p-b-10">
+              色域 / 饱和 / 亮度
+            </div>
             <div class="p-tb-10">
               <nui-form-num
                 ref="Hslh"
@@ -74,9 +77,6 @@
                 show-num />
             </div>
           </div>
-          <div class="p-5 b-t b-b">
-            当前基色 / Hex
-          </div>
           <div class="p-10">
             <label class="nui-form-str">
               <input
@@ -91,18 +91,25 @@
           </div>
         </div>
         <div
-          class="nui-card bg-atom --dks h6 p-none tt-c color-atom m-lr-15"
+          class="nui-card bg-atom --dks h6 p-none tt-c m-lr-15"
           style="width:180px">
           <div class="b-b p-5 nui-flex --vc --hb">
-            <span class="p-l-5">梯度</span>
-            <div
-              class="nui-btn"
-              @click="scaleGp()">
-              <span>均化</span>
+            <div class="p-l-5 color-atom">
+              亮度
             </div>
             <div
               class="nui-btn"
-              @click="resetLight()">
+              @click="normLight()">
+              <span>标准化</span>
+            </div>
+            <div
+              class="nui-btn"
+              @click="scaleLight()">
+              <span>平均化</span>
+            </div>
+            <div
+              class="nui-btn"
+              @click="upAllLight()">
               <i class="nicon-undo-alt" />
             </div>
           </div>
@@ -120,9 +127,9 @@
               :style="`color:${CoGroup[ck].hex}`" />
           </div>
         </div>
-        <div class="nui-card bg-atom --dks h6 p-none color-atom nui-col">
+        <div class="nui-card bg-atom --dks h6 p-none  nui-col">
           <div class="b-b p-5 p-lr-10 nui-flex --hb --vc">
-            <span class="nui-col-none">生成</span>
+            <span class="nui-col-none color-atom">生成</span>
             <nui-form-str
               v-model="colorName"
               info="颜色名称"
@@ -312,28 +319,35 @@ export default {
       const Hex = this.c_Hsl.Hex;
       item.hex = this.CoAPI.HexLight(Hex,n);
     },
-    // 重置梯度
-    resetLight(){
+    // 重置梯度 
+    upAllLight(arr){
       const CoGp = this.CoGpLight;
       const df = {lter: 10,lt: 5,co: 0,dk: -10,dker: -15};
-      for (const k in CoGp){
-        if (this.CoGroup[k].link){
-          CoGp[k] = df[k];
+      if (arr){
+        // 数组取值
+        // const keys = this.CoGpKeys;
+        // for (const [k,v] of keys.entries()){
+          
+        // }
+      } else {
+        for (const k in CoGp){
+          if (this.CoGroup[k].link){
+            CoGp[k] = df[k];
+          }
         }
       }
     },
-    // 均化梯度色
-    scaleGp(){
+    // 均化梯度亮度值
+    scaleLight(){
       const Gp = this.CoGroup;
-      const arr = [Gp.lter.hex,Gp.dker.hex];
-      const co = this.CoAPI.HexScale(arr);
-      let k = 0;
-      for (const t of this.CoGpKeys){
-        Gp[t].hex = co[k];
-        k++;
-      }
-      // console.log(co);
+      const cArr = [Gp.lter.hex,Gp.dker.hex];
+      const lArr = this.CoAPI.HexScale(cArr);
+      this.upAllLight(lArr);
     },
+    // 标准化亮度值
+    normLight(){
+      
+    }
   },
 };
 </script>

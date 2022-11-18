@@ -1,14 +1,15 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import {defineConfig} from 'vite';
+import vue from '@vitejs/plugin-vue';
 import {resolve} from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  base: './',
   build: {
     lib: {
       // 也可能是一个字典或数组的多个入口点
-      entry: resolve(__dirname, 'nui/index.js'),
+      entry: resolve(__dirname,'nui/index.js'),
       name: 'aolsx-nui',
       // the proper extensions will be added
       fileName: 'nui'
@@ -26,4 +27,4 @@ export default defineConfig({
       }
     }
   }
-})
+});

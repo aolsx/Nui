@@ -26,12 +26,37 @@ export const CoAPI = {
     return chroma(Hex).set("hsl.l",n);
   },
   // 均化比例
-  HexScale(Arr){
+  HexScale(cArr){
     // .mode('hsl')
     // .correctLightness()
-    return chroma.scale(Arr)
+    const CoArr = chroma.scale(cArr)
       .gamma(1)
       .colors(5);
+    const lArr = [];
+    // 返回修正后的亮度阶梯
+    for (const c of CoArr){
+      const l = chroma(c).get('hsl.l');
+      lArr.push(l);
+    }
+    return lArr;
+  },
+  // 标准化梯度亮度
+  HexNorm(hex){
+    const colorScale = [50,100,200,300,400,500,600,700,800,900,950];
+    const Arr = chroma.scale([
+      chroma(hex).luminance(.95), // 50
+      chroma(hex).luminance(.84), // 100
+      chroma(hex).luminance(.73), // 200
+      chroma(hex).luminance(.62), // 300
+      chroma(hex).luminance(.49), // 400
+      chroma(hex).luminance(.35), // 500
+      chroma(hex).luminance(.23), // 600
+      chroma(hex).luminance(.15), // 700
+      chroma(hex).luminance(.10), // 800
+      chroma(hex).luminance(.05), // 900
+      chroma(hex).luminance(.02) // 950
+    ]).colors(colorScale.length);
+    return Arr;
   }
 };
 
