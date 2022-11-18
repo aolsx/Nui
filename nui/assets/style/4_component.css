@@ -393,7 +393,7 @@ div.nui-btn{display:flex;}
 .nui-form-input[type=range]:hover ~ .nui-form-range-track .nui-form-range-thumb > span,
 .nui-form-range-track.-show-thumb .nui-form-range-thumb > span{display:block;}
 .nui-form-input[type=range][readonly] ~ .nui-form-range-track .nui-form-range-thumb{color:var(--gy-dker);}
-.nui-form-input[type=range][disabled] ~ .nui-form-range-track{color:var(--gy);}
+.nui-form-input[type=range][disabled] ~ .nui-form-range-track{color:var(--gy-dker);}
 
 
 

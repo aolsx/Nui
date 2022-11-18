@@ -32,31 +32,38 @@ export const CoAPI = {
     const CoArr = chroma.scale(cArr)
       .gamma(1)
       .colors(5);
-    const lArr = [];
-    // 返回修正后的亮度阶梯
-    for (const c of CoArr){
-      const l = chroma(c).get('hsl.l');
-      lArr.push(l);
-    }
-    return lArr;
+    return CoArr;
   },
+  // const colorScale = [50,100,200,300,400,500,600,700,800,900,950];
   // 标准化梯度亮度
-  HexNorm(hex){
-    const colorScale = [50,100,200,300,400,500,600,700,800,900,950];
-    const Arr = chroma.scale([
-      chroma(hex).luminance(.95), // 50
-      chroma(hex).luminance(.84), // 100
-      chroma(hex).luminance(.73), // 200
-      chroma(hex).luminance(.62), // 300
-      chroma(hex).luminance(.49), // 400
-      chroma(hex).luminance(.35), // 500
-      chroma(hex).luminance(.23), // 600
-      chroma(hex).luminance(.15), // 700
-      chroma(hex).luminance(.10), // 800
-      chroma(hex).luminance(.05), // 900
-      chroma(hex).luminance(.02) // 950
-    ]).colors(colorScale.length);
-    return Arr;
+  HexNorm(Hex){
+    const hex = chroma(Hex).set("hsl.s",.5)
+      .set("hsl.l",.5)
+      .hex();
+    // console.log(hex);
+    const HexArr = chroma.scale([
+      chroma(hex).set("hsl.l",'+0.10'), // lter
+      chroma(hex).set("hsl.l",'+0.05'), // lt
+      hex, // co
+      chroma(hex).set("hsl.l",'-0.10'), // dk
+      chroma(hex).set("hsl.l",'-0.15'), // dker
+    ])
+      .colors(5);
+    // console.log(HexArr.slice(4,9));
+    // return HexArr.slice(4,9);
+    return HexArr;
+  },
+  // 1分5色
+  HslGP(Hex){
+    const l = ['+0.1','+0.05','+0','-0.1','-0.15'];
+    const hexArr = []; 
+    for (const v of l){
+      const h = chroma(Hex)
+        .set("hsl.l",v)
+        .hex();
+      hexArr.push(h);
+    }
+    return hexArr;
   }
 };
 
